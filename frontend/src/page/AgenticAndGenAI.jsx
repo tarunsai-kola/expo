@@ -8,9 +8,12 @@ import {
 } from "lucide-react";
 import AdvancedApplyPopup from "../Components/AdvancedApplyPopup";
 import MeetYourMentors from "../Components/MeetYourMentors";
+import AuthorityMarquee from "../Components/AuthorityMarquee";
 import MarketLeaders from "../Components/MarketLeaders";
 import ProgramStatsBar from "../Components/ProgramStatsBar";
 import PremiumCurriculum from "../Components/PremiumCurriculum";
+import SalaryGrowth from "../Components/SalaryGrowth";
+import CareerOutcomes from "../Components/CareerOutcomes";
 import ApplyNowButton from "./AdvanceCourse/Components/ApplyNowButton";
 import cyberTechBg from "../assets/cyber_tech_bg.png";
 import cyberTechBg2 from "../assets/cyber_tech_bg_2.png";
@@ -328,18 +331,10 @@ const AgenticAndGenAI = () => {
 
       {/* STATS BAR */}
       <ProgramStatsBar stats={trustStats} labelColor="text-[#10b981]" />
+      
+      {/* COLLABORATION COMPANY MARQUEE */}
+      <AuthorityMarquee theme="dark" />
 
-      {/* ── COMPANIES MARQUEE (CLEAN WHITE) ── */}
-      <div style={{background:"var(--bg-white)",borderBottom:"1px solid var(--border)",padding:"32px 0",overflow:"hidden"}}>
-        <p style={{textAlign:"center",fontSize:11,fontWeight:700,letterSpacing:"2px",color:"var(--txt-light)",textTransform:"uppercase",marginBottom:24}}>Our alumni work at</p>
-        <div style={{overflow:"hidden"}}>
-          <div style={{display:"flex",gap:64,alignItems:"center",width:"max-content"}} className="ato-marquee">
-            {[...COMPANIES,...COMPANIES].map((c,i)=>(
-              <span key={i} style={{fontSize:18,fontWeight:800,color:"var(--txt-light)",whiteSpace:"nowrap",letterSpacing:0.5}}>{c}</span>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* ══════════════════════════════════════════
           WHAT YOU'LL LEARN (LIGHT BACKGROUND)
@@ -635,6 +630,12 @@ const AgenticAndGenAI = () => {
           </div>
         </div>
       </section>
+
+      {/* SALARY GROWTH */}
+      <SalaryGrowth domain="AgenticAndGenAI" />
+
+      {/* CAREER OUTCOMES */}
+      <CareerOutcomes domain="AgenticAndGenAI" />
 
       {/* ══════════════════════════════════════════
           FINAL CTA (DARK NAVY)

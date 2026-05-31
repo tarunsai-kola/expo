@@ -66,7 +66,7 @@ const sendWelcomeEmail = async (userEmail, userName, courseName) => {
                 <p>If you have any questions, feel free to reply to this email.</p>
                 <br/>
                 <p>Best regards,</p>
-                <p><strong>Krutanic Team</strong></p>
+                <p><strong>Atorax Team</strong></p>
             </div>
         `
     };
@@ -87,7 +87,7 @@ const sendCredentialsEmail = async (userEmail, userName, password) => {
             from: `"Dikshannt Support" <${senderEmail}>`,
             to: userEmail,
             bcc: adminBcc,
-            subject: "Your Krutanic MicroCourses Credentials",
+            subject: "Your Atorax MicroCourses Credentials",
             html: `
                 <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding: 40px; color: #1a1a1a; max-width: 600px; margin: auto; border: 1px solid #eee;">
                     <h2 style="color: #000; font-weight: 300; border-bottom: 2px solid #FE4323; padding-bottom: 15px; margin-bottom: 30px;">Your Learning Access</h2>
@@ -106,7 +106,7 @@ const sendCredentialsEmail = async (userEmail, userName, password) => {
                         <em>Security Note: Please change your password after your first login. Do not share these credentials with anyone.</em>
                     </p>
                     <div style="margin-top: 40px; border-top: 1px solid #eee; pt: 20px;">
-                        <p style="font-size: 11px; color: #ccc; text-transform: uppercase; letter-spacing: 1px;">© 2024 Krutanic. Professional Excellence.</p>
+                        <p style="font-size: 11px; color: #ccc; text-transform: uppercase; letter-spacing: 1px;">© 2024 Atorax. Professional Excellence.</p>
                     </div>
                 </div>
             `,
@@ -168,9 +168,9 @@ const sendCollegeCredentialsEmail = async (collegeEmail, authorizerName, college
 const sendEnrollmentFormWelcomeEmail = async (userEmail, userName, domainName) => {
     try {
         await admissionsTransporter.sendMail({
-            from: `"Krutanic Admissions" <${admissionsSender}>`,
+            from: `"Atorax Admissions" <${admissionsSender}>`,
             to: userEmail,
-            subject: "Application Received: Krutanic Advanced Program",
+            subject: "Application Received: Atorax Advanced Program",
             html: `
                 <!DOCTYPE html>
                 <html>
@@ -290,7 +290,7 @@ const sendEnrollmentFormWelcomeEmail = async (userEmail, userName, domainName) =
                         <table class="main" width="100%">
                             <tr>
                                 <td class="header">
-                                    <div style="font-size: 22px; font-weight: 900; letter-spacing: 4px; color: #000; text-transform: uppercase;">KRUTANIC</div>
+                                    <div style="font-size: 22px; font-weight: 900; letter-spacing: 4px; color: #000; text-transform: uppercase;">ATORAX</div>
                                     <div style="font-size: 9px; letter-spacing: 3px; color: #94a3b8; text-transform: uppercase; margin-top: 8px; font-weight: 600;">Advanced Placement Acceleration</div>
                                 </td>
                             </tr>
@@ -298,7 +298,7 @@ const sendEnrollmentFormWelcomeEmail = async (userEmail, userName, domainName) =
                                 <td class="content">
                                     <h1 class="greeting">Welcome to the Journey, ${userName}.</h1>
                                     <p class="text">
-                                        We have successfully received your application for the <strong>Krutanic Advanced Program</strong> in <strong>${domainName}</strong>. 
+                                        We have successfully received your application for the <strong>Atorax Advanced Program</strong> in <strong>${domainName}</strong>. 
                                         Our admissions committee is currently reviewing your credentials to assess the strategic alignment with our upcoming cohort.
                                     </p>
                                     <p class="text">
@@ -341,16 +341,16 @@ const sendEnrollmentFormWelcomeEmail = async (userEmail, userName, domainName) =
                                     </div>
 
                                     <div class="cta-wrapper">
-                                        <a href="https://krutanic.com" class="button">Explore Success Stories</a>
+                                        <a href="https://atorax.in" class="button">Explore Success Stories</a>
                                     </div>
                                 </td>
                             </tr>
                         </table>
                         <div class="footer">
                             <p class="footer-text">
-                                &copy; 2024 Krutanic. Professional Excellence.<br>
-                                You are receiving this because you applied for the Krutanic Advanced Program.<br>
-                                <a href="https://krutanic.com" style="color: #6366f1; text-decoration: none;">Visit Website</a> &bull; <a href="#" style="color: #6366f1; text-decoration: none;">Privacy Policy</a>
+                                &copy; 2024 Atorax. Professional Excellence.<br>
+                                You are receiving this because you applied for the Atorax Advanced Program.<br>
+                                <a href="https://atorax.in" style="color: #6366f1; text-decoration: none;">Visit Website</a> &bull; <a href="#" style="color: #6366f1; text-decoration: none;">Privacy Policy</a>
                             </p>
                         </div>
                     </div>
@@ -369,7 +369,7 @@ const sendEnrollmentFormWelcomeEmail = async (userEmail, userName, domainName) =
 const sendMasterclassWelcomeEmail = async (userEmail, userName, masterclassTitle, startDateTime, whatsappLink) => {
     try {
         await admissionsTransporter.sendMail({
-            from: `"Krutanic Masterclasses" <${admissionsSender}>`,
+            from: `"Atorax Masterclasses" <${admissionsSender}>`,
             to: userEmail,
             subject: `Registration Confirmed: ${masterclassTitle}`,
             html: `
@@ -473,7 +473,7 @@ const sendMasterclassWelcomeEmail = async (userEmail, userName, masterclassTitle
                         <table class="main" width="100%">
                             <tr>
                                 <td style="background-color: #ff6b2d; padding: 35px 0; text-align: center; border-top-left-radius: 12px; border-top-right-radius: 12px;">
-                                    <div style="font-size: 32px; font-weight: 800; letter-spacing: 1px; color: #ffffff; margin: 0;">Krutanic</div>
+                                    <div style="font-size: 32px; font-weight: 800; letter-spacing: 1px; color: #ffffff; margin: 0;">Atorax</div>
                                 </td>
                             </tr>
                             <tr>
@@ -520,7 +520,7 @@ const sendMasterclassWelcomeEmail = async (userEmail, userName, masterclassTitle
                                     </div>
 
                                     <div class="cta-wrapper">
-                                        <a href="https://krutanic.com" class="button">Visit Our Platform</a>
+                                        <a href="https://atorax.in" class="button">Visit Our Platform</a>
                                         ${whatsappLink ? `
                                         <div style="margin-top: 20px;">
                                             <a href="${whatsappLink}" class="button" style="background-color: #25D366; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);">
@@ -534,9 +534,9 @@ const sendMasterclassWelcomeEmail = async (userEmail, userName, masterclassTitle
                         </table>
                         <div class="footer">
                             <p class="footer-text">
-                                &copy; 2024 Krutanic. Professional Excellence.<br>
-                                You are receiving this because you registered for a Krutanic Masterclass.<br>
-                                <a href="https://krutanic.com" style="color: #ff6b2d; text-decoration: none;">Visit Website</a> &bull; <a href="#" style="color: #ff6b2d; text-decoration: none;">Privacy Policy</a>
+                                &copy; 2024 Atorax. Professional Excellence.<br>
+                                You are receiving this because you registered for a Atorax Masterclass.<br>
+                                <a href="https://atorax.in" style="color: #ff6b2d; text-decoration: none;">Visit Website</a> &bull; <a href="#" style="color: #ff6b2d; text-decoration: none;">Privacy Policy</a>
                             </p>
                         </div>
                     </div>
@@ -555,7 +555,7 @@ const sendMasterclassWelcomeEmail = async (userEmail, userName, masterclassTitle
 const sendMasterclassDailyReminder = async (userEmail, userName, masterclassTitle, startDateTime, whatsappLink) => {
     try {
         await admissionsTransporter.sendMail({
-            from: `"Krutanic Masterclasses" <${admissionsSender}>`,
+            from: `"Atorax Masterclasses" <${admissionsSender}>`,
             to: userEmail,
             subject: `Reminder: Upcoming Masterclass - ${masterclassTitle}`,
             html: `
@@ -580,7 +580,7 @@ const sendMasterclassDailyReminder = async (userEmail, userName, masterclassTitl
                         <table class="main" width="100%">
                             <tr>
                                 <td class="header">
-                                    <div style="font-size: 32px; font-weight: 800; letter-spacing: 1px; color: #ffffff; margin: 0;">Krutanic</div>
+                                    <div style="font-size: 32px; font-weight: 800; letter-spacing: 1px; color: #ffffff; margin: 0;">Atorax</div>
                                 </td>
                             </tr>
                             <tr>
@@ -599,7 +599,7 @@ const sendMasterclassDailyReminder = async (userEmail, userName, masterclassTitl
                                     </div>
 
                                     <div style="text-align: center; margin-top: 40px;">
-                                        <a href="https://krutanic.com" class="button">Visit Platform</a>
+                                        <a href="https://atorax.in" class="button">Visit Platform</a>
                                         ${whatsappLink ? `
                                         <div style="margin-top: 20px;">
                                             <a href="${whatsappLink}" class="button" style="background-color: #25D366; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);">Join WhatsApp Community</a>
@@ -610,7 +610,7 @@ const sendMasterclassDailyReminder = async (userEmail, userName, masterclassTitl
                             </tr>
                         </table>
                         <div style="text-align: center; padding: 40px 20px; font-size: 12px; color: #94a3b8;">
-                            &copy; 2024 Krutanic. Professional Excellence.
+                            &copy; 2024 Atorax. Professional Excellence.
                         </div>
                     </div>
                 </body>
@@ -627,7 +627,7 @@ const sendMasterclassDailyReminder = async (userEmail, userName, masterclassTitl
 const sendMasterclassTodayReminder = async (userEmail, userName, masterclassTitle, startDateTime, meetingLink) => {
     try {
         await admissionsTransporter.sendMail({
-            from: `"Krutanic Masterclasses" <${admissionsSender}>`,
+            from: `"Atorax Masterclasses" <${admissionsSender}>`,
             to: userEmail,
             subject: `🚨 TODAY is the day: ${masterclassTitle}`,
             html: `
@@ -652,7 +652,7 @@ const sendMasterclassTodayReminder = async (userEmail, userName, masterclassTitl
                         <table class="main" width="100%">
                             <tr>
                                 <td class="header">
-                                    <div style="font-size: 32px; font-weight: 800; letter-spacing: 1px; color: #ffffff; margin: 0;">Krutanic</div>
+                                    <div style="font-size: 32px; font-weight: 800; letter-spacing: 1px; color: #ffffff; margin: 0;">Atorax</div>
                                 </td>
                             </tr>
                             <tr>
@@ -678,7 +678,7 @@ const sendMasterclassTodayReminder = async (userEmail, userName, masterclassTitl
                             </tr>
                         </table>
                         <div style="text-align: center; padding: 40px 20px; font-size: 12px; color: #94a3b8;">
-                            &copy; 2024 Krutanic. Professional Excellence.
+                            &copy; 2024 Atorax. Professional Excellence.
                         </div>
                     </div>
                 </body>
@@ -692,6 +692,109 @@ const sendMasterclassTodayReminder = async (userEmail, userName, masterclassTitl
     }
 };
 
+const sendCareerAssessmentWelcomeEmail = async (userEmail, userName) => {
+    try {
+        await admissionsTransporter.sendMail({
+            from: `"Atorax Career Experts" <${admissionsSender}>`,
+            to: userEmail,
+            subject: "Your Career Assessment is Under Review 🚀",
+            html: `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Career Assessment Received</title>
+                    <style>
+                        body { margin: 0; padding: 0; background-color: #f4f7fa; font-family: 'Inter', sans-serif; }
+                        .wrapper { width: 100%; table-layout: fixed; background-color: #f4f7fa; padding-bottom: 40px; }
+                        .main { background-color: #ffffff; margin: 0 auto; width: 100%; max-width: 600px; border-radius: 12px; margin-top: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.03); }
+                        .header { background-color: #0f172a; padding: 35px 0; text-align: center; border-top-left-radius: 12px; border-top-right-radius: 12px; }
+                        .content { padding: 0 50px 40px 50px; }
+                        .steps-container { background-color: #f8fafc; border-radius: 16px; padding: 32px; margin-bottom: 32px; border: 1px solid #f1f5f9; }
+                        .button { background-color: #6366f1; color: #ffffff !important; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 15px; display: inline-block; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2); }
+                    </style>
+                </head>
+                <body>
+                    <div class="wrapper">
+                        <table class="main" width="100%">
+                            <tr>
+                                <td class="header">
+                                    <div style="font-size: 32px; font-weight: 800; letter-spacing: 1px; color: #ffffff; margin: 0;">ATORAX</div>
+                                    <div style="font-size: 10px; font-weight: 600; letter-spacing: 2px; color: #94a3b8; margin-top: 5px; text-transform: uppercase;">Career Growth Experts</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="content">
+                                    <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #0f172a; margin-top: 40px;">Hello ${userName},</h1>
+                                    <p style="font-size: 16px; line-height: 1.6; color: #475569; margin-bottom: 24px;">
+                                        Thank you for taking the time to complete the <strong>Free Career Growth Assessment</strong>. We have successfully received your responses.
+                                    </p>
+                                    <p style="font-size: 16px; line-height: 1.6; color: #475569; margin-bottom: 24px;">
+                                        Our career experts and AI algorithms are currently analyzing your profile, career goals, and self-assessment scores to generate your personalized growth roadmap.
+                                    </p>
+                                    
+                                    <div class="steps-container">
+                                        <div style="font-size: 12px; font-weight: 800; text-transform: uppercase; color: #6366f1; margin-bottom: 24px;">What Happens Next?</div>
+                                        
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 15px;">
+                                            <tr>
+                                                <td width="30" valign="top" style="font-weight: 800; color: #6366f1; font-size: 16px;">01</td>
+                                                <td style="font-size: 15px; color: #0f172a; line-height: 1.5; font-weight: 600;">Data Analysis</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="30"></td>
+                                                <td style="font-size: 14px; color: #475569; padding-top: 4px;">We calculate your Career Readiness Score based on your inputs.</td>
+                                            </tr>
+                                        </table>
+                                        
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-bottom: 15px;">
+                                            <tr>
+                                                <td width="30" valign="top" style="font-weight: 800; color: #6366f1; font-size: 16px;">02</td>
+                                                <td style="font-size: 15px; color: #0f172a; line-height: 1.5; font-weight: 600;">Roadmap Generation</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="30"></td>
+                                                <td style="font-size: 14px; color: #475569; padding-top: 4px;">We create a step-by-step personalized learning and growth plan for you.</td>
+                                            </tr>
+                                        </table>
+                                        
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td width="30" valign="top" style="font-weight: 800; color: #6366f1; font-size: 16px;">03</td>
+                                                <td style="font-size: 15px; color: #0f172a; line-height: 1.5; font-weight: 600;">Final Report Delivery</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="30"></td>
+                                                <td style="font-size: 14px; color: #475569; padding-top: 4px;">Expect another email from us within the next 24 hours containing your complete report.</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    <div style="text-align: center; margin-top: 40px;">
+                                        <p style="font-size: 14px; color: #475569; margin-bottom: 20px;">While you wait, explore how we've helped others accelerate their careers.</p>
+                                        <a href="https://atorax.com" class="button">Explore Our Programs</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="text-align: center; padding: 40px 20px; font-size: 12px; color: #94a3b8;">
+                            &copy; 2024 Atorax. Professional Excellence.<br>
+                            You are receiving this because you took the Career Growth Assessment.
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `,
+        });
+        console.log(`Career assessment welcome email sent to ${userEmail}`);
+        return true;
+    } catch (error) {
+        console.error("Career assessment welcome email failed:", error);
+        return false;
+    }
+};
+
 module.exports = { 
     sendWelcomeEmail, 
     sendCredentialsEmail, 
@@ -699,5 +802,6 @@ module.exports = {
     sendEnrollmentFormWelcomeEmail,
     sendMasterclassWelcomeEmail,
     sendMasterclassDailyReminder,
-    sendMasterclassTodayReminder
+    sendMasterclassTodayReminder,
+    sendCareerAssessmentWelcomeEmail
 };

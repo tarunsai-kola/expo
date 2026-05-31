@@ -42,6 +42,22 @@ const domainSalaryData = {
       mid: { id: "mid", label: "Mid-Level", sub: "2–6 years", min: "₹9 LPA", avg: "₹15 LPA", max: "₹22 LPA", minPct: 40, avgPct: 65, maxPct: 92, companies: ["Amazon", "Nykaa", "L'Oreal", "HUL", "ITC"] },
       senior: { id: "senior", label: "Senior Level", sub: "6–10+ years", min: "₹22 LPA", avg: "₹30 LPA", max: "₹40 LPA", minPct: 45, avgPct: 70, maxPct: 100, companies: ["Google", "Meta", "LinkedIn", "HubSpot", "Salesforce"] }
     }
+  },
+  AgenticAndGenAI: {
+    subtitle: "Agentic AI & GenAI engineers are among the highest-paid tech professionals globally.",
+    data: {
+      entry: { id: "entry", label: "Entry Level", sub: "0–2 years", min: "₹14 LPA", avg: "₹20 LPA", max: "₹28 LPA", minPct: 35, avgPct: 55, maxPct: 85, companies: ["Infosys", "TCS", "Wipro", "Accenture", "Cognizant"] },
+      mid: { id: "mid", label: "Mid-Level", sub: "2–6 years", min: "₹22 LPA", avg: "₹35 LPA", max: "₹50 LPA", minPct: 40, avgPct: 65, maxPct: 92, companies: ["Microsoft", "Amazon", "Google", "Cohere", "Mistral"] },
+      senior: { id: "senior", label: "Senior Level", sub: "6–10+ years", min: "₹40 LPA", avg: "₹60 LPA", max: "₹80 LPA", minPct: 45, avgPct: 70, maxPct: 100, companies: ["OpenAI", "Anthropic", "DeepMind", "Meta AI", "Apple"] }
+    }
+  },
+  AIFullStack: {
+    subtitle: "AI-integrated full stack engineers command a significant premium over traditional developers.",
+    data: {
+      entry: { id: "entry", label: "Entry Level", sub: "0–2 years", min: "₹8 LPA", avg: "₹12 LPA", max: "₹18 LPA", minPct: 35, avgPct: 55, maxPct: 85, companies: ["TCS", "Infosys", "Wipro", "HCL", "Tech Mahindra"] },
+      mid: { id: "mid", label: "Mid-Level", sub: "2–6 years", min: "₹16 LPA", avg: "₹26 LPA", max: "₹38 LPA", minPct: 40, avgPct: 65, maxPct: 92, companies: ["Flipkart", "Swiggy", "Razorpay", "CRED", "Zepto"] },
+      senior: { id: "senior", label: "Senior Level", sub: "6–10+ years", min: "₹32 LPA", avg: "₹48 LPA", max: "₹65 LPA", minPct: 45, avgPct: 70, maxPct: 100, companies: ["Google", "Microsoft", "Amazon", "Atlassian", "Stripe"] }
+    }
   }
 };
 

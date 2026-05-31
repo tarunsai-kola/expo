@@ -368,194 +368,106 @@ const MasterClass = () => {
 
       <Toaster position="top-center" reverseOrder={false} />
       
-      {/* Full-width Hero Banner */}
-      <div className="-mx-[12px] -mt-[10px] mb-8 cursor-pointer transition-opacity hover:opacity-95" onClick={() => {
-        navigate("/MasterClass/transition-from-non-tech-to-data-science-roles");
-      }}>
-        <img 
-          src="/posters/poster-new.jpeg" 
-          alt="Masterclass Data Science Roles" 
-          className="w-full h-auto md:h-[400px] lg:h-[450px] object-cover object-top block" 
-        />
+
+      {/* V3 Trust-First Layout */}
+      <div className="mc-v3-hero-wrapper">
+        <section className="mc-v3-hero">
+          <div className="mc-hero-tag">
+            <i className="fa fa-bolt"></i> Elevate Your Career
+          </div>
+          <h1>Master Tech with<br/><span>Top Experts</span></h1>
+          <p>
+            Join Atorax MasterClass to learn directly from industry engineers. 
+            Free, interactive, and career-focused sessions in AI, Data Science, and Full Stack.
+          </p>
+          <div className="mc-hero-actions">
+            <a href="#active-classes" className="mc-btn-solid">Explore Classes</a>
+            <a href="#why-join" className="mc-btn-light-outline"><i className="fa fa-play"></i> Why Join Us?</a>
+          </div>
+        </section>
       </div>
 
       <div className="mc-shell">
-
-        <section className="mc-status-strip">
-          <div className="mc-status-card">
-            <strong>{upcomingMasterClass.length}</strong>
-            <span>Upcoming</span>
+        {/* V3 Trust Bar */}
+        <section className="mc-trust-bar">
+          <div className="mc-trust-stat">
+            <strong>10K+</strong>
+            <span>Learners</span>
           </div>
-          <div className="mc-status-card">
-            <strong>{ongoingMasterClass.length}</strong>
-            <span>Ongoing</span>
+          <div className="mc-trust-stat">
+            <strong>4.8</strong>
+            <span>Average Rating</span>
           </div>
-          <div className="mc-status-card">
-            <strong>{completedMasterClass.length}</strong>
-            <span>Completed</span>
+          <div className="mc-trust-stat">
+            <strong>{(upcomingMasterClass?.length || 0) + (ongoingMasterClass?.length || 0)}</strong>
+            <span>Active Classes</span>
+          </div>
+          <div className="mc-trust-stat">
+            <strong>{completedMasterClass?.length || 0}</strong>
+            <span>Completed Sessions</span>
           </div>
         </section>
 
-        <div className="mc-web-intro">
-          <section className="mc-about">
-            <h2>About Atorax</h2>
-            <p>
-              Atorax MasterClass is an interactive learning platform where
-              students learn directly from industry experts and top educators
-              through free, career-focused sessions in Data Science, AI, Full
-              Stack Development, Marketing, Cyber Security, and more.
-            </p>
-          </section>
-
-          <section className="mc-benefit-grid">
-            <article>
-              <i className="fa fa-certificate"></i>
-              <h3>Certificate</h3>
-            </article>
-            <article>
-              <i className="fa fa-mortar-board"></i>
-              <h3>Expert Mentors</h3>
-            </article>
-            <article>
-              <i className="fa fa-video-camera"></i>
-              <h3>Live Networking</h3>
-            </article>
-            <article>
-              <i className="fa fa-handshake-o"></i>
-              <h3>Hands-on Labs</h3>
-            </article>
-            <article>
-              <i className="fa fa-briefcase"></i>
-              <h3>Lifetime Access</h3>
-            </article>
-            <article>
-              <i className="fa fa-users"></i>
-              <h3>24/7 Support</h3>
-            </article>
-          </section>
-        </div>
-
         <section className="mc-classes" id="active-classes">
-          <div className="mc-section-head">
+          <div className="mc-section-header">
             <h2>Active Classes</h2>
-            <span>View all</span>
+            <p>Practical masterclasses led by industry professionals.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 w-full max-w-6xl mx-auto px-4 md:px-0">
+          <div className="mc-grid-v3">
             {activeMasterClasses.map((masterclass) => {
               const titleLower = masterclass.title.toLowerCase();
               
-              let bannerCopy = "90 Minutes. One Session. Industry Standards.";
-              let bannerSubtitle = "A practical guide to master tech frameworks.";
-              let dynamicCategoryTag = "✦ Live Upskilling Masterclass";
-              
-              if (titleLower.includes("automation") || titleLower.includes("testing") || titleLower.includes("qa")) {
-                bannerCopy = "90 Minutes. One Playback. Hands-on Blueprint.";
-                bannerSubtitle = "A transition guide for automation & testing roles.";
-                dynamicCategoryTag = "✦ Practical Automation Build";
-              } else if (titleLower.includes("datascience") || titleLower.includes("data science") || titleLower.includes("data analytics") || titleLower.includes("analytics") || titleLower.includes("sql")) {
-                bannerCopy = "120 Minutes. One Playback. Basic Coding Skills.";
-                bannerSubtitle = "A transition guide for non-tech to Data Science role.";
-                dynamicCategoryTag = "✦ AI & Data Science Career";
-              } else if (titleLower.includes("mern") || titleLower.includes("full stack") || titleLower.includes("web") || titleLower.includes("react") || titleLower.includes("node")) {
-                bannerCopy = "90 Minutes. One Session. Complete MERN blueprint.";
-                bannerSubtitle = "A production-ready stack walkthrough.";
-                dynamicCategoryTag = "✦ Industry MERN Build";
-              } else if (titleLower.includes("product") || titleLower.includes("management") || titleLower.includes("pm")) {
-                bannerCopy = "90 Minutes. One Session. PM Case Mastery.";
-                bannerSubtitle = "A guide to cracking Tier-1 product management.";
-                dynamicCategoryTag = "✦ Product Strategy Guide";
-              }
-              
               const mRegisteredCount = masterclass.registeredCount || "3,840+";
-              const mInstructorName = masterclass.instructorName || "Abhijeet Gupta";
-              const mInstructorDesignation = masterclass.instructorDesignation || "Project Engineer";
-              const mInstructorPhoto = masterclass.instructorPhoto;
 
               return (
                 <article 
-                  className="flex flex-col bg-white rounded-2xl border border-slate-200/80 shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 w-full max-w-[420px] mx-auto cursor-pointer"
+                  className="mc-card-v3"
                   key={masterclass._id}
-                  onClick={(e) => {
-                    if (e.target.tagName !== "BUTTON" && e.target.tagName !== "I" && !e.target.closest("button")) {
-                      if (masterclass.status !== "completed") {
-                        navigate(`/MasterClass/${slugify(masterclass.title)}`);
-                      }
-                    }
-                  }}
                 >
-                  {/* Banner (Top Half) — Poster Image */}
-                  <div className="relative overflow-hidden" style={{ minHeight: "200px" }}>
-                    {/* Poster image */}
+                  <div className="mc-card-v3-img" onClick={() => { if (masterclass.status !== "completed") navigate(`/MasterClass/${slugify(masterclass.title)}`); }}>
                     <img
                       src={convertGoogleDriveUrl(masterclass.image)}
                       alt={masterclass.title}
-                      className="w-full h-[200px] object-cover"
                       onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80"; }}
                     />
-                    {/* Status badge overlay */}
-                    <span className={`absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-lg ${
-                      masterclass.status === "upcoming"
-                        ? "bg-indigo-600 text-white"
-                        : masterclass.status === "ongoing"
-                        ? "bg-emerald-500 text-white"
-                        : "bg-slate-700 text-slate-200"
-                    }`}>
+                    <span className={`mc-status-badge bg-${masterclass.status}`}>
                       {masterclass.status}
                     </span>
-
-
-
                   </div>
 
-                  {/* Body (Bottom Half) */}
-                  <div className="p-5 flex flex-col gap-4 bg-white flex-grow justify-between">
-                    <div className="flex flex-col gap-3">
-                      {/* Registered Badge */}
-                      <div className="flex items-center gap-1.5 w-max px-2 py-1 bg-slate-100/80 rounded-md text-slate-700 text-[10px] font-bold tracking-wider uppercase">
-                        <i className="fa fa-fire text-[#ff6b2d] text-xs"></i>
-                        <span>
-                          {masterclass.registeredCount 
-                            ? masterclass.registeredCount 
-                            : ( (95 + (masterclass._id ? [...masterclass._id.toString()].reduce((a, c) => a + c.charCodeAt(0), 0) % 60 : 0)) + (masterclass.applications || 0) )
-                          } REGISTERED
-                        </span>
+                  <div className="mc-card-v3-body">
+                    <div className="mc-card-v3-tag">
+                      <i className="fa fa-fire"></i>
+                      {masterclass.registeredCount ? masterclass.registeredCount : ( (95 + (masterclass._id ? [...masterclass._id.toString()].reduce((a, c) => a + c.charCodeAt(0), 0) % 60 : 0)) + (masterclass.applications || 0) )} Registered
+                    </div>
+                    
+                    <h3>{masterclass.title}</h3>
+
+                    <div className="mc-card-v3-meta">
+                      <div className="mc-meta-item">
+                        <span>Starts On</span>
+                        <strong>{new Date(masterclass.start).toLocaleDateString("en-IN", { day: 'numeric', month: 'short', year: 'numeric' })}</strong>
                       </div>
-                      
-                      {/* Title */}
-                      <h3 className="text-base font-extrabold text-slate-900 leading-snug hover:text-[#ff6b2d] transition-colors line-clamp-2 min-h-[44px]">
-                        {masterclass.title}
-                      </h3>
+                      <div className="mc-meta-item">
+                        <span>Time</span>
+                        <strong>{formatClassTimeScaler(masterclass.start, masterclass.duration)}</strong>
+                      </div>
                     </div>
 
-                    <div className="flex flex-col gap-3.5">
-                      {/* Starts On Block */}
-                      <div className="border-t border-slate-150 pt-3 flex flex-col gap-0.5">
-                        <span className="text-[9px] text-slate-400 uppercase tracking-widest font-extrabold">Starts On</span>
-                        <span className="text-xs font-bold text-slate-800">
-                          {new Date(masterclass.start).toLocaleDateString("en-IN", { day: 'numeric', month: 'short', year: 'numeric' })} | {formatClassTimeScaler(masterclass.start, masterclass.duration)}
-                        </span>
-                      </div>
-
-                      {/* Actions */}
-                      <div className="flex items-center gap-2">
-                        <button
-                          className="flex-grow py-3 bg-[#ff6b2d] hover:bg-[#e0561f] text-white text-xs font-bold uppercase rounded-lg text-center transition-all shadow-sm hover:shadow-[#ff6b2d]/25 tracking-wider flex items-center justify-center gap-1"
-                          onClick={() =>
-                            masterclass.status === "completed"
-                              ? handleDownload(masterclass)
-                              : navigate(`/MasterClass/${slugify(masterclass.title)}`)
-                          }
-                        >
-                          {masterclass.status === "completed" ? "Get Certificate" : "View More"}
-                        </button>
-                        <button
-                          className="p-3 border border-slate-200 hover:border-slate-350 hover:bg-slate-50 text-slate-500 rounded-lg transition-all"
-                          onClick={() => handleShare(masterclass)}
-                          title="Share Mentorship Link"
-                        >
-                          <i className="fa fa-share-alt"></i>
-                        </button>
-                      </div>
+                    <div className="mc-card-v3-actions">
+                      <button
+                        className="mc-btn-block primary"
+                        onClick={() => masterclass.status === "completed" ? handleDownload(masterclass) : navigate(`/MasterClass/${slugify(masterclass.title)}`)}
+                      >
+                        {masterclass.status === "completed" ? "Get Certificate" : "View More"}
+                      </button>
+                      <button
+                        className="mc-btn-icon"
+                        onClick={() => handleShare(masterclass)}
+                        title="Share Mentorship Link"
+                      >
+                        <i className="fa fa-share-alt"></i>
+                      </button>
                     </div>
                   </div>
                 </article>
@@ -564,96 +476,72 @@ const MasterClass = () => {
           </div>
         </section>
 
-        <div className="mc-web-media flex flex-col lg:flex-row gap-8 w-full max-w-6xl mx-auto px-4 md:px-0 mt-16 mb-16">
-          <section className="mc-why-join flex-1 p-8 bg-white rounded-3xl shadow-md border border-slate-200/80 mb-6 lg:mb-0">
-            <h2 className="text-3xl font-extrabold text-slate-800 mb-1" style={{ color: "#1e293b" }}>Why Join</h2>
-            <p className="text-xl text-slate-500 mb-8 font-medium">Atorax Masterclasses</p>
-            
-            <div className="grid grid-cols-2 gap-y-6 gap-x-4">
-              <div className="flex items-center gap-4">
-                <div className="bg-[#fff4f0] flex items-center justify-center text-[#ff6b2d] text-xl w-14 h-14 rounded-xl border border-[#ffe4d6]">
-                  <i className="fa fa-globe"></i>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-slate-800 text-[15px] leading-tight">Designed</span>
-                  <span className="text-slate-500 text-[15px] leading-tight">For AI Era</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="bg-[#fff4f0] flex items-center justify-center text-[#ff6b2d] text-xl w-14 h-14 rounded-xl border border-[#ffe4d6]">
-                  <i className="fa fa-certificate"></i>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-slate-800 text-[15px] leading-tight">Atorax</span>
-                  <span className="text-slate-500 text-[15px] leading-tight">Certificate</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="bg-[#fff4f0] flex items-center justify-center text-[#ff6b2d] text-xl w-14 h-14 rounded-xl border border-[#ffe4d6]">
-                  <i className="fa fa-video-camera"></i>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-slate-800 text-[15px] leading-tight">Live</span>
-                  <span className="text-slate-500 text-[15px] leading-tight">Learning</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="bg-[#fff4f0] flex items-center justify-center text-[#ff6b2d] text-xl w-14 h-14 rounded-xl border border-[#ffe4d6]">
-                  <i className="fa fa-magic"></i>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-slate-800 text-[15px] leading-tight">Top</span>
-                  <span className="text-slate-500 text-[15px] leading-tight">Instructors</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="bg-[#fff4f0] flex items-center justify-center text-[#ff6b2d] text-xl w-14 h-14 rounded-xl border border-[#ffe4d6]">
-                  <i className="fa fa-book"></i>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-slate-800 text-[15px] leading-tight">Bonus</span>
-                  <span className="text-slate-500 text-[15px] leading-tight">Resources</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="bg-[#fff4f0] flex items-center justify-center text-[#ff6b2d] text-xl w-14 h-14 rounded-xl border border-[#ffe4d6]">
-                  <i className="fa fa-question-circle-o"></i>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-slate-800 text-[15px] leading-tight">Live</span>
-                  <span className="text-slate-500 text-[15px] leading-tight">Quizzes</span>
-                </div>
-              </div>
+        <div id="why-join" className="mc-web-media flex flex-col mt-16 mb-16">
+          <div className="mc-section-header">
+            <h2>Why Choose Atorax</h2>
+            <p>We focus on real outcomes, not just theory.</p>
+          </div>
+          
+          <div className="mc-why-grid">
+            <div className="mc-why-card">
+              <div className="mc-why-icon"><i className="fa fa-globe"></i></div>
+              <h3>Designed for the AI Era</h3>
+              <p>Learn bleeding-edge technologies and frameworks that are highly demanded in top tier product companies worldwide.</p>
             </div>
-
-            <div className="mt-8 border border-slate-200 bg-slate-50 rounded-xl flex justify-between items-center px-5 py-3">
-              <span className="text-slate-600 font-medium text-[15px]">Average User Rating</span>
-              <div className="flex items-center gap-3">
-                <div className="text-amber-400 text-sm flex gap-1">
-                  <i className="fa fa-star"></i>
-                  <i className="fa fa-star"></i>
-                  <i className="fa fa-star"></i>
-                  <i className="fa fa-star"></i>
-                  <i className="fa fa-star"></i>
-                </div>
-                <span className="font-bold text-slate-800 text-[15px]">4.8/5</span>
-              </div>
+            <div className="mc-why-card">
+              <div className="mc-why-icon"><i className="fa fa-certificate"></i></div>
+              <h3>Verified Certificate</h3>
+              <p>Get recognized by top recruiters with our official completion certificate.</p>
             </div>
-          </section>
+            <div className="mc-why-card">
+              <div className="mc-why-icon"><i className="fa fa-video-camera"></i></div>
+              <h3>100% Live</h3>
+              <p>No pre-recorded boring lectures. Real-time interaction and Q&A.</p>
+            </div>
+          </div>
+          
+          <div className="mc-why-grid" style={{marginTop: '24px'}}>
+            <div className="mc-why-card">
+              <div className="mc-why-icon"><i className="fa fa-magic"></i></div>
+              <h3>Top Instructors</h3>
+              <p>Mentored by engineers from FAANG and high-growth startups.</p>
+            </div>
+            <div className="mc-why-card">
+              <div className="mc-why-icon"><i className="fa fa-book"></i></div>
+              <h3>Bonus Resources</h3>
+              <p>Get access to exclusive mindmaps, cheat sheets, and code repositories.</p>
+            </div>
+             <div className="mc-why-card">
+              <div className="mc-why-icon"><i className="fa fa-question-circle-o"></i></div>
+              <h3>Live Quizzes</h3>
+              <p>Test your knowledge immediately during the class and get instant feedback.</p>
+            </div>
+          </div>
 
-
-          <section className="mc-certificate flex-1 p-8 bg-white rounded-3xl shadow-md border border-slate-200/80 flex flex-col">
-            <h2 className="text-3xl font-extrabold text-slate-800 mb-2" style={{ color: "#1e293b" }}>Certified Excellence</h2>
-            <p className="text-lg text-slate-500 font-medium mb-6">
-              Validate your expertise with industry-recognized certifications.
-            </p>
-            <div className="w-full flex-1 rounded-2xl overflow-hidden border border-slate-200/60 bg-slate-50 p-2 shadow-inner group flex items-center justify-center">
-              <img src={img} alt="Certificate preview" className="w-full h-auto max-h-[300px] object-contain rounded-xl transform group-hover:scale-[1.02] transition-transform duration-500 drop-shadow-md" />
+          <section className="mt-16">
+            <div className="w-full max-w-5xl mx-auto rounded-[24px] overflow-hidden border border-[#e2e8f0] bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col md:flex-row items-stretch">
+              <div className="w-full md:w-1/2 p-10 flex flex-col justify-center text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-bold uppercase tracking-wider mb-6 w-max border border-blue-100">
+                  <i className="fa fa-shield"></i> Official Credential
+                </div>
+                <h2 className="text-3xl font-extrabold text-[#0f172a] mb-4 tracking-tight" style={{ letterSpacing: '-0.03em' }}>Certified Excellence</h2>
+                <p className="text-[#475569] mb-8 leading-relaxed">
+                  Validate your expertise with an industry-recognized certificate. Share your success directly to LinkedIn and stand out to top recruiters.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-center gap-3 text-[#0f172a] font-medium"><i className="fa fa-check-circle text-[#059669] text-lg"></i> Verifiable Unique URL</li>
+                  <li className="flex items-center gap-3 text-[#0f172a] font-medium"><i className="fa fa-check-circle text-[#059669] text-lg"></i> 1-Click LinkedIn Integration</li>
+                  <li className="flex items-center gap-3 text-[#0f172a] font-medium"><i className="fa fa-check-circle text-[#059669] text-lg"></i> High-Resolution PDF</li>
+                </ul>
+              </div>
+              <div className="w-full md:w-1/2 bg-[#f8fafc] flex items-center justify-center p-8 md:p-12 border-t md:border-t-0 md:border-l border-[#e2e8f0] relative overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-100/50 via-transparent to-transparent opacity-70"></div>
+                <img 
+                  src={img} 
+                  alt="Certificate preview" 
+                  className="w-full h-48 md:h-64 object-cover object-top rounded-xl shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1),_0_4px_6px_-4px_rgba(0,0,0,0.05)] transform hover:scale-[1.03] hover:-translate-y-2 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] relative z-10 border border-[#e2e8f0]" 
+                />
+              </div>
             </div>
           </section>
         </div>
@@ -689,119 +577,69 @@ const MasterClass = () => {
           </div>
         </section> */}
 
-        <div className="mc-web-trust">
-          <section className="mc-why">
-            <article>
-              <i className="fa fa-certificate"></i>
-              <div>
-                <h3>Industry Certification</h3>
-                <p>Accepted by recruiters and organizations worldwide.</p>
-              </div>
-            </article>
-            <article>
-              <i className="fa fa-line-chart"></i>
-              <div>
-                <h3>Career Guidance</h3>
-                <p>Personalized internship tracks and practical mentorship.</p>
-              </div>
-            </article>
-            <article>
-              <i className="fa fa-globe"></i>
-              <div>
-                <h3>Networking</h3>
-                <p>
-                  Connect with thousands of peers and mentors in our groups.
-                </p>
-              </div>
-            </article>
-          </section>
 
-          {latestCompletedMasterClass.length > 0 && (
-            <section className="mc-completed">
-              <div className="mc-section-head">
-                <h2>Recently Completed</h2>
-              </div>
-              <div className="mc-completed-list">
-                {latestCompletedMasterClass.map((masterclass) => (
-                  <article className="mc-completed-item" key={masterclass._id}>
-                    <img
-                      src={convertGoogleDriveUrl(masterclass.image)}
-                      alt={masterclass.title}
-                      onError={(e) => (e.target.src = imgalt)}
-                    />
-                    <div>
-                      <h3>{masterclass.title}</h3>
-                      <p>{formatClassDate(masterclass.end)}</p>
-                    </div>
-                    {masterclass.pdfstatus && (
-                      <button onClick={() => handleDownload(masterclass)}>
-                        <i className="fa fa-download"></i>
-                      </button>
-                    )}
-                  </article>
-                ))}
-              </div>
-            </section>
-          )}
-        </div>
-
-        <section className="mc-popular">
-          <div className="mc-section-head">
-            <h2>Popular Courses</h2>
-          </div>
-          <Popularcourse />
-        </section>
 
         {completedMasterClass.length > 0 && (
           <section className="mc-completed-catalog">
-            <div className="mc-section-head">
-              <h2>All Completed Masterclasses</h2>
+            <div className="mc-section-header">
+              <h2>Completed Masterclasses</h2>
+              <p>Watch recordings of our past highly-rated sessions.</p>
             </div>
-            <div className="mc-completed-cards">
-              {[...completedMasterClass]
-                .reverse()
-                .map((masterclass) => (
-                  <article className="mc-completed-card" key={masterclass._id}>
+            <div className="mc-grid-v3">
+              {[...completedMasterClass].reverse().map((masterclass) => (
+                <article className="mc-card-v3" key={masterclass._id}>
+                  <div className="mc-card-v3-img">
                     <img
                       src={convertGoogleDriveUrl(masterclass.image)}
                       alt={masterclass.title}
                       onError={(e) => (e.target.src = imgalt)}
                     />
-                    <div>
-                      <h3>{masterclass.title}</h3>
-                      <p>Start: {formatClassDateTime(masterclass.start)}</p>
-                      <p>End: {formatClassDateTime(masterclass.end)}</p>
-                      <span>
-                        {masterclass.applications?.length ||
-                          masterclass.applications ||
-                          0}{" "}
-                        learners participated
-                      </span>
+                    <span className="mc-status-badge bg-completed">Completed</span>
+                  </div>
+                  <div className="mc-card-v3-body">
+                    <h3>{masterclass.title}</h3>
+                    <div className="mc-card-v3-meta">
+                      <div className="mc-meta-item">
+                        <span>Date</span>
+                        <strong>{formatClassDate(masterclass.end)}</strong>
+                      </div>
+                      <div className="mc-meta-item">
+                        <span>Participants</span>
+                        <strong>{masterclass.applications?.length || masterclass.applications || 0}</strong>
+                      </div>
                     </div>
                     {masterclass.pdfstatus && (
-                      <button onClick={() => handleDownload(masterclass)}>
-                        Certificate
-                      </button>
+                      <div className="mc-card-v3-actions mt-auto">
+                        <button className="mc-btn-block primary" onClick={() => handleDownload(masterclass)}>Get Certificate</button>
+                      </div>
                     )}
-                  </article>
-                ))}
+                  </div>
+                </article>
+              ))}
             </div>
           </section>
         )}
 
         <section className="mc-faq">
-          <div className="mc-section-head">
-            <h2>Frequently Asked</h2>
+          <div className="mc-section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about the masterclass.</p>
           </div>
-          {faqs.map((faq, index) => (
-            <div key={index} className="mc-faq-item">
-              <button onClick={() => toggleFAQ(index)}>
-                <span>{faq.question}</span>
-                <i className={`fa ${openIndex === index ? "fa-minus" : "fa-plus"}`}></i>
-              </button>
-              {openIndex === index && <p>{faq.answer}</p>}
-            </div>
-          ))}
+          <div className="mc-faq-container">
+            {faqs.map((faq, index) => (
+              <div key={index} className={`mc-faq-item ${openIndex === index ? 'active' : ''}`}>
+                <button className="mc-faq-btn" onClick={() => toggleFAQ(index)}>
+                  <span>{faq.question}</span>
+                  <i className={`fa ${openIndex === index ? "fa-minus" : "fa-plus"}`}></i>
+                </button>
+                {openIndex === index && (
+                  <div className="mc-faq-content">
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </section>
 
       </div>

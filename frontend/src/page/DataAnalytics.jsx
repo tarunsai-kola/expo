@@ -12,8 +12,10 @@ import TopOnePercent from "../Components/TopOnePercent";
 import Certification from "./AdvanceCourse/Components/Certification";
 import ApplyNowButton from "./AdvanceCourse/Components/ApplyNowButton";
 import SalaryGrowth from "../Components/SalaryGrowth";
+import CareerOutcomes from "../Components/CareerOutcomes";
 import MarketLeaders from "../Components/MarketLeaders";
 import MeetYourMentors from "../Components/MeetYourMentors";
+import AuthorityMarquee from "../Components/AuthorityMarquee";
 import "./DataAnalytics.css";
 
 import heroDaGraphic from "../assets/da_hero_cyan_1.png";
@@ -79,23 +81,36 @@ const daPhases = [
   {
     id: "phase-1",
     phase: "PHASE 1",
-    duration: "WEEKS 1–8",
-    title: "Core Training",
+    duration: "WEEKS 1–4",
+    title: "Analytics Foundations",
     focusLabel: "CURRICULUM",
     focus: [
       "W1: Business Analytics & Excel Foundations (KPIs, Cleaning)",
-      "W2-W3: Advanced Excel (Power Query) & SQL (Joins, CTEs, Window Functions)",
-      "W4-W5: Python (Pandas, NumPy) & Statistics (Hypothesis Testing, Regression)",
-      "W6: Power BI & Business Intelligence (DAX, Data Modeling, Dashboards)",
-      "W7-W8: AI for Analytics (ChatGPT, Prompting) & Machine Learning Essentials"
+      "W2: Advanced Excel (Power Query) & Business Reporting",
+      "W3: SQL Mastery (Joins, CTEs, Window Functions)",
+      "W4: Python for Analytics (Pandas, NumPy, EDA)"
     ],
-    application: "Business Performance Analysis, Retail Sales Dashboard, Customer Analytics DB, HR Analytics, Churn Prediction"
+    application: "Business Performance Analysis, Retail Sales Dashboard, Customer Analytics DB"
   },
   {
     id: "phase-2",
     phase: "PHASE 2",
+    duration: "WEEKS 5–8",
+    title: "BI, Statistics & AI",
+    focusLabel: "CURRICULUM",
+    focus: [
+      "W5: Statistics (Hypothesis Testing, Regression, A/B Testing)",
+      "W6: Power BI & Business Intelligence (DAX, Data Modeling, Dashboards)",
+      "W7: AI for Analytics (ChatGPT, Prompt Engineering)",
+      "W8: Machine Learning Essentials & Churn Prediction"
+    ],
+    application: "HR Analytics Dashboard, Marketing Analytics, Churn Prediction Model"
+  },
+  {
+    id: "phase-3",
+    phase: "PHASE 3",
     duration: "WEEKS 9–12",
-    title: "Implementation & Capstone",
+    title: "Industry Capstone",
     focusLabel: "CURRICULUM",
     focus: [
       "W9: Retail & E-Commerce Analytics (Customer Segmentation, Revenue Dashboard)",
@@ -106,8 +121,8 @@ const daPhases = [
     application: "Deliver a Portfolio-Ready AI-Powered Business Analytics Project"
   },
   {
-    id: "phase-3",
-    phase: "PHASE 3",
+    id: "phase-4",
+    phase: "PHASE 4",
     duration: "WEEKS 13–16",
     title: "Placement Preparation",
     focusLabel: "CURRICULUM",
@@ -273,7 +288,7 @@ const DataAnalytics = () => {
                   </div>
                   <div className="flex flex-col justify-center">
                      <p className="text-cyan-100/70 text-[10px] font-bold mb-0.5">Placements</p>
-                     <p className="text-white text-[20px] font-bold leading-none">4500+</p>
+                     <p className="text-white text-[20px] font-bold leading-none">1100+</p>
                   </div>
                </div>
 
@@ -311,6 +326,9 @@ const DataAnalytics = () => {
 
       {/* STATS BAR */}
       <ProgramStatsBar stats={trustStats} labelColor="text-[#06b6d4]" />
+      
+      {/* COLLABORATION COMPANY MARQUEE */}
+      <AuthorityMarquee theme="dark" />
 
       {/* TOP ONE PERCENT (PROGRAM HIGHLIGHTS) */}
       <TopOnePercent
@@ -526,7 +544,10 @@ const DataAnalytics = () => {
       </section>
 
       {/* SALARY GROWTH */}
-      <SalaryGrowth domain="Data Analytics" />
+      <SalaryGrowth domain="DataAnalytics" />
+
+      {/* CAREER OUTCOMES */}
+      <CareerOutcomes domain="DataAnalytics" />
 
       {/* MARKET LEADERS */}
       <MarketLeaders />

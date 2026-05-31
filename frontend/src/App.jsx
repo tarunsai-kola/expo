@@ -35,6 +35,8 @@ import GenerativeAI from "./page/AdvanceCourse/GenerativeAI";
 import DashboardAccessForm from "./page/DashboardAccessForm";
 import AdvanceDashboardAccess from "./page/AdvanceDashboardAccess";
 import Alumni from "./page/Alumni";
+import FreeCareerAssessment from "./page/FreeCareerAssessment";
+import AdminCareerAssessment from "./Admin/AdminCareerAssessment";
 import Attendance from "./page/Attendance";
 import AdvanceApplyPage from "./page/AdvanceApplyPage";
 import AdvanceForm from "./page/AdvanceForm";
@@ -78,7 +80,6 @@ import HalfPayment from "./Admin/HalfPayment";
 import Target from "./Admin/Target";
 import AlumniData from "./Admin/AlumniData";
 import InactiveBda from "./Admin/InactiveBda";
-import ReferAndEarnResponse from "./Admin/ReferAndEarnResponse";
 import CreateMarketingTeam from "./Admin/CreateMarketingTeam";
 import AdminAttendance from "./Admin/AdminAttendance";
 import AdvUserManagement from "./Admin/AdvUserManagement";
@@ -170,7 +171,6 @@ import InterviewerDashboard from "./Interviewer/InterviewerDashboard";
 //event
 import EventDashBoard from "./Event/EventDashBoard";
 import Verified from "./Components/Verified";
-import ReferAndEarn from "./page/ReferAndEarn";
 import LeaderBoard from "./BDA/LeaderBoard";
 
 // Advance Team
@@ -425,7 +425,7 @@ const AppContent = () => {
 
   useEffect(() => {
     // Auto-popup logic
-    const allowedPaths = ["/", "/advance", "/advancecourses", "/referandearn", "/events", "/masterclass", "/alumni"];
+    const allowedPaths = ["/", "/advance", "/advancecourses", "/events", "/masterclass", "/alumni", "/free-career-assessment"];
     const currentPath = location.pathname.toLowerCase().replace(/\/$/, "");
     const isAllowed = allowedPaths.includes(currentPath || "/");
 
@@ -441,7 +441,7 @@ const AppContent = () => {
     ReactPixel.pageView();
   }, [location]);
 
-  const adminheaderPaths = ["/admindashboard", "/addcourse", "/addadvcourse", "/addmodule", "/addadvmodule", "/pendingapplication", "/acceptedapplication", "/bookedlist", "/halfpayment", "/defaultlist", "/fullpaidlist", "/createoperation", "/createadvoperation", "/createbda", "/createadvteam", "/createmanager", "/mentorqueries", "/advancequeries", "/revenuesheet", "/advrevenuesheet", "/createplacementcoordinator", "/onboardingdetails", "/advonboardingdetails", "/advbooked", "/advfullpaid", "/advdefault", "/allteamdetail", "/advteamdetail", "/masterclasses", "/addevent", "/eventregistration", "/target", "/alumnidata", "/inactivebda", "/referandearnresponse", "/createmarketingteam", "/createinterviewer", "/createhr", "/createinterview", "/adminprojectpage", "/advprojectpage", "/advexercisepage", "/advleadmanagement", "/adminanalytics", "/advadmindashboard", "/admin/agents", "/admin/teams", "/admin/leadassignments", "/admin/agentactivity", "/admin/reports", "/bulkimport", "/admin/attendance", "/advusermanagement", "/admin/livemonitor", "/admin/calllogs", "/advformleads"];
+  const adminheaderPaths = ["/admindashboard", "/addcourse", "/addadvcourse", "/addmodule", "/addadvmodule", "/pendingapplication", "/acceptedapplication", "/bookedlist", "/halfpayment", "/defaultlist", "/fullpaidlist", "/createoperation", "/createadvoperation", "/createbda", "/createadvteam", "/createmanager", "/mentorqueries", "/advancequeries", "/revenuesheet", "/advrevenuesheet", "/createplacementcoordinator", "/onboardingdetails", "/advonboardingdetails", "/advbooked", "/advfullpaid", "/advdefault", "/allteamdetail", "/advteamdetail", "/masterclasses", "/addevent", "/eventregistration", "/target", "/alumnidata", "/inactivebda", "/createmarketingteam", "/createinterviewer", "/createhr", "/createinterview", "/adminprojectpage", "/advprojectpage", "/advexercisepage", "/advleadmanagement", "/adminanalytics", "/advadmindashboard", "/admin/agents", "/admin/teams", "/admin/leadassignments", "/admin/agentactivity", "/admin/reports", "/bulkimport", "/admin/attendance", "/advusermanagement", "/admin/livemonitor", "/admin/calllogs", "/advformleads", "/admin-career-assessment"];
   const operationheaderPaths = ["/operationdashboard", "/fullpayment", "/bookedpayment", "/defaultpayment", "/operationrevenuesheet"];
   const advoperationheaderPaths = ["/advoperationdashboard", "/advfullpayment", "/advbookedpayment", "/advdefaultpayment", "/advoperationrevenuesheet"];
   const marketingheaderPaths = ["/marketing/home", "/marketing/previous", "/marketing/addexecutive"];
@@ -452,7 +452,7 @@ const AppContent = () => {
   const noFooterPaths = ["/operationdashboard", "/bookedpayment", "/fullpayment", "/defaultpayment", "/operationrevenuesheet", "/advoperationdashboard", "/advfullpayment", "/advbookedpayment", "/advdefaultpayment", "/advoperationrevenuesheet", "/advteam/home", "/advteam/onboarding", "/advteam/revenue", "/advteam/booked", "/advteam/fullpaid", "/advteam/default", "/advteam/record", "/advteam/lead-management", "/advteam/team-login", "/advteam/adduser", "/advteam/my-leads", "/advteam/leads-book", "/advteam/leaderboard", "/home", "/fullpaid", "/default", "/booked", "/onboarding", "/adduser", "/teamdetail", "/bdarevenuesheet", "/reference", "/companyleads", "/addteam", "/assigntarget", "/leaderboard"];
   const placementcoodinatorHeaderPaths = ["/pcdashboard", "/jobpost"];
   const userheaderPaths = ["/profile", "/resume-builder"];
-  const headerPaths = ["/", "/login", "/loginwithotp", "/forgotpassword", "/contactus", "/aboutus", "/career", "/collabration", "/advancecourses", "/terms", "/privacy", "/refundpolicy", "/feestructure", "/advance", "/advance-apply", "/mentorship", "/datascience", "/dataanalytics", "/digitalmarket", "/mernstack", "/investmentbanking", "/productmanagement", "/automationtesting", "/promptengineering", "/generativeai", "/operationlogin", "/advoperationlogin", "/teamlogin", "/adminlogin", "/managerlogin", "/loginadmin", "/pclogin", "/advteamlogin", "/dashboardaccessform", "/advancedashboardaccess", "/masterclass", "/alumni", "/verify", "/referandearn", "/marketing/login", "/interviewer-login", "/interviewerlogin", "/hrlogin", "/advanceform", "/agenticandgenai", "/softwaredeveloper"];
+  const headerPaths = ["/", "/login", "/loginwithotp", "/forgotpassword", "/contactus", "/aboutus", "/career", "/collabration", "/advancecourses", "/terms", "/privacy", "/refundpolicy", "/feestructure", "/advance", "/advance-apply", "/mentorship", "/datascience", "/dataanalytics", "/digitalmarket", "/mernstack", "/investmentbanking", "/productmanagement", "/automationtesting", "/promptengineering", "/generativeai", "/operationlogin", "/advoperationlogin", "/teamlogin", "/adminlogin", "/managerlogin", "/loginadmin", "/pclogin", "/advteamlogin", "/dashboardaccessform", "/advancedashboardaccess", "/masterclass", "/alumni", "/verify", "/marketing/login", "/interviewer-login", "/interviewerlogin", "/hrlogin", "/advanceform", "/agenticandgenai", "/softwaredeveloper", "/free-career-assessment"];
 
   return (
     <div>
@@ -523,8 +523,8 @@ const AppContent = () => {
         <Route path="/MasterClass" element={<MasterClass />} />
         <Route path="/MasterClass/:id" element={<MasterClassDetails />} />
         <Route path="/Alumni" element={<Alumni />} />
+        <Route path="/free-career-assessment" element={<FreeCareerAssessment />} />
         <Route path="/Verify" element={<Verified />} />
-        <Route path="/ReferAndEarn" element={<ReferAndEarn />} />
         <Route path="/attendance" element={<Attendance />} />
 
         {/* Admin Panel Start */}
@@ -568,8 +568,8 @@ const AppContent = () => {
         <Route path="/EventRegistration" element={isAuthenticatedAdmin() ? (<EventRegistration />) : (<Navigate to="/AdminLogin" />)} />
         <Route path="/Target" element={isAuthenticatedAdmin() ? (<Target />) : (<Navigate to="/AdminLogin" />)} />
         <Route path="/AlumniData" element={isAuthenticatedAdmin() ? (<AlumniData />) : (<Navigate to="/AdminLogin" />)} />
+        <Route path="/admin-career-assessment" element={isAuthenticatedAdmin() ? (<AdminCareerAssessment />) : (<Navigate to="/AdminLogin" />)} />
         <Route path="/InactiveBda" element={isAuthenticatedAdmin() ? (<InactiveBda />) : (<Navigate to="/AdminLogin" />)} />
-        <Route path="/ReferAndEarnResponse" element={isAuthenticatedAdmin() ? (<ReferAndEarnResponse />) : (<Navigate to="/AdminLogin" />)} />
         <Route path="/CreateMarketingTeam" element={isAuthenticatedAdmin() ? (<CreateMarketingTeam />) : (<Navigate to="/AdminLogin" />)} />
         <Route path="/CreateInterviewer" element={isAuthenticatedAdmin() ? (<CreateInterviewer />) : (<Navigate to="/AdminLogin" />)} />
         <Route path="/CreateInterview" element={isAuthenticatedAdmin() ? (<CreateInterview />) : (<Navigate to="/AdminLogin" />)} />

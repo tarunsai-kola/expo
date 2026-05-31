@@ -12,9 +12,11 @@ import TopOnePercent from "../Components/TopOnePercent";
 import Certification from "./AdvanceCourse/Components/Certification";
 import ApplyNowButton from "./AdvanceCourse/Components/ApplyNowButton";
 import SalaryGrowth from "../Components/SalaryGrowth";
+import CareerOutcomes from "../Components/CareerOutcomes";
 import MarketLeaders from "../Components/MarketLeaders";
 import MeetYourMentors from "../Components/MeetYourMentors";
 import FloatingNav from "../Components/FloatingNav";
+import AuthorityMarquee from "../Components/AuthorityMarquee";
 import "./DataScience.css";
 
 import heroDsGraphic from "../assets/ds_hero_gold_1.png";
@@ -79,22 +81,36 @@ const dsPhases = [
   {
     id: "phase-1",
     phase: "PHASE 1",
-    duration: "WEEKS 1–8",
-    title: "Core Training",
+    duration: "WEEKS 1–4",
+    title: "Python, Data & Visualization",
     focusLabel: "CURRICULUM",
     focus: [
       "Python for Data Science & Advanced Data Analysis (EDA)",
-      "Data Visualization (PowerBI) & SQL for Data Professionals",
-      "Machine Learning Fundamentals & Advanced ML (Random Forest, XGBoost)",
-      "Generative AI & LLM Engineering with LangChain"
+      "Data Visualization with Power BI & Tableau",
+      "SQL for Data Professionals (Joins, CTEs, Window Functions)",
+      "Statistics & Probability Foundations for ML"
     ],
-    application: "Sales Data Dashboard, Customer Churn Prediction, AI Research Assistant"
+    application: "Sales Data Dashboard, Customer Analytics DB, EDA Reports"
   },
   {
     id: "phase-2",
     phase: "PHASE 2",
+    duration: "WEEKS 5–8",
+    title: "Machine Learning & AI",
+    focusLabel: "CURRICULUM",
+    focus: [
+      "Machine Learning Fundamentals (Supervised & Unsupervised)",
+      "Advanced ML: Random Forest, XGBoost, Neural Networks",
+      "Generative AI & LLM Engineering with LangChain",
+      "Vector Databases, RAG Pipelines & Prompt Engineering"
+    ],
+    application: "Customer Churn Prediction, Sales Forecasting, AI Research Assistant"
+  },
+  {
+    id: "phase-3",
+    phase: "PHASE 3",
     duration: "WEEKS 9–12",
-    title: "Implementation & Capstone",
+    title: "Industry Capstone Project",
     focusLabel: "CURRICULUM",
     focus: [
       "Industry Capstone Planning (Marketing, Finance, Healthcare, etc.)",
@@ -105,8 +121,8 @@ const dsPhases = [
     application: "Deliver a Portfolio-Ready Generative AI Industry Project"
   },
   {
-    id: "phase-3",
-    phase: "PHASE 3",
+    id: "phase-4",
+    phase: "PHASE 4",
     duration: "WEEKS 13–16",
     title: "Placement Preparation",
     focusLabel: "CURRICULUM",
@@ -271,7 +287,7 @@ const DataScience = () => {
                   </div>
                   <div className="flex flex-col justify-center">
                      <p className="text-yellow-100/70 text-[10px] font-bold mb-0.5">Placements</p>
-                     <p className="text-white text-[20px] font-bold leading-none">4500+</p>
+                     <p className="text-white text-[20px] font-bold leading-none">1100+</p>
                   </div>
                </div>
 
@@ -309,6 +325,9 @@ const DataScience = () => {
 
       {/* STATS BAR */}
       <ProgramStatsBar stats={trustStats} labelColor="text-[#eab308]" />
+      
+      {/* COLLABORATION COMPANY MARQUEE */}
+      <AuthorityMarquee theme="dark" />
 
       {/* TOP ONE PERCENT (PROGRAM HIGHLIGHTS) */}
       <TopOnePercent
@@ -525,6 +544,9 @@ const DataScience = () => {
 
       {/* SALARY GROWTH */}
       <SalaryGrowth domain="DataScience" />
+
+      {/* CAREER OUTCOMES */}
+      <CareerOutcomes domain="DataScience" />
 
       {/* MARKET LEADERS */}
       <MarketLeaders />

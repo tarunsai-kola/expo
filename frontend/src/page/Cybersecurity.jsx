@@ -13,6 +13,7 @@ import AuthorityMarquee from "../Components/AuthorityMarquee";
 import NonTechReviewsMarquee from "../Components/NonTechReviewsMarquee";
 import Certification from "./AdvanceCourse/Components/Certification";
 import SalaryGrowth from "../Components/SalaryGrowth";
+import CareerOutcomes from "../Components/CareerOutcomes";
 import MarketLeaders from "../Components/MarketLeaders";
 import MeetYourMentors from "../Components/MeetYourMentors";
 import FloatingNav from "../Components/FloatingNav";
@@ -98,87 +99,60 @@ const careerPaths = [
 
 const softwarePhases = [
   {
-    id: "sd-phase-1",
+    id: "cy-phase-1",
     phase: "PHASE 1",
-    duration: "WEEKS 1–8",
-    title: "Software Engineering Foundations",
+    duration: "WEEKS 1–4",
+    title: "Security Foundations & Networking",
     focusLabel: "CURRICULUM",
     focus: [
-      "Advanced Java / Python, OOP, and Design Patterns",
-      "Collections framework, Multithreading, Clean Code, Exception Handling",
-      "Data Structures & Algorithms (Arrays, Linked Lists, Trees, Graphs, Recursion, DP)",
-      "Database Engineering (SQL, NoSQL, MongoDB, Joins, Window Functions, Optimization)",
-      "Backend Engineering (Spring Boot / FastAPI, REST APIs, Microservices, API Gateway)"
+      "Cybersecurity Fundamentals (CIA Triad, Threat Landscape, Attack Vectors)",
+      "Networking for Security (OSI Model, TCP/IP, DNS, Firewalls, VPNs)",
+      "Linux & Command Line Mastery (Bash, File Permissions, Process Management)",
+      "Cryptography (Encryption, Hashing, PKI, SSL/TLS, Certificates)"
     ],
-    application: "Enterprise Employee Management System, Inventory Management Database, E-Commerce Backend System"
+    application: "Network Traffic Analysis, Firewall Rule Configuration, Linux Hardening Lab"
   },
   {
-    id: "sd-phase-2",
+    id: "cy-phase-2",
     phase: "PHASE 2",
-    duration: "WEEKS 9–12",
-    title: "Modern Full Stack Development",
+    duration: "WEEKS 5–8",
+    title: "Ethical Hacking & Penetration Testing",
     focusLabel: "CURRICULUM",
     focus: [
-      "Frontend Engineering (React.js & Next.js, Modern JS, TypeScript)",
-      "State Management (React Hooks, Redux Toolkit)",
-      "Full Stack Product Integration, Authentication, RBAC",
-      "Payment Gateway Integration and Application Deployment"
+      "Reconnaissance & OSINT (Nmap, Shodan, Google Dorking)",
+      "Exploitation Techniques (Metasploit, Buffer Overflow, SQL Injection, XSS)",
+      "Web Application Security (OWASP Top 10, Burp Suite, API Security)",
+      "Post-Exploitation, Privilege Escalation & Lateral Movement"
     ],
-    application: "Netflix Clone, Learning Management System (LMS)"
+    application: "Vulnerable Machine Hacking (HackTheBox / TryHackMe), Web App Pen Test Report"
   },
   {
-    id: "sd-phase-3",
+    id: "cy-phase-3",
     phase: "PHASE 3",
-    duration: "WEEKS 13–14",
-    title: "Cloud-Native Engineering & DevOps",
+    duration: "WEEKS 9–12",
+    title: "Cloud Security & Incident Response",
     focusLabel: "CURRICULUM",
     focus: [
-      "Cloud Engineering (AWS, EC2, S3, RDS, IAM, CloudWatch)",
-      "DevOps Foundations (Git, GitHub, Docker, Kubernetes Basics)",
-      "CI/CD Pipelines and GitHub Actions"
+      "Cloud Security (AWS IAM, Security Groups, CloudTrail, Compliance)",
+      "SOC Operations & SIEM (Splunk, ELK Stack, Threat Intelligence)",
+      "Incident Response & Digital Forensics (Evidence Collection, Triage)",
+      "Industry Capstone: Real-World Security Assessment & Threat Report"
     ],
-    application: "Cloud-Native Application Deployment"
+    application: "Cloud Security Audit, SOC Simulation, Incident Response Playbook"
   },
   {
-    id: "sd-phase-4",
+    id: "cy-phase-4",
     phase: "PHASE 4",
-    duration: "WEEKS 15–16",
-    title: "AI Engineering & Modern Development",
+    duration: "WEEKS 13–16",
+    title: "Placement Preparation",
     focusLabel: "CURRICULUM",
     focus: [
-      "AI Development Tools (GitHub Copilot, Cursor AI, Claude, AI Code Review)",
-      "Generative AI Engineering (Prompt Engineering, OpenAI APIs)",
-      "LLM Integration, Vector Databases, Embeddings, RAG",
-      "AI Agents and LangChain Fundamentals"
+      "Resume & LinkedIn Optimization for Cybersecurity Roles",
+      "Interview Prep (Security Concepts, Scenario Questions, CompTIA/CEH Aligned)",
+      "Bug Bounty Program Introduction & CVE Report Writing",
+      "Placement Acceleration (Recruiter Outreach, Mock Interviews, Referrals)"
     ],
-    application: "AI Resume Analyzer, AI Interview Coach, AI Customer Support Agent, AI Knowledge Assistant"
-  },
-  {
-    id: "sd-phase-5",
-    phase: "PHASE 5",
-    duration: "WEEKS 17–20",
-    title: "Industry Implementation",
-    focusLabel: "CURRICULUM",
-    focus: [
-      "Enterprise Capstone Project: Agile Teams & real software development practices",
-      "Sprint cycles: Sprint 1 (Requirements) & Sprint 2 (Architecture)",
-      "Sprint cycles: Sprint 3 (Development & Testing) & Sprint 4 (Deployment)"
-    ],
-    application: "Capstone Project Options: AI Recruitment, CRM, FinTech, EdTech, Healthcare, AI Document Search"
-  },
-  {
-    id: "sd-phase-6",
-    phase: "PHASE 6",
-    duration: "WEEKS 21–24",
-    title: "System Design & Career Acceleration",
-    focusLabel: "CURRICULUM",
-    focus: [
-      "Advanced DSA (Top 150 Coding Problems, Mock Coding Interviews)",
-      "System Design (HLD/LLD: Scalability, SOLID, Case Studies: Netflix, Uber)",
-      "Product Engineering, Resume & LinkedIn Optimization",
-      "Placement Readiness (Mock Technical & HR Interviews, Networking, Salary Negotiation)"
-    ],
-    application: "Interview readiness and positioning for top-tier SDE/AI engineering roles"
+    application: "Security Portfolio, Interview Readiness, Job Offer Acceleration"
   }
 ];
 
@@ -340,7 +314,7 @@ const SoftwareDeveloper = () => {
                   </div>
                   <div className="flex flex-col justify-center">
                      <p className="text-emerald-50/70 text-[10px] font-bold mb-0.5">Placements</p>
-                     <p className="text-white text-[20px] font-bold leading-none">4500+</p>
+                     <p className="text-white text-[20px] font-bold leading-none">1100+</p>
                   </div>
                </div>
 
@@ -378,9 +352,9 @@ const SoftwareDeveloper = () => {
 
       {/* STATS BAR */}
       <ProgramStatsBar stats={trustStats} labelColor="text-[#d4af37]" />
-
-      {/* AUTHORITY MARQUEE */}
-      <AuthorityMarquee />
+      
+      {/* COLLABORATION COMPANY MARQUEE */}
+      <AuthorityMarquee theme="dark" />
 
       {/* CAREER TRACKS */}
       <section id="paths" className="py-24 px-6 bg-[#050505] border-t border-white/5">
@@ -626,6 +600,9 @@ const SoftwareDeveloper = () => {
 
       {/* SALARY GROWTH */}
       <SalaryGrowth domain="Cybersecurity" />
+
+      {/* CAREER OUTCOMES */}
+      <CareerOutcomes domain="Cybersecurity" />
 
       {/* MARKET LEADERS */}
       <MarketLeaders />

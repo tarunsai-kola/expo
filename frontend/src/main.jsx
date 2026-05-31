@@ -26,7 +26,6 @@ import "./axiosConfig";
 import "./style/Event.css";
 import "./style/verify.css";
 import './style/Linkedin.css'
-import "./style/ReferAndEarn.css"
 import "./style/CreateMarketingTeam.css"
 import './style/Mentorship.css'
 import ReactPixel from 'react-facebook-pixel';

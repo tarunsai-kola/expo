@@ -12,8 +12,10 @@ import TopOnePercent from "../Components/TopOnePercent";
 import Certification from "./AdvanceCourse/Components/Certification";
 import ApplyNowButton from "./AdvanceCourse/Components/ApplyNowButton";
 import SalaryGrowth from "../Components/SalaryGrowth";
+import CareerOutcomes from "../Components/CareerOutcomes";
 import MarketLeaders from "../Components/MarketLeaders";
 import MeetYourMentors from "../Components/MeetYourMentors";
+import AuthorityMarquee from "../Components/AuthorityMarquee";
 import FloatingNav from "../Components/FloatingNav";
 import "./DigitalMarketing.css"; 
 
@@ -74,26 +76,36 @@ const dmPhases = [
   {
     id: "phase-1",
     phase: "PHASE 1",
-    duration: "WEEKS 1–8",
-    title: "Core Training",
+    duration: "WEEKS 1–4",
+    title: "Marketing Foundations & SEO",
     focusLabel: "CURRICULUM",
     focus: [
       "W1: Marketing Foundations (Funnel, Lead Gen, KPIs, AI in Marketing)",
       "W2: Search Engine Optimization (On-Page, Technical, AI-SEO, Ahrefs)",
       "W3: Google Ads & Search (Search/Display/Video Ads, Conversion Tracking)",
-      "W4: Social Media Marketing (Meta Suite, Organic Growth, Community)",
+      "W4: Social Media Marketing (Meta Suite, Organic Growth, Community)"
+    ],
+    application: "SEO Audit, Google Ads Campaign, Meta Organic Growth Plan"
+  },
+  {
+    id: "phase-2",
+    phase: "PHASE 2",
+    duration: "WEEKS 5–8",
+    title: "Performance, AI & Analytics",
+    focusLabel: "CURRICULUM",
+    focus: [
       "W5: Performance Marketing (Lead Gen Funnels, Retargeting, ROAS)",
       "W6: Content Marketing & AI (Prompt Engineering, Claude, Copywriting)",
       "W7: Analytics & Automation (GA4, HubSpot, Zapier, Mailchimp)",
       "W8: Advanced Growth (CRO, A/B Testing, Looker Studio Dashboarding)"
     ],
-    application: "SEO Audit, Google Ads Campaign, Meta Funnel, Content Marketing Plan, Automation Workflow"
+    application: "Performance Funnel, AI Content Plan, Marketing Automation Workflow"
   },
   {
-    id: "phase-2",
-    phase: "PHASE 2",
+    id: "phase-3",
+    phase: "PHASE 3",
     duration: "WEEKS 9–12",
-    title: "Industry Implementation & Capstone",
+    title: "Industry Capstone Projects",
     focusLabel: "CURRICULUM",
     focus: [
       "W9: SEO & Organic Growth Project (Keyword Strategy, Search Console)",
@@ -104,8 +116,8 @@ const dmPhases = [
     application: "Execute real-world marketing campaigns and business growth projects."
   },
   {
-    id: "phase-3",
-    phase: "PHASE 3",
+    id: "phase-4",
+    phase: "PHASE 4",
     duration: "WEEKS 13–16",
     title: "Placement Preparation",
     focusLabel: "CURRICULUM",
@@ -256,7 +268,7 @@ const DigitalMarketing = () => {
                   </div>
                   <div className="flex flex-col justify-center">
                      <p className="text-amber-200/60 text-[10px] font-bold mb-0.5">Placements</p>
-                     <p className="text-white text-[20px] font-bold leading-none">4500+</p>
+                     <p className="text-white text-[20px] font-bold leading-none">1100+</p>
                   </div>
                </div>
 
@@ -294,6 +306,9 @@ const DigitalMarketing = () => {
 
       {/* STATS BAR */}
       <ProgramStatsBar stats={trustStats} labelColor="text-amber-200" />
+      
+      {/* COLLABORATION COMPANY MARQUEE */}
+      <AuthorityMarquee theme="dark" />
 
       {/* TOP ONE PERCENT (PROGRAM HIGHLIGHTS) */}
       <TopOnePercent
@@ -504,7 +519,10 @@ const DigitalMarketing = () => {
       </section>
 
       {/* SALARY GROWTH */}
-      <SalaryGrowth domain="Digital Marketing" />
+      <SalaryGrowth domain="DigitalMarketing" />
+
+      {/* CAREER OUTCOMES */}
+      <CareerOutcomes domain="DigitalMarketing" />
 
       {/* MARKET LEADERS */}
       <MarketLeaders />

@@ -43,7 +43,7 @@ const JobApplication = require("./routes/JobApplication")
 const MasterClass = require("./routes/MasterClass")
 const AddEvent = require("./routes/AddEvent")
 const Certificate = require("./routes/Certificate")
-const ReferAndEarn = require("./routes/ReferAndEarn");
+const CareerAssessment = require("./routes/CareerAssessment");
 const Scraper = require("./routes/Scraper");
 const microCourseRoutes = require("./routes/microCourseRoutes");
 const microCourseAdminRoutes = require("./routes/microCourseAdminRoutes");
@@ -181,7 +181,7 @@ app.use("/", Mockai);
 app.use("/", Excercise);
 
 app.use("/", Certificate);
-app.use("/", ReferAndEarn);
+app.use("/", CareerAssessment);
 app.use("/", Scraper);
 
 //AddEvent

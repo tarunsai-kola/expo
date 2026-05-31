@@ -13,6 +13,7 @@ import AuthorityMarquee from "../Components/AuthorityMarquee";
 import NonTechReviewsMarquee from "../Components/NonTechReviewsMarquee";
 import Certification from "./AdvanceCourse/Components/Certification";
 import SalaryGrowth from "../Components/SalaryGrowth";
+import CareerOutcomes from "../Components/CareerOutcomes";
 import MarketLeaders from "../Components/MarketLeaders";
 import MeetYourMentors from "../Components/MeetYourMentors";
 import FloatingNav from "../Components/FloatingNav";
@@ -340,7 +341,7 @@ const SoftwareDeveloper = () => {
                   </div>
                   <div className="flex flex-col justify-center">
                      <p className="text-emerald-50/70 text-[10px] font-bold mb-0.5">Placements</p>
-                     <p className="text-white text-[20px] font-bold leading-none">4500+</p>
+                     <p className="text-white text-[20px] font-bold leading-none">1100+</p>
                   </div>
                </div>
 
@@ -378,9 +379,9 @@ const SoftwareDeveloper = () => {
 
       {/* STATS BAR */}
       <ProgramStatsBar stats={trustStats} labelColor="text-[#d4af37]" />
-
-      {/* AUTHORITY MARQUEE */}
-      <AuthorityMarquee />
+      
+      {/* COLLABORATION COMPANY MARQUEE */}
+      <AuthorityMarquee theme="dark" />
 
       {/* CAREER TRACKS */}
       <section id="paths" className="py-24 px-6 bg-[#050505] border-t border-white/5">
@@ -626,6 +627,9 @@ const SoftwareDeveloper = () => {
 
       {/* SALARY GROWTH */}
       <SalaryGrowth domain="SoftwareDeveloper" />
+
+      {/* CAREER OUTCOMES */}
+      <CareerOutcomes domain="SoftwareDeveloper" />
 
       {/* MARKET LEADERS */}
       <MarketLeaders />

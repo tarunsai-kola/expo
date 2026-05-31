@@ -13,6 +13,7 @@ import {
 import { Toaster } from "react-hot-toast";
 
 import ClientsCarousel from "../Components/our_alumni";
+import AuthorityMarquee from "../Components/AuthorityMarquee";
 // import AdvancedApplyPopup from "../Components/AdvancedApplyPopup";
 import CountdownTimer from "./AdvanceCourse/Components/CountdownTimer";
 
@@ -409,7 +410,7 @@ const Advance = () => {
                   </div>
                   <div className="flex flex-col justify-center">
                      <p className="text-emerald-50/70 text-[10px] font-bold mb-0.5">Placements</p>
-                     <p className="text-white text-[20px] font-bold leading-none">4500+</p>
+                     <p className="text-white text-[20px] font-bold leading-none">1100+</p>
                   </div>
                </div>
 
@@ -444,6 +445,9 @@ const Advance = () => {
 
          </div>
       </section>
+
+      {/* AUTHORITY MARQUEE */}
+      <AuthorityMarquee theme="dark" />
 
       {/* 2. PROGRAM CATEGORY & CATALOG */}
       <section className="py-32 bg-zinc-950 relative z-10" id="catalog">
@@ -569,7 +573,38 @@ const Advance = () => {
                  className="md:col-span-2 md:row-span-2 glass-panel rounded-[32px] p-10 lg:p-16 flex flex-col justify-end relative overflow-hidden group border-white/10"
                >
                   <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-600/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
-                  <div className="absolute top-10 right-10 p-4 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md">
+                  
+                  {/* Decorative Architecture Graphic */}
+                  <div className="absolute top-10 left-10 right-32 bottom-[300px] pointer-events-none hidden md:flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity duration-1000">
+                     <div className="relative w-full max-w-md h-full max-h-[250px] mt-10">
+                        {/* Connecting Lines */}
+                        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                          <path d="M15 50 C 40 50, 40 25, 60 25" stroke="rgba(99,102,241,0.4)" strokeWidth="0.5" fill="none" strokeDasharray="1 1"/>
+                          <path d="M15 50 C 40 50, 40 75, 60 75" stroke="rgba(16,185,129,0.4)" strokeWidth="0.5" fill="none" strokeDasharray="1 1"/>
+                          <path d="M60 25 C 80 25, 80 50, 95 50" stroke="rgba(6,182,212,0.4)" strokeWidth="0.5" fill="none" strokeDasharray="1 1"/>
+                          <path d="M60 75 C 80 75, 80 50, 95 50" stroke="rgba(244,63,94,0.4)" strokeWidth="0.5" fill="none" strokeDasharray="1 1"/>
+                        </svg>
+
+                        {/* Nodes */}
+                        <div className="absolute top-1/2 left-[15%] -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-indigo-500/10 border border-indigo-500/20 rounded-xl backdrop-blur-md flex items-center justify-center animate-pulse shadow-[0_0_30px_rgba(99,102,241,0.2)]">
+                           <MonitorPlay className="text-indigo-400" size={20}/>
+                        </div>
+
+                        <div className="absolute top-[25%] left-[60%] -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-emerald-500/10 border border-emerald-500/20 rounded-xl backdrop-blur-md flex items-center justify-center shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+                           <Server className="text-emerald-400" size={20}/>
+                        </div>
+
+                        <div className="absolute top-[75%] left-[60%] -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 rounded-xl backdrop-blur-md flex items-center justify-center shadow-[0_0_30px_rgba(6,182,212,0.2)]">
+                           <Database className="text-cyan-400" size={20}/>
+                        </div>
+
+                        <div className="absolute top-1/2 left-[95%] -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-rose-500/10 border border-rose-500/20 rounded-xl backdrop-blur-md flex items-center justify-center animate-pulse shadow-[0_0_30px_rgba(244,63,94,0.2)]">
+                           <Workflow className="text-rose-400" size={20}/>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div className="absolute top-10 right-10 p-4 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md z-20">
                     <Server size={48} className="text-indigo-400" strokeWidth={1}/>
                   </div>
                   

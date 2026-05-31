@@ -138,10 +138,10 @@ const AdminHeader = () => {
             <Link to="/AlumniData">
               <i className="fa fa-lightbulb-o mr-2"></i>Alumni Review
             </Link>
-            <Link to="/ReferAndEarnResponse">
-              <i className="fa fa-bell mr-2"></i>Refer & Earn
+            <Link to="/admin-career-assessment">
+              <i className="fa fa-address-card mr-2"></i>Career Assessments
             </Link>
-            <Link to="/AllTeamDetail">
+                        <Link to="/AllTeamDetail">
               <i className="fa fa-users mr-2"></i>Team Detail
             </Link>
             <Link to="/Admin/Attendance">

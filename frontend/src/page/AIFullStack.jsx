@@ -12,8 +12,10 @@ import TopOnePercent from "../Components/TopOnePercent";
 import Certification from "./AdvanceCourse/Components/Certification";
 import ApplyNowButton from "./AdvanceCourse/Components/ApplyNowButton";
 import SalaryGrowth from "../Components/SalaryGrowth";
+import CareerOutcomes from "../Components/CareerOutcomes";
 import MarketLeaders from "../Components/MarketLeaders";
 import MeetYourMentors from "../Components/MeetYourMentors";
+import AuthorityMarquee from "../Components/AuthorityMarquee";
 import FloatingNav from "../Components/FloatingNav";
 import "./AIFullStack.css"; // Silver scoped CSS
 
@@ -74,26 +76,36 @@ const sdPhases = [
   {
     id: "phase-1",
     phase: "PHASE 1",
-    duration: "WEEKS 1–8",
-    title: "Core Training",
+    duration: "WEEKS 1–4",
+    title: "Frontend Engineering",
     focusLabel: "CURRICULUM",
     focus: [
       "W1: Web Dev Foundations (HTML5, CSS Grid, Flexbox)",
       "W2: Modern JavaScript (DOM, Async, Fetch, ES6+)",
       "W3: React Development (Components, State, Hooks, Router)",
-      "W4: Advanced Frontend (Next.js, Tailwind CSS, Auth UI)",
+      "W4: Advanced Frontend (Next.js, Tailwind CSS, Auth UI)"
+    ],
+    application: "Responsive Business Site, Task Manager App, SaaS Dashboard"
+  },
+  {
+    id: "phase-2",
+    phase: "PHASE 2",
+    duration: "WEEKS 5–8",
+    title: "Backend, AI & DevOps",
+    focusLabel: "CURRICULUM",
+    focus: [
       "W5: Backend Development (Node.js, Express, REST APIs)",
       "W6: Databases & Integration (MongoDB, PostgreSQL, Prisma)",
       "W7: AI-Powered Dev (OpenAI/Gemini APIs, Cursor AI, Copilot)",
       "W8: Production Ready (Auth, Docker, CI/CD, System Design)"
     ],
-    application: "Responsive Site, Task Manager, SaaS Dashboard, API Dev, Full Stack CRM, AI Business Assistant"
+    application: "Full Stack CRM, API Development, AI Business Assistant"
   },
   {
-    id: "phase-2",
-    phase: "PHASE 2",
+    id: "phase-3",
+    phase: "PHASE 3",
     duration: "WEEKS 9–12",
-    title: "Implementation & Capstone",
+    title: "Industry Capstone Projects",
     focusLabel: "CURRICULUM",
     focus: [
       "W9: E-Commerce Platform (Auth, Cart, Payments, Admin DB)",
@@ -104,8 +116,8 @@ const sdPhases = [
     application: "Deliver massive production-ready applications with full backend infrastructure."
   },
   {
-    id: "phase-3",
-    phase: "PHASE 3",
+    id: "phase-4",
+    phase: "PHASE 4",
     duration: "WEEKS 13–16",
     title: "Placement Preparation",
     focusLabel: "CURRICULUM",
@@ -256,7 +268,7 @@ const AIFullStack = () => {
                   </div>
                   <div className="flex flex-col justify-center">
                      <p className="text-slate-400 text-[10px] font-bold mb-0.5">Placements</p>
-                     <p className="text-white text-[20px] font-bold leading-none">4500+</p>
+                     <p className="text-white text-[20px] font-bold leading-none">1100+</p>
                   </div>
                </div>
 
@@ -294,6 +306,9 @@ const AIFullStack = () => {
 
       {/* STATS BAR */}
       <ProgramStatsBar stats={trustStats} labelColor="text-white" />
+      
+      {/* COLLABORATION COMPANY MARQUEE */}
+      <AuthorityMarquee theme="dark" />
 
       {/* TOP ONE PERCENT (PROGRAM HIGHLIGHTS) */}
       <TopOnePercent
@@ -504,7 +519,10 @@ const AIFullStack = () => {
       </section>
 
       {/* SALARY GROWTH */}
-      <SalaryGrowth domain="Full Stack" />
+      <SalaryGrowth domain="AIFullStack" />
+
+      {/* CAREER OUTCOMES */}
+      <CareerOutcomes domain="AIFullStack" />
 
       {/* MARKET LEADERS */}
       <MarketLeaders />

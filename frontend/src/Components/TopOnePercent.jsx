@@ -33,7 +33,7 @@ const features = [
   },
   {
     Icon: Building2,
-    title: "15 Guaranteed Interview Opportunities*",
+    title: "100% Placement Assistance*",
     sub: "Fast-track your job search. Get direct access to 500+ hiring partners actively looking for talent.",
   },
   {
@@ -119,7 +119,7 @@ const TopOnePercent = ({
 
         {/* Disclaimer */}
         <p className="mt-8 text-[11px] text-textMuted italic text-center">
-          * Interview opportunities are subject to eligibility criteria and partner availability.
+          * Placement assistance is subject to eligibility criteria and partner availability.
         </p>
       </div>
     </section>
