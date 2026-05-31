@@ -46,6 +46,7 @@ import AdvanceApplyPage from "./page/AdvanceApplyPage";
 import AdvanceForm from "./page/AdvanceForm";
 import AgenticAndGenAI from "./page/AgenticAndGenAI";
 import SoftwareDeveloper from "./page/SoftwareDeveloper";
+import AIFullStack from "./page/AIFullStack";
 // Admin
 import AdminHeader from "./Admin/AdminHeader";
 import AddCourse from "./Admin/AddCourse";
@@ -505,6 +506,7 @@ const AppContent = () => {
         <Route path="/Advance" element={<Advance />} />
         <Route path="/AgenticAndGenAI" element={<AgenticAndGenAI />} />
         <Route path="/SoftwareDeveloper" element={<SoftwareDeveloper />} />
+        <Route path="/AIFullStack" element={<AIFullStack />} />
         <Route path="/advance-apply" element={<AdvanceApplyPage />} />
         <Route path="/advanceform" element={<AdvanceForm />} />
         <Route path="/Mentorship" element={<Navigate to="/Advance" replace />} />

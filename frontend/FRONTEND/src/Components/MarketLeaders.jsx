@@ -152,7 +152,7 @@ const MarketLeaders = () => {
           </p>
           <a 
             href="#curriculum"
-            className="relative z-10 inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primaryHover text-white font-bold rounded-xl transition-all hover:shadow-[0_0_24px_rgba(19,138,82,0.4)] hover:-translate-y-0.5"
+            className="relative z-10 inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primaryHover text-[#0a0a0a] font-black rounded-xl transition-all hover:shadow-[0_0_24px_rgba(255,255,255,0.1)] hover:-translate-y-0.5"
           >
             View Curriculum <ArrowRight size={16} />
           </a>

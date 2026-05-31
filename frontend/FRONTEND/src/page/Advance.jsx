@@ -55,13 +55,14 @@ const programs = [
     dur: "16 Weeks", 
     idealFor: "Aspiring software engineers.", 
     tools: ["React", "Node.js", "OpenAI APIs"], 
-    link: "/SoftwareDeveloper", 
+    link: "/AIFullStack", 
     cat: "Engineering", 
     accent: "bg-emerald-500",
     shadow: "shadow-emerald-500/20",
     gradient: "from-emerald-400 to-teal-600",
     bgImage: "/program-bg/ai-fsd.png"
   },
+
   { 
     id: "cyber", 
     icon: <ShieldCheck size={28}/>, 
@@ -104,7 +105,7 @@ const heroData = [
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
     badgeLabel: "Admissions Open",
     card1Label: "Career Focus", card1Value: "AI Architect", card1Icon: <BrainCircuit size={20}/>,
-    card2Label: "Format", card2Value: "24-Week Sprint", card2Icon: <Clock size={20}/>,
+    card2Label: "Format", card2Value: "16-Week Sprint", card2Icon: <Clock size={20}/>,
     glowBg: "bg-indigo-600/30",
     gradientText: "from-indigo-400 to-purple-400"
   },
@@ -117,7 +118,7 @@ const heroData = [
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80",
     badgeLabel: "Engineering Track",
     card1Label: "Career Focus", card1Value: "Full Stack Engineer", card1Icon: <Code2 size={20}/>,
-    card2Label: "Format", card2Value: "24-Week Cohort", card2Icon: <Clock size={20}/>,
+    card2Label: "Format", card2Value: "16-Week Cohort", card2Icon: <Clock size={20}/>,
     glowBg: "bg-emerald-600/30",
     gradientText: "from-emerald-400 to-teal-400"
   },
@@ -130,7 +131,7 @@ const heroData = [
     image: "https://images.unsplash.com/photo-1563206767533-bc5935cb8ca5?auto=format&fit=crop&w=800&q=80",
     badgeLabel: "Security Track",
     card1Label: "Career Focus", card1Value: "Security Analyst", card1Icon: <ShieldCheck size={20}/>,
-    card2Label: "Format", card2Value: "20-Week Cohort", card2Icon: <Clock size={20}/>,
+    card2Label: "Format", card2Value: "16-Week Cohort", card2Icon: <Clock size={20}/>,
     glowBg: "bg-rose-600/30",
     gradientText: "from-rose-400 to-red-400"
   }

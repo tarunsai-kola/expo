@@ -220,8 +220,7 @@ const DataAnalytics = () => {
               Advanced Data Analytics
             </span>
             <span className="relative inline-block mt-2">
-              <span className="absolute inset-0 bg-[#06b6d4]/30 blur-[80px] animate-pulse"></span>
-              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#67e8f9] via-[#06b6d4] to-[#2563eb] drop-shadow-[0_0_60px_rgba(6,182,212,0.8)]">
+              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#67e8f9] via-[#06b6d4] to-[#2563eb] drop-shadow-md">
                 & AI Integration
               </span>
             </span>

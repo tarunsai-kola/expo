@@ -75,7 +75,7 @@ const PremiumCurriculum = ({
                     <div className={`text-[10px] md:text-xs font-bold tracking-widest uppercase mb-2 ${accentColor}`}>
                       {p.phase} ({p.duration}):
                     </div>
-                    <div className={`font-semibold text-base md:text-xl transition-all duration-300 ${isActive ? 'text-white' : 'text-gray-500 group-hover:text-gray-300'}`}>
+                    <div className={`font-semibold text-base md:text-xl transition-all duration-300 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`}>
                       {p.title}
                     </div>
                   </button>

@@ -109,7 +109,7 @@ const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="col-span-2 lg:col-span-4 xl:col-span-3 lg:ml-auto">
+          <div className="col-span-2 lg:col-span-3 xl:col-span-3 lg:ml-auto">
             <h3 style={{ color: 'rgba(255,255,255,0.4)', fontSize: '11px', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '18px' }}>Contact</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               {[

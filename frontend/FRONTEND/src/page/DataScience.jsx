@@ -218,8 +218,7 @@ const DataScience = () => {
               Advanced Data Science &
             </span>
             <span className="relative inline-block mt-2">
-              <span className="absolute inset-0 bg-[#eab308]/30 blur-[80px] animate-pulse"></span>
-              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#fef08a] via-[#eab308] to-[#ca8a04] drop-shadow-[0_0_60px_rgba(234,179,8,0.8)]">
+              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-[#fef08a] via-[#eab308] to-[#ca8a04] drop-shadow-md">
                 Generative AI
               </span>
             </span>

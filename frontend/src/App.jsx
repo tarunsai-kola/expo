@@ -27,16 +27,10 @@ import DataScience from "./page/DataScience";
 import DataAnalytics from "./page/DataAnalytics";
 import Cybersecurity from "./page/Cybersecurity";
 import DigitalMarketing from "./page/DigitalMarketing";
-import MernStack from "./page/AdvanceCourse/MernStack";
-import UIUXDesign from "./page/AdvanceCourse/UIUXDesign";
-import MentorshipCourseDetails from "./page/Mentorship/CourseDetails/MentorshipCourseDetails";
 
-import ProductManagement from "./page/AdvanceCourse/ProductManagement";
 import SmoothScroll from "./SmoothScroll";
 import MasterClass from "./page/MasterClass";
 import MasterClassDetails from "./page/MasterClassDetails";
-import AutomationTesting from "./page/AdvanceCourse/AutomationTesting";
-import PromptEngineering from "./page/AdvanceCourse/PromptEngineering";
 import GenerativeAI from "./page/AdvanceCourse/GenerativeAI";
 import DashboardAccessForm from "./page/DashboardAccessForm";
 import AdvanceDashboardAccess from "./page/AdvanceDashboardAccess";
@@ -46,6 +40,7 @@ import AdvanceApplyPage from "./page/AdvanceApplyPage";
 import AdvanceForm from "./page/AdvanceForm";
 import AgenticAndGenAI from "./page/AgenticAndGenAI";
 import SoftwareDeveloper from "./page/SoftwareDeveloper";
+import AIFullStack from "./page/AIFullStack";
 // Admin
 import AdminHeader from "./Admin/AdminHeader";
 import AddCourse from "./Admin/AddCourse";
@@ -505,6 +500,7 @@ const AppContent = () => {
         <Route path="/Advance" element={<Advance />} />
         <Route path="/AgenticAndGenAI" element={<AgenticAndGenAI />} />
         <Route path="/SoftwareDeveloper" element={<SoftwareDeveloper />} />
+        <Route path="/AIFullStack" element={<AIFullStack />} />
         <Route path="/advance-apply" element={<AdvanceApplyPage />} />
         <Route path="/advanceform" element={<AdvanceForm />} />
         <Route path="/Mentorship" element={<Navigate to="/Advance" replace />} />
