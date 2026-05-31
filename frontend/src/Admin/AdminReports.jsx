@@ -36,7 +36,7 @@ const AdminReports = () => {
     };
 
     return (
-        <div className="p-8 bg-gray-50 min-h-screen" style={{ marginLeft: '265px', overflowX: 'hidden' }}>
+        <div className="admin-content-wrap" style={{ overflowX: 'hidden' }}>
             <Toaster />
             <div className="mb-8">
                 <h1 className="text-3xl font-extrabold text-gray-900">Reporting Center</h1>

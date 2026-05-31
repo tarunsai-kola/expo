@@ -1,83 +1,131 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaFileContract, FaChevronRight } from "react-icons/fa";
 
 const Terms = () => {
-  return (
-    <div className="min-h-screen bg-[#fafafa] px-6 py-16 text-gray-800">
-      <div className="mx-auto max-w-4xl rounded-[32px] bg-white p-8 shadow-[0_18px_50px_rgba(15,23,42,0.08)] md:p-12">
-        <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#f15b29]">Terms of Service</p>
-        <h1 className="mt-4 text-3xl font-extrabold tracking-tight md:text-5xl">Terms and Conditions</h1>
-        <p className="mt-6 text-base leading-8 text-gray-600">
-          Welcome to Atorax! By accessing or using our services, you agree to comply with and be bound by the following terms and conditions.
-          Please read them carefully.
-        </p>
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-        <div className="mt-10 space-y-6 text-sm leading-7 text-gray-600">
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">1. General</h2>
-            <p className="mt-2">1.1 These Terms apply to all users of our platform, services, and programs.</p>
-            <p className="mt-2">1.2 The company reserves the right to update or modify these Terms at any time without prior notice.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">2. Eligibility</h2>
-            <p className="mt-2">2.1 Users must meet the minimum age requirement of 16 years or provide parental consent.</p>
-            <p className="mt-2">2.2 Enrollment in certain courses or programs may require prerequisite qualifications.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">3. Services</h2>
-            <p className="mt-2">3.1 We provide educational programs, training, and resources through our platform and partnerships.</p>
-            <p className="mt-2">3.2 Program details, schedules, and fees are subject to change without prior notice.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">4. Payments</h2>
-            <p className="mt-2">4.1 Fees must be paid in full before accessing any course or program unless specified otherwise.</p>
-            <p className="mt-2">4.2 Fees are non-refundable.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">5. Intellectual Property</h2>
-            <p className="mt-2">5.1 All course materials, content, and resources are owned by Atorax or its licensors.</p>
-            <p className="mt-2">5.2 Users may not reproduce, distribute, or share any materials without prior written consent.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">6. User Conduct</h2>
-            <p className="mt-2">6.1 Users must not engage in any unlawful, disruptive, or harmful activities on the platform.</p>
-            <p className="mt-2">6.2 Breach of this conduct policy may result in suspension or termination of access.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">7. Data Privacy</h2>
-            <p className="mt-2">7.1 We are committed to protecting your personal information.</p>
-            <p className="mt-2">7.2 Please refer to our Privacy Policy for details on how we collect, use, and store data.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">8. Limitation of Liability</h2>
-            <p className="mt-2">8.1 Atorax is not liable for any direct or indirect damages resulting from the use of our platform or services.</p>
-            <p className="mt-2">8.2 We do not guarantee job placements or specific outcomes from any program.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">9. Cancellations and Refunds</h2>
-            <p className="mt-2">9.1 Cancellations must be made in writing within the specified refund window.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">10. Dispute Resolution</h2>
-            <p className="mt-2">10. The decision of the arbitrator shall be final and binding.</p>
-          </section>
-          <section>
-            <h2 className="text-lg font-bold text-gray-900">11. Contact Information</h2>
-            <p className="mt-2">For any questions or concerns regarding these Terms, please contact us at support@atorax.com.</p>
-          </section>
+  return (
+    <div className="min-h-screen bg-[#05050A] text-gray-300 font-sans relative overflow-hidden pb-24">
+      {/* Ambient Background Effects */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none transform -translate-y-1/2"></div>
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none translate-x-1/3"></div>
+
+      <div className="max-w-[900px] mx-auto px-6 pt-32 relative z-10">
+        
+        {/* Header Section */}
+        <div className="mb-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="inline-flex items-center justify-center p-4 bg-white/5 border border-white/10 rounded-2xl mb-6 text-blue-500 shadow-[0_0_30px_rgba(37,99,235,0.15)]">
+            <FaFileContract size={32} />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-6">
+            Terms of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Service</span>
+          </h1>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            Welcome to Atorax! By accessing or using our services, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.
+          </p>
         </div>
 
-        <div className="mt-10 flex flex-wrap gap-4">
-          <Link to="/" className="rounded-full bg-[#f15b29] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#e14f1f]">
+        {/* Content Card */}
+        <div className="bg-white/[0.02] border border-white/10 backdrop-blur-xl rounded-[32px] p-8 md:p-14 shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150">
+          
+          <div className="space-y-12">
+            
+            <section className="group">
+              <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center text-sm border border-blue-500/20">01</span>
+                General & Eligibility
+              </h2>
+              <div className="pl-11 space-y-4 text-gray-400 leading-relaxed text-sm md:text-base">
+                <p>These Terms apply to all users of our platform, services, and programs. We reserve the right to update or modify these Terms at any time without prior notice.</p>
+                <p>Users must meet the minimum age requirement of 16 years or provide parental consent. Enrollment in certain courses or programs may require prerequisite qualifications.</p>
+              </div>
+            </section>
+
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+            <section className="group">
+              <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-sm border border-indigo-500/20">02</span>
+                Services & Payments
+              </h2>
+              <div className="pl-11 space-y-4 text-gray-400 leading-relaxed text-sm md:text-base">
+                <p>We provide educational programs, training, and resources through our platform and partnerships. Program details, schedules, and fees are subject to change without prior notice.</p>
+                <p>Fees must be paid in full before accessing any course or program unless specified otherwise. Fees are strictly non-refundable.</p>
+              </div>
+            </section>
+
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+            <section className="group">
+              <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center text-sm border border-blue-500/20">03</span>
+                Intellectual Property & Conduct
+              </h2>
+              <div className="pl-11 space-y-4 text-gray-400 leading-relaxed text-sm md:text-base">
+                <p>All course materials, content, and resources are owned by Atorax or its licensors. Users may not reproduce, distribute, or share any materials without prior written consent.</p>
+                <p>Users must not engage in any unlawful, disruptive, or harmful activities on the platform. Breach of this conduct policy may result in suspension or termination of access.</p>
+              </div>
+            </section>
+
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+            <section className="group">
+              <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center text-sm border border-indigo-500/20">04</span>
+                Liability & Dispute Resolution
+              </h2>
+              <div className="pl-11 space-y-4 text-gray-400 leading-relaxed text-sm md:text-base">
+                <p>Atorax is not liable for any direct or indirect damages resulting from the use of our platform or services. We do not guarantee job placements or specific outcomes from any program.</p>
+                <p>Any disputes shall be resolved through arbitration, and the decision of the arbitrator shall be final and binding.</p>
+              </div>
+            </section>
+
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+              <section className="bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                <h2 className="text-lg font-bold text-white mb-3">Data Privacy</h2>
+                <p className="text-sm text-gray-400 leading-relaxed">We are committed to protecting your personal information. Please refer to our Privacy Policy for details on how we collect, use, and store data.</p>
+              </section>
+
+              <section className="bg-white/5 p-6 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                <h2 className="text-lg font-bold text-white mb-3">Cancellations</h2>
+                <p className="text-sm text-gray-400 leading-relaxed">Cancellations must be made in writing within the specified refund window. Outside of this window, no refunds are provided.</p>
+              </section>
+            </div>
+            
+            {/* Contact Support */}
+            <section className="mt-8 p-6 md:p-8 bg-blue-900/20 border border-blue-500/30 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h2 className="text-xl font-bold text-white mb-2">Have Questions?</h2>
+                <p className="text-sm text-gray-400">For any questions or concerns regarding these Terms, please contact us.</p>
+              </div>
+              <a href="mailto:support@atorax.com" className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] whitespace-nowrap">
+                support@atorax.com
+              </a>
+            </section>
+
+          </div>
+        </div>
+
+        {/* Footer Navigation */}
+        <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 animate-in fade-in duration-1000 delay-300">
+          <Link to="/" className="w-full md:w-auto text-center px-8 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl text-sm transition-all border border-white/5">
             Back to Home
           </Link>
-          <Link to="/Privacy" className="rounded-full border border-gray-200 px-5 py-3 text-sm font-bold text-gray-700 transition-colors hover:border-[#f15b29] hover:text-[#f15b29]">
-            Privacy Policy
-          </Link>
-          <Link to="/RefundPolicy" className="rounded-full border border-gray-200 px-5 py-3 text-sm font-bold text-gray-700 transition-colors hover:border-[#f15b29] hover:text-[#f15b29]">
-            Refund Policy
-          </Link>
+          <div className="flex gap-4 w-full md:w-auto">
+            <Link to="/Privacy" className="flex-1 md:flex-none text-center px-6 py-3.5 bg-transparent hover:bg-white/5 border border-white/10 text-gray-300 hover:text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2 group">
+              Privacy Policy <FaChevronRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0" />
+            </Link>
+            <Link to="/RefundPolicy" className="flex-1 md:flex-none text-center px-6 py-3.5 bg-transparent hover:bg-white/5 border border-white/10 text-gray-300 hover:text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2 group">
+              Refund Policy <FaChevronRight size={10} className="opacity-0 group-hover:opacity-100 transition-opacity translate-x-[-10px] group-hover:translate-x-0" />
+            </Link>
+          </div>
         </div>
+
       </div>
     </div>
   );

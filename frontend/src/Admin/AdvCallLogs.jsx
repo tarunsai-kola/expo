@@ -51,7 +51,7 @@ const AdvCallLogs = () => {
     };
 
     return (
-        <div className="p-8 bg-gray-50 min-h-screen" style={{ marginLeft: '265px', paddingBottom: playingUrl ? '120px' : '32px' }}>
+        <div className="admin-content-wrap" style={{ paddingBottom: playingUrl ? '120px' : '32px' }}>
             <Toaster />
             <div className="flex justify-between items-center mb-8">
                 <div>

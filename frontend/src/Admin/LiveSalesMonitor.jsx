@@ -38,7 +38,7 @@ const LiveSalesMonitor = () => {
     };
 
     return (
-        <div className="p-8 bg-[#f8fafc] min-h-screen" style={{ marginLeft: '265px' }}>
+        <div className="admin-content-wrap">
             <Toaster />
             <div className="max-w-7xl mx-auto">
                 <header className="mb-10 flex items-center justify-between">

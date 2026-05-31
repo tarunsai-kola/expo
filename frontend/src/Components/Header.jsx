@@ -199,7 +199,7 @@ const Header = () => {
         .atx-mobile-menu .mob-enroll:hover {
           background: #0D4FC0;
         }
-        @media (max-width: 1024px) {
+        @media (max-width: 1300px) {
           .atx-nav { display: none; }
           .atx-hamburger { display: block; }
         }

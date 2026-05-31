@@ -942,6 +942,7 @@ const AdminAttendance = () => {
 const styles = {
   container: {
     padding: '40px',
+    paddingTop: '90px',
     marginLeft: '270px',
     backgroundColor: '#f8fafc',
     minHeight: '100vh',

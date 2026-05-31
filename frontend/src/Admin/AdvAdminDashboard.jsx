@@ -65,7 +65,7 @@ const AdvAdminDashboard = () => {
     };
 
     return (
-        <div className="p-8 bg-gray-50 min-h-screen" style={{ marginLeft: '265px', overflowX: 'hidden' }}>
+        <div className="admin-content-wrap" style={{ overflowX: 'hidden' }}>
             <Toaster />
             <div className="flex justify-between items-center mb-8">
                 <div>

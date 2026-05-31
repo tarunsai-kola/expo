@@ -7,15 +7,23 @@ import toast from "react-hot-toast";
 const AdminCareerAssessment = () => {
   const [assessments, setAssessments] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
-    fetchAssessments();
-  }, []);
+    fetchAssessments(page);
+  }, [page]);
 
-  const fetchAssessments = async () => {
+  const fetchAssessments = async (currentPage) => {
     try {
-      const response = await axios.get(`${API}/careerassessment`);
-      setAssessments(response.data);
+      setLoading(true);
+      const response = await axios.get(`${API}/careerassessment?page=${currentPage}&limit=30`);
+      // Since response data is now paginated object: { data, currentPage, totalPages, totalItems }
+      const data = response.data.data ? response.data.data : response.data;
+      setAssessments(data);
+      setTotalPages(response.data.totalPages || 1);
+      setTotalItems(response.data.totalItems || data.length);
     } catch (error) {
       console.error("Error fetching assessments:", error);
       toast.error("Failed to load assessments");
@@ -24,14 +32,23 @@ const AdminCareerAssessment = () => {
     }
   };
 
+  const handlePrevPage = () => {
+    if (page > 1) setPage(page - 1);
+  };
+
+  const handleNextPage = () => {
+    if (page < totalPages) setPage(page + 1);
+  };
+
   return (
-    <div className="bg-[#1e1e2d] min-h-screen p-8 text-white">
-      <Helmet>
-        <title>Career Assessments | Admin Dashboard</title>
-      </Helmet>
+    <div id="AdminAddCourse">
+      <div className="bg-[#1e1e2d] min-h-screen p-8 text-white">
+        <Helmet>
+          <title>Career Assessments | Admin Dashboard</title>
+        </Helmet>
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-3xl font-bold text-white">Career Assessments</h2>
-        <div className="text-gray-400">Total Submissions: <span className="font-bold text-white">{assessments.length}</span></div>
+        <div className="text-gray-400">Total Submissions: <span className="font-bold text-white">{totalItems}</span></div>
       </div>
 
       {loading ? (
@@ -109,8 +126,32 @@ const AdminCareerAssessment = () => {
               </tbody>
             </table>
           </div>
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between px-6 py-4 border-t border-white/5 bg-black/20">
+              <div className="text-sm text-gray-400">
+                Showing page <span className="font-bold text-white">{page}</span> of <span className="font-bold text-white">{totalPages}</span>
+              </div>
+              <div className="flex gap-2">
+                <button
+                  onClick={handlePrevPage}
+                  disabled={page === 1}
+                  className="px-4 py-2 text-sm font-medium text-white bg-white/5 border border-white/10 rounded hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={handleNextPage}
+                  disabled={page === totalPages}
+                  className="px-4 py-2 text-sm font-medium text-white bg-white/5 border border-white/10 rounded hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       )}
+      </div>
     </div>
   );
 };

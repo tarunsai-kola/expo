@@ -3,8 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../API";
 import toast, { Toaster } from "react-hot-toast";
-import { FaWhatsapp } from "react-icons/fa";
-import "../style/OnBoardingForm.css";
+import { FaWhatsapp, FaUserAstronaut, FaEnvelope, FaPhone, FaBuilding, FaBriefcase, FaGraduationCap, FaChevronDown, FaCheck, FaTimes } from "react-icons/fa";
 
 const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, domain, monthOpted }) => {
   if (!isOpen) return null;
@@ -14,49 +13,55 @@ const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, dom
   const whatsappLink = `https://wa.me/917829102936?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <div style={styles.modal}>
-      <div style={styles.modalContent}>
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-300">
+      <div className="bg-[#11111a] border border-white/10 p-8 rounded-3xl w-full max-w-md text-center shadow-2xl relative animate-in zoom-in-95 duration-300">
+        <button onClick={onClose} className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+          <FaTimes size={20} />
+        </button>
+        
         {errorMessage ? (
           <div>
-            <h2>{errorMessage}</h2>
-            <p className="text-xs whitespace-nowrap mt-2">
-              NOTE: if you have any doubt feel free to contact your counselor
-              for more details.
+            <div className="w-16 h-16 bg-red-500/20 text-red-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-red-500/30">
+              <FaTimes size={30} />
+            </div>
+            <h2 className="text-xl font-bold text-white mb-2">{errorMessage}</h2>
+            <p className="text-sm text-gray-400 mt-2">
+              NOTE: If you have any doubt, feel free to contact your counselor for more details.
             </p>
           </div>
         ) : (
           <div>
-            <h3 className="mb-2 text-lg font-semibold text-gray-800">
-              Thank you for registration!
+            <div className="w-16 h-16 bg-emerald-500/20 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 border border-emerald-500/30">
+              <FaCheck size={30} />
+            </div>
+            <h3 className="mb-2 text-xl font-bold text-white">
+              Thank you for registering!
             </h3>
-            <h3 className="mb-2 text-green-600 font-bold">
-              Welcome to Atorax Advance Program!
+            <h3 className="mb-4 text-emerald-400 font-bold">
+              Welcome to Atorax Advance Program
             </h3>
-            <p>
+            <p className="text-gray-300 text-sm leading-relaxed">
               Your advance program dashboard access form has been submitted successfully.
             </p>
-            <div className="mt-4 p-3 bg-blue-50 border-l-4 border-blue-500 rounded">
-              <p className="text-sm text-gray-700">
-                <strong>Note:</strong> Please contact your assigned operations executive <br />Bhumika HK <br /> 7829102936<br /> bhumika@atorax.org
+            <div className="mt-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-2xl text-left">
+              <p className="text-sm text-gray-300 mb-4">
+                <strong className="text-white block mb-1">Next Steps:</strong> Please contact your assigned operations executive:<br />
+                <span className="text-blue-400 font-semibold block mt-2">Bhumika HK</span>
+                <span>7829102936</span><br />
+                <span>bhumika@atorax.org</span>
               </p>
               <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-3 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors duration-200"
+                className="w-full flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl transition-all shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] font-bold text-sm"
               >
-                <FaWhatsapp size={20} />
+                <FaWhatsapp size={18} />
                 Contact on WhatsApp
               </a>
             </div>
           </div>
         )}
-        <button
-          className="bg-red-600 float-right rounded-md px-6 py-2 text-white mt-8"
-          onClick={onClose}
-        >
-          Close
-        </button>
       </div>
     </div>
   );
@@ -69,14 +74,12 @@ const AdvanceDashboardAccess = () => {
   // Helper function to format name to Title Case
   const toTitleCase = (value) => {
     if (!value) return "";
-    // Check if the value ends with a space (user is typing a new word)
     const endsWithSpace = value.endsWith(" ");
     const formatted = value
       .split(/\s+/)
       .filter((word) => word.length > 0)
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(" ");
-    // Preserve trailing space so user can continue typing
     return endsWithSpace ? formatted + " " : formatted;
   };
 
@@ -106,42 +109,20 @@ const AdvanceDashboardAccess = () => {
   const [batchTiming, setBatchTiming] = useState("");
 
   const LANGUAGE_OPTIONS = ["English", "Hindi", "Kannada", "Telugu", "Tamil", "Malayalam", "Bengali"];
-
   const [monthsToShow, setMonthsToShow] = useState([]);
-
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+  const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   useEffect(() => {
     const currentDate = new Date();
-    const currentMonthIndex = currentDate.getMonth(); // 0-based index
-    const currentDay = currentDate.getDate();
+    const currentMonthIndex = currentDate.getMonth(); 
     const currentYear = currentDate.getFullYear();
-
-    let months = [];
-    let startMonthIndex;
-
     const nextMonthIndex = (currentMonthIndex + 1) % 12;
     const nextMonthYear = currentMonthIndex + 1 > 11 ? currentYear + 1 : currentYear;
 
-    months = [
+    setMonthsToShow([
       `${monthNames[currentMonthIndex]} ${currentYear}`,
       `${monthNames[nextMonthIndex]} ${nextMonthYear}`,
-    ];
-
-    setMonthsToShow(months);
+    ]);
   }, []);
 
   const fetchCourses = async () => {
@@ -189,13 +170,10 @@ const AdvanceDashboardAccess = () => {
   const [isEmailVerified, setIsEmailVerified] = useState(false);
 
   const getInstallmentDates = () => {
-    if (paymentPlan !== "Installments" || !numberOfInstallments) {
-      return [];
-    }
+    if (paymentPlan !== "Installments" || !numberOfInstallments) return [];
     const count = parseInt(numberOfInstallments, 10);
     const dates = [];
     let current = new Date();
-    
     for (let i = 0; i < count; i++) {
       current.setDate(current.getDate() + 20);
       dates.push(current.toISOString().split("T")[0]);
@@ -218,35 +196,34 @@ const AdvanceDashboardAccess = () => {
       : paymentPlan;
 
     const formData = {
-      fullname: fullname,
+      fullname,
       email: email.trim(),
-      phone: phone,
+      phone,
       counselor: counselor.trim(),
       domain: domain.trim(),
-      programPrice: programPrice,
-      paidAmount: paidAmount,
-      monthOpted: monthOpted,
-      transactionId: transactionId,
+      programPrice,
+      paidAmount,
+      monthOpted,
+      transactionId,
       clearPaymentMonth: finalClearPaymentMonth,
-      modeofpayment: modeofpayment,
-      whatsAppNumber: whatsAppNumber,
-      remainingAmount: remainingAmount,
-      experience: experience,
+      modeofpayment,
+      whatsAppNumber,
+      remainingAmount,
+      experience,
       paymentPlan: finalPaymentPlan,
-      referFriend: referFriend,
-      yearOfPassingOut: yearOfPassingOut,
+      referFriend,
+      yearOfPassingOut,
       lead: lead.trim(),
-      languages: languages,
-      companyName: companyName,
-      role: role,
+      languages,
+      companyName,
+      role,
       program: domain.trim(),
-      batchTiming: batchTiming
+      batchTiming
     };
 
     if (isEmailVerified) {
       try {
         let response = await axios.post(`${API}/advenroll`, formData);
-
         if (response.status === 200 || response.status === 201) {
           setIsModalOpen(true);
         } else {
@@ -256,14 +233,10 @@ const AdvanceDashboardAccess = () => {
       } catch (error) {
         let errMessage = "An error occurred.";
         if (error.response) {
-          errMessage =
-            error.response.data?.message ||
-            error.response.data?.error ||
-            "An error occurred while processing your request.";
+          errMessage = error.response.data?.message || error.response.data?.error || "An error occurred while processing your request.";
         } else if (error.request) {
           errMessage = "No response from the server. Please try again later.";
         }
-
         if (errMessage.toString().toLowerCase().includes("already submitted")) {
           errMessage = "You have already submitted your details.";
         }
@@ -282,25 +255,21 @@ const AdvanceDashboardAccess = () => {
     resetForm();
   };
 
-
   const handleEmailChange = async (e) => {
     const enteredEmail = e.target.value.trim();
     setEmail(enteredEmail);
-    setIsEmailVerified(false); // Reset verification on change
+    setIsEmailVerified(false); 
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailRegex.test(enteredEmail)) {
       try {
         const response = await axios.post(`${API}/verify-transaction-email`, { email: enteredEmail });
-        
         if (response.data.success) {
           setCounselor(response.data.counselor || "");
           setLead(response.data.lead || "");
           setIsEmailVerified(true);
-          console.log("Email verified successfully");
         }
       } catch (error) {
-        console.error("Verification failed:", error.response?.data?.message || error.message);
         setCounselor("");
         setLead("");
         setIsEmailVerified(false);
@@ -311,397 +280,262 @@ const AdvanceDashboardAccess = () => {
     }
   };
 
+  const InputField = ({ label, type = "text", value, onChange, required, disabled }) => (
+    <div className="space-y-1.5 group">
+      <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">{label}</label>
+      <input
+        type={type}
+        required={required}
+        value={value}
+        onChange={onChange}
+        disabled={disabled}
+        className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+      />
+    </div>
+  );
 
-
-
-  useEffect(() => {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonthIndex = currentDate.getMonth();
-    const currentDay = currentDate.getDate();
-
-    // Set minDate to today
-    const minDate = currentDate.toISOString().split("T")[0];
-
-    let maxDate;
-
-    // If today is between the 1st and 5th, set maxDate to the 5th of the current month
-    if (currentDay >= 1 && currentDay <= 5) {
-      maxDate = new Date(currentYear, currentMonthIndex, 5)
-        .toISOString()
-        .split("T")[0];
-    } else {
-      // If today is after the 5th, set maxDate to 5 days from today
-      maxDate = new Date(currentDate.setDate(currentDate.getDate() + 5))
-        .toISOString()
-        .split("T")[0];
-    }
-
-    setMinDate(minDate);
-    setMaxDate(maxDate);
-  }, []);
-
-  const [minDate, setMinDate] = useState("");
-  const [maxDate, setMaxDate] = useState("");
-
-
-
-  useEffect(() => {
-    const today = new Date();
-    const minDate = today.toISOString().split("T")[0];
-    const maxDate = new Date(today.setDate(today.getDate() + 5))
-      .toISOString()
-      .split("T")[0];
-    setMinDate(minDate);
-    setMaxDate(maxDate);
-  }, [monthOpted, monthsToShow]);
+  const SelectField = ({ label, value, onChange, options, required }) => (
+    <div className="space-y-1.5 group">
+      <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">{label}</label>
+      <div className="relative">
+        <select
+          required={required}
+          value={value}
+          onChange={onChange}
+          className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white appearance-none focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm"
+        >
+          <option value="" disabled className="bg-[#11111a] text-gray-400">Select {label}</option>
+          {options.map((opt, idx) => (
+            <option key={idx} value={opt.value} className="bg-[#11111a] text-white py-2">
+              {opt.label}
+            </option>
+          ))}
+        </select>
+        <FaChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none text-xs" />
+      </div>
+    </div>
+  );
 
   return (
-    <div id="onboardingform">
-      <Toaster position="top-center" reverseOrder={false} />
-      <div className="container m-auto px-4 sm:px-6">
-        <div className="marquee-container">
-          <div className="marquee-text">
-            <strong>Kind Reminder:</strong> Please ensure that you complete the <strong>Dashboard Access
-              Form on the same day your payment is made.</strong> Submissions will not be
-            accepted on the following day or any later date, and access will not
-            be granted if the form is not submitted on time (We appreciate your
-            understanding and adherence to this policy).
+    <div className="min-h-screen bg-[#05050A] text-gray-300 font-sans relative overflow-hidden pb-24 pt-20">
+      <Toaster position="top-center" reverseOrder={false} toastOptions={{
+        style: { background: '#1e1e2d', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }
+      }} />
+
+      {/* Ambient Background Effects */}
+      <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none transform -translate-y-1/2 -translate-x-1/4"></div>
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[150px] pointer-events-none transform translate-y-1/3 translate-x-1/4"></div>
+
+      <div className="max-w-[1000px] mx-auto px-4 md:px-6 relative z-10">
+        
+        {/* Header Section */}
+        <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <div className="inline-flex items-center justify-center p-4 bg-white/5 border border-white/10 rounded-2xl mb-6 text-blue-500 shadow-[0_0_30px_rgba(37,99,235,0.15)]">
+            <FaUserAstronaut size={32} />
+          </div>
+          <h1 className="text-3xl md:text-5xl font-black text-white tracking-tight mb-4">
+            Advance Program <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Access Form</span>
+          </h1>
+          
+          <div className="bg-blue-900/20 border border-blue-500/30 rounded-2xl p-4 max-w-3xl mx-auto backdrop-blur-md">
+            <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+              <strong className="text-blue-400 font-bold">Kind Reminder:</strong> Please ensure that you complete this form on the <strong>same day your payment is made</strong>. Submissions will not be accepted later, and access will not be granted if the form is delayed.
+            </p>
           </div>
         </div>
 
-        <h2 className="mt-2">Advance Program DashBoard Access Form</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-            <div className="input-field">
-              <input
-                value={fullname}
-                onChange={(e) => setFullname(toTitleCase(e.target.value))}
-                type="text"
-                required
-              />
-              <label htmlFor="fullname">Full Name</label>
-            </div>
-
-            <div className="input-field">
-              <input
-                value={email}
-                onChange={handleEmailChange}
-                // onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                required
-              />
-              <label htmlFor="email">Email</label>
-            </div>
-
-            <div className="input-field">
-              <input
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                type="number"
-                required
-              />
-              <label htmlFor=" Contact No">Contact No</label>
-            </div>
-
-            <div className="input-field">
-              <input
-                value={whatsAppNumber}
-                onChange={(e) => setWhatsAppNumber(e.target.value)}
-                type="number"
-                required
-              />
-              <label htmlFor=" Whatsapp Number">Whatsapp Number</label>
-            </div>
-
-            <div className="input-field">
-              <input
-                type="text"
-                value={counselor}
-                onChange={(e) => setCounselor(e.target.value)}
-                required
-              />
-              <label htmlFor="Counselor Name">Counselor Name</label>
-            </div>
-
-            <select
-              value={modeofpayment}
-              onChange={(e) => setModeOfPayment(e.target.value)}
-              required
-              className="w-full"
-            >
-              <option value="" disabled>Mode of Payment</option>
-              <option value="RazorPay">RazorPay</option>
-              <option value="QR Code">QR Code</option>
-              <option value="EaseBuZZ">EaseBuZZ</option>
-              <option value="PayPal">PayPal</option>
-              <option value="Credit Card">Credit Card</option>
-              <option value="Debit Card">Debit Card</option>
-            </select>
-
-            <select
-              value={domain}
-              onChange={(e) => setDomain(e.target.value)}
-              required
-            >
-              <option value="" disabled>
-                Select Opted Domain
-              </option>
-              {course
-                .filter((item) => item.show === true)
-                .map((item) => (
-                  <option key={item._id || item.title} value={item.title}>
-                    {item.title}
-                  </option>
-                ))}
-            </select>
-
-            <select
-              value={monthOpted}
-              onChange={(e) => setMonthOpted(e.target.value)}
-              required
-            >
-              <option value="" disabled>
-                Select Opted Month
-              </option>
-              {monthsToShow.map((month, index) => (
-                <option key={index} value={month}>
-                  {month}
-                </option>
-              ))}
-            </select>
-
-            <div className="input-field">
-              <input
-                value={programPrice}
-                onChange={(e) => setProgramPrice(e.target.value)}
-                type="number"
-                required
-              />
-              <label htmlFor="Program Price">Program Price</label>
-            </div>
-
-            <div className="input-field">
-              <input
-                value={paidAmount}
-                onChange={(e) => setPaidAmount(e.target.value)}
-                type="number"
-                required
-              />
-              <label htmlFor="Paid Amount">Paid Amount</label>
-            </div>
-
-            <div className="input-field">
-              <input
-                value={remainingAmount}
-                onChange={(e) => setRemainingAmount(e.target.value)}
-                type="number"
-                required
-              />
-              <label htmlFor="Remaining Amount">Remaining Amount</label>
-            </div>
-
-            <select
-              value={paymentPlan}
-              onChange={(e) => setPaymentPlan(e.target.value)}
-              required
-            >
-              <option value="" disabled>
-                Choose a payment plan that works best for you:
-              </option>
-              <option value="Pay in Full (One-time payment)">Pay in Full (One-time payment)</option>
-              <option value="Installments">Installments</option>
-              <option value="No Cost EMI">No Cost EMI</option>
-            </select> 
-
-            {paymentPlan === "Installments" && (
-              <select
-                value={numberOfInstallments}
-                onChange={(e) => setNumberOfInstallments(e.target.value)}
-                required
-              >
-                <option value="" disabled>Select Number of Installments</option>
-                <option value="3">3 Installments</option>
-                <option value="4">4 Installments</option>
-                <option value="5">5 Installments</option>
-                <option value="6">6 Installments</option>
-              </select>
-            )}
-
-            {paymentPlan === "Installments" && numberOfInstallments && (
-              <div className="text-sm mt-2 p-2 bg-gray-50 border border-gray-200 rounded-lg max-h-24 overflow-y-auto">
-                <p className="font-semibold text-gray-700 mb-2">Installment Dates:</p>
-                <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                  {getInstallmentDates().map((date, index) => (
-                    <li key={index}>Installment {index + 1}: {date}</li>
-                  ))}
-                </ul>
+        {/* Form Card */}
+        <div className="bg-white/[0.02] border border-white/10 backdrop-blur-xl rounded-[32px] p-6 md:p-12 shadow-2xl animate-in fade-in slide-in-from-bottom-8 duration-700 delay-150">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              
+              <InputField label="Full Name" value={fullname} onChange={(e) => setFullname(toTitleCase(e.target.value))} required />
+              
+              <div className="space-y-1.5 group relative">
+                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">Email</label>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={handleEmailChange}
+                  className={`w-full bg-black/40 border rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:ring-1 transition-all text-sm ${
+                    email && isEmailVerified ? 'border-emerald-500/50 focus:border-emerald-500 focus:ring-emerald-500' : 
+                    email && !isEmailVerified ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500' : 
+                    'border-white/10 focus:border-blue-500 focus:ring-blue-500'
+                  }`}
+                />
+                {email && (
+                  <div className="absolute right-3 top-[34px]">
+                    {isEmailVerified ? <FaCheck className="text-emerald-500" /> : <div className="w-4 h-4 border-2 border-red-500/30 border-t-red-500 rounded-full animate-spin"></div>}
+                  </div>
+                )}
               </div>
-            )}
 
-            <div className="input-field">
-              <input
-                value={yearOfPassingOut}
-                onChange={(e) => setYearOfPassingOut(e.target.value)}
-                type="text"
+              <InputField label="Contact No" type="number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+              <InputField label="Whatsapp Number" type="number" value={whatsAppNumber} onChange={(e) => setWhatsAppNumber(e.target.value)} required />
+              <InputField label="Counselor Name" value={counselor} onChange={(e) => setCounselor(e.target.value)} required />
+              
+              <SelectField 
+                label="Mode of Payment" 
+                value={modeofpayment} 
+                onChange={(e) => setModeOfPayment(e.target.value)} 
                 required
+                options={[
+                  {value: 'RazorPay', label: 'RazorPay'},
+                  {value: 'QR Code', label: 'QR Code'},
+                  {value: 'EaseBuZZ', label: 'EaseBuZZ'},
+                  {value: 'PayPal', label: 'PayPal'},
+                  {value: 'Credit Card', label: 'Credit Card'},
+                  {value: 'Debit Card', label: 'Debit Card'}
+                ]} 
               />
-              <label htmlFor="Year of Passing Out">Year of Passing Out</label>
-            </div>
 
-            <div className="input-field">
-              <input
-                value={companyName}
-                onChange={(e) => setCompanyName(toTitleCase(e.target.value))}
-                type="text"
-              />
-              <label htmlFor="Company Name">Company Name (if working)</label>
-            </div>
-
-            <div className="input-field">
-              <input
-                value={role}
-                onChange={(e) => setRole(toTitleCase(e.target.value))}
-                type="text"
-              />
-              <label htmlFor="Role">Role (if working)</label>
-            </div>
-
-            <div className="input-field">
-              <input
-                value={experience}
-                onChange={(e) => setExperience(e.target.value)}
-                type="text"
+              <SelectField 
+                label="Opted Domain" 
+                value={domain} 
+                onChange={(e) => setDomain(e.target.value)} 
                 required
+                options={course.filter((item) => item.show === true).map(c => ({value: c.title, label: c.title}))}
               />
-              <label htmlFor="Experience">Experience</label>
-            </div>
 
-            <div className="input-field">
-              <input
-                type="text"
-                value={transactionId}
-                onChange={(e) => setTransactionId(e.target.value)}
+              <SelectField 
+                label="Opted Month" 
+                value={monthOpted} 
+                onChange={(e) => setMonthOpted(e.target.value)} 
                 required
+                options={monthsToShow.map(m => ({value: m, label: m}))}
               />
-              <label htmlFor="Transaction ID">Transaction ID</label>
-            </div>
 
+              <InputField label="Program Price (₹)" type="number" value={programPrice} onChange={(e) => setProgramPrice(e.target.value)} required />
+              <InputField label="Paid Amount (₹)" type="number" value={paidAmount} onChange={(e) => setPaidAmount(e.target.value)} required />
+              <InputField label="Remaining Amount (₹)" type="number" value={remainingAmount} onChange={(e) => setRemainingAmount(e.target.value)} required />
 
+              <SelectField 
+                label="Payment Plan" 
+                value={paymentPlan} 
+                onChange={(e) => setPaymentPlan(e.target.value)} 
+                required
+                options={[
+                  {value: 'Pay in Full (One-time payment)', label: 'Pay in Full (One-time)'},
+                  {value: 'Installments', label: 'Installments'},
+                  {value: 'No Cost EMI', label: 'No Cost EMI'}
+                ]} 
+              />
 
-              <div className="input-field">
-                <div
+              {paymentPlan === "Installments" && (
+                <SelectField 
+                  label="No. of Installments" 
+                  value={numberOfInstallments} 
+                  onChange={(e) => setNumberOfInstallments(e.target.value)} 
+                  required
+                  options={[
+                    {value: '3', label: '3 Installments'},
+                    {value: '4', label: '4 Installments'},
+                    {value: '5', label: '5 Installments'},
+                    {value: '6', label: '6 Installments'}
+                  ]} 
+                />
+              )}
+
+              <InputField label="Year of Passing Out" type="number" value={yearOfPassingOut} onChange={(e) => setYearOfPassingOut(e.target.value)} required />
+              <InputField label="Company Name (if working)" value={companyName} onChange={(e) => setCompanyName(toTitleCase(e.target.value))} />
+              <InputField label="Role (if working)" value={role} onChange={(e) => setRole(toTitleCase(e.target.value))} />
+              <InputField label="Total Experience (Years)" type="number" value={experience} onChange={(e) => setExperience(e.target.value)} required />
+              <InputField label="Transaction ID" value={transactionId} onChange={(e) => setTransactionId(e.target.value)} required />
+
+              {/* Custom Language Dropdown */}
+              <div className="space-y-1.5 group relative col-span-1 md:col-span-2 lg:col-span-1 z-20">
+                <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">Languages Known</label>
+                <div 
                   onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-                  className="w-full p-[10px] border border-[#CCCCCC] rounded-[10px] bg-white cursor-pointer flex justify-between items-center transition-all duration-200"
-                  style={{ minHeight: '44px', backgroundColor: '#ffffff' }}
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white cursor-pointer flex justify-between items-center transition-all text-sm min-h-[46px]"
                 >
-                  <span className={`text-sm ${languages.length > 0 ? "text-gray-800" : "text-transparent"}`}>
-                    {languages.length > 0 ? languages.join(", ") : "."}
+                  <span className={`truncate pr-4 ${languages.length === 0 ? 'text-gray-500' : ''}`}>
+                    {languages.length > 0 ? languages.join(", ") : "Select Languages"}
                   </span>
-                  <svg className={`w-4 h-4 text-[#8d8d8d] transition-transform duration-200 ${isLangDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
+                  <FaChevronDown className={`text-gray-500 text-xs transition-transform duration-200 ${isLangDropdownOpen ? 'rotate-180' : ''}`} />
                 </div>
-                <label
-                  style={{
-                    position: 'absolute',
-                    left: '15px',
-                    pointerEvents: 'none',
-                    transition: 'all 0.3s ease',
-                    backgroundColor: '#ffffff',
-                    padding: '0 5px',
-                    zIndex: 2,
-                    ...(languages.length > 0 || isLangDropdownOpen 
-                      ? { top: '-10px', transform: 'translateY(0) scale(0.85)', color: '#F15B29', fontWeight: 'bold' }
-                      : { top: '50%', transform: 'translateY(-50%)', color: '#8d8d8d' }
-                    )
-                  }}
-                >
-                  Languages Known
-                </label>
+                
                 {isLangDropdownOpen && (
                   <>
-                    <div
-                      className="fixed inset-0 z-40"
-                      onClick={() => setIsLangDropdownOpen(false)}
-                    ></div>
-                    <div 
-                      className="absolute z-50 w-full mt-1 border border-[#CCCCCC] rounded-[10px] shadow-xl max-h-60 overflow-y-auto lang-dropdown-list"
-                    >
+                    <div className="fixed inset-0 z-40" onClick={() => setIsLangDropdownOpen(false)}></div>
+                    <div className="absolute top-full left-0 right-0 mt-2 z-50 bg-[#11111a] border border-white/10 rounded-xl shadow-2xl max-h-60 overflow-y-auto backdrop-blur-xl">
                       {LANGUAGE_OPTIONS.map((lang) => (
                         <div
                           key={lang}
                           onClick={() => {
                             setLanguages((prev) =>
-                              prev.includes(lang)
-                                ? prev.filter((l) => l !== lang)
-                                : [...prev, lang]
+                              prev.includes(lang) ? prev.filter((l) => l !== lang) : [...prev, lang]
                             );
                           }}
-                          className="flex items-center p-3 cursor-pointer border-b border-gray-50 last:border-b-0 lang-dropdown-item"
+                          className="flex items-center px-4 py-3 cursor-pointer hover:bg-white/5 transition-colors border-b border-white/5 last:border-b-0"
                         >
-                          <div className={`w-5 h-5 rounded border flex items-center justify-center mr-3 transition-colors duration-200 ${
-                            languages.includes(lang) ? "bg-[#F15B29] border-[#F15B29]" : "bg-white border-gray-300"
+                          <div className={`w-5 h-5 rounded border flex items-center justify-center mr-3 transition-colors ${
+                            languages.includes(lang) ? "bg-blue-600 border-blue-600" : "border-white/20"
                           }`}>
-                            {languages.includes(lang) && (
-                              <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                              </svg>
-                            )}
+                            {languages.includes(lang) && <FaCheck size={10} className="text-white" />}
                           </div>
-                          <span className={`text-sm lang-dropdown-text ${languages.includes(lang) ? "selected" : ""}`}>
-                            {lang}
-                          </span>
+                          <span className={`text-sm ${languages.includes(lang) ? 'text-white' : 'text-gray-400'}`}>{lang}</span>
                         </div>
                       ))}
                     </div>
                   </>
                 )}
               </div>
+            </div>
 
+            {/* Installment Info Box */}
+            {paymentPlan === "Installments" && numberOfInstallments && (
+              <div className="bg-blue-900/10 border border-blue-500/20 rounded-xl p-6 animate-in fade-in duration-300">
+                <h4 className="text-blue-400 font-bold mb-3 flex items-center gap-2">
+                  <FaCheck size={14} /> Scheduled Installment Dates
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {getInstallmentDates().map((date, index) => (
+                    <div key={index} className="bg-black/30 border border-white/5 rounded-lg px-4 py-2 text-sm text-gray-300">
+                      <span className="text-gray-500 mr-2">#{index + 1}</span> {new Date(date).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
+            {/* Refer a Friend */}
+            <div className="space-y-1.5 group pt-4 border-t border-white/10">
+              <label className="text-sm font-bold text-gray-200 ml-1">Refer your friends to earn cashback.</label>
+              <p className="text-xs text-gray-500 ml-1 mb-2">Provide their Name and Contact Number</p>
+              <textarea
+                value={referFriend}
+                onChange={(e) => setReferFriend(e.target.value)}
+                rows={3}
+                required
+                placeholder="E.g., John Doe - 9876543210"
+                className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm resize-none"
+              ></textarea>
+            </div>
 
+            {/* Submit Button */}
+            <div className="pt-6">
+              <button
+                type="submit"
+                disabled={isSubmitting || !isEmailVerified}
+                className="w-full py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-bold text-base tracking-wide transition-all shadow-[0_0_20px_rgba(37,99,235,0.2)] hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    Submitting Application...
+                  </>
+                ) : (
+                  "Submit Dashboard Access Form"
+                )}
+              </button>
+            </div>
 
+          </form>
+        </div>
 
-            {/* <select
-              value={batchTiming}
-              onChange={(e) => setBatchTiming(e.target.value)}
-              required
-            >
-              <option value="" disabled>
-                Select Batch Timing
-              </option>
-              <option value="Monday-Friday (8:00 pm - 9:30 pm)">
-                Monday-Friday (8:00 pm - 9:30 pm)
-              </option>
-              <option value="Saturday-Sunday (1 to 2 hours per day)">
-                Saturday-Sunday (1 to 2 hours per day)
-              </option>
-            </select> */}
-
-          </div>
-
-          <div className="mt-6">
-            <label className="text-gray-700 font-medium mb-2 block">Refer your friends to earn cashback.</label>
-            <textarea
-              value={referFriend}
-              onChange={(e) => setReferFriend(e.target.value)}
-              name="refer"
-              id="refer"
-              placeholder="Name and Contact Number"
-              rows={3}
-              required
-              className="resize-none w-full border border-[#CCCCCC] rounded-[10px] p-3 mt-1 focus:outline-none focus:border-[#F15B29] transition-colors duration-200"
-            ></textarea>
-          </div>
-
-          <input
-            className="cursor-pointer w-full mt-8 bg-black text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors duration-200"
-            disabled={isSubmitting}
-            type="submit"
-            value={isSubmitting ? "Submitting..." : "Submit"}
-          />
-        </form>
         <Dialog
           isOpen={isModalOpen}
           onClose={closeModal}
@@ -712,33 +546,10 @@ const AdvanceDashboardAccess = () => {
           monthOpted={monthOpted}
           errorMessage={errorMessage}
         />
+
       </div>
     </div>
   );
-};
-
-const styles = {
-  modal: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 9999,
-  },
-  modalContent: {
-    background: "white",
-    padding: "20px",
-    borderRadius: "10px",
-    width: "90%",
-    maxWidth: "500px",
-    textAlign: "center",
-    boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-  },
 };
 
 export default AdvanceDashboardAccess;

@@ -36,12 +36,12 @@ const CustomSelect = ({ label, icon, options, name, value, onChange, placeholder
             </label>
             <div 
                 onClick={() => setIsOpen(!isOpen)}
-                className={`w-full px-4 py-3 bg-slate-50 border ${isOpen ? 'border-orange-600 ring-4 ring-orange-600/5' : 'border-slate-200'} rounded-xl cursor-pointer flex items-center justify-between transition-all hover:bg-white`}
+                className={`w-full px-4 py-3 bg-slate-50 border ${isOpen ? 'border-emerald-600 ring-4 ring-emerald-600/5' : 'border-slate-200'} rounded-xl cursor-pointer flex items-center justify-between transition-all hover:bg-white`}
             >
                 <span className={`text-sm font-medium ${!value ? 'text-slate-400' : 'text-slate-900'}`}>
                     {selectedOption ? selectedOption.label : placeholder}
                 </span>
-                <FaChevronDown className={`text-slate-400 text-xs transition-transform duration-300 ${isOpen ? 'rotate-180 text-orange-600' : ''}`} />
+                <FaChevronDown className={`text-slate-400 text-xs transition-transform duration-300 ${isOpen ? 'rotate-180 text-emerald-600' : ''}`} />
             </div>
 
             {isOpen && (
@@ -53,7 +53,7 @@ const CustomSelect = ({ label, icon, options, name, value, onChange, placeholder
                                 onChange({ target: { name, value: opt.value } });
                                 setIsOpen(false);
                             }}
-                            className={`px-4 py-2.5 text-sm cursor-pointer transition-colors flex items-center justify-between ${value === opt.value ? 'bg-orange-50 text-orange-600 font-bold' : 'text-slate-600 hover:bg-slate-50'}`}
+                            className={`px-4 py-2.5 text-sm cursor-pointer transition-colors flex items-center justify-between ${value === opt.value ? 'bg-emerald-50 text-emerald-600 font-bold' : 'text-slate-600 hover:bg-slate-50'}`}
                         >
                             {opt.label}
                             {value === opt.value && <FaCheckCircle className="text-xs" />}
@@ -197,14 +197,14 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
 
                 {/* Left Side: Professional Info Column */}
                 <div className="hidden md:flex md:w-[38%] bg-[#050d2f] p-10 flex-col justify-between relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-orange-500/20 transition-all duration-700" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-emerald-500/20 transition-all duration-700" />
                     
                     <div className="relative z-10">
                         <div className="mb-8 drop-shadow-2xl">
                             <img src={atoraxLogo} alt="Atorax Logo" className="h-10 w-auto object-contain" />
                         </div>
                         <h2 className="text-3xl font-extrabold text-white leading-tight mb-4">
-                            Your Path to <span className="text-orange-500 underline decoration-orange-500/30 underline-offset-4">Advanced</span> Success.
+                            Your Path to <span className="text-emerald-500 underline decoration-emerald-500/30 underline-offset-4">Advanced</span> Success.
                         </h2>
                         <p className="text-slate-400 text-sm leading-relaxed mb-10">
                             Join our elite upskilling programs designed for modern tech leaders.
@@ -217,7 +217,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                                 { icon: <FaCheckCircle />, title: "Guaranteed Referrals", desc: "Network of 500+ partners" }
                             ].map((item, i) => (
                                 <div key={i} className="flex gap-4">
-                                    <div className="text-orange-500 mt-1">{item.icon}</div>
+                                    <div className="text-emerald-500 mt-1">{item.icon}</div>
                                     <div>
                                         <p className="text-white font-bold text-sm tracking-wide">{item.title}</p>
                                         <p className="text-slate-400 text-[11px] leading-relaxed mt-0.5">{item.desc}</p>
@@ -234,7 +234,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                                     <img src={img} alt="alumni" className="w-full h-full object-cover object-top" />
                                 </div>
                             ))}
-                            <div className="w-8 h-8 rounded-full border-2 border-[#050d2f] bg-orange-600 flex items-center justify-center text-[10px] font-bold text-white shadow-xl">
+                            <div className="w-8 h-8 rounded-full border-2 border-[#050d2f] bg-emerald-600 flex items-center justify-center text-[10px] font-bold text-white shadow-xl">
                                 +5k
                             </div>
                         </div>
@@ -261,7 +261,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                             <div className="relative group">
                                 <label className="text-[11px] font-bold text-slate-500 uppercase tracking-widest mb-1.5 block ml-1">Full Name</label>
                                 <div className="relative">
-                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-orange-600 transition-colors">
+                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
                                         <FaUser size={14} />
                                     </div>
                                     <input
@@ -271,7 +271,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                                         onChange={handleInputChange}
                                         required
                                         placeholder="John Carter"
-                                        className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-orange-600 focus:ring-4 focus:ring-orange-600/5 outline-none transition-all text-sm font-medium"
+                                        className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/5 outline-none transition-all text-sm font-medium"
                                     />
                                 </div>
                             </div>
@@ -279,7 +279,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                             <div className="relative group">
                                 <label className="text-[11px] font-bold text-slate-500 uppercase tracking-widest mb-1.5 block ml-1">Mobile Number</label>
                                 <div className="relative">
-                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-orange-600 transition-colors">
+                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
                                         <FaPhone size={14} />
                                     </div>
                                     <input
@@ -289,7 +289,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                                         onChange={handleInputChange}
                                         required
                                         placeholder="Enter your 10 digit mobile"
-                                        className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-orange-600 focus:ring-4 focus:ring-orange-600/5 outline-none transition-all text-sm font-medium"
+                                        className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/5 outline-none transition-all text-sm font-medium"
                                     />
                                 </div>
                             </div>
@@ -300,7 +300,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                             <label className="text-[11px] font-bold text-slate-500 uppercase tracking-widest mb-1.5 block ml-1">Work/Personal Email</label>
                             <div className="relative flex gap-2">
                                 <div className="relative flex-1">
-                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-orange-600 transition-colors">
+                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
                                         <FaEnvelope size={14} />
                                     </div>
                                     <input
@@ -311,7 +311,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                                         disabled={emailVerified}
                                         required
                                         placeholder="john.carter@example.com"
-                                        className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-orange-600 focus:ring-4 focus:ring-orange-600/5 outline-none transition-all text-sm font-medium"
+                                        className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/5 outline-none transition-all text-sm font-medium"
                                     />
                                 </div>
                                 {!emailVerified && !otpSent && (
@@ -333,12 +333,12 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                                         value={otp}
                                         onChange={(e) => setOtp(e.target.value)}
                                         placeholder="6-Digit OTP"
-                                        className="flex-1 px-4 py-3 bg-orange-50 border border-orange-200 rounded-xl focus:bg-white focus:border-orange-600 outline-none transition-all text-sm text-center font-black tracking-[0.4em]"
+                                        className="flex-1 px-4 py-3 bg-emerald-50 border border-emerald-200 rounded-xl focus:bg-white focus:border-emerald-600 outline-none transition-all text-sm text-center font-black tracking-[0.4em]"
                                     />
                                     <button
                                         type="button"
                                         onClick={verifyOTP}
-                                        className="px-6 py-3 bg-orange-600 text-white rounded-xl text-xs font-bold hover:bg-orange-700 transition-all shadow-lg shadow-orange-600/20"
+                                        className="px-6 py-3 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/20"
                                     >
                                         Verify OTP
                                     </button>
@@ -356,7 +356,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100">
                             <CustomSelect
                                 label="Current Role"
-                                icon={<FaGraduationCap className="text-orange-500" />}
+                                icon={<FaGraduationCap className="text-emerald-500" />}
                                 name="currentRole"
                                 value={formData.currentRole}
                                 onChange={handleInputChange}
@@ -369,7 +369,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                             />
                             <CustomSelect
                                 label="Experience"
-                                icon={<FaBriefcase className="text-orange-500" />}
+                                icon={<FaBriefcase className="text-emerald-500" />}
                                 name="experience"
                                 value={formData.experience}
                                 onChange={handleInputChange}
@@ -385,7 +385,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
 
                         <CustomSelect
                             label="Target Program"
-                            icon={<FaBullseye className="text-orange-500" />}
+                            icon={<FaBullseye className="text-emerald-500" />}
                             name="interestedDomain"
                             value={formData.interestedDomain}
                             onChange={handleInputChange}
@@ -402,7 +402,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
 
                         <CustomSelect
                             label="Primary Goal"
-                            icon={<FaCheckCircle className="text-orange-500" />}
+                            icon={<FaCheckCircle className="text-emerald-500" />}
                             name="goal"
                             value={formData.goal}
                             onChange={handleInputChange}
@@ -420,7 +420,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                                 type="checkbox" 
                                 id="authorize_popup" 
                                 required 
-                                className="mt-1 h-4 w-4 rounded border-slate-300 text-orange-600 focus:ring-orange-600 cursor-pointer"
+                                className="mt-1 h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-600 cursor-pointer"
                             />
                             <label htmlFor="authorize_popup" className="text-[10px] md:text-[11px] text-slate-500 leading-relaxed cursor-pointer select-none">
                                 I authorise <span className="font-bold">Atorax</span> & its representatives to contact me with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC
@@ -457,7 +457,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                             type="submit"
                             form="advanced-apply-form"
                             disabled={!emailVerified || loading}
-                            className="flex-[2] py-4 bg-orange-600 text-white font-black rounded-xl hover:bg-orange-700 transition-all shadow-xl shadow-orange-600/30 disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-[0.2em] text-xs flex items-center justify-center gap-2 group"
+                            className="flex-[2] py-4 bg-emerald-600 text-white font-black rounded-xl hover:bg-emerald-700 transition-all shadow-xl shadow-emerald-600/30 disabled:opacity-50 disabled:cursor-not-allowed uppercase tracking-[0.2em] text-xs flex items-center justify-center gap-2 group"
                         >
                             {loading ? "Securely Submitting..." : (popupType === "brochure" ? "Get Brochure" : "Send Application")} 
                             <span className="group-hover:translate-x-1 transition-transform">→</span>

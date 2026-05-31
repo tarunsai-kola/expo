@@ -55,7 +55,7 @@ const AdvFormLeads = () => {
     };
 
     return (
-        <div className="p-8 bg-gray-50 min-h-screen" style={{ marginLeft: '265px' }}>
+        <div className="admin-content-wrap">
             <Toaster />
             <div className="flex justify-between items-center mb-8">
                 <div>

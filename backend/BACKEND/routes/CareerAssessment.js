@@ -21,11 +21,26 @@ router.post("/careerassessment", async (req, res) => {
   }
 });
 
-// Fetch all assessments (Admin)
+// GET: Fetch all assessments for Admin (Paginated)
 router.get("/careerassessment", async (req, res) => {
   try {
-    const assessments = await CareerAssessment.find().sort({ createdAt: -1 });
-    res.status(200).json(assessments);
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 30;
+    const skip = (page - 1) * limit;
+
+    const assessments = await CareerAssessment.find()
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(limit);
+
+    const total = await CareerAssessment.countDocuments();
+
+    res.status(200).json({
+      data: assessments,
+      currentPage: page,
+      totalPages: Math.ceil(total / limit),
+      totalItems: total
+    });
   } catch (error) {
     console.error("Error fetching assessments:", error);
     res.status(500).json({ error: "Failed to fetch assessments" });
