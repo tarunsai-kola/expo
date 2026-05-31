@@ -103,6 +103,19 @@ app.use(bodyParser.json({ verify: captureRawBody }));
 app.use(express.json({ verify: captureRawBody }));
 app.use(cookieParser());
 
+// ✅ Ensure DB connection for all requests in Vercel
+if (process.env.NODE_ENV === "production") {
+  app.use(async (req, res, next) => {
+    try {
+      await connectDB();
+      next();
+    } catch (err) {
+      console.error("DB Connection Error in middleware:", err.message);
+      res.status(500).json({ error: "Database connection failed", details: err.message });
+    }
+  });
+}
+
 // ✅ Attendance (Cumulative Timer) - Priority Registration
 const AttendanceRoute = require("./routes/Attendance");
 app.use("/attendance", AttendanceRoute);
@@ -308,8 +321,5 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-// ✅ Vercel Serverless Handler - wraps app with DB connection
-module.exports = async (req, res) => {
-  await connectDB();
-  return app(req, res);
-};
+// ✅ Vercel Serverless Handler - Export express app
+module.exports = app;
