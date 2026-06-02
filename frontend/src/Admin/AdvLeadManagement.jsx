@@ -306,15 +306,15 @@ const AdvLeadManagement = () => {
 
     const statusColor = (status) => {
         const map = {
-            fresh: { bg: '#e6f7ff', border: '#91d5ff', color: '#096dd9' },
-            assigned_to_manager: { bg: '#fff7e6', border: '#ffd591', color: '#d46b08' },
-            assigned_to_leader: { bg: '#f9f0ff', border: '#d3adf7', color: '#531dab' },
-            assigned_to_specialist: { bg: '#f0f5ff', border: '#adc6ff', color: '#1d39c4' },
-            in_followup: { bg: '#fffbe6', border: '#ffe58f', color: '#ad8b00' },
-            converted: { bg: '#f6ffed', border: '#b7eb8f', color: '#389e0d' },
-            dialed: { bg: '#f9f0ff', border: '#d3adf7', color: '#722ed1' }, // Added dialed status color
+            fresh: { bg: 'rgba(56, 189, 248, 0.1)', border: 'rgba(56, 189, 248, 0.2)', color: '#38bdf8' },
+            assigned_to_manager: { bg: 'rgba(251, 146, 60, 0.1)', border: 'rgba(251, 146, 60, 0.2)', color: '#fb923c' },
+            assigned_to_leader: { bg: 'rgba(167, 139, 250, 0.1)', border: 'rgba(167, 139, 250, 0.2)', color: '#a78bfa' },
+            assigned_to_specialist: { bg: 'rgba(129, 140, 248, 0.1)', border: 'rgba(129, 140, 248, 0.2)', color: '#818cf8' },
+            in_followup: { bg: 'rgba(250, 204, 21, 0.1)', border: 'rgba(250, 204, 21, 0.2)', color: '#facc15' },
+            converted: { bg: 'rgba(52, 211, 153, 0.1)', border: 'rgba(52, 211, 153, 0.2)', color: '#34d399' },
+            dialed: { bg: 'rgba(192, 132, 252, 0.1)', border: 'rgba(192, 132, 252, 0.2)', color: '#c084fc' },
         };
-        return map[status] || { bg: '#f5f5f5', border: '#d9d9d9', color: '#595959' };
+        return map[status] || { bg: 'rgba(100, 116, 139, 0.1)', border: 'rgba(100, 116, 139, 0.2)', color: '#94a3b8' };
     };
 
     const filteredLeads = leads.filter(l => {
@@ -353,8 +353,184 @@ const AdvLeadManagement = () => {
     }
 
     return (
-        <div id="create-marketing-team">
-            <Toaster position="top-center" />
+        <div id="create-marketing-team" className="admin-content-wrap min-h-screen bg-slate-50 text-slate-700 font-sans p-6" style={{ colorScheme: 'dark' }}>
+            <style>{`
+                #create-marketing-team {
+                    background-color: #0B0F19 !important;
+                    color: #cbd5e1 !important;
+                }
+                #create-marketing-team h1, 
+                #create-marketing-team h2, 
+                #create-marketing-team h3, 
+                #create-marketing-team strong {
+                    color: #f8fafc !important;
+                }
+                #create-marketing-team select,
+                #create-marketing-team input,
+                #create-marketing-team textarea {
+                    background-color: rgba(15, 23, 42, 0.5) !important;
+                    border: 1px solid rgba(51, 65, 85, 0.5) !important;
+                    color: #f8fafc !important;
+                }
+                #create-marketing-team select:focus,
+                #create-marketing-team input:focus,
+                #create-marketing-team textarea:focus {
+                    border-color: #818cf8 !important;
+                    outline: none !important;
+                    box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2) !important;
+                }
+                
+                /* Modal and Panel backgrounds */
+                #create-marketing-team > div > div[style*="background: '#fff'"],
+                #create-marketing-team > div > div[style*='background: "#fff"'],
+                #create-marketing-team > div > div[style*="background: rgb(255, 255, 255)"],
+                #create-marketing-team > div > div[style*="background: #fff"] {
+                    background-color: rgba(30, 41, 59, 0.8) !important;
+                    backdrop-filter: blur(12px) !important;
+                    border: 1px solid rgba(51, 65, 85, 0.5) !important;
+                }
+
+                /* Modals Overlay */
+                #create-marketing-team > div[style*="background: 'rgba(0,0,0,0.45)'"],
+                #create-marketing-team > div[style*='background: "rgba(0,0,0,0.45)"'] {
+                    background-color: rgba(11, 15, 25, 0.8) !important;
+                }
+
+                /* Statistic cards and manual assign bar */
+                #create-marketing-team div[style*="background: '#f9f9f9'"],
+                #create-marketing-team div[style*='background: "#f9f9f9"'],
+                #create-marketing-team div[style*="background: '#f0f7ff'"],
+                #create-marketing-team div[style*='background: "#f0f7ff"'] {
+                    background-color: rgba(30, 41, 59, 0.4) !important;
+                    border-color: rgba(51, 65, 85, 0.5) !important;
+                }
+
+                /* Specific fixes for fresh leads card which uses #e6f7ff inline */
+                #create-marketing-team div[style*="background: '#e6f7ff'"],
+                #create-marketing-team div[style*='background: "#e6f7ff"'] {
+                    background-color: rgba(56, 189, 248, 0.1) !important;
+                    border-color: rgba(56, 189, 248, 0.2) !important;
+                }
+                #create-marketing-team div[style*="background: '#fff7e6'"],
+                #create-marketing-team div[style*='background: "#fff7e6"'] {
+                    background-color: rgba(251, 146, 60, 0.1) !important;
+                    border-color: rgba(251, 146, 60, 0.2) !important;
+                }
+                #create-marketing-team div[style*="background: '#f6ffed'"],
+                #create-marketing-team div[style*='background: "#f6ffed"'] {
+                    background-color: rgba(52, 211, 153, 0.1) !important;
+                    border-color: rgba(52, 211, 153, 0.2) !important;
+                }
+
+                /* Buttons */
+                #create-marketing-team button[style*="background: '#1890ff'"],
+                #create-marketing-team button[style*='background: "#1890ff"'] {
+                    background-color: #4f46e5 !important;
+                }
+                #create-marketing-team button[style*="color: '#1890ff'"],
+                #create-marketing-team button[style*='color: "#1890ff"'] {
+                    color: #818cf8 !important;
+                    border-color: #818cf8 !important;
+                    background-color: transparent !important;
+                }
+                #create-marketing-team button[style*="background: '#f0f0f0'"],
+                #create-marketing-team button[style*='background: "#f0f0f0"'],
+                #create-marketing-team button[style*="background: '#f5f5f5'"],
+                #create-marketing-team button[style*='background: "#f5f5f5"'] {
+                    background-color: rgba(51, 65, 85, 0.5) !important;
+                    color: #cbd5e1 !important;
+                    border-color: rgba(51, 65, 85, 0.5) !important;
+                }
+                #create-marketing-team button[style*="background: '#ff4d4f'"],
+                #create-marketing-team button[style*='background: "#ff4d4f"'] {
+                    background-color: #e11d48 !important;
+                }
+                #create-marketing-team button[style*="color: '#ff4d4f'"],
+                #create-marketing-team button[style*='color: "#ff4d4f"'] {
+                    color: #fb7185 !important;
+                }
+
+                /* Text Colors */
+                #create-marketing-team span[style*="color: '#666'"],
+                #create-marketing-team span[style*='color: "#666"'],
+                #create-marketing-team td[style*="color: '#666'"],
+                #create-marketing-team td[style*='color: "#666"'],
+                #create-marketing-team td[style*="color: '#555'"],
+                #create-marketing-team td[style*='color: "#555"'],
+                #create-marketing-team div[style*="color: '#666'"],
+                #create-marketing-team div[style*='color: "#666"'] {
+                    color: #94a3b8 !important;
+                }
+                #create-marketing-team td[style*="color: '#888'"],
+                #create-marketing-team td[style*='color: "#888"'] {
+                    color: #64748b !important;
+                }
+                #create-marketing-team div[style*="color: '#1890ff'"],
+                #create-marketing-team div[style*='color: "#1890ff"'],
+                #create-marketing-team span[style*="color: '#096dd9'"],
+                #create-marketing-team span[style*='color: "#096dd9"'] {
+                    color: #818cf8 !important;
+                }
+                #create-marketing-team span[style*="color: '#d46b08'"],
+                #create-marketing-team span[style*='color: "#d46b08"'],
+                #create-marketing-team div[style*="color: '#d46b08'"],
+                #create-marketing-team div[style*='color: "#d46b08"'] {
+                    color: #fb923c !important;
+                }
+                #create-marketing-team span[style*="color: '#389e0d'"],
+                #create-marketing-team span[style*='color: "#389e0d"'],
+                #create-marketing-team div[style*="color: '#389e0d'"],
+                #create-marketing-team div[style*='color: "#389e0d"'] {
+                    color: #34d399 !important;
+                }
+
+                /* Table Styling */
+                #create-marketing-team table {
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0;
+                    margin-top: 10px;
+                }
+                #create-marketing-team th {
+                    background-color: rgba(15, 23, 42, 0.8) !important;
+                    color: #94a3b8 !important;
+                    border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important;
+                    padding: 12px 16px !important;
+                    text-transform: uppercase;
+                    font-size: 11px;
+                    letter-spacing: 0.05em;
+                }
+                #create-marketing-team td {
+                    border-bottom: 1px solid rgba(51, 65, 85, 0.2) !important;
+                    color: #cbd5e1 !important;
+                    padding: 12px 16px !important;
+                }
+                #create-marketing-team tbody tr:hover td {
+                    background-color: rgba(30, 41, 59, 0.6) !important;
+                }
+
+                /* Group Header Row */
+                #create-marketing-team tr[style*="background: '#f8f9fa'"] td,
+                #create-marketing-team tr[style*='background: "#f8f9fa"'] td {
+                    background-color: rgba(30, 41, 59, 0.8) !important;
+                    color: #818cf8 !important;
+                    border-top: 1px solid rgba(51, 65, 85, 0.5) !important;
+                    border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important;
+                }
+
+                /* Selected Row */
+                #create-marketing-team tr[style*="background: '#f6ffed'"] td,
+                #create-marketing-team tr[style*='background: "#f6ffed"'] td {
+                    background-color: rgba(52, 211, 153, 0.1) !important;
+                }
+
+                /* Unselected Row with #transparent */
+                #create-marketing-team tr[style*="background: 'transparent'"] td,
+                #create-marketing-team tr[style*='background: "transparent"'] td {
+                    background-color: transparent !important;
+                }
+            `}</style>
+            <Toaster position="top-center" toastOptions={{ style: { background: '#1e293b', color: '#f8fafc', border: '1px solid #334155' } }} />
 
             {/* ── Assign Panel Overlay ─────────────────────── */}
             {showAssignPanel && (

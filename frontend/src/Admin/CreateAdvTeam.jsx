@@ -313,7 +313,7 @@ const CreateAdvTeam = () => {
         <div className="form">
           <form onSubmit={handleSumbit}>
             <span onClick={resetForm}>✖</span>
-            <h2>{editingBdaId ? "Edit Adv Team Member" : "Create Adv Team Member"}</h2>
+            <h2>{editingBdaId ? "Edit Team Member" : "Create Team Member"}</h2>
             <input
               value={formData.fullname}
               onChange={handleChange}
@@ -334,8 +334,8 @@ const CreateAdvTeam = () => {
             />
             <select name="designation" id="designation" value={formData.designation} onChange={handleChange} required>
               <option disabled value="">Select Designation</option>
-              <option value="ADV Manager">ADV Manager</option>
-              <option value="ADV Leader">ADV Leader</option>
+              <option value="ADV Manager">Manager</option>
+              <option value="ADV Leader">Leader</option>
               <option value="SR Inside Sales Specialist">SR Inside Sales Specialist</option>
               <option value="inside_sales_specialist">Inside Sales Specialist</option>
             </select>
@@ -406,7 +406,7 @@ const CreateAdvTeam = () => {
       )}
       <div className="coursetable">
         <div>
-          <h2>ADV Team Lists</h2>
+          <h2>Team Lists</h2>
           <span onClick={toggleVisibility}>+ Add New Member</span>
         </div>
         <div>
@@ -466,7 +466,7 @@ const CreateAdvTeam = () => {
                     <td>{index + 1}</td>
                     <td>{bda.fullname}</td>
                     <td >{bda.email}</td>
-                    <td>{bda.designation}</td>
+                    <td>{bda.designation.replace('ADV ', '')}</td>
                     <td>{bda.team}</td>
                     <td>{bda.password}</td>
                     <td className="cursor-pointer font-semibold" onClick={() => handleloginteam(bda._id, bda.designation)}>Login <i className="fa fa-sign-in"></i></td>

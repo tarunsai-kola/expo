@@ -9,6 +9,7 @@ const fs = require('fs');
 const path = require('path');
 require("dotenv").config();
 const { sendEmail, sendEventReminderEmail } = require("../controllers/emailController");
+const { buildPremiumEmail, SVGS, COMPANY_NAME } = require("../utils/emailTemplate");
 const cloudinary = require("../middleware/cloudinary.js")
 
 // add a new event
@@ -298,24 +299,22 @@ router.post("/eventsendotp", async (req, res) => {
     }
     const otp = crypto.randomInt(100000, 1000000);
     const otpExpires = Date.now() + 10 * 60 * 1000; // 10 mins expiration
-    const EmailMessage = `
-       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-    <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-        <h1>Krutanic Talent Hunt</h1>
-    </div>
-    <div style="padding: 20px; text-align: center;">
-        <p style="font-size: 16px; color: #333;">Hello, Join us for an exciting Talent Hunt event! Below are your participation details:</p>
-        <p style="font-size: 14px; color: #555;">Your participation verification code (for event access) is:</p>
-        <p style="font-size: 24px; font-weight: bold; color: #4a90e2; margin: 10px 0;">${otp}</p>
-        <p style="font-size: 14px; color: #555;">This code is valid for <strong>10 minutes</strong>. Please keep it safe and don't share it with others.</p>
-    </div>
-    <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-        <p>If you didn’t register for the Talent Hunt event, please ignore this email or contact our support team.</p>
-        <p>&copy; 2024 Krutanic Talent Hunt. All Rights Reserved.</p>
-    </div>
-</div>
+    const content = `
+      <p style="font-size: 16px; color: #0f172a; font-weight: 600;">Hello,</p>
+      <p>Join us for an exciting <strong>Talent Hunt</strong> event! Below is your verification code for event access:</p>
+      
+      <div style="background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 25px; text-align: center; margin: 30px 0;">
+          <p style="font-size: 32px; font-weight: 800; color: #4f46e5; margin: 0; letter-spacing: 4px;">${otp}</p>
+      </div>
 
+      <div class="highlight-box" style="background: #fef2f2; border-left-color: #ef4444; margin-bottom: 25px;">
+          <p style="margin: 0;  color: #b91c1c;">
+              ${SVGS.warning} <span style="margin-top: 2px;">This code is valid for <strong>10 minutes</strong>. Please keep it safe and don't share it.</span>
+          </p>
+      </div>
+      <p style="font-size: 13px; color: #64748b;">If you didn’t register for the Talent Hunt event, please ignore this email or contact support.</p>
     `;
+    const EmailMessage = buildPremiumEmail({ title: 'Talent Hunt Access Code', content });
     eventuser.otp = otp;
     eventuser.otpExpires = otpExpires;
     await Promise.all([
@@ -653,7 +652,6 @@ router.post("/send-event-reminder/:eventId", async (req, res) => {
           .replace(/\${eventDescription}/g, event.shortDescription || 'Details will be shared soon')
           .replace(/\${currentYear}/g, currentYear);
 
-        // Create plain text version to reduce spam risk
         const textVersion = `
 Hello ${studentName},
 
@@ -666,25 +664,13 @@ Mode: ${event.mode || 'Online'}
 Location: Online
 ${event.shortDescription ? `\nAbout: ${event.shortDescription}` : ''}
 
-Event Link: https://www.krutanic.com/events
+Event Link: https://www.atorax.com/events
 
 Important: Please make sure you're prepared and join on time!
 
-Need Help?
-Email: events@krutanic.com
-Phone/WhatsApp: +91 7829102936
-Website: www.krutanic.com
-
-Thank you for being a part of Krutanic's learning community!
-
-Best Regards,
-Team Krutanic
-A Ladder for Brighter Future
-
----
-Krutanic Solutions
+Atorax Solutions
 This is an automated reminder.
-© ${currentYear} Krutanic. All rights reserved.
+© ${currentYear} Atorax. All rights reserved.
         `;
 
         await sendEventReminderEmail({

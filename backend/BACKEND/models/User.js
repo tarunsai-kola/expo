@@ -57,7 +57,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    default: 'Krutanic@123',
+    default: 'Atorax@123',
   },
   status: {
     type: String,

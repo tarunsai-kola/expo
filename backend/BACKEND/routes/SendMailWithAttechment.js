@@ -14,15 +14,15 @@
 //       </div>
 //       <div style="padding: 20px;">
 //         <p style="font-size: 16px; color: #333;">Dear ${fullname},</p>
-//         <p style="font-size: 14px; color: #555;">We at Krutanic are happy to inform you that based on your application and subsequent interview, you have secured the role of ${domain} Intern with us. This email is to be considered as a formal offer for the mentioned role.</p>
+//         <p style="font-size: 14px; color: #555;">We at Atorax are happy to inform you that based on your application and subsequent interview, you have secured the role of ${domain} Intern with us. This email is to be considered as a formal offer for the mentioned role.</p>
 //         <p style="font-size: 14px; color: #555;">Kindly find attached an offer letter with the particulars of your employment. We are extremely happy to offer you this role and look forward to having you on board with us. The date of commencement of your employment is 5th of ${monthOpted}.</p>
-//         <p style="font-size: 14px; color: #555;">For any further information, please do not hesitate to contact us via this mail ID <a href="mailto:support@krutanic.com" style="color: #0066cc;">support@krutanic.com</a></p>
+//         <p style="font-size: 14px; color: #555;">For any further information, please do not hesitate to contact us via this mail ID <a href="mailto:support@atorax.com" style="color: #0066cc;">support@atorax.com</a></p>
 //         <p style="font-size: 14px; color: #555;">Wishing you all the best on your new journey.</p>
 //         <p style="font-size: 14px; color: #333;">Best regards,</p>
-//         <p style="font-size: 14px; color: #333;">Team Krutanic</p>
+//         <p style="font-size: 14px; color: #333;">Team Atorax</p>
 //       </div>
 //       <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-//         <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
+//         <p>&copy; 2024 Atorax. All Rights Reserved.</p>
 //       </div>
 //     </div>
 //   `;
@@ -44,7 +44,7 @@
 //       const mailOptions = {
 //         from: process.env.SMTP_MAIL,
 //         to: email,
-//         cc: process.env.SMTP_ADMIN_MAIL,
+//         cc: "help@atorax.com",
 //         subject: `Offer Letter - ${domain} Intern`,
 //         html: emailMessage,
 //         priority: "high",
@@ -86,6 +86,7 @@ const nodemailer = require("nodemailer");
 const formidable = require("formidable"); 
 const path = require("path");
 const fs = require("fs");
+const { buildPremiumEmail, SVGS, COMPANY_NAME, COMPANY_SUPPORT_EMAIL } = require("../utils/emailTemplate");
 
 router.post("/sendedOfferLetterMail", (req, res) => {
   const form = new formidable.IncomingForm();
@@ -107,25 +108,23 @@ router.post("/sendedOfferLetterMail", (req, res) => {
       }
 
       console.log("File details:", file);
-    const emailMessage = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-          <h1>Offer Letter - ${domain} Intern</h1>
-        </div>
-        <div style="padding: 20px;">
-          <p style="font-size: 16px; color: #333;">Dear ${fullname},</p>
-          <p style="font-size: 14px; color: #555;">We at Krutanic are happy to inform you that based on your application and subsequent interview, you have secured the role of ${domain} Intern with us. This email is to be considered as a formal offer for the mentioned role.</p>
-          <p style="font-size: 14px; color: #555;">Kindly find attached an offer letter with the particulars of your employment. We are extremely happy to offer you this role and look forward to having you on board with us. The date of commencement of your employment is 5th of ${monthOpted}.</p>
-          <p style="font-size: 14px; color: #555;">For any further information, please do not hesitate to contact us via this mail ID <a href="mailto:support@krutanic.com" style="color: #0066cc;">support@krutanic.com</a></p>
-          <p style="font-size: 14px; color: #555;">Wishing you all the best on your new journey.</p>
-          <p style="font-size: 14px; color: #333;">Best regards,</p>
-          <p style="font-size: 14px; color: #333;">Team Krutanic</p>
-        </div>
-        <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-          <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-        </div>
+    const content = `
+      <p style="font-size: 16px; color: #0f172a; font-weight: 600;">Dear ${fullname},</p>
+      
+      <p>We at <strong>${COMPANY_NAME}</strong> are thrilled to inform you that based on your application and subsequent interview, you have successfully secured the role of <strong>${domain} Intern</strong> with us. Please consider this email as a formal offer for the mentioned role.</p>
+      
+      <div class="highlight-box" style="margin: 25px 0;">
+        <p style="margin: 0; ">${SVGS.info} <span style="margin-top: 2px;">Kindly find attached an offer letter detailing the particulars of your employment. We are extremely happy to offer you this role and look forward to having you on board with us.</span></p>
       </div>
+
+      <div class="highlight-box" style="background: #ecfdf5; border-left-color: #10b981;">
+        <p style="margin: 0; font-weight: 600; color: #0f172a; ">${SVGS.calendar} Date of Commencement: <span style="color: #059669; margin-left: 5px;">5th of ${monthOpted}</span></p>
+      </div>
+
+      <p style="margin-top: 25px;">Wishing you all the best on your new journey!</p>
     `;
+    const emailMessage = buildPremiumEmail({ title: `Offer Letter - ${domain} Intern`, content });
+
 
     try {
       const transporter = nodemailer.createTransport({
@@ -152,7 +151,7 @@ router.post("/sendedOfferLetterMail", (req, res) => {
       const mailOptions = {
         from: process.env.SMTP_MAIL,
         to: email,
-        // cc: process.env.SMTP_ADMIN_MAIL,
+        // cc: "help@atorax.com",
         subject: `Offer Letter - ${domain} Intern`,
         html: emailMessage,
         priority: "high",

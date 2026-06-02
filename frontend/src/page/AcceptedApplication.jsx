@@ -5,12 +5,12 @@ import API from "../API";
 import toast, { Toaster } from "react-hot-toast";
 import { FaWhatsapp } from "react-icons/fa";
 
-const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, domain }) => {
+const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, domain, monthOpted }) => {
   if (!isOpen) return null;
 
   // Create WhatsApp message with user details
-  const whatsappMessage = `Hello, I am ${fullname}. Email: ${email}. Counselor: ${counselor}. Domain: ${domain}.`;
-  const whatsappLink = `https://wa.me/917829102936?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappMessage = `Hello,\n I am ${fullname}.\n Email: ${email}.\n Domain: ${domain}.\n Opted Month: ${monthOpted}.\n Kindly confirm my details`;
+  const whatsappLink = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div style={styles.modal}>
@@ -36,7 +36,7 @@ const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, dom
             </p>
             <div className="mt-4 p-3 bg-blue-50 border-l-4 border-blue-500 rounded">
               <p className="text-sm text-gray-700">
-                <strong>Note:</strong> Please contact your assigned operations executive <br/>Bhumika HK <br/> 7829102936<br/> bhumika@atorax.org
+                <strong>Note:</strong> Please contact your assigned operations executive <br />Bhumika HK <br /> bhumika@atorax.org
               </p>
               <a
                 href={whatsappLink}

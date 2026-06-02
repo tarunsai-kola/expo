@@ -6,6 +6,7 @@ const CreateOperation = require("../models/CreateOperation");
 const NewEnrollStudent = require("../models/NewStudentEnroll");
 const AdvEnroll = require("../models/AdvEnroll");
 const { sendEmail } = require("../controllers/emailController");
+const { buildPremiumEmail, SVGS, COMPANY_NAME, COMPANY_SUPPORT_EMAIL } = require("../utils/emailTemplate");
 const { sendOfferLetter } = require("../controllers/offerLetter")
 const jwt = require("jsonwebtoken");
 const { default: mongoose } = require("mongoose");
@@ -132,24 +133,25 @@ router.post("/operationsendotp", async (req, res) => {
 
     const otp = crypto.randomInt(100000, 1000000);
 
-    // Email message
-    const emailMessage = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-          <h1>Krutanic</h1>
-        </div>
-        <div style="padding: 20px; text-align: center;">
-          <p style="font-size: 16px; color: #333;">Welcome back! ${operation.fullname},</p>
-          <p style="font-size: 14px; color: #555;">Your One-Time Password (OTP) for verification is:</p>
-          <p style="font-size: 24px; font-weight: bold; color: #4a90e2; margin: 10px 0;">${otp}</p>
-          <p style="font-size: 14px; color: #555;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</p>
-        </div>
-        <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-          <p>If you didn’t request this OTP, please ignore this email or contact our IT team.</p>
-          <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-        </div>
+    const content = `
+      <p style="font-size: 18px; color: #0f172a; font-weight: 600;">Welcome back, ${operation.fullname}!</p>
+      <p>Your One-Time Password (OTP) for secure verification is:</p>
+      
+      <div style="background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 25px; text-align: center; margin: 30px 0;">
+          <p style="font-size: 32px; font-weight: 800; color: #4f46e5; margin: 0; letter-spacing: 4px;">${otp}</p>
+      </div>
+
+      <div class="highlight-box" style="background: #fef2f2; border-left-color: #ef4444; margin-bottom: 25px;">
+          <p style="margin: 0;  color: #b91c1c;">
+              ${SVGS.warning} <span style="margin-top: 2px;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</span>
+          </p>
+      </div>
+      <p style="font-size: 13px; color: #64748b;">If you didn't request this OTP, please ignore this email or contact our IT team immediately.</p>
+      <div style="text-align: center; margin: 30px 0;">
+          <a href="https://www.atorax.com/OperationLogin" target="_blank" style="background-color: #4f46e5; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block;">Login Here</a>
       </div>
     `;
+    const emailMessage = buildPremiumEmail({ title: 'Team Login OTP', content });
 
     // Save OTP in database and send email simultaneously
     operation.otp = otp;
@@ -219,39 +221,41 @@ router.post("/send-email", async (req, res) => {
     clearPaymentMonth,
     monthOpted,
   } = req.body;
-  const defaultPassword = "Krutanic@123";
-  const emailMessage = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-      <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-        <h1>Welcome to Krutanic</h1>
+  const defaultPassword = "Atorax@123";
+  const content = `
+      <p style="font-size: 16px; color: #0f172a; font-weight: 600; text-transform: capitalize;">Dear ${fullname},</p>
+      <p>Thank you for joining us at <strong>${COMPANY_NAME}</strong>! Here are your program details:</p>
+      
+      <div class="highlight-box" style="margin: 20px 0; background: #f8fafc;">
+          <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+              <li><strong>Mode of Program:</strong> <span style="text-transform: capitalize;">${program}</span></li>
+              <li><strong>Duration:</strong> <span style="text-transform: capitalize;">${monthOpted} month</span></li>
+              <li><strong>Domain:</strong> <span style="text-transform: capitalize;">${domain}</span></li>
+              <li><strong>Clear Due Payment Date:</strong> <span style="text-transform: capitalize;">${clearPaymentMonth}</span></li>
+              <li><strong>Counselor:</strong> <span style="text-transform: capitalize;">${counselor}</span></li>
+          </ul>
       </div>
-      <div style="padding: 20px;">
-        <p style="font-size: 16px; text-transform: capitalize; color: #333;">Dear ${fullname},</p>
-        <p style="font-size: 14px; color: #555;">Thank you for joining us! Here are your details:</p>
-        <ul style="font-size: 14px; color: #555; line-height: 1.5;">
-          <li style="text-transform: capitalize;"><strong>Mode of Program:</strong> ${program}</li>
-          <li style="text-transform: capitalize;"><strong>You have opted a:</strong> ${monthOpted} month</li>
-          <li style="text-transform: capitalize;"><strong>You Have Opted for a Domain: </strong> ${domain}</li>
-          <li style="text-transform: capitalize;"><strong>Clear Due Payment Date:</strong> ${clearPaymentMonth}</ </li>
-          <li style="text-transform: capitalize;"><strong>Any Doubts? Talk to Your Counselor:</strong> ${counselor}</li>
-        </ul>
-        <p style="font-size: 14px; color: #555;">Here are your login details:</p>
-        <p style="font-size: 14px; color: #333;">Use your email (<strong>${email}</strong>) and the default password provided below to log in:</p>
-        <p style="text-align: center; font-size: 18px; font-weight: bold; color: #4a90e2;">${defaultPassword}</p>
-        <p style="font-size: 14px; color: #555;">
-          <a href="https://www.krutanic.com/login" target="_blank" style="color: #F15B29; text-decoration: none;">Click here to log in</a>. 
-          After logging in, please set a new password according to your preferences or official requirements.
-        </p>
-        <p>Note: Once you clear due amount then you'll get the access to your enrolled course.</p>
-        <p style="font-size: 14px; color: #555;">If you need any further assistance, feel free to reach out at <a href="mailto:support@krutanic.com" style="color: #0066cc; text-decoration: none;">support@krutanic.com</a>.</p>
-        <p style="font-size: 14px; color: #333;">Best regards</p>
-        <p style="font-size: 14px; color: #333;">Team Krutanic</p>
+
+      <p style="font-weight: 600; color: #0f172a;">Your Login Details:</p>
+      <p>Use your email (<strong>${email}</strong>) and the default password below to log in:</p>
+      
+      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; text-align: center; margin: 20px 0;">
+          <p style="font-size: 24px; font-weight: bold; color: #3b82f6; margin: 0; letter-spacing: 2px;">${defaultPassword}</p>
       </div>
-      <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-        <p>&copy; 2026 Krutanic. All Rights Reserved.</p>
+
+      <div style="text-align: center; margin: 30px 0;">
+          <a href="https://www.atorax.com/login" target="_blank" class="cta-button">Access Your Dashboard</a>
       </div>
-    </div>
+
+      <div class="highlight-box" style="background: #fefce8; border-left-color: #eab308; margin-top: 25px;">
+          <p style="margin: 0;  color: #854d0e;">
+              ${SVGS.info} <span style="margin-left: 5px; margin-top: 2px;">Please set a new password after logging in. Note: Access to your course materials will be granted once any pending dues are cleared.</span>
+          </p>
+      </div>
+
+      <p style="margin-top: 25px;">If you need assistance, please contact <a href="mailto:${COMPANY_SUPPORT_EMAIL}">${COMPANY_SUPPORT_EMAIL}</a>.</p>
   `;
+  const emailMessage = buildPremiumEmail({ title: `Welcome to ${program} Program`, content });
   try {
     await sendEmail({
       email,
@@ -345,29 +349,26 @@ router.post("/sendedOnboardingMail", async (req, res) => {
   const pendingAmount = price - paid;
   // console.log("pending", pendingAmount);
 
-  const emailMessage = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-      <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-        <h1>Welcome to Krutanic</h1>
-      </div>
-      <div style="padding: 20px;">
-        <p style="font-size: 16px; color: #333;">Dear ${fullname},</p>
-        <p style="font-size: 14px; color: #555;">Warm greetings from Krutanic! We're excited to have you on board for our ${domain}, commencing on the 5th of ${monthOpted}. Your journey with us promises to be an enriching experience.</p>
-        <p style="font-size: 14px; color: #555;">To ensure a seamless start, we kindly request you to login an LMS (Learning Management System) account by visiting <a href="https://www.krutanic.com" style="color: #F15B29;">krutanic.com</a> and selecting the "Login" option. Doing this promptly will help prevent any delays when the program begins. Training sessions will be available on the start date.</p>
-        <p style="font-size: 14px; color: #555;">Should you have any questions or need assistance, please don't hesitate to contact us via email at <a href="mailto:support@krutanic.com" style="color: #0066cc;">support@krutanic.com</a>. We're here to support you every step of the way.</p>
-        <p style="font-size: 14px; color: #555;">If you wish to clear your pending amount of <strong>${pendingAmount} INR</strong> in advance to expedite your participation in projects, please use the link below:</p>
-        <p style="text-align: center;">
-          <a href="https://smartpay.easebuzz.in/219610/Krutanic" target="_blank" style="background-color: #F15B29; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Pay Now</a>
-        </p>
-        <p style="font-size: 14px; color: #555;">Once again, welcome to Krutanic's ${domain}. We look forward to embarking on this learning journey with you!</p>
-        <p style="font-size: 14px; color: #333;">Warm regards,</p>
-        <p style="font-size: 14px; color: #333;">Team Krutanic</p>
-      </div>
-      <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-        <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-      </div>
+  const content = `
+    <p style="font-size: 16px; color: #0f172a; font-weight: 600;">Dear ${fullname},</p>
+    
+    <p>Warm greetings from <strong>${COMPANY_NAME}</strong>! We're excited to have you on board for our <strong>${domain}</strong>, commencing on the 5th of ${monthOpted}. Your journey with us promises to be an enriching experience.</p>
+    
+    <div class="highlight-box" style="margin: 25px 0;">
+      <p style="margin: 0; ">
+        ${SVGS.info} <span style="margin-left: 5px;">To ensure a seamless start, we kindly request you to log into our LMS by visiting <a href="https://www.atorax.com">atorax.com</a> and selecting "Login". Doing this promptly will help prevent any delays. Training sessions will be available on the start date.</span>
+      </p>
     </div>
+
+    <p>If you wish to clear your pending amount of <strong style="color: #0f172a;">${pendingAmount} INR</strong> in advance to expedite your participation in projects, please use the button below:</p>
+    
+    <div style="text-align: center; margin: 35px 0;">
+        <a href="https://smartpay.easebuzz.in/219610/Krutanic" target="_blank" class="cta-button" style="background-color: #10b981; border: none; font-weight: 600; padding: 12px 24px;">Pay Pending Amount</a>
+    </div>
+
+    <p style="margin-top: 25px;">Once again, welcome to ${COMPANY_NAME}'s ${domain}. We look forward to embarking on this learning journey with you! For any questions, contact us at <a href="mailto:${COMPANY_SUPPORT_EMAIL}">${COMPANY_SUPPORT_EMAIL}</a>.</p>
   `;
+  const emailMessage = buildPremiumEmail({ title: `Welcome to ${COMPANY_NAME} ${domain}`, content });
   try {
     await sendEmail({
       email,

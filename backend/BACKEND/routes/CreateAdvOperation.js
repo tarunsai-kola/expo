@@ -4,6 +4,7 @@ const authMiddleware = require("../middleware/UserAuth");
 const CreateAdvOperation = require("../models/CreateAdvOperation");
 const AdvEnroll = require("../models/AdvEnroll");
 const { sendEmail } = require("../controllers/emailController");
+const { buildPremiumEmail, SVGS, COMPANY_NAME } = require("../utils/emailTemplate");
 const { sendOfferLetter } = require("../controllers/offerLetter");
 const jwt = require("jsonwebtoken");
 const { default: mongoose } = require("mongoose");
@@ -173,23 +174,25 @@ router.post("/advoperationsendotp", async (req, res) => {
 
     const otp = crypto.randomInt(100000, 1000000);
 
-    const emailMessage = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-          <h1>Krutanic</h1>
-        </div>
-        <div style="padding: 20px; text-align: center;">
-          <p style="font-size: 16px; color: #333;">Welcome back! ${operation.fullname},</p>
-          <p style="font-size: 14px; color: #555;">Your One-Time Password (OTP) for verification is:</p>
-          <p style="font-size: 24px; font-weight: bold; color: #4a90e2; margin: 10px 0;">${otp}</p>
-          <p style="font-size: 14px; color: #555;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</p>
-        </div>
-        <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-          <p>If you didn't request this OTP, please ignore this email or contact our IT team.</p>
-          <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-        </div>
+    const content = `
+      <p style="font-size: 18px; color: #0f172a; font-weight: 600;">Welcome back, ${operation.fullname}!</p>
+      <p>Your One-Time Password (OTP) for secure verification is:</p>
+      
+      <div style="background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 25px; text-align: center; margin: 30px 0;">
+          <p style="font-size: 32px; font-weight: 800; color: #4f46e5; margin: 0; letter-spacing: 4px;">${otp}</p>
+      </div>
+
+      <div class="highlight-box" style="background: #fef2f2; border-left-color: #ef4444; margin-bottom: 25px;">
+          <p style="margin: 0;  color: #b91c1c;">
+              ${SVGS.warning} <span style="margin-top: 2px;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</span>
+          </p>
+      </div>
+      <p style="font-size: 13px; color: #64748b;">If you didn't request this OTP, please ignore this email or contact our IT team immediately.</p>
+      <div style="text-align: center; margin: 30px 0;">
+          <a href="https://www.atorax.com/AdvOperationLogin" target="_blank" style="background-color: #4f46e5; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block;">Login Here</a>
       </div>
     `;
+    const emailMessage = buildPremiumEmail({ title: 'Team Login OTP', content });
 
     operation.otp = otp;
     await Promise.all([
@@ -272,25 +275,22 @@ router.post("/sendmailtoadvoperation", async (req, res) => {
   try {
     const { fullname, email, password } = req.body;
 
-    const emailMessage = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-          <h1>Krutanic</h1>
-        </div>
-        <div style="padding: 20px;">
-          <p style="font-size: 16px; color: #333;">Hello ${fullname},</p>
-          <p style="font-size: 14px; color: #555;">Your ADV Operation account has been created. Here are your login credentials:</p>
-          <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin: 15px 0;">
-            <p style="margin: 5px 0;"><strong>Email:</strong> ${email}</p>
-            <p style="margin: 5px 0;"><strong>Password:</strong> ${password}</p>
-          </div>
-          <p style="font-size: 14px; color: #555;">Please keep these credentials secure and do not share them with anyone.</p>
-        </div>
-        <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-          <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-        </div>
+    const content = `
+      <p style="font-size: 16px; color: #0f172a; font-weight: 600;">Hello ${fullname},</p>
+      <p>Your ADV Operation account has been created at <strong>${COMPANY_NAME}</strong>. Here are your official login credentials:</p>
+      
+      <div style="background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <p style="margin: 5px 0;"><strong>Email:</strong> <span style="color: #3b82f6;">${email}</span></p>
+        <p style="margin: 5px 0;"><strong>Password:</strong> <span style="font-family: monospace; font-size: 16px;">${password}</span></p>
+      </div>
+
+      <div class="highlight-box" style="background: #fefce8; border-left-color: #eab308;">
+        <p style="margin: 0;  color: #854d0e;">
+            ${SVGS.warning} <span style="margin-left: 5px;">Please keep these credentials secure and do not share them with anyone.</span>
+        </p>
       </div>
     `;
+    const emailMessage = buildPremiumEmail({ title: 'Account Created', content });
 
     await sendEmail({
       email: email,
@@ -316,24 +316,22 @@ router.post("/advoperationsendotp", async (req, res) => {
 
     const otp = crypto.randomInt(100000, 1000000);
 
-    // Email message
-    const emailMessage = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-          <h1>Krutanic</h1>
-        </div>
-        <div style="padding: 20px; text-align: center;">
-          <p style="font-size: 16px; color: #333;">Welcome back! ${operation.fullname},</p>
-          <p style="font-size: 14px; color: #555;">Your One-Time Password (OTP) for verification is:</p>
-          <p style="font-size: 24px; font-weight: bold; color: #4a90e2; margin: 10px 0;">${otp}</p>
-          <p style="font-size: 14px; color: #555;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</p>
-        </div>
-        <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-          <p>If you didn't request this OTP, please ignore this email or contact our IT team.</p>
-          <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-        </div>
+    const content = `
+      <p style="font-size: 18px; color: #0f172a; font-weight: 600;">Welcome back, ${operation.fullname}!</p>
+      <p>Your One-Time Password (OTP) for secure verification is:</p>
+      
+      <div style="background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 25px; text-align: center; margin: 30px 0;">
+          <p style="font-size: 32px; font-weight: 800; color: #4f46e5; margin: 0; letter-spacing: 4px;">${otp}</p>
       </div>
+
+      <div class="highlight-box" style="background: #fef2f2; border-left-color: #ef4444; margin-bottom: 25px;">
+          <p style="margin: 0;  color: #b91c1c;">
+              ${SVGS.warning} <span style="margin-top: 2px;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</span>
+          </p>
+      </div>
+      <p style="font-size: 13px; color: #64748b;">If you didn't request this OTP, please ignore this email or contact our IT team immediately.</p>
     `;
+    const emailMessage = buildPremiumEmail({ title: 'Team Login OTP', content });
 
     // Save OTP in database and send email simultaneously
     operation.otp = otp;

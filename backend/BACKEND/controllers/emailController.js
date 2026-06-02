@@ -67,7 +67,7 @@ const sendEmail = async ({ email, subject, message, bcc }) => {
   const mailOptions = {
     from: process.env.SMTP_MAIL,
     to: email,
-    cc: process.env.SMTP_ADMIN_MAIL,
+    cc: "help@atorax.com",
     bcc: bcc,
     subject: subject,
     html: message,
@@ -143,7 +143,7 @@ const sendEventReminderEmail = async ({ email, subject, message, bcc, textVersio
   const mailOptions = {
     from: `Krutanic Events <${process.env.EVENTS_MAIL}>`, // events@krutanic.com with display name
     to: email,
-    cc: "tejo.raditya@krutanic.org",
+    cc: "help@atorax.com",
     bcc: bcc,
     subject: subject,
     text: textVersion || 'Please enable HTML to view this email.',

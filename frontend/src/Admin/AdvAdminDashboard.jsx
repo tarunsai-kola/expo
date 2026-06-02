@@ -65,7 +65,7 @@ const AdvAdminDashboard = () => {
     };
 
     return (
-        <div className="admin-content-wrap" style={{ overflowX: 'hidden' }}>
+        <div className="admin-content-wrap" style={{ overflowX: 'hidden', paddingTop: '90px' }}>
             <Toaster />
             <div className="flex justify-between items-center mb-8">
                 <div>

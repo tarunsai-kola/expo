@@ -5,7 +5,7 @@ const AdvLead = require("../models/AdvLead");
 const verifyAnyAuth = require("../middleware/verifyAnyAuth");
 const crypto = require("crypto");
 const { sendEmail } = require("../controllers/emailController");
-
+const { buildPremiumEmail, SVGS, COMPANY_NAME } = require("../utils/emailTemplate");
 
 
 router.get("/advancequeries", verifyAnyAuth, async (req, res) => {
@@ -126,23 +126,22 @@ router.post("/advance-send-otp", async (req, res) => {
 
     otpStoreAdvance[email] = { otp, otpExpires };
 
-    const EmailMessage = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-        <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-          <h1>Krutanic</h1>
-        </div>
-        <div style="padding: 20px; text-align: center;">
-          <p style="font-size: 16px; color: #333;">Hello,</p>
-          <p style="font-size: 14px; color: #555;">To complete your Advanced Program application, please use the OTP below to verify your email address:</p>
-          <p style="font-size: 24px; font-weight: bold; color: #4a90e2; margin: 10px 0;">${otp}</p>
-          <p style="font-size: 14px; color: #555;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</p>
-        </div>
-        <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-          <p>If you did not request this OTP, please ignore this email.</p>
-          <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-        </div>
+    const content = `
+      <p style="font-size: 16px; color: #0f172a; font-weight: 600;">Hello,</p>
+      <p>To complete your Advanced Program application, please use the OTP below to verify your email address:</p>
+      
+      <div style="background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 25px; text-align: center; margin: 30px 0;">
+          <p style="font-size: 32px; font-weight: 800; color: #4f46e5; margin: 0; letter-spacing: 4px;">${otp}</p>
       </div>
+
+      <div class="highlight-box" style="background: #fef2f2; border-left-color: #ef4444; margin-bottom: 25px;">
+          <p style="margin: 0;  color: #b91c1c;">
+              ${SVGS.warning} <span style="margin-top: 2px;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</span>
+          </p>
+      </div>
+      <p style="font-size: 13px; color: #64748b;">If you did not request this OTP, please ignore this email.</p>
     `;
+    const EmailMessage = buildPremiumEmail({ title: 'Application OTP', content });
 
     await sendEmail({ email, subject: "Your OTP for Advanced Program Application", message: EmailMessage });
 

@@ -457,7 +457,7 @@ const AdminAttendance = () => {
   ];
 
   return (
-    <div className="admin-attendance-container" style={styles.container}>
+    <div className="admin-attendance-container min-h-screen bg-slate-50 text-slate-700 font-sans p-6" style={{ ...styles.container, backgroundColor: '#0B0F19', color: '#cbd5e1' }}>
       {/* Add Member Modal */}
       {showAddModal && (
         <div style={styles.modalOverlay}>
@@ -607,19 +607,53 @@ const AdminAttendance = () => {
       <Toaster position="top-center" />
       <style>{`
         .admin-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
-        .admin-table th { padding: 16px; text-align: left; color: #64748b; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .admin-table td { padding: 16px; background: #fff; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; }
-        .admin-table tr td:first-child { border-left: 1px solid #f1f5f9; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
-        .admin-table tr td:last-child { border-right: 1px solid #f1f5f9; border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
-        .admin-table tr:hover td { background: #f8fafc; cursor: pointer; }
+        .admin-table th { padding: 16px; text-align: left; color: #94a3b8; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; background-color: rgba(15, 23, 42, 0.8) !important; border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important; }
+        .admin-table td { padding: 16px; background: rgba(30, 41, 59, 0.4) !important; border-top: 1px solid rgba(51, 65, 85, 0.5) !important; border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important; color: #cbd5e1 !important; }
+        .admin-table tr td:first-child { border-left: 1px solid rgba(51, 65, 85, 0.5) !important; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+        .admin-table tr td:last-child { border-right: 1px solid rgba(51, 65, 85, 0.5) !important; border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
+        .admin-table tr:hover td { background: rgba(30, 41, 59, 0.8) !important; cursor: pointer; }
         
-        .search-box:focus-within { border-color: #FF6B00 !important; box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1); }
-        .pagination-btn { padding: 8px 12px; border-radius: 8px; border: 1px solid #e2e8f0; background: #fff; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 5px; font-weight: 600; color: #64748b; }
-        .pagination-btn:hover:not(:disabled) { border-color: #FF6B00; color: #FF6B00; }
+        .search-box:focus-within { border-color: #818cf8 !important; box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.1); }
+        .pagination-btn { padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(51, 65, 85, 0.5); background: rgba(30, 41, 59, 0.5); cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 5px; font-weight: 600; color: #cbd5e1; }
+        .pagination-btn:hover:not(:disabled) { border-color: #818cf8; color: #818cf8; }
         .pagination-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 1000; animation: fadeIn 0.3s ease; }
-        .modal-card { width: 90%; maxWidth: 700px; background: #fff; borderRadius: 24px; padding: 32px; boxShadow: 0 25px 50px -12px rgba(0,0,0,0.25); position: relative; animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(11, 15, 25, 0.8); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 1000; animation: fadeIn 0.3s ease; }
+        .modal-card { width: 90%; maxWidth: 700px; background: rgba(30, 41, 59, 0.95) !important; backdrop-filter: blur(12px); border: 1px solid rgba(51, 65, 85, 0.5); borderRadius: 24px; padding: 32px; boxShadow: 0 25px 50px -12px rgba(0,0,0,0.5); position: relative; animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); color: #cbd5e1; }
+        
+        /* Overrides for inline styles */
+        .admin-attendance-container h1, .admin-attendance-container h2, .admin-attendance-container h3, 
+        .admin-attendance-container div[style*="color: '#0f172a'"], .admin-attendance-container div[style*='color: "#0f172a"'],
+        .admin-attendance-container div[style*="color: '#1e293b'"], .admin-attendance-container div[style*='color: "#1e293b"'] { color: #f8fafc !important; }
+        
+        .admin-attendance-container div[style*="background: '#fff'"], .admin-attendance-container div[style*='background: "#fff"'],
+        .admin-attendance-container div[style*="background: rgb(255, 255, 255)"] { background-color: rgba(30, 41, 59, 0.4) !important; border-color: rgba(51, 65, 85, 0.5) !important; }
+        
+        .admin-attendance-container div[style*="background: '#f1f5f9'"] { background-color: rgba(15, 23, 42, 0.5) !important; color: #94a3b8 !important; }
+        .admin-attendance-container div[style*="background: '#f8fafc'"], .admin-attendance-container div[style*='background: "#f8fafc"'] { background-color: rgba(30, 41, 59, 0.2) !important; border-color: rgba(51, 65, 85, 0.5) !important; color: #cbd5e1 !important; }
+        
+        .admin-attendance-container input, .admin-attendance-container select, .admin-attendance-container button[style*="background: '#fff'"] {
+           background-color: rgba(15, 23, 42, 0.5) !important; border: 1px solid rgba(51, 65, 85, 0.5) !important; color: #f8fafc !important;
+        }
+        
+        .admin-attendance-container button[style*="background: '#f59e0b'"] { background-color: #d97706 !important; }
+        .admin-attendance-container button[style*="background: '#ef4444'"] { background-color: #b91c1c !important; }
+        .admin-attendance-container button[style*="background: '#0f172a'"] { background-color: #1e293b !important; }
+        .admin-attendance-container button[style*="background: '#f97316'"] { background-color: #ea580c !important; }
+        
+        /* Badges */
+        .admin-attendance-container div[style*="background: '#fff7ed'"], .admin-attendance-container button[style*="background: '#fff7ed'"] { background-color: rgba(251, 146, 60, 0.1) !important; color: #fb923c !important; border-color: rgba(251, 146, 60, 0.2) !important; }
+        .admin-attendance-container div[style*="background: '#fff1f2'"] { background-color: rgba(244, 63, 94, 0.1) !important; color: #fb7185 !important; border-color: rgba(244, 63, 94, 0.2) !important; }
+        .admin-attendance-container div[style*="background: '#fee2e2'"] { background-color: rgba(239, 68, 68, 0.1) !important; color: #ef4444 !important; border-color: rgba(239, 68, 68, 0.2) !important; }
+        
+        /* Main Theme Color override (#FF6B00 -> #4f46e5) */
+        .admin-attendance-container button[style*="backgroundColor: '#FF6B00'"], .admin-attendance-container button[style*='backgroundColor: "#FF6B00"'],
+        .admin-attendance-container div[style*="backgroundColor: '#FF6B00'"], .admin-attendance-container div[style*='backgroundColor: "#FF6B00"'],
+        .admin-attendance-container div[style*="background: '#FF6B00'"] {
+            background-color: #4f46e5 !important; color: #fff !important; 
+        }
+        .admin-attendance-container svg[color="#FF6B00"] { stroke: #818cf8 !important; }
+        .admin-attendance-container span[style*="color: '#FF6B00'"], .admin-attendance-container div[style*="color: '#FF6B00'"] { color: #818cf8 !important; }
         
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

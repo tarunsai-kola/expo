@@ -17,212 +17,69 @@ const REMINDER_SCHEDULE = [
   { day: 0, time: "7:30 AM UTC (1:00 PM IST)", cron: "30 7 * * 0" },   // Sunday
 ];
 
+const { buildPremiumEmail, SVGS, COMPANY_NAME, COMPANY_SUPPORT_EMAIL } = require("../utils/emailTemplate");
+
 /**
  * Generate payment reminder email HTML
  */
 const generateReminderEmail = (student) => {
-  return `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Reminder</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        .header {
-            background: linear-gradient(135deg, #f15b29 0%, #ff8c5a 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-        .content {
-            padding: 30px;
-        }
-        .info-box {
-            background: #f8f9fa;
-            border-left: 4px solid #f15b29;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .info-row:last-child {
-            border-bottom: none;
-        }
-        .label {
-            font-weight: 600;
-            color: #555;
-        }
-        .value {
-            color: #333;
-            font-weight: 500;
-        }
-        .amount-highlight {
-            background: #fff3cd;
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .amount-highlight h2 {
-            color: #d63384;
-            margin: 0;
-            font-size: 32px;
-        }
-        .amount-highlight p {
-            margin: 5px 0 0 0;
-            color: #666;
-        }
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            margin: 20px 0;
-            transition: transform 0.3s;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
-        .footer {
-            background: #f8f9fa;
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-        }
-        .contact-info {
-            margin: 15px 0;
-            padding: 15px;
-            background: #e7f3ff;
-            border-radius: 5px;
-        }
-        .urgent-note {
-            color: #d63384;
-            font-weight: 600;
-            margin: 15px 0;
-            padding: 10px;
-            background: #fff0f6;
-            border-radius: 5px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <img src="https://lh3.googleusercontent.com/d/1rmHu8ecr-JC3kzrM3Q5QALubDAXwVmx6" alt="Krutanic" style="max-width: 250px; margin-bottom: 15px; height: auto; display: block; margin-left: auto; margin-right: auto;" />
-            <h1>Payment Reminder</h1>
+  const pendingAmount = ((student.programPrice || 0) - (student.paidAmount || 0)).toLocaleString('en-IN');
+  const content = `
+    <p>Dear <strong>${student.fullname}</strong>,</p>
+    
+    <p>We hope you are doing well and enjoying your learning journey with us at <strong>${COMPANY_NAME}</strong>.</p>
+    
+    <p>This is a friendly reminder regarding the pending payment for your enrolled program:</p>
+    
+    <div class="highlight-box" style="margin-top: 10px; margin-bottom: 30px;">
+        <div class="data-row">
+            <span class="data-label">Program</span>
+            <span class="data-value">${student.program || "N/A"}</span>
         </div>
-        
-        <div class="content">
-            <p>Dear <strong>${student.fullname}</strong>,</p>
-            
-            <p>We hope you are doing well and enjoying your learning journey with us at <strong>Krutanic</strong>.</p>
-            
-            <p>This is a friendly reminder regarding the pending payment for your enrolled program:</p>
-            
-            <div class="info-box">
-                <div class="info-row">
-                    <span class="label">Program:</span>
-                    <span class="value">${student.program || "N/A"}</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">Domain:</span>
-                    <span class="value">${student.domain || "N/A"}</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">Total Program Fee:</span>
-                    <span class="value">₹${student.programPrice?.toLocaleString('en-IN') || 0}</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">Amount Paid:</span>
-                    <span class="value">₹${student.paidAmount?.toLocaleString('en-IN') || 0}</span>
-                </div>
-                <div class="info-row">
-                    <span class="label">Start Month:</span>
-                    <span class="value">${student.internshipstartsmonth || 'N/A'}</span>
-                </div>
-            </div>
-            
-            <div class="amount-highlight">
-                <p>Remaining Amount Due</p>
-                <h2>₹${
-                  ((student.programPrice || 0) - (student.paidAmount || 0)).toLocaleString('en-IN')
-                }</h2>
-            </div>
-            
-            <div class="urgent-note">
-                ⚠️ Please clear your pending dues at the earliest to avoid any disruption in your learning experience.
-            </div>
-            
-            <p style="text-align: center;">
-                <a href="https://smartpay.easebuzz.in/219610/Krutanic" target="_blank" class="cta-button" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); margin-right: 10px;">
-                     Click to Pay Now
-                </a>
-                <a href="https://wa.me/917829102936?text=Hi%2C%20I%20need%20help%20with%20payment%20for%20${encodeURIComponent(student.fullname)}" target="_blank" class="cta-button" style="background: linear-gradient(135deg, #f15b29 0%, #ff8c5a 100%);">
-                    Contact Support
-                </a>
-            </p>
-            
-            <div class="contact-info">
-                <strong>Payment Instructions:</strong><br>
-                1️⃣ Click the "Click to Pay Now" button above to make payment<br>
-                2️⃣ After successful payment, share transaction details via WhatsApp/SMS to <strong>+91 7829102936</strong><br>
-                3️⃣ Include your name and transaction ID for quick verification<br><br>
-                <strong>Payment Support:</strong><br>
-                Email: support@krutanic.com<br>
-                Phone/WhatsApp: +91 7829102936<br>
-                Website: www.krutanic.com
-            </div>
-            
-            <p style="margin-top: 25px;">If you have already made the payment, please share the transaction details with us at <strong>+91 7829102936</strong>, and kindly ignore this reminder.</p>
-            
-            <p style="margin-top: 20px;">Thank you for your cooperation and trust in Krutanic</p>
-            
-            <p style="margin-top: 15px;">
-                <strong>Best Regards,</strong><br>
-                Team Krutanic<br>
-                <em>A Ladder for Brighter Future</em>
-            </p>
+        <div class="data-row">
+            <span class="data-label">Domain</span>
+            <span class="data-value">${student.domain || "N/A"}</span>
         </div>
-        
-        <div class="footer">
-            <p>This is an automated reminder. Please do not reply to this email.</p>
-            <p>&copy; ${new Date().getFullYear()} Krutanic. All rights reserved.</p>
+        <div class="data-row">
+            <span class="data-label">Total Fee</span>
+            <span class="data-value">₹${student.programPrice?.toLocaleString('en-IN') || 0}</span>
+        </div>
+        <div class="data-row">
+            <span class="data-label">Amount Paid</span>
+            <span class="data-value">₹${student.paidAmount?.toLocaleString('en-IN') || 0}</span>
+        </div>
+        <div class="data-row">
+            <span class="data-label">Start Month</span>
+            <span class="data-value">${student.internshipstartsmonth || 'N/A'}</span>
         </div>
     </div>
-</body>
-</html>
+    
+    <div style="text-align: center; background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 25px; margin: 30px 0;">
+        <p style="margin: 0; color: #dc2626; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Remaining Amount Due</p>
+        <h2 style="margin: 10px 0 0 0; color: #b91c1c; font-size: 36px; font-weight: 800;">₹${pendingAmount}</h2>
+    </div>
+    
+    <div style="text-align: center; color: #dc2626; font-weight: 500; font-size: 15px; display: flex; align-items: center; justify-content: center;">
+        ${SVGS.warning} <span>Please clear your pending dues at the earliest to avoid any disruption in your learning experience.</span>
+    </div>
+    
+    <div class="cta-container">
+        <a href="https://smartpay.easebuzz.in/219610/Atorax" target="_blank" class="cta-button">
+            Proceed to Payment
+        </a>
+        <a href="https://wa.me/917829102936?text=Hi%2C%20I%20need%20help%20with%20payment%20for%20${encodeURIComponent(student.fullname)}" target="_blank" class="cta-button secondary">
+            Contact Support
+        </a>
+    </div>
+    
+    <div class="highlight-box" style="background: #f8fafc; border-left-color: #94a3b8; font-size: 14px;">
+        <strong style="display: block; margin-bottom: 10px; color: #334155;">Payment Instructions</strong>
+        <p style="margin: 0 0 8px 0; color: #475569; display: flex; align-items: flex-start;">${SVGS.pin} <span>Click the "Proceed to Payment" button above to make your payment securely.</span></p>
+        <p style="margin: 0 0 8px 0; color: #475569; display: flex; align-items: flex-start;">${SVGS.check} <span>Share the successful transaction receipt via WhatsApp to <strong>+91 7829102936</strong>.</span></p>
+        <p style="margin: 0; color: #475569; display: flex; align-items: flex-start;">${SVGS.info} <span>If you have already completed the payment, please share the receipt and kindly ignore this message.</span></p>
+    </div>
   `;
+  return buildPremiumEmail({ title: 'Payment Reminder', content });
 };
 
 /**
@@ -270,9 +127,9 @@ const sendPaymentReminders = async () => {
 
         await sendPaymentReminderEmail({
           email: reminder.email,
-          subject: `Payment Reminder - Pending Amount ₹${pendingAmount.toLocaleString('en-IN')} - Krutanic`,
+          subject: `Payment Reminder - Pending Amount ₹${pendingAmount.toLocaleString('en-IN')} - ${COMPANY_NAME}`,
           message: emailHTML,
-          bcc: "info@krutanic.org,tejo.raditya@krutanic.org,shrikant@krutanic.org",
+          bcc: "info@atorax.com,tejo.raditya@atorax.com,shrikant@atorax.com",
         });
 
         // Update reminder record

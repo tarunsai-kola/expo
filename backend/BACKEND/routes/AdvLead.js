@@ -144,7 +144,7 @@ router.get("/meta-webhook", (req, res) => {
     const mode = req.query['hub.mode'];
     const token = req.query['hub.verify_token'];
     const challenge = req.query['hub.challenge'];
-    const verifyToken = process.env.META_VERIFY_TOKEN || 'meta_krutanic_2026';
+    const verifyToken = process.env.META_VERIFY_TOKEN || 'meta_atorax_2026';
 
     if (mode === 'subscribe' && token === verifyToken) {
         console.log("Meta Webhook Verified ✅");
@@ -643,7 +643,7 @@ router.post("/add-form-lead-to-crm", async (req, res) => {
             email: formLead.email,
             phone_number: formLead.contactNumber,
             opted_domain: formLead.domain,
-            source: formLead.source || "Krutanic Advance Form",
+            source: formLead.source || "Atorax Advance Form",
             status: "fresh",
             stage: "Fresh Lead",
             disposition: "New Lead",
@@ -1849,7 +1849,7 @@ router.post("/upload-recording", upload.single("audioFile"), async (req, res) =>
         // Upload to Cloudinary
         const result = await cloudinary.uploader.upload(req.file.path, {
             resource_type: "video", // Cloudinary treats audio as video resource type
-            folder: "krutanic_call_recordings"
+            folder: "atorax_call_recordings"
         });
 
         // Update call activity with recording URL
@@ -2215,7 +2215,7 @@ router.post("/send-lead-mail", async (req, res) => {
             }
         };
 
-        let fromName = senderName || "Krutanic Support";
+        let fromName = senderName || "Atorax Support";
         let fromEmail = process.env.SMTP_MAIL;
         let replyTo = process.env.SMTP_MAIL;
 
@@ -2274,7 +2274,7 @@ router.post("/send-lead-mail", async (req, res) => {
             const fileName = brochureMap[domain];
 
             if (fileName) {
-                const brochurePath = path.join(__dirname, "../krutanic/", fileName);
+                const brochurePath = path.join(__dirname, "../atorax/", fileName);
                 if (fs.existsSync(brochurePath)) {
                     mailOptions.attachments.push({
                         filename: fileName,

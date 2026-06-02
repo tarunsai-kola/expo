@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { sendEmail } = require("../controllers/emailController");
+const { buildPremiumEmail, SVGS, COMPANY_NAME } = require("../utils/emailTemplate");
 const jwt = require("jsonwebtoken");
 const AdvTeam = require("../models/CreateAdvTeam");
 const { cachedQuery, invalidateCache } = require("../utils/cache");
@@ -194,24 +195,22 @@ router.post("/advteamsendotp", async (req, res) => {
 
     const otp = crypto.randomInt(100000, 1000000);
 
-    // Send OTP via Email
-    const emailMessage = `
-           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-          <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-              <h1>Krutanic</h1>
-          </div>
-          <div style="padding: 20px; text-align: center;">
-              <p style="font-size: 16px; color: #333;">Welcome back! ${advTeam.fullname},</p>
-              <p style="font-size: 14px; color: #555;">Your One-Time Password (OTP) for verification is:</p>
-              <p style="font-size: 24px; font-weight: bold; color: #4a90e2; margin: 10px 0;">${otp}</p>
-              <p style="font-size: 14px; color: #555;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</p>
-          </div>
-          <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-              <p>If you didn't request this OTP, please ignore this email or contact our IT team.</p>
-              <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-          </div>
+    const content = `
+      <p style="font-size: 18px; color: #0f172a; font-weight: 600;">Welcome back, ${advTeam.fullname}!</p>
+      <p>Your One-Time Password (OTP) for secure verification is:</p>
+      
+      <div style="background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 25px; text-align: center; margin: 30px 0;">
+          <p style="font-size: 32px; font-weight: 800; color: #4f46e5; margin: 0; letter-spacing: 4px;">${otp}</p>
       </div>
-      `;
+
+      <div class="highlight-box" style="background: #fef2f2; border-left-color: #ef4444; margin-bottom: 25px;">
+          <p style="margin: 0;  color: #b91c1c;">
+              ${SVGS.warning} <span style="margin-top: 2px;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</span>
+          </p>
+      </div>
+      <p style="font-size: 13px; color: #64748b;">If you didn't request this OTP, please ignore this email or contact our IT team immediately.</p>
+    `;
+    const emailMessage = buildPremiumEmail({ title: 'Team Login OTP', content });
 
     advTeam.otp = otp;
     await Promise.all([

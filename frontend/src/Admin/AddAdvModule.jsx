@@ -22,10 +22,21 @@ const AddAdvModule = () => {
             const data = response.data || [];
             setCourses(data);
             if (data.length > 0) {
-                setSelectedCourse(data[0]);
+                await fetchCourseDetails(data[0]._id);
             }
         } catch (error) {
             console.error("There was an error fetching advance courses:", error);
+        }
+    };
+
+    const fetchCourseDetails = async (courseId) => {
+        try {
+            const response = await axios.get(`${API}/getadvcourses`, {
+                params: { courseId },
+            });
+            setSelectedCourse(response.data || null);
+        } catch (error) {
+            console.error("There was an error fetching course details:", error);
         }
     };
 
@@ -34,7 +45,7 @@ const AddAdvModule = () => {
     }, []);
 
     const handleCourseClick = (course) => {
-        setSelectedCourse(course);
+        fetchCourseDetails(course._id);
         setisModuleFormVisible(false);
         setEditingModule(null);
         setModuleTitle("");
@@ -229,7 +240,6 @@ const AddAdvModule = () => {
                                                 <td>{selectedCourse.session[key].description}</td>
                                                 <td>
                                                     <div className="video">
-                                                        <img src={logo} alt="" />
                                                         <iframe
                                                             src={`https://drive.google.com/file/d/${selectedCourse.session[key].description}/preview`}
                                                             allow="autoplay"

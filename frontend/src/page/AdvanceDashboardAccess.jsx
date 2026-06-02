@@ -10,7 +10,7 @@ const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, dom
 
   // Create WhatsApp message with user details
   const whatsappMessage = `Hello,\n I am ${fullname}.\n Email: ${email}.\n Domain: ${domain}.\n Opted Month: ${monthOpted}.\n Kindly confirm my details`;
-  const whatsappLink = `https://wa.me/917829102936?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappLink = `https://wa.me/?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-300">
@@ -43,11 +43,10 @@ const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, dom
             <p className="text-gray-300 text-sm leading-relaxed">
               Your advance program dashboard access form has been submitted successfully.
             </p>
-            <div className="mt-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-2xl text-left">
+            {/* <div className="mt-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-2xl text-left">
               <p className="text-sm text-gray-300 mb-4">
                 <strong className="text-white block mb-1">Next Steps:</strong> Please contact your assigned operations executive:<br />
                 <span className="text-blue-400 font-semibold block mt-2">Bhumika HK</span>
-                <span>7829102936</span><br />
                 <span>bhumika@atorax.org</span>
               </p>
               <a
@@ -59,13 +58,49 @@ const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, dom
                 <FaWhatsapp size={18} />
                 Contact on WhatsApp
               </a>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
     </div>
   );
 }
+
+const InputField = ({ label, type = "text", value, onChange, required, disabled }) => (
+  <div className="space-y-1.5 group">
+    <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">{label}</label>
+    <input
+      type={type}
+      required={required}
+      value={value}
+      onChange={onChange}
+      disabled={disabled}
+      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+    />
+  </div>
+);
+
+const SelectField = ({ label, value, onChange, options, required }) => (
+  <div className="space-y-1.5 group">
+    <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">{label}</label>
+    <div className="relative">
+      <select
+        required={required}
+        value={value}
+        onChange={onChange}
+        className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white appearance-none focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm"
+      >
+        <option value="" disabled className="bg-[#11111a] text-gray-400">Select {label}</option>
+        {options.map((opt, idx) => (
+          <option key={idx} value={opt.value} className="bg-[#11111a] text-white py-2">
+            {opt.label}
+          </option>
+        ))}
+      </select>
+      <FaChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none text-xs" />
+    </div>
+  </div>
+);
 
 const AdvanceDashboardAccess = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -279,42 +314,6 @@ const AdvanceDashboardAccess = () => {
       setLead("");
     }
   };
-
-  const InputField = ({ label, type = "text", value, onChange, required, disabled }) => (
-    <div className="space-y-1.5 group">
-      <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">{label}</label>
-      <input
-        type={type}
-        required={required}
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-        className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-      />
-    </div>
-  );
-
-  const SelectField = ({ label, value, onChange, options, required }) => (
-    <div className="space-y-1.5 group">
-      <label className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">{label}</label>
-      <div className="relative">
-        <select
-          required={required}
-          value={value}
-          onChange={onChange}
-          className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white appearance-none focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm"
-        >
-          <option value="" disabled className="bg-[#11111a] text-gray-400">Select {label}</option>
-          {options.map((opt, idx) => (
-            <option key={idx} value={opt.value} className="bg-[#11111a] text-white py-2">
-              {opt.label}
-            </option>
-          ))}
-        </select>
-        <FaChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none text-xs" />
-      </div>
-    </div>
-  );
 
   return (
     <div className="min-h-screen bg-[#05050A] text-gray-300 font-sans relative overflow-hidden pb-24 pt-20">

@@ -357,8 +357,8 @@ const CreateAdvOperation = () => {
       )}
       <div className="coursetable">
         <div>
-          <h1>ADV Operation Accounts List:</h1>
-          <span onClick={toggleVisibility}>+ Add New ADV Operation</span>
+          <h1>Operation Accounts List:</h1>
+          <span onClick={toggleVisibility}>+ Add New Operation</span>
         </div>
         <table>
           <thead>

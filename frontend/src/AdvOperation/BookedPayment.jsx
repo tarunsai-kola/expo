@@ -303,11 +303,15 @@ const BookedAmount = () => {
       setPaidAmount(student.paidAmount || "");
       setRemainingAmount(student.remainingAmount || 0);
       setMonthOpted(student.monthOpted || "");
-      setClearPaymentMonth(
-        student.clearPaymentMonth
-          ? new Date(student.clearPaymentMonth).toISOString().split("T")[0]
-          : ""
-      );
+      setClearPaymentMonth(() => {
+        try {
+          return student.clearPaymentMonth
+            ? new Date(student.clearPaymentMonth).toISOString().split("T")[0]
+            : "";
+        } catch (e) {
+          return "";
+        }
+      });
       setModeofpayment(student.modeofpayment || "");
       setCollegeName(student.collegeName || "");
       setBranch(student.branch || "");
@@ -756,7 +760,364 @@ const BookedAmount = () => {
 
   return (
     <div id="OperationEnroll">
-      <Toaster position="top-center" reverseOrder={false} />
+      <Toaster position="top-center" toastOptions={{ style:{background:'#1E293B',color:'#F8FAFC',border:'1px solid rgba(255,255,255,0.1)',borderRadius:'12px'} }} />
+      {/* ── Premium Dark Theme Override ── */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        /* ── Kill the white body background for this page ── */
+        html, body {
+          background: #0F172A !important;
+          color: #F1F5F9 !important;
+        }
+
+        #OperationEnroll {
+          background: #0F172A !important;
+          color: #F1F5F9 !important;
+          min-height: 100vh !important;
+          margin-left: 260px !important;
+          padding: 90px 28px 40px !important;
+          font-family: 'Inter', sans-serif !important;
+          box-sizing: border-box !important;
+        }
+
+        /* ── Filter/Header bar ── */
+        #OperationEnroll .coursetable {
+          padding: 0 !important;
+        }
+        #OperationEnroll .coursetable > div {
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: center !important;
+          margin: 0 0 20px !important;
+          flex-wrap: wrap !important;
+          gap: 12px !important;
+        }
+        #OperationEnroll .coursetable > div h2 {
+          color: #F1F5F9 !important;
+          font-size: 24px !important;
+          font-weight: 800 !important;
+          background: linear-gradient(90deg, #F8FAFC, #94A3B8) !important;
+          -webkit-background-clip: text !important;
+          -webkit-text-fill-color: transparent !important;
+        }
+
+        /* ── Search input ── */
+        /* ── Inputs & Form Controls ── */
+        #OperationEnroll input,
+        #OperationEnroll select,
+        #OperationEnroll textarea {
+          background: rgba(15,23,42,0.8) !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          border-radius: 12px !important;
+          padding: 10px 16px !important;
+          color: #F1F5F9 !important;
+          font-size: 14px !important;
+          outline: none !important;
+          font-family: 'Inter', sans-serif !important;
+          transition: border 0.2s !important;
+        }
+        #OperationEnroll input:focus,
+        #OperationEnroll select:focus {
+          border-color: #3B82F6 !important;
+          box-shadow: 0 0 0 3px rgba(59,130,246,0.1) !important;
+        }
+        #OperationEnroll input::placeholder {
+          color: #475569 !important;
+        }
+
+        /* ── Modal Dark Theme ── */
+        #OperationEnroll .bg-white.rounded-lg.shadow-xl {
+          background: #1E293B !important;
+          border: 1px solid rgba(255,255,255,0.1) !important;
+        }
+        #OperationEnroll .text-gray-800 {
+          color: #F8FAFC !important;
+        }
+        #OperationEnroll .text-gray-600 {
+          color: #94A3B8 !important;
+        }
+        #OperationEnroll .border-b {
+          border-color: rgba(255,255,255,0.1) !important;
+        }
+        #OperationEnroll .bg-gray-50 {
+          background: rgba(0,0,0,0.2) !important;
+          border-color: rgba(255,255,255,0.05) !important;
+        }
+        #OperationEnroll .text-gray-700 {
+          color: #CBD5E1 !important;
+        }
+
+        /* ── Month select ── */
+        #OperationEnroll select.border,
+        #OperationEnroll section + select {
+          background: rgba(15,23,42,0.8) !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          border-radius: 12px !important;
+          padding: 10px 16px !important;
+          color: #F1F5F9 !important;
+          font-size: 14px !important;
+          outline: none !important;
+          font-family: 'Inter', sans-serif !important;
+          cursor: pointer !important;
+          margin-bottom: 16px !important;
+        }
+
+        /* ── Table wrapper ── */
+        #OperationEnroll table {
+          width: 100% !important;
+          border-collapse: collapse !important;
+          background: rgba(30,41,59,0.8) !important;
+          border-radius: 20px !important;
+          overflow: hidden !important;
+          text-align: left !important;
+          box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+          border: 1px solid rgba(255,255,255,0.06) !important;
+        }
+
+        /* ── Table headers ── */
+        #OperationEnroll th {
+          background: rgba(15,23,42,0.9) !important;
+          color: #94A3B8 !important;
+          font-size: 11px !important;
+          font-weight: 700 !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.8px !important;
+          padding: 14px 16px !important;
+          border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+          border: none !important;
+          border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+          white-space: nowrap !important;
+        }
+
+        /* ── Table cells ── */
+        #OperationEnroll td {
+          padding: 14px 16px !important;
+          font-size: 13px !important;
+          color: #CBD5E1 !important;
+          border: none !important;
+          border-bottom: 1px solid rgba(255,255,255,0.03) !important;
+          vertical-align: middle !important;
+          white-space: nowrap !important;
+        }
+        #OperationEnroll tr:hover td {
+          background: rgba(255,255,255,0.025) !important;
+        }
+
+        /* ── Date separator rows ── */
+        #OperationEnroll tr.cursor-pointer td {
+          background: rgba(59,130,246,0.08) !important;
+          color: #60A5FA !important;
+          font-weight: 700 !important;
+          font-size: 13px !important;
+          letter-spacing: 0.3px !important;
+          border-left: 3px solid #3B82F6 !important;
+        }
+
+        /* ── Row remark tints ── */
+        #OperationEnroll tbody tr.Cleared td {
+          background: rgba(16,185,129,0.05) !important;
+        }
+        #OperationEnroll tbody tr.Default td {
+          background: rgba(239,68,68,0.05) !important;
+        }
+        #OperationEnroll tbody tr.Half_Cleared td {
+          background: rgba(245,158,11,0.05) !important;
+        }
+
+        /* ── Table buttons ── */
+        #OperationEnroll table button {
+          background: rgba(59,130,246,0.1) !important;
+          color: #60A5FA !important;
+          border: 1px solid rgba(59,130,246,0.2) !important;
+          border-radius: 8px !important;
+          padding: 6px 14px !important;
+          font-size: 12px !important;
+          font-weight: 600 !important;
+          cursor: pointer !important;
+          transition: all 0.2s !important;
+          font-family: 'Inter', sans-serif !important;
+        }
+        #OperationEnroll table button:hover {
+          background: rgba(59,130,246,0.2) !important;
+          transform: translateY(-1px) !important;
+        }
+
+        /* ── Remark select inside table ── */
+        #OperationEnroll td select,
+        #OperationEnroll select.border.rounded-full {
+          background: rgba(15,23,42,0.8) !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          border-radius: 10px !important;
+          padding: 7px 12px !important;
+          color: #F1F5F9 !important;
+          font-size: 12px !important;
+          outline: none !important;
+          font-family: 'Inter', sans-serif !important;
+          cursor: pointer !important;
+        }
+        #OperationEnroll td select option,
+        #OperationEnroll select option {
+          background: #1E293B !important;
+          color: #F1F5F9 !important;
+        }
+
+        /* ── Pagination ── */
+        #OperationEnroll .flex.justify-center button {
+          border-radius: 10px !important;
+          padding: 10px 20px !important;
+          font-weight: 600 !important;
+          font-size: 14px !important;
+          font-family: 'Inter', sans-serif !important;
+          border: none !important;
+          cursor: pointer !important;
+          transition: all 0.2s !important;
+        }
+        #OperationEnroll .bg-blue-500 {
+          background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+          color: #fff !important;
+          box-shadow: 0 4px 12px rgba(59,130,246,0.3) !important;
+        }
+        #OperationEnroll .bg-gray-300 {
+          background: rgba(255,255,255,0.07) !important;
+          color: #475569 !important;
+        }
+        #OperationEnroll .font-semibold {
+          color: #94A3B8 !important;
+        }
+
+        /* ── Modals / Form overlay ── */
+        #OperationEnroll .form {
+          background: rgba(0,0,0,0.6) !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          padding: 0 !important;
+        }
+        #OperationEnroll .form form {
+          background: rgba(15,23,42,0.98) !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          border-radius: 24px !important;
+          padding: 36px !important;
+          color: #F1F5F9 !important;
+          box-shadow: 0 25px 60px rgba(0,0,0,0.6) !important;
+          max-height: 90vh !important;
+          overflow-y: auto !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 12px !important;
+        }
+        #OperationEnroll .form h2 {
+          color: #F1F5F9 !important;
+          font-size: 20px !important;
+          font-weight: 800 !important;
+          text-align: left !important;
+          margin-bottom: 8px !important;
+        }
+        #OperationEnroll .form input,
+        #OperationEnroll .form select,
+        #OperationEnroll .form textarea {
+          background: rgba(30,41,59,0.8) !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          border-radius: 12px !important;
+          padding: 12px 16px !important;
+          color: #F1F5F9 !important;
+          font-size: 14px !important;
+          outline: none !important;
+          font-family: 'Inter', sans-serif !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          transition: border 0.2s !important;
+        }
+        #OperationEnroll .form input:focus,
+        #OperationEnroll .form select:focus,
+        #OperationEnroll .form textarea:focus {
+          border-color: #3B82F6 !important;
+          box-shadow: 0 0 0 3px rgba(59,130,246,0.1) !important;
+        }
+        #OperationEnroll .form input::placeholder,
+        #OperationEnroll .form textarea::placeholder {
+          color: #475569 !important;
+        }
+        #OperationEnroll .form input[type="submit"],
+        #OperationEnroll .form .cursor-pointer {
+          background: linear-gradient(135deg, #3B82F6, #2563EB) !important;
+          color: #fff !important;
+          border: none !important;
+          border-radius: 12px !important;
+          padding: 14px !important;
+          font-size: 15px !important;
+          font-weight: 700 !important;
+          cursor: pointer !important;
+          width: 100% !important;
+          margin-top: 8px !important;
+        }
+        #OperationEnroll .form label {
+          color: #94A3B8 !important;
+          font-size: 12px !important;
+          font-weight: 600 !important;
+          text-transform: uppercase !important;
+          letter-spacing: 0.5px !important;
+          margin-bottom: 4px !important;
+          display: block !important;
+        }
+        #OperationEnroll .form p {
+          color: #94A3B8 !important;
+          font-size: 13px !important;
+          background: rgba(30,41,59,0.6) !important;
+          padding: 14px !important;
+          border-radius: 12px !important;
+        }
+        #OperationEnroll .form p strong {
+          color: #F1F5F9 !important;
+        }
+        #OperationEnroll .form span {
+          color: #94A3B8 !important;
+          cursor: pointer !important;
+          font-size: 18px !important;
+        }
+
+        /* ── Detail dialog ── */
+        .fixed.flex.flex-col.rounded-md {
+          background: rgba(15,23,42,0.99) !important;
+          border: 1px solid rgba(255,255,255,0.08) !important;
+          border-radius: 20px !important;
+          color: #F1F5F9 !important;
+          box-shadow: 0 25px 60px rgba(0,0,0,0.7) !important;
+          padding: 32px !important;
+        }
+        .fixed.flex.flex-col.rounded-md h2 {
+          color: #F1F5F9 !important;
+          font-size: 20px !important;
+          font-weight: 800 !important;
+          margin-bottom: 16px !important;
+        }
+        .fixed.flex.flex-col.rounded-md p {
+          color: #94A3B8 !important;
+          font-size: 14px !important;
+        }
+        .fixed.flex.flex-col.rounded-md p strong {
+          color: #F1F5F9 !important;
+        }
+        .fixed.flex.flex-col.rounded-md button {
+          background: rgba(59,130,246,0.1) !important;
+          color: #60A5FA !important;
+          border: 1px solid rgba(59,130,246,0.2) !important;
+          border-radius: 10px !important;
+          padding: 10px 24px !important;
+          font-weight: 600 !important;
+          cursor: pointer !important;
+          margin-top: 16px !important;
+          width: 100% !important;
+          font-family: 'Inter', sans-serif !important;
+        }
+
+        /* ── Scrollbar ── */
+        #OperationEnroll::-webkit-scrollbar,
+        #OperationEnroll *::-webkit-scrollbar { width: 5px; height: 5px; }
+        #OperationEnroll::-webkit-scrollbar-thumb,
+        #OperationEnroll *::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 99px; }
+      `}</style>
       {offerData && (
         <div className="form">
           <form onSubmit={sendOfferleter} className="relative">
@@ -1275,22 +1636,17 @@ const BookedAmount = () => {
                         </td>
                         <td>
                           <div
-                            className=" cursor-pointer"
-                            onClick={
-                              !item.mailSended
-                                ? () => handleSendEmail(item)
-                                : null
-                            }
-                            disabled={item.mailSended}
+                            className="cursor-pointer transition hover:opacity-80"
+                            onClick={() => handleSendEmail(item)}
                           >
                             {item.mailSended ? (
-                              <div className="flex items-center justify-center w-full">
+                              <div className="flex items-center justify-center w-full" title="Resend Login Credentials">
                                 <PiLockKeyOpenFill />
                                 <i className="fa fa-send-o text-green-600"></i>
                               </div>
                             ) : (
-                              <div className="flex items-center justify-center w-full">
-                                <PiLockKeyFill />{" "}
+                              <div className="flex items-center justify-center w-full" title="Send Login Credentials">
+                                <PiLockKeyFill />
                                 <i className="fa fa-send-o text-red-600"></i>
                               </div>
                             )}

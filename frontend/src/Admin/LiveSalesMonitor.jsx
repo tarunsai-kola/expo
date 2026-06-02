@@ -32,20 +32,20 @@ const LiveSalesMonitor = () => {
 
     const getStatus = (lastActiveAt) => {
         const diff = Date.now() - new Date(lastActiveAt).getTime();
-        if (diff < 60000) return { label: 'Online', class: 'bg-emerald-500', pulse: true };
-        if (diff < 180000) return { label: 'Away', class: 'bg-amber-500', pulse: false };
-        return { label: 'Idle', class: 'bg-slate-400', pulse: false };
+        if (diff < 60000) return { label: 'Online', class: 'bg-emerald-500/80 text-slate-900 border-emerald-500', pulse: true };
+        if (diff < 180000) return { label: 'Away', class: 'bg-amber-500/80 text-slate-900 border-amber-500', pulse: false };
+        return { label: 'Idle', class: 'bg-slate-600/80 text-slate-200 border-slate-500', pulse: false };
     };
 
     return (
-        <div className="admin-content-wrap">
-            <Toaster />
-            <div className="max-w-7xl mx-auto">
+        <div className="admin-content-wrap min-h-screen bg-slate-50 text-slate-700 font-sans p-6">
+            <Toaster toastOptions={{ style: { background: '#1e293b', color: '#f8fafc', border: '1px solid #334155' } }} />
+            <div className="max-w-7xl mx-auto py-8">
                 <header className="mb-10 flex items-center justify-between">
                     <div>
                         <div className="flex items-center gap-3 mb-1">
-                            <h1 className="text-3xl font-bold text-[#1e293b]">Live Sales Ops</h1>
-                            <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full text-xs font-bold border border-emerald-100 uppercase tracking-wider">
+                            <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Live Sales Ops</h1>
+                            <div className="flex items-center gap-1.5 bg-emerald-500/10 text-emerald-600 px-3 py-1 rounded-full text-xs font-bold border border-emerald-500/30 uppercase tracking-wider">
                                 <span className="relative flex h-2 w-2">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -53,23 +53,23 @@ const LiveSalesMonitor = () => {
                                 Monitoring Live
                             </div>
                         </div>
-                        <p className="text-slate-500 text-sm italic">Real-time screen activity and presence monitoring</p>
+                        <p className="text-slate-600 text-sm italic">Real-time screen activity and presence monitoring</p>
                     </div>
                 </header>
 
                 {loading ? (
                     <div className="flex flex-col items-center justify-center h-96">
-                        <div className="animate-spin rounded-full h-12 w-12 border-[3px] border-emerald-500 border-t-transparent"></div>
-                        <p className="mt-4 text-slate-500 font-medium">Connecting to live feed...</p>
+                        <div className="animate-spin rounded-full h-12 w-12 border-[3px] border-indigo-500 border-t-transparent"></div>
+                        <p className="mt-4 text-slate-600 font-medium">Connecting to live feed...</p>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {agents.map((agent) => {
                             const status = getStatus(agent.lastActiveAt);
                             return (
-                                <div key={agent._id} className="group relative bg-white rounded-2xl border border-slate-200 p-6 transition-all hover:shadow-xl hover:border-emerald-100 overflow-hidden">
+                                <div key={agent._id} className="group relative bg-slate-50 backdrop-blur-md rounded-2xl border border-slate-200 p-6 transition-all hover:shadow-[0_0_25px_rgba(16,185,129,0.1)] hover:border-emerald-500/30 overflow-hidden">
                                      <div className="absolute top-0 right-0 p-4">
-                                        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase ${status.class} text-white shadow-sm ring-2 ring-white`}>
+                                        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase ${status.class} border shadow-sm`}>
                                             {status.pulse && (
                                                 <span className="flex h-1.5 w-1.5">
                                                     <span className="animate-ping absolute inline-flex h-1.5 w-1.5 rounded-full bg-white opacity-75"></span>
@@ -81,38 +81,38 @@ const LiveSalesMonitor = () => {
                                     </div>
 
                                     <div className="flex items-center gap-4 mb-6">
-                                        <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center text-xl font-bold text-slate-600 shadow-inner">
+                                        <div className="h-14 w-14 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-xl font-bold text-slate-700 shadow-inner">
                                             {agent.fullname.charAt(0)}
                                         </div>
                                         <div>
-                                            <h3 className="font-bold text-slate-800 text-lg leading-tight group-hover:text-emerald-700 transition-colors">{agent.fullname}</h3>
-                                            <p className="text-slate-400 text-xs font-medium uppercase tracking-tighter">{agent.designation}</p>
+                                            <h3 className="font-bold text-slate-900 text-lg leading-tight group-hover:text-emerald-600 transition-colors">{agent.fullname}</h3>
+                                            <p className="text-slate-600 text-xs font-medium uppercase tracking-tighter">{agent.designation}</p>
                                         </div>
                                     </div>
 
                                     <div className="space-y-4">
-                                        <div className="bg-slate-50 rounded-xl p-4 flex items-center justify-between border border-slate-100">
+                                        <div className="bg-white rounded-xl p-4 flex items-center justify-between border border-slate-200">
                                             <div className="flex flex-col">
-                                                <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wide mb-0.5">Active Time Today</span>
-                                                <span className="text-xl font-black text-slate-700 font-mono tracking-tight">{formatTime(agent.todayActiveTime)}</span>
+                                                <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wide mb-0.5">Active Time Today</span>
+                                                <span className="text-xl font-black text-slate-900 font-mono tracking-tight">{formatTime(agent.todayActiveTime)}</span>
                                             </div>
-                                            <div className="h-10 w-10 bg-white rounded-lg flex items-center justify-center shadow-sm border border-slate-200">
-                                                ⏱️
+                                            <div className="h-10 w-10 bg-slate-50 rounded-lg flex items-center justify-center shadow-sm border border-slate-600 text-slate-700">
+                                                <i className="fa fa-clock-o text-lg"></i>
                                             </div>
                                         </div>
 
                                         <div className="flex flex-col gap-1.5">
-                                            <span className="text-[10px] uppercase font-black text-slate-400 tracking-widest pl-1">Current Screen</span>
-                                            <div className="bg-white border border-slate-100 rounded-lg px-3 py-2 flex items-center gap-2 shadow-sm group-hover:border-emerald-100 transition-all">
+                                            <span className="text-[10px] uppercase font-black text-slate-500 tracking-widest pl-1">Current Screen</span>
+                                            <div className="bg-white border border-slate-200 rounded-lg px-3 py-2 flex items-center gap-2 shadow-sm group-hover:border-emerald-500/20 transition-all">
                                                 <div className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
-                                                <span className="text-xs font-semibold text-slate-600 truncate">{agent.currentScreen}</span>
+                                                <span className="text-xs font-semibold text-slate-700 truncate">{agent.currentScreen}</span>
                                             </div>
                                         </div>
                                     </div>
                                     
-                                    <div className="mt-6 pt-4 border-t border-slate-50 flex items-center justify-between">
-                                        <span className="text-[10px] text-slate-400 font-medium italic">Last pulse: {new Date(agent.lastActiveAt).toLocaleTimeString()}</span>
-                                        <button className="text-[10px] font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                                    <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
+                                        <span className="text-[10px] text-slate-500 font-medium italic">Last pulse: {new Date(agent.lastActiveAt).toLocaleTimeString()}</span>
+                                        <button className="text-[10px] font-bold text-emerald-500 hover:text-emerald-600 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
                                             Open Trail <i className="fa fa-arrow-right"></i>
                                         </button>
                                     </div>
@@ -123,24 +123,16 @@ const LiveSalesMonitor = () => {
                 )}
                 
                 {agents.length === 0 && !loading && (
-                    <div className="h-96 flex flex-col items-center justify-center bg-white rounded-3xl border-2 border-dashed border-slate-200">
+                    <div className="h-96 flex flex-col items-center justify-center bg-slate-50 rounded-3xl border-2 border-dashed border-slate-200">
                         <div className="text-5xl mb-4 grayscale opacity-40">💤</div>
                         <h3 className="text-xl font-bold text-slate-600">No active sessions detected</h3>
-                        <p className="text-slate-400 text-sm max-w-xs text-center mt-2">All sr sales executives are currently offline or inactive.</p>
+                        <p className="text-slate-500 text-sm max-w-xs text-center mt-2">All sales executives are currently offline or inactive.</p>
                     </div>
                 )}
             </div>
             
             <style>{`
                 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&family=JetBrains+Mono:wght@500&display=swap');
-                
-                body {
-                    font-family: 'Plus Jakarta Sans', sans-serif;
-                }
-                
-                h1, h2, h3, .font-bold {
-                    letter-spacing: -0.025em;
-                }
                 
                 .font-mono {
                     font-family: 'JetBrains Mono', monospace;

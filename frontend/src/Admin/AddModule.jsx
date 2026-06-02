@@ -218,7 +218,6 @@ const AddModule = () => {
                       <td>{selectedCourse.session[key].description}</td>
                       <td>
                         <div className="video">
-                          <img src={logo} alt="" />
                           <iframe
                             src={`https://drive.google.com/file/d/${selectedCourse.session[key].description}/preview`}
                             allow="autoplay"

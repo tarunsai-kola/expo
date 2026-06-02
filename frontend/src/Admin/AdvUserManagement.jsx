@@ -96,8 +96,8 @@ const AdvUserManagement = () => {
       <div className="coursetable bg-white rounded-3xl shadow-xl p-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
           <div>
-            <h2 className="text-3xl font-extrabold text-gray-800">ADV User Management</h2>
-            <p className="text-gray-500 mt-1">Manage statuses for all Advanced Operation and Team members</p>
+            <h2 className="text-3xl font-extrabold text-gray-800">User Management</h2>
+            <p className="text-gray-500 mt-1">Manage statuses for all Operation and Team members</p>
           </div>
           
           <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">

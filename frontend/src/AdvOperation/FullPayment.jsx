@@ -2,293 +2,304 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import API from "../API";
 
+const DARK_STYLES = `
+  html, body { background: #0F172A !important; color: #F1F5F9 !important; }
+
+  #AdvFullPaymentPage {
+    background: #0F172A;
+    min-height: 100vh;
+    margin-left: 260px;
+    padding: 90px 28px 40px;
+    font-family: 'Inter', sans-serif;
+    color: #F1F5F9;
+    box-sizing: border-box;
+  }
+
+  #AdvFullPaymentPage h1 {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #F8FAFC, #94A3B8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+  }
+
+  #AdvFullPaymentPage .filters-bar {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    background: rgba(30,41,59,0.85);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+
+  #AdvFullPaymentPage input[type="type"],
+  #AdvFullPaymentPage input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(15,23,42,0.8) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 12px !important;
+    padding: 10px 16px !important;
+    color: #F1F5F9 !important;
+    font-size: 14px !important;
+    outline: none !important;
+    font-family: 'Inter', sans-serif !important;
+  }
+  #AdvFullPaymentPage input::placeholder { color: #475569 !important; }
+  #AdvFullPaymentPage input:focus {
+    border-color: #3B82F6 !important;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.1) !important;
+  }
+
+  #AdvFullPaymentPage select {
+    background: rgba(15,23,42,0.8) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    border-radius: 12px !important;
+    padding: 10px 16px !important;
+    color: #F1F5F9 !important;
+    font-size: 14px !important;
+    outline: none !important;
+    font-family: 'Inter', sans-serif !important;
+    cursor: pointer !important;
+  }
+  #AdvFullPaymentPage select option { background: #1E293B; color: #F1F5F9; }
+
+  #AdvFullPaymentPage .count-badge {
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 10px;
+    padding: 8px 18px;
+    color: #10B981;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  #AdvFullPaymentPage .table-wrap {
+    background: rgba(30,41,59,0.85);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  #AdvFullPaymentPage table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  #AdvFullPaymentPage th {
+    background: rgba(15,23,42,0.9);
+    color: #94A3B8;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  #AdvFullPaymentPage td {
+    padding: 14px 16px;
+    font-size: 13px;
+    color: #CBD5E1;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  #AdvFullPaymentPage tr:hover td { background: rgba(255,255,255,0.025); }
+
+  #AdvFullPaymentPage .td-green { color: #10B981; font-weight: 700; }
+  #AdvFullPaymentPage .td-blue  { color: #60A5FA; font-weight: 700; }
+  #AdvFullPaymentPage .td-yellow { color: #F59E0B; font-weight: 700; }
+  #AdvFullPaymentPage .td-name { text-transform: capitalize; font-weight: 600; color: #E2E8F0; }
+
+  #AdvFullPaymentPage .badge-true {
+    background: rgba(16,185,129,0.1); color: #10B981;
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 700;
+  }
+  #AdvFullPaymentPage .badge-false {
+    background: rgba(239,68,68,0.1); color: #EF4444;
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 700;
+  }
+
+  #AdvFullPaymentPage .pagination {
+    display: flex; justify-content: center; align-items: center;
+    gap: 16px; padding: 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  #AdvFullPaymentPage .pagination button {
+    border-radius: 10px; padding: 10px 20px;
+    font-weight: 600; font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    border: none; cursor: pointer; transition: all 0.2s;
+  }
+  #AdvFullPaymentPage .pagination .btn-active {
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+    color: #fff; box-shadow: 0 4px 12px rgba(59,130,246,0.3);
+  }
+  #AdvFullPaymentPage .pagination .btn-disabled {
+    background: rgba(255,255,255,0.07); color: #475569; cursor: not-allowed;
+  }
+  #AdvFullPaymentPage .pagination span { color: #94A3B8; font-weight: 600; }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 99px; }
+`;
+
 const FullPayment = () => {
   const [newStudent, setNewStudent] = useState([]);
-  const fetchNewStudent = async () => {
-    const operationName = localStorage.getItem("advOperationName");
-    try {
-      // Operations need all records to filter by month across 4 months
-      const response = await axios.get(`${API}/getadvenrolls?all=true`);
-      const bookedStudents = response.data.filter(
-        (item) =>
-          item.status === "fullPaid" && item.operationName === operationName
-      );
-      setNewStudent(bookedStudents);
-      setFilteredStudents(bookedStudents);
-
-      const currentMonth = getCurrentMonth();
-      setSelectedMonth(currentMonth);
-
-      // Filter the students based on the current month by default
-      const filtered = bookedStudents.filter(
-        (student) => getMonthFromDate(student.createdAt) === currentMonth
-      );
-      setFilteredStudents(filtered);
-    } catch (error) {
-      console.error("There was an error fetching new student:", error);
-    }
-  };
-  useEffect(() => {
-    fetchNewStudent();
-    setMonths(getPastMonths());
-  }, []);
-  if (!newStudent) {
-    return (
-      <div id="loader">
-        <div className="three-body">
-          <div className="three-body__dot"></div>
-          <div className="three-body__dot"></div>
-          <div className="three-body__dot"></div>
-        </div>
-      </div>
-    );
-  }
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredStudents, setFilteredStudents] = useState([]);
-  const handleSearchChange = (event) => {
-    const value = event.target.value;
-    setSearchQuery(value);
-    const filtered = newStudent.filter((student) => {
-      return (
-        (student.email &&
-          student.email.toLowerCase().includes(value.toLowerCase())) ||
-        (student.phone &&
-          student.phone.toLowerCase().includes(value.toLowerCase())) ||
-        (student.fullname &&
-          student.fullname.toLowerCase().includes(value.toLowerCase())) ||
-        (student.counselor &&
-          student.counselor.toLowerCase().includes(value.toLowerCase())) ||
-        (student.operationName &&
-          student.operationName.toLowerCase().includes(value.toLowerCase())) ||
-        (student.createdAt &&
-          student.createdAt.toLowerCase().includes(value.toLowerCase())) ||
-        (student.clearPaymentMonth &&
-          student.clearPaymentMonth.toLowerCase().includes(value.toLowerCase())) ||
-        (student.collegeName &&
-          student.collegeName.toLowerCase().includes(value.toLowerCase())) ||
-        (student.branch &&
-          student.branch.toLowerCase().includes(value.toLowerCase()))
-      );
-    });
-    setFilteredStudents(filtered);
-  };
-
   const [selectedMonth, setSelectedMonth] = useState("");
   const [months, setMonths] = useState([]);
-  const handleMonthChange = (event) => {
-    const selectedMonth = event.target.value;
-    setSelectedMonth(selectedMonth); // Update selected month
-    const filtered = newStudent.filter(
-      (student) => getMonthFromDate(student.createdAt) === selectedMonth
-    );
-    setFilteredStudents(filtered); // Update filtered students
-  };
-  // Format date to display
-  // const formatDate = (date) => new Date(date).toLocaleDateString("en-GB");
-
-  // Get current month (in string format like "Jan", "Feb", etc.)
-  const getCurrentMonth = () => {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-
-    const currentDate = new Date();
-    const currentMonthIndex = currentDate.getMonth();
-    const currentYear = currentDate.getFullYear();
-    return `${months[currentMonthIndex]} ${currentYear}`;
-  };
-
-  // Get the previous months including the current month (with year awareness)
-  const getPastMonths = () => {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-
-    const currentDate = new Date();
-    const currentMonthIndex = currentDate.getMonth();
-    const currentYear = currentDate.getFullYear();
-    let pastMonths = [];
-
-    for (let i = 0; i < 4; i++) {
-      const targetDate = new Date(currentYear, currentMonthIndex - i, 1);
-      const monthName = months[targetDate.getMonth()];
-      const year = targetDate.getFullYear();
-      pastMonths.push(`${monthName} ${year}`);
-    }
-
-    return pastMonths;
-  };
-
-  // Get the month from the student's created date (with year)
-  const getMonthFromDate = (date) => {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-
-    const dateObj = new Date(date);
-    const monthIndex = dateObj.getMonth();
-    const year = dateObj.getFullYear();
-    return `${months[monthIndex]} ${year}`;
-  };
-
-  // Pagination Logic
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 30;
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [searchQuery, selectedMonth, newStudent]);
+  const getCurrentMonth = () => {
+    const m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const d = new Date();
+    return `${m[d.getMonth()]} ${d.getFullYear()}`;
+  };
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredStudents.slice(indexOfFirstItem, indexOfLastItem);
+  const getPastMonths = () => {
+    const m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const d = new Date();
+    return Array.from({length:4}, (_,i) => {
+      const t = new Date(d.getFullYear(), d.getMonth()-i, 1);
+      return `${m[t.getMonth()]} ${t.getFullYear()}`;
+    });
+  };
+
+  const getMonthFromDate = (date) => {
+    const m = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const d = new Date(date);
+    return `${m[d.getMonth()]} ${d.getFullYear()}`;
+  };
+
+  const fetchNewStudent = async () => {
+    const operationName = localStorage.getItem("advOperationName");
+    try {
+      const response = await axios.get(`${API}/getadvenrolls?all=true`);
+      const students = response.data.filter(i => i.status === "fullPaid" && i.operationName === operationName);
+      setNewStudent(students);
+      const current = getCurrentMonth();
+      setSelectedMonth(current);
+      setFilteredStudents(students.filter(s => getMonthFromDate(s.createdAt) === current));
+    } catch (error) {
+      console.error("Error fetching students:", error);
+    }
+  };
+
+  useEffect(() => { fetchNewStudent(); setMonths(getPastMonths()); }, []);
+  useEffect(() => { setCurrentPage(1); }, [searchQuery, selectedMonth, newStudent]);
+
+  const handleSearchChange = (e) => {
+    const v = e.target.value; setSearchQuery(v);
+    setFilteredStudents(newStudent.filter(s =>
+      (s.email && s.email.toLowerCase().includes(v.toLowerCase())) ||
+      (s.phone && s.phone.toLowerCase().includes(v.toLowerCase())) ||
+      (s.fullname && s.fullname.toLowerCase().includes(v.toLowerCase())) ||
+      (s.counselor && s.counselor.toLowerCase().includes(v.toLowerCase())) ||
+      (s.operationName && s.operationName.toLowerCase().includes(v.toLowerCase())) ||
+      (s.collegeName && s.collegeName.toLowerCase().includes(v.toLowerCase())) ||
+      (s.branch && s.branch.toLowerCase().includes(v.toLowerCase()))
+    ));
+  };
+
+  const handleMonthChange = (e) => {
+    const m = e.target.value; setSelectedMonth(m);
+    setFilteredStudents(newStudent.filter(s => getMonthFromDate(s.createdAt) === m));
+  };
+
+  const indexOfLast = currentPage * itemsPerPage;
+  const currentItems = filteredStudents.slice(indexOfLast - itemsPerPage, indexOfLast);
   const totalPages = Math.ceil(filteredStudents.length / itemsPerPage);
 
-  const nextPage = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-  };
-
-  const prevPage = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
-  };
-
   return (
-    <div id="AdminAddCourse">
-      <div className="coursetable">
-        <h1>Full Payments </h1>
-        <section className="flex items-center gap-1">
-          <input
-            type="type"
-            placeholder="Search here by "
-            value={searchQuery}
-            onChange={handleSearchChange}
-            className="border border-black px-2 py-1 rounded-lg"
-          />
-          <div className="relative group inline-block">
-            <i className="fa fa-info-circle text-lg cursor-pointer"></i>
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 hidden w-max bg-gray-800 text-white text-sm rounded-md py-2 px-3 group-hover:block">
-              Name, Email, Contact ,Counselor Name, Operation Name and Mail Sended
-              <div className="absolute left-1/2 -translate-x-1/2 top-full w-0 h-0 border-t-8 border-gray-800 border-x-8 border-x-transparent"></div>
-            </div>
-          </div>
-        </section>
-        <select
-          className="border border-black px-2 py-1 rounded-lg"
-          name="month"
-          id="month"
-          value={selectedMonth} // Bind to selectedMonth state
-          onChange={handleMonthChange} // Trigger filter on month change
-        >
-          {months.map((month, index) => (
-            <option key={index} value={month}>
-              {month}
-            </option>
-          ))}
+    <div id="AdvFullPaymentPage">
+      <style>{DARK_STYLES}</style>
+
+      <h1>Full Payments</h1>
+
+      {/* Filters */}
+      <div className="filters-bar">
+        <input
+          type="type"
+          placeholder="Search by name, email, phone…"
+          value={searchQuery}
+          onChange={handleSearchChange}
+        />
+        <select value={selectedMonth} onChange={handleMonthChange}>
+          {months.map((m,i) => <option key={i} value={m}>{m}</option>)}
         </select>
-        <table>
-          <thead>
-            <tr>
-              <th>Sl</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Contact</th>
-              <th>Mode of Program</th>
-              <th>Counselor Name</th>
-              <th>Got Payment On</th>
-              <th>Opted Domain</th>
-              <th>Program Price</th>
-              <th>Paid Amount </th>
-              <th>Pending </th>
-              <th>Month Opted</th>
-              <th>A/c Creadted</th>
-              {/* <th>Due Date</th> */}
-            </tr>
-          </thead>
-          <tbody>
-            {Array.isArray(currentItems) && currentItems.length > 0 ? (
-              currentItems?.map((item, index) => (
-                <tr key={item._id}>
-                  <td>{index + 1}</td>
-                  <td className="capitalize">{item.fullname}</td>
-                  <td>{item.email}</td>
-                  <td>{item.phone}</td>
-                  <td className="capitalize">{item.program}</td>
-                  <td>{item.counselor}</td>
-                  <td>
-                    {" "}
-                    {new Date(item.createdAt).toLocaleDateString("en-GB")}
-                  </td>
-                  <td className="capitalize">{item.domain}</td>
-                  <td>{item.programPrice}</td>
-                  <td>{item.paidAmount}</td>
-                  <td>{item.programPrice - item.paidAmount}</td>
-                  <td className="capitalize">{item.monthOpted}</td>
-                  {/* <td className="whitespace-nowrap">
-                    {item.clearPaymentMonth}
-                  </td> */}
-                  <td>{item.mailSended ? 'True' : 'False'}</td>
-                </tr>
-              ))
-            ) : (
+        <div className="count-badge">{filteredStudents.length} Records</div>
+      </div>
+
+      {/* Table */}
+      <div className="table-wrap">
+        <div style={{overflowX:"auto"}}>
+          <table>
+            <thead>
               <tr>
-                <td colSpan="14">No data found</td>
+                {["Sl","Name","Email","Contact","Mode","Counselor","Date","Domain","Program Price","Paid","Pending","Month Opted","A/c Created"].map(h => (
+                  <th key={h}>{h}</th>
+                ))}
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {Array.isArray(currentItems) && currentItems.length > 0 ? (
+                currentItems.map((item, index) => (
+                  <tr key={item._id}>
+                    <td>{index + 1}</td>
+                    <td className="td-name">{item.fullname}</td>
+                    <td>{item.email}</td>
+                    <td>{item.phone}</td>
+                    <td style={{textTransform:"capitalize"}}>{item.program}</td>
+                    <td>{item.counselor}</td>
+                    <td>{new Date(item.createdAt).toLocaleDateString("en-GB")}</td>
+                    <td style={{textTransform:"capitalize"}}>{item.domain}</td>
+                    <td className="td-green">₹{Number(item.programPrice).toLocaleString()}</td>
+                    <td className="td-blue">₹{Number(item.paidAmount).toLocaleString()}</td>
+                    <td className="td-yellow">₹{(item.programPrice - item.paidAmount).toLocaleString()}</td>
+                    <td style={{textTransform:"capitalize"}}>{item.monthOpted}</td>
+                    <td>
+                      <span className={item.mailSended ? "badge-true" : "badge-false"}>
+                        {item.mailSended ? "Yes" : "No"}
+                      </span>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr><td colSpan="13" style={{textAlign:"center",padding:"60px",color:"#475569"}}>No records found for this month.</td></tr>
+              )}
+            </tbody>
+          </table>
+        </div>
 
         {filteredStudents.length > itemsPerPage && (
-          <div className="flex justify-center items-center gap-4 mt-4 mb-4">
+          <div className="pagination">
             <button
-              onClick={prevPage}
+              onClick={() => setCurrentPage(p => p - 1)}
               disabled={currentPage === 1}
-              className={`px-4 py-2 rounded ${currentPage === 1 ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
-            >
-              Previous
-            </button>
-            <span className="font-semibold">
-              Page {currentPage} of {totalPages}
-            </span>
+              className={currentPage === 1 ? "btn-disabled" : "btn-active"}
+            >Previous</button>
+            <span>Page {currentPage} of {totalPages}</span>
             <button
-              onClick={nextPage}
+              onClick={() => setCurrentPage(p => p + 1)}
               disabled={currentPage === totalPages}
-              className={`px-4 py-2 rounded ${currentPage === totalPages ? 'bg-gray-300 cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
-            >
-              Next
-            </button>
+              className={currentPage === totalPages ? "btn-disabled" : "btn-active"}
+            >Next</button>
           </div>
         )}
       </div>

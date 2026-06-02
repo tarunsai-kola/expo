@@ -9,6 +9,7 @@ const expressAsyncHandler = require("express-async-handler");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const { sendEmail } = require("../controllers/emailController");
+const { buildPremiumEmail, SVGS, COMPANY_NAME } = require("../utils/emailTemplate");
 const crypto = require('crypto');
 // const PlacementCoordinator = require("../models/PlacementCoordinator");
 const { default: mongoose } = require("mongoose");
@@ -52,27 +53,26 @@ router.post("/otpsend", expressAsyncHandler(async (req, res) => {
 
     const otp = crypto.randomInt(100000, 1000000);
 
-    const EmailMessage = `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-              <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-                <h1>Krutanic</h1>
-              </div>
-              <div style="padding: 20px; text-align: center;">
-                <p style="font-size: 16px; color: #333;">Welcome back! ${admin.fullname || "Admin"},</p>
-                <p style="font-size: 14px; color: #555;">Your One-Time Password (OTP) for verification is:</p>
-                <p style="font-size: 24px; font-weight: bold; color: #4a90e2; margin: 10px 0;">${otp}</p>
-                <p style="font-size: 14px; color: #555;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</p>
-              </div>
-              <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-                <p>If you didn’t request this OTP, please ignore this email or contact our IT team.</p>
-                <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-              </div>
-            </div>
-          `;
+    const content = `
+      <p style="font-size: 18px; color: #0f172a; font-weight: 600;">Welcome back, ${admin.fullname || "Admin"}!</p>
+      <p>Your One-Time Password (OTP) for secure verification is:</p>
+      
+      <div style="background: #f1f5f9; border: 1px dashed #cbd5e1; border-radius: 12px; padding: 25px; text-align: center; margin: 30px 0;">
+          <p style="font-size: 32px; font-weight: 800; color: #4f46e5; margin: 0; letter-spacing: 4px;">${otp}</p>
+      </div>
+
+      <div class="highlight-box" style="background: #fef2f2; border-left-color: #ef4444; margin-bottom: 25px;">
+          <p style="margin: 0;  color: #b91c1c;">
+              ${SVGS.warning} <span style="margin-top: 2px;">This OTP is valid for <strong>10 minutes</strong>. Please do not share it with anyone.</span>
+          </p>
+      </div>
+      <p style="font-size: 13px; color: #64748b;">If you didn't request this OTP, please ignore this email or contact our IT team immediately.</p>
+    `;
+    const EmailMessage = buildPremiumEmail({ title: 'Admin Verification', content });
     admin.otp = otp;
     await Promise.all([
       admin.save(),
-      sendEmail({ email, subject: "Krutanic Admin Login Credentials", message: EmailMessage }),
+      sendEmail({ email, subject: `${COMPANY_NAME} Admin Login Credentials`, message: EmailMessage }),
     ]);
     res.status(200).json({ message: "OTP sent to your email!" });
   } catch (error) {
@@ -163,32 +163,27 @@ router.post("/checkadmin", async (req, res) => {
 //send login details to operation team
 router.post('/sendmailtooperation', async (req, res) => {
   const { fullname, email } = req.body;
-  const emailMessage = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-      <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-        <h1>Welcome to Krutanic!</h1>
+  const content = `
+      <p style="font-size: 16px; color: #0f172a; font-weight: 600; text-transform: capitalize;">Dear ${fullname},</p>
+      <p>Welcome to the Operations Team at <strong>${COMPANY_NAME}</strong>!</p>
+      
+      <p>Here are your official login instructions:</p>
+      <div class="highlight-box" style="background: #f8fafc; border-left-color: #6366f1;">
+          <p style="margin: 0 0 10px 0; ">${SVGS.info} <span style="margin-left: 5px;">Use your official company email: <strong>${email}</strong></span></p>
+          <p style="margin: 0; ">${SVGS.warning} <span style="margin-left: 5px;">An OTP will be provided to log in securely.</span></p>
       </div>
-      <div style="padding: 20px;">
-        <p style="font-size: 16px; text-transform: capitalize; color: #333;">Dear ${fullname},</p>
-        <p style="font-size: 14px; color: #555;">Welcome to the Operations Team at Krutanic!</p>
-        <p style="font-size: 14px; color: #555;">Here are your login details:</p>
-        <p style="font-size: 14px; color: #333;"> Use your official company email (<strong>${email}</strong>) along with the OTP provided to log in.</strong>)</p>
-        <p style="font-size: 14px; color: #555;">
-          <a href="https://www.krutanic.com/operationLogin" target="_blank" style="color: #F15B29; text-decoration: none;">Click here to log in</a>. 
-        </p>
-        <p style="font-size: 14px; color: #555;">If you need further assistance, feel free to reach out to the IT team.</p>
-        <p style="font-size: 14px; color: #333;">Best regards,</p>
-        <p style="font-size: 14px; color: #333;">Team Krutanic</p>
+
+      <div style="text-align: center; margin: 35px 0;">
+          <a href="https://www.atorax.com/operationLogin" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
-      <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-        <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-      </div>
-    </div>
+
+      <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>
   `;
+  const emailMessage = buildPremiumEmail({ title: 'Welcome to the Team', content });
   try {
     await sendEmail({
       email,
-      subject: 'Welcome to Krutanic - Operations Team Login',
+      subject: `Welcome to ${COMPANY_NAME} - Operations Team Login`,
       message: emailMessage,
     });
     res.status(200).json({ message: 'Email sent successfully!' });
@@ -220,32 +215,27 @@ router.put('/mailsendedoperation/:id', async (req, res) => {
 //send login details to sales team
 router.post('/sendmailtobda', async (req, res) => {
   const { fullname, email } = req.body;
-  const emailMessage = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-      <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-        <h1>Welcome to Krutanic!</h1>
+  const content = `
+      <p style="font-size: 16px; color: #0f172a; font-weight: 600; text-transform: capitalize;">Dear ${fullname},</p>
+      <p>Welcome to the Sales Team at <strong>${COMPANY_NAME}</strong>!</p>
+      
+      <p>Here are your official login instructions:</p>
+      <div class="highlight-box" style="background: #f8fafc; border-left-color: #6366f1;">
+          <p style="margin: 0 0 10px 0; ">${SVGS.info} <span style="margin-left: 5px;">Use your official company email: <strong>${email}</strong></span></p>
+          <p style="margin: 0; ">${SVGS.warning} <span style="margin-left: 5px;">An OTP will be provided to log in securely.</span></p>
       </div>
-      <div style="padding: 20px;">
-        <p style="font-size: 16px; text-transform: capitalize; color: #333;">Dear ${fullname},</p>
-        <p style="font-size: 14px; color: #555;">Welcome to the Sales Team at Krutanic!</p>
-        <p style="font-size: 14px; color: #555;">Here are your login details:</p>
-        <p style="font-size: 14px; color: #333;"> Use your official company email (<strong>${email}</strong>) along with the OTP provided to log in.</strong>)</p>
-        <p style="font-size: 14px; color: #555;">
-          <a href="https://www.krutanic.com/teamlogin" target="_blank" style="color: #F15B29; text-decoration: none;">Click here to log in</a>. 
-        </p>
-        <p style="font-size: 14px; color: #555;">If you need further assistance, feel free to reach out to the IT team.</p>
-        <p style="font-size: 14px; color: #333;">Best regards,</p>
-        <p style="font-size: 14px; color: #333;">Team Krutanic</p>
+
+      <div style="text-align: center; margin: 35px 0;">
+          <a href="https://www.atorax.com/teamlogin" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
-      <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-        <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-      </div>
-    </div>
+
+      <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>
   `;
+  const emailMessage = buildPremiumEmail({ title: 'Welcome to the Team', content });
   try {
     await sendEmail({
       email,
-      subject: 'Welcome to Krutanic- Sales Team Login',
+      subject: `Welcome to ${COMPANY_NAME} - Sales Team Login`,
       message: emailMessage,
     });
     res.status(200).json({ message: 'Email sent successfully!' });
@@ -278,32 +268,27 @@ router.put('/mailsendedbda/:id', async (req, res) => {
 //send login details to advanced team
 router.post('/sendmailtoadvteam', async (req, res) => {
   const { fullname, email } = req.body;
-  const emailMessage = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-      <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-        <h1>Welcome to Krutanic!</h1>
+  const content = `
+      <p style="font-size: 16px; color: #0f172a; font-weight: 600; text-transform: capitalize;">Dear ${fullname},</p>
+      <p>Welcome to the Advanced Team at <strong>${COMPANY_NAME}</strong>!</p>
+      
+      <p>Here are your official login instructions:</p>
+      <div class="highlight-box" style="background: #f8fafc; border-left-color: #6366f1;">
+          <p style="margin: 0 0 10px 0; ">${SVGS.info} <span style="margin-left: 5px;">Use your official company email: <strong>${email}</strong></span></p>
+          <p style="margin: 0; ">${SVGS.warning} <span style="margin-left: 5px;">An OTP will be provided to log in securely.</span></p>
       </div>
-      <div style="padding: 20px;">
-        <p style="font-size: 16px; text-transform: capitalize; color: #333;">Dear ${fullname},</p>
-        <p style="font-size: 14px; color: #555;">Welcome to the Advanced Team at Krutanic!</p>
-        <p style="font-size: 14px; color: #555;">Here are your login details:</p>
-        <p style="font-size: 14px; color: #333;"> Use your official company email (<strong>${email}</strong>) along with the OTP provided to log in.</strong>)</p>
-        <p style="font-size: 14px; color: #555;">
-          <a href="https://www.krutanic.com/advteamlogin" target="_blank" style="color: #F15B29; text-decoration: none;">Click here to log in</a>. 
-        </p>
-        <p style="font-size: 14px; color: #555;">If you need further assistance, feel free to reach out to the IT team.</p>
-        <p style="font-size: 14px; color: #333;">Best regards,</p>
-        <p style="font-size: 14px; color: #333;">Team Krutanic</p>
+
+      <div style="text-align: center; margin: 35px 0;">
+          <a href="https://www.atorax.com/advteamlogin" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
-      <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-        <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-      </div>
-    </div>
+
+      <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>
   `;
+  const emailMessage = buildPremiumEmail({ title: 'Welcome to the Team', content });
   try {
     await sendEmail({
       email,
-      subject: 'Welcome to Krutanic - Advanced Team Login',
+      subject: `Welcome to ${COMPANY_NAME} - Advanced Team Login`,
       message: emailMessage,
     });
     res.status(200).json({ message: 'Email sent successfully!' });
@@ -336,32 +321,27 @@ router.put('/mailsendedadvteam/:id', async (req, res) => {
 //send login details to hr team
 router.post('/sendmailtohr', async (req, res) => {
   const { fullname, email } = req.body;
-  const emailMessage = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-      <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-        <h1>Welcome to Krutanic!</h1>
+  const content = `
+      <p style="font-size: 16px; color: #0f172a; font-weight: 600; text-transform: capitalize;">Dear ${fullname},</p>
+      <p>Welcome to the HR Team at <strong>${COMPANY_NAME}</strong>!</p>
+      
+      <p>Here are your official login instructions:</p>
+      <div class="highlight-box" style="background: #f8fafc; border-left-color: #6366f1;">
+          <p style="margin: 0 0 10px 0; ">${SVGS.info} <span style="margin-left: 5px;">Use your official company email: <strong>${email}</strong></span></p>
+          <p style="margin: 0; ">${SVGS.warning} <span style="margin-left: 5px;">An OTP will be provided to log in securely.</span></p>
       </div>
-      <div style="padding: 20px;">
-        <p style="font-size: 16px; text-transform: capitalize; color: #333;">Dear ${fullname},</p>
-        <p style="font-size: 14px; color: #555;">Welcome to the HR Team at Krutanic!</p>
-        <p style="font-size: 14px; color: #555;">Here are your login details:</p>
-        <p style="font-size: 14px; color: #333;"> Use your official company email (<strong>${email}</strong>) along with the OTP provided to log in.</p>
-        <p style="font-size: 14px; color: #555;">
-          <a href="https://www.krutanic.com/hrlogin" target="_blank" style="color: #F15B29; text-decoration: none;">Click here to log in</a>. 
-        </p>
-        <p style="font-size: 14px; color: #555;">If you need further assistance, feel free to reach out to the IT team.</p>
-        <p style="font-size: 14px; color: #333;">Best regards,</p>
-        <p style="font-size: 14px; color: #333;">Team Krutanic</p>
+
+      <div style="text-align: center; margin: 35px 0;">
+          <a href="https://www.atorax.com/hrlogin" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
-      <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-        <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-      </div>
-    </div>
+
+      <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>
   `;
+  const emailMessage = buildPremiumEmail({ title: 'Welcome to the Team', content });
   try {
     await sendEmail({
       email,
-      subject: 'Welcome to Krutanic - HR Team Login',
+      subject: `Welcome to ${COMPANY_NAME} - HR Team Login`,
       message: emailMessage,
     });
     res.status(200).json({ message: 'Email sent successfully!' });
@@ -392,34 +372,29 @@ router.put('/mailsendedhr/:id', async (req, res) => {
 
 router.post("/sendmailtoplacementcoordinator", async (req, res) => {
   const { fullname, email } = req.body;
-  const emailMessage = `
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-      <div style="background-color: #F15B29; color: #fff; text-align: center; padding: 20px;">
-        <h1>Welcome to Krutanic!</h1>
+  const content = `
+      <p style="font-size: 16px; color: #0f172a; font-weight: 600; text-transform: capitalize;">Dear ${fullname},</p>
+      <p>Welcome to the Placement Team at <strong>${COMPANY_NAME}</strong>!</p>
+      
+      <p>Here are your official login instructions:</p>
+      <div class="highlight-box" style="background: #f8fafc; border-left-color: #6366f1;">
+          <p style="margin: 0 0 10px 0; ">${SVGS.info} <span style="margin-left: 5px;">Use your official company email: <strong>${email}</strong></span></p>
+          <p style="margin: 0; ">${SVGS.warning} <span style="margin-left: 5px;">An OTP will be provided to log in securely.</span></p>
       </div>
-      <div style="padding: 20px;">
-        <p style="font-size: 16px; text-transform: capitalize; color: #333;">Dear ${fullname},</p>
-        <p style="font-size: 14px; color: #555;">Welcome to the Placement Team at Krutanic!</p>
-        <p style="font-size: 14px; color: #555;">Here are your login details:</p>
-        <p style="font-size: 14px; color: #333;"> Use your official company email (<strong>${email}</strong>) along with the OTP provided to log in.</p>
-        <p style="font-size: 14px; color: #555;">
-          <a href="https://www.krutanic.com/pclogin" target="_blank" style="color: #F15B29; text-decoration: none;">Click here to log in</a>. 
-        </p>
-        <p style="font-size: 14px; color: #555;">If you need further assistance, feel free to reach out to the IT team.</p>
-        <p style="font-size: 14px; color: #333;">Best regards,</p>
-        <p style="font-size: 14px; color: #333;">Team Krutanic</p>
+
+      <div style="text-align: center; margin: 35px 0;">
+          <a href="https://www.atorax.com/pclogin" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
-      <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-        <p>&copy; 2024 Krutanic. All Rights Reserved.</p>
-      </div>
-    </div>
+
+      <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>
   `;
+  const emailMessage = buildPremiumEmail({ title: 'Welcome to the Team', content });
 
   try {
     // Send email to the Placement Coordinator
     await sendEmail({
       email,
-      subject: "Welcome to Krutanic - Placement Team Login",
+      subject: `Welcome to ${COMPANY_NAME} - Placement Team Login`,
       message: emailMessage,
     });
 
