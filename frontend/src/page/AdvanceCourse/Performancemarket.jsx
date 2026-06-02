@@ -1,3 +1,4 @@
+import PaymentPlanWidget from "../../Components/PaymentPlanWidget";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -362,27 +363,12 @@ const Performancemarket = () => {
         </div>
       </section>
 
-      {/* 11. PRICING */}
-      <section className="at-sec-white" id="pricing">
-        <div className="shell">
-           <h2 className="sec-title">Program Investment</h2>
-           <p className="sec-sub">Professional enrollment including live design labs, mentor reviews, and career support assets.</p>
-           <div className="p-card" style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:'60px', padding:'48px', alignItems:'start'}}>
-              <div>
-                 <div style={{fontSize:'13px', fontWeight:800, color:'var(--pf-accent)', textTransform:'uppercase', marginBottom:'16px'}}>Advanced Performance Certification</div>
-                 <div style={{fontSize:'64px', fontWeight:950, letterSpacing:'-3px', marginBottom:'16px'}}>₹61,999</div>
-                 <p style={{color:'var(--pf-text-dim)', marginBottom:'40px', lineHeight:1.7}}>Inclusive of all training frameworks, design labs, portfolio reviews, and job assistance.</p>
-                 <div style={{display:'flex', gap:'16px'}}><ApplyNowButton courseValue="Performance Marketing" /><DownloadBrochureButton courseValue="Performance Marketing" brochureLink={pfBrochure} /></div>
-              </div>
-              <div style={{display:'grid', gap:'12px'}}>
-                 {[{l:"Seat Reservation", v:"₹10,000"}, {l:"Installment 1", v:"₹17,333"}, {l:"Installment 2", v:"₹17,333"}, {l:"Installment 3", v:"₹17,333"}].map((row, i) => (
-                    <div key={i} style={{padding:'20px', background:'var(--pf-bg)', borderRadius:'8px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-                       <span style={{fontSize:'13px', fontWeight:700}}>{row.l}</span><span style={{fontWeight:800}}>{row.v}</span>
-                    </div>
-                 ))}
-                 <div style={{marginTop:'12px', display:'flex', alignItems:'center', gap:'12px', opacity:0.6}}><Zap size={18} /> <img src={Flashaidlogo} alt="Flashaid" style={{height:'14px', grayscale:1}} /> <span style={{fontSize:'12px'}}>EMI ₹6,888/MO</span></div>
-              </div>
-           </div>
+      {/* PRICING */}
+      <section id="pricing" style={{padding: '100px 0', background: '#fff'}}>
+        <div style={{maxWidth: '1200px', margin: '0 auto', padding: '0 24px'}}>
+           <h2 style={{fontSize: '32px', fontWeight: 800, marginBottom: '16px'}}>Fees & Payment Options</h2>
+           <p style={{fontSize: '17px', color: '#6B7280', marginBottom: '48px'}}>Transparent program cost with structured installment plans and financial assistance.</p>
+           <PaymentPlanWidget basePrice={51999} durationMonths={3} courseName="Performancemarket" />
         </div>
       </section>
 

@@ -7,6 +7,7 @@ import {
   DollarSign, GraduationCap, Code, Layers, Briefcase, Landmark
 } from "lucide-react";
 import AdvancedApplyPopup from "../Components/AdvancedApplyPopup";
+import PaymentPlanWidget from "../Components/PaymentPlanWidget";
 import PremiumCurriculum from "../Components/PremiumCurriculum";
 import ProgramStatsBar from "../Components/ProgramStatsBar";
 import AuthorityMarquee from "../Components/AuthorityMarquee";
@@ -16,6 +17,7 @@ import SalaryGrowth from "../Components/SalaryGrowth";
 import CareerOutcomes from "../Components/CareerOutcomes";
 import MarketLeaders from "../Components/MarketLeaders";
 import MeetYourMentors from "../Components/MeetYourMentors";
+import { courseMentors } from "../data/courseMentors";
 import FloatingNav from "../Components/FloatingNav";
 import ApplyNowButton from "./AdvanceCourse/Components/ApplyNowButton";
 import "./SoftwareDeveloper.css"; // Static CSS to prevent blinking
@@ -32,21 +34,16 @@ import alumni3 from "../assets/alumni/alumni_3.png";
 
 /* ─── Tools Data ─── */
 const toolsList = [
-  { name: "Java", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+  { name: "Linux", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+  { name: "Kali Linux", img: "https://upload.wikimedia.org/wikipedia/commons/2/2b/Kali-dragon-icon.svg", invert: true },
+  { name: "Wireshark", img: "/tools/wireshark.svg", invert: true },
+  { name: "Metasploit", img: "/tools/metasploit.svg", invert: true },
   { name: "Python", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-  { name: "Spring Boot", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
-  { name: "Next.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", invert: true },
-  { name: "React", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "TypeScript", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-  { name: "Node.js", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-  { name: "MongoDB", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-  { name: "PostgreSQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
   { name: "AWS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", invert: true },
   { name: "Docker", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
   { name: "Kubernetes", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
-  { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-  { name: "OpenAI API", img: "https://cdn.iconscout.com/icon/free/png-256/free-openai-3628965-3030018.png", invert: true },
-  { name: "LangChain", img: "https://cdn.iconscout.com/icon/free/png-256/free-langchain-10940081-8930777.png" },
+  { name: "Bash", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg", invert: true },
+  { name: "ChatGPT", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", invert: true },
 ];
 
 /* ─── Static Data ─── */
@@ -130,20 +127,48 @@ const softwarePhases = [
     id: "cy-phase-3",
     phase: "PHASE 3",
     duration: "WEEKS 9–12",
-    title: "Cloud Security & Incident Response",
+    title: "Cloud Security & Identity Management",
     focusLabel: "CURRICULUM",
     focus: [
-      "Cloud Security (AWS IAM, Security Groups, CloudTrail, Compliance)",
-      "SOC Operations & SIEM (Splunk, ELK Stack, Threat Intelligence)",
-      "Incident Response & Digital Forensics (Evidence Collection, Triage)",
-      "Industry Capstone: Real-World Security Assessment & Threat Report"
+      "Cloud Security Foundations (AWS IAM, Security Groups, CloudTrail)",
+      "Zero Trust Architecture & Identity Access Management (IAM)",
+      "Container Security (Docker, Kubernetes Security Benchmarks)",
+      "Compliance & Governance (ISO 27001, SOC2, GDPR, PCI DSS)"
     ],
-    application: "Cloud Security Audit, SOC Simulation, Incident Response Playbook"
+    application: "Cloud Security Audit, IAM Policy Creation, Container Vulnerability Scan"
   },
   {
     id: "cy-phase-4",
     phase: "PHASE 4",
     duration: "WEEKS 13–16",
+    title: "SOC Operations & Incident Response",
+    focusLabel: "CURRICULUM",
+    focus: [
+      "SOC Operations & SIEM (Splunk, ELK Stack, Threat Intelligence)",
+      "Incident Response & Digital Forensics (Evidence Collection, Triage)",
+      "Malware Analysis & Reverse Engineering Fundamentals",
+      "Threat Hunting & Threat Intelligence Platforms (TIP)"
+    ],
+    application: "SOC Simulation, Incident Response Playbook, SIEM Log Analysis"
+  },
+  {
+    id: "cy-phase-5",
+    phase: "PHASE 5",
+    duration: "WEEKS 17–20",
+    title: "Enterprise Capstone Project",
+    focusLabel: "CURRICULUM",
+    focus: [
+      "Industry Capstone Planning (Finance, Healthcare, E-commerce, etc.)",
+      "Comprehensive Penetration Testing on Cloud Infrastructure",
+      "Setting up a full SOC monitoring pipeline",
+      "Final Threat Assessment & Executive Reporting"
+    ],
+    application: "Deliver a Portfolio-Ready Security Assessment & Threat Report"
+  },
+  {
+    id: "cy-phase-6",
+    phase: "PHASE 6",
+    duration: "WEEKS 21–24",
     title: "Placement Preparation",
     focusLabel: "CURRICULUM",
     focus: [
@@ -373,7 +398,7 @@ const SoftwareDeveloper = () => {
             </div>
             <ApplyNowButton
               courseValue="Cybersecurity"
-              className="!px-6 !py-3 !text-sm !rounded-xl whitespace-nowrap"
+              className="!px-6 !py-3 !text-sm !rounded-xl whitespace-nowrap !bg-[#e11d48] hover:!bg-[#be123c] !text-white"
               label="Start Your Cybersecurity Career →"
             />
           </div>
@@ -456,7 +481,7 @@ const SoftwareDeveloper = () => {
 
       {/* TECH STACK */}
       <section className="py-24 px-6 bg-[#020408] border-t border-white/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.05)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(225,29,72,0.05)_0%,transparent_70%)] pointer-events-none" />
         <div className="max-w-[1000px] mx-auto relative z-10">
           <div className="text-center mb-16">
             <span className="inline-block bg-[#e11d48]/15 text-[#e11d48] font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5">
@@ -465,7 +490,7 @@ const SoftwareDeveloper = () => {
             <h2 className="text-3xl md:text-[40px] font-black sd-font-outfit text-white tracking-tight mb-3">
               Tools &amp; Technologies
             </h2>
-            <p className="text-gray-400 text-lg">Master the modern software &amp; AI engineering stack</p>
+            <p className="text-gray-400 text-lg">Master the modern cybersecurity &amp; threat intelligence stack</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-10">
@@ -475,7 +500,7 @@ const SoftwareDeveloper = () => {
                 className="flex flex-col items-center gap-3 w-[90px] group cursor-default"
               >
                 <div
-                  className="w-16 h-16 bg-[#0A0A0A] rounded-2xl flex items-center justify-center overflow-hidden border border-white/5 transition-all duration-300 group-hover:scale-110 group-hover:border-[#e11d48]/50 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]"
+                  className="w-16 h-16 bg-[#0A0A0A] rounded-2xl flex items-center justify-center overflow-hidden border border-white/5 transition-all duration-300 group-hover:scale-110 group-hover:border-[#e11d48]/50 group-hover:shadow-[0_0_20px_rgba(225,29,72,0.25)]"
                 >
                   {tool.img ? (
                     <img src={tool.img} alt={tool.name} className={`w-9 h-9 object-contain ${tool.invert ? "invert opacity-80" : ""}`} />
@@ -518,7 +543,7 @@ const SoftwareDeveloper = () => {
             {capstoneProjects.map((project, i) => (
               <div
                 key={i}
-                className="glass-panel rounded-[28px] p-8 relative overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 transition-all duration-500 min-h-[380px] flex flex-col"
+                className="glass-panel rounded-[28px] p-8 relative overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 transition-all duration-500 min-h-[380px] flex flex-col bg-[#05050A]"
                 onClick={() => setShowPopup(true)}
               >
                  {/* Faded Background Image */}
@@ -591,12 +616,7 @@ const SoftwareDeveloper = () => {
         </div>
       </section>
 
-      {/* CERTIFICATION */}
-      <section className="py-24 px-6 bg-[#050505] border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <Certification />
-        </div>
-      </section>
+      
 
       {/* SALARY GROWTH */}
       <SalaryGrowth domain="Cybersecurity" />
@@ -608,7 +628,23 @@ const SoftwareDeveloper = () => {
       <MarketLeaders />
 
       {/* MEET YOUR MENTORS */}
-      <MeetYourMentors />
+      <MeetYourMentors mentorsData={courseMentors.Cybersecurity} />
+
+      {/* PRICING */}
+      <section className="py-24 px-6 bg-[#020408] border-t border-white/5" id="pricing">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-[#e11d48]/15 text-[#e11d48] font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5">
+              Pricing & Financing
+            </span>
+            <h2 className="text-3xl md:text-[44px] font-black text-white tracking-tight mb-3">
+              Invest in your future
+            </h2>
+            <p className="text-gray-400 text-lg">Transparent pricing. Flexible payment options.</p>
+          </div>
+          <PaymentPlanWidget basePrice={51999} durationMonths={6} courseName="Cybersecurity" themeColor="#e11d48" />
+        </div>
+      </section>
 
       {/* NON TECH REVIEWS */}
       <NonTechReviewsMarquee />

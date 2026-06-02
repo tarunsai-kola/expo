@@ -16,6 +16,8 @@ import SalaryGrowth from "../Components/SalaryGrowth";
 import CareerOutcomes from "../Components/CareerOutcomes";
 import MarketLeaders from "../Components/MarketLeaders";
 import MeetYourMentors from "../Components/MeetYourMentors";
+import { courseMentors } from "../data/courseMentors";
+import PaymentPlanWidget from "../Components/PaymentPlanWidget";
 import FloatingNav from "../Components/FloatingNav";
 import ApplyNowButton from "./AdvanceCourse/Components/ApplyNowButton";
 import "./SoftwareDeveloper.css"; // Static CSS to prevent blinking
@@ -45,8 +47,7 @@ const toolsList = [
   { name: "Docker", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
   { name: "Kubernetes", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
   { name: "Git", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-  { name: "OpenAI API", img: "https://cdn.iconscout.com/icon/free/png-256/free-openai-3628965-3030018.png", invert: true },
-  { name: "LangChain", img: "https://cdn.iconscout.com/icon/free/png-256/free-langchain-10940081-8930777.png" },
+  { name: "OpenAI API", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", invert: true },
 ];
 
 /* ─── Static Data ─── */
@@ -400,7 +401,7 @@ const SoftwareDeveloper = () => {
             </div>
             <ApplyNowButton
               courseValue="Software Developer"
-              className="!px-6 !py-3 !text-sm !rounded-xl whitespace-nowrap"
+              className="!px-6 !py-3 !text-sm !rounded-xl whitespace-nowrap !bg-[#6366f1] hover:!bg-[#4f46e5] !text-white"
               label="Start Your SD Career →"
             />
           </div>
@@ -545,7 +546,7 @@ const SoftwareDeveloper = () => {
             {capstoneProjects.map((project, i) => (
               <div
                 key={i}
-                className="glass-panel rounded-[28px] p-8 relative overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 transition-all duration-500 min-h-[380px] flex flex-col"
+                className="glass-panel rounded-[28px] p-8 relative overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 transition-all duration-500 min-h-[380px] flex flex-col bg-[#0a0a0a]"
                 onClick={() => setShowPopup(true)}
               >
                  {/* Faded Background Image */}
@@ -618,12 +619,7 @@ const SoftwareDeveloper = () => {
         </div>
       </section>
 
-      {/* CERTIFICATION */}
-      <section className="py-24 px-6 bg-[#050505] border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <Certification />
-        </div>
-      </section>
+      
 
       {/* SALARY GROWTH */}
       <SalaryGrowth domain="SoftwareDeveloper" />
@@ -635,7 +631,23 @@ const SoftwareDeveloper = () => {
       <MarketLeaders />
 
       {/* MEET YOUR MENTORS */}
-      <MeetYourMentors />
+      <MeetYourMentors mentorsData={courseMentors.SoftwareDeveloper} />
+
+      {/* PRICING */}
+      <section className="py-24 px-6 bg-[#0B0F13] border-t border-white/5" id="pricing">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-[#6366f1]/15 text-[#818cf8] font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5">
+              Pricing & Financing
+            </span>
+            <h2 className="text-3xl md:text-[44px] font-black text-white tracking-tight mb-3">
+              Invest in your future
+            </h2>
+            <p className="text-gray-400 text-lg">Transparent pricing. Flexible payment options.</p>
+          </div>
+          <PaymentPlanWidget basePrice={91000} durationMonths={6} courseName="Software Engineering" themeColor="#6366f1" />
+        </div>
+      </section>
 
       {/* NON TECH REVIEWS */}
       <NonTechReviewsMarquee />

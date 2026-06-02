@@ -7,6 +7,7 @@ import {
   Award, Target, Zap, TrendingUp, Briefcase, Globe, Database, GitBranch
 } from "lucide-react";
 import AdvancedApplyPopup from "../Components/AdvancedApplyPopup";
+import PaymentPlanWidget from "../Components/PaymentPlanWidget";
 import MeetYourMentors from "../Components/MeetYourMentors";
 import AuthorityMarquee from "../Components/AuthorityMarquee";
 import MarketLeaders from "../Components/MarketLeaders";
@@ -98,6 +99,16 @@ const agenticPhases = CURRICULUM.map((c, i) => ({
   focus: c.topics,
   application: c.project
 }));
+
+const toolsList = [
+  { name: "Python", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "OpenAI", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", invert: true },
+  { name: "Hugging Face", img: "https://cdn.worldvectorlogo.com/logos/huggingface-2.svg", invert: true },
+  { name: "Pinecone", img: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>' },
+  { name: "PyTorch", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" },
+  { name: "Docker", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "FastAPI", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+];
 
 const PROJECTS = [
   { icon: TerminalSquare, n:"01", title: "Autonomous Code Assistant",       tools:["LangChain","OpenAI","GitHub API"],   d:"LLM-powered dev tool reading entire repositories, suggesting architectural improvements, and generating production-ready pull requests with test coverage." },
@@ -337,6 +348,45 @@ const AgenticAndGenAI = () => {
 
 
       {/* ══════════════════════════════════════════
+          TECH STACK
+          ══════════════════════════════════════════ */}
+      <section id="tools" className="py-24 px-6 bg-[#0b0b0f] border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block bg-[#7c3aed]/15 text-[#a78bfa] font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5">
+              Tech Stack
+            </span>
+            <h2 className="text-3xl md:text-[40px] font-black ag-font-outfit text-white tracking-tight mb-3">
+              Tools &amp; Technologies
+            </h2>
+            <p className="text-slate-400 text-lg">Master the modern Generative AI &amp; Agentic automation stack</p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-10">
+            {toolsList.map((tool, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center gap-3 w-[90px] group cursor-default"
+              >
+                <div
+                  className="w-16 h-16 bg-[#13131A] rounded-2xl flex items-center justify-center overflow-hidden border border-white/5 transition-all duration-300 group-hover:scale-110 group-hover:border-[#7c3aed]/50 group-hover:shadow-[0_0_20px_rgba(124,58,237,0.25)]"
+                >
+                  {tool.img ? (
+                    <img src={tool.img} alt={tool.name} className={`w-9 h-9 object-contain ${tool.invert ? "invert opacity-80" : ""}`} />
+                  ) : (
+                    <span className="text-sm font-bold text-slate-400">{tool.name.substring(0, 2)}</span>
+                  )}
+                </div>
+                <span className="text-[10px] font-bold text-slate-400 tracking-widest text-center leading-tight uppercase group-hover:text-[#a78bfa] transition-colors">
+                  {tool.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
           WHAT YOU'LL LEARN (LIGHT BACKGROUND)
           ══════════════════════════════════════════ */}
       <section className="ato-sec-alt">
@@ -478,7 +528,7 @@ const AgenticAndGenAI = () => {
             <motion.div key={track} initial={{opacity:0,y:16}} animate={{opacity:1,y:0}} exit={{opacity:0}} transition={{duration:0.22}}
               style={{background:"var(--bg-white)",border:"1px solid var(--border)",borderRadius:12,padding:40,boxShadow:"0 4px 16px rgba(0,0,0,0.03)"}}
             >
-              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:48}}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 {/* LEFT */}
                 <div>
                   <div style={{display:"flex",alignItems:"center",gap:14,marginBottom:24}}>
@@ -550,55 +600,13 @@ const AgenticAndGenAI = () => {
       {/* ══════════════════════════════════════════
           PRICING
           ══════════════════════════════════════════ */}
-      <section id="pricing" className="ato-sec">
-        <div className="ato-wrap">
-          <div style={{textAlign:"center",marginBottom:52}}>
-            <div className="ato-badge" style={{marginBottom:18}}>Investment</div>
-            <h2 className="ato-h2" style={{marginBottom:14,marginTop:16}}>Transparent pricing. Zero surprises.</h2>
-            <p className="ato-lead" style={{maxWidth:480,margin:"0 auto"}}>Curriculum, projects, mentorship, certification, and placement support — all included.</p>
+      <section id="pricing" className="ato-sec bg-[#0b0b0f] border-t border-white/10" style={{padding: '96px 24px'}}>
+        <div style={{maxWidth: '1100px', margin: '0 auto'}}>
+          <div className="text-center mb-12">
+            <h2 className="ato-h2 text-white" style={{marginBottom:14,marginTop:16}}>Transparent pricing. Zero surprises.</h2>
+            <p className="ato-sub text-gray-400">Complete curriculum access, mentor reviews, and career support.</p>
           </div>
-
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:20,maxWidth:860,margin:"0 auto"}}>
-            {/* EMI */}
-            <div className="ato-price-card">
-              <p className="ato-label" style={{marginBottom:14}}>Easy EMI</p>
-              <p className="ato-display" style={{fontSize:40,fontWeight:900,color:"var(--txt-main)",lineHeight:1}}>₹5,000<span style={{fontSize:18,color:"var(--txt-light)"}}>/mo</span></p>
-              <p style={{fontSize:14,color:"var(--txt-mut)",marginTop:8,marginBottom:26,fontWeight:500}}>0% interest · No processing fee · No hidden costs</p>
-              <div style={{display:"flex",flexDirection:"column",gap:12,marginBottom:32}}>
-                {["Full 16-week curriculum access","5 enterprise capstone projects","Anthropic SDE Certification","1:1 mentorship sessions","15+ interview opportunities","Career coaching & placement support","Lifetime curriculum access"].map((item,i)=>(
-                  <div key={i} style={{display:"flex",alignItems:"center",gap:12}}>
-                    <Check size={16} color="var(--green)" strokeWidth={3}/>
-                    <span style={{fontSize:14,color:"var(--txt-main)",fontWeight:500}}>{item}</span>
-                  </div>
-                ))}
-              </div>
-              <button onClick={apply} className="ato-btn-s" style={{width:"100%",justifyContent:"center"}}>Apply Now <ArrowRight size={16}/></button>
-            </div>
-
-            {/* Upfront */}
-            <div className="ato-price-card-g">
-              <div style={{position:"absolute",top:-40,right:-40,width:180,height:180,borderRadius:"50%",background:"radial-gradient(circle,rgba(255,255,255,0.1),transparent)",pointerEvents:"none"}}/>
-              <div style={{position:"relative",zIndex:1}}>
-                <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14}}>
-                  <p className="ato-label" style={{color:"#a7f3d0"}}>One-Time Payment</p>
-                  <span style={{background:"rgba(16,185,129,0.2)",border:"1px solid rgba(16,185,129,0.3)",color:"#a7f3d0",fontSize:10,fontWeight:700,padding:"3px 8px",borderRadius:5}}>SAVE 10%</span>
-                </div>
-                <p className="ato-display" style={{fontSize:40,fontWeight:900,color:"#ffffff",lineHeight:1}}>Best Value</p>
-                <p style={{fontSize:14,color:"#94a3b8",marginTop:8,marginBottom:26,fontWeight:500}}>Exclusive early-bird discount — one-time payment</p>
-                <div style={{display:"flex",flexDirection:"column",gap:12,marginBottom:32}}>
-                  {["Everything in the EMI plan","10% early-bird discount applied","Priority batch selection","Dedicated career success manager","FREE Claude Pro subscription (3 months)","Exclusive alumni network access"].map((item,i)=>(
-                    <div key={i} style={{display:"flex",alignItems:"center",gap:12}}>
-                      <Check size={16} color="#10b981" strokeWidth={3}/>
-                      <span style={{fontSize:14,color:"#e2e8f0",fontWeight:500}}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <button onClick={apply} className="ato-btn-p" style={{width:"100%",justifyContent:"center"}}>
-                  Talk to Admissions <ArrowRight size={16}/>
-                </button>
-              </div>
-            </div>
-          </div>
+          <PaymentPlanWidget basePrice={91000} durationMonths={6} courseName="Agentic AI" themeColor="#7c3aed" />
         </div>
       </section>
 

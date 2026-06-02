@@ -44,7 +44,8 @@ const CinematicHero = () => {
   const mentors = [
     { name: "Rahul K.", role: "Senior SDE Mentor", quote: `"The system design curriculum here is exactly what we test for in MAANG interviews."`, initial: "R", color: "rgba(255,255,255,0.06)", textColor: "#A1A1AA" },
     { name: "Ananya S.", role: "Data Science Lead", quote: `"We built this program to bridge the gap between academic theory and production-grade ML."`, initial: "A", color: "rgba(255,255,255,0.06)", textColor: "#A1A1AA" },
-    { name: "Vikram D.", role: "Product Designer", quote: `"Our students learn to think like product owners, delivering end-to-end user experiences."`, initial: "V", color: "rgba(255,255,255,0.06)", textColor: "#A1A1AA" }
+    { name: "Vikram D.", role: "Product Designer", quote: `"Our students learn to think like product owners, delivering end-to-end user experiences."`, initial: "V", color: "rgba(255,255,255,0.06)", textColor: "#A1A1AA" },
+    { name: "Aditya V.", role: "Lead Engineer", quote: `"I'll guide you to build production-ready applications and scale your career."`, initial: "A", color: "rgba(255,255,255,0.06)", textColor: "#A1A1AA" }
   ];
 
   const students = [

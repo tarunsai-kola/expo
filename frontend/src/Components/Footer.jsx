@@ -10,6 +10,7 @@ const Footer = () => {
     { label: "Advanced Programs", to: "/Advance" },
     { label: "Masterclass", to: "/MasterClass" },
     { label: "Free Assessment", to: "/free-career-assessment" },
+    { label: "Blog", to: "/blog" },
   ];
 
   const discoverLinks = [];

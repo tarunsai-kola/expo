@@ -59,6 +59,12 @@ const mentors = [
     experience: "6+ year",
     image: `${sachin}`,
   },
+  {
+    name: "Aditya Verma",
+    designation: "Full Stack Engineer",
+    experience: "8+ year",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200",
+  },
 ];
 
 const MentorShipMentors = ({ hideHeading = false }) => {

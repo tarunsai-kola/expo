@@ -27,6 +27,14 @@ const LandingMentors = () => {
       image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop",
       expertise: ["Algorithms", "GenAI Integration"],
       quote: "We don't solve LeetCode for sport. We build scalable systems that handle millions of users."
+    },
+    {
+      name: "Aditya Verma",
+      role: "Lead Engineer",
+      company: "InnovateTech",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300&h=300",
+      expertise: ["Full Stack", "Cloud Deployments"],
+      quote: "I'll guide you to build production-ready applications and scale your career to the next level."
     }
   ];
 

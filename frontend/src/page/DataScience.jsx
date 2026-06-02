@@ -1,3 +1,4 @@
+import PaymentPlanWidget from "../Components/PaymentPlanWidget";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -36,6 +37,20 @@ const trustStats = [
   { value: "10+ Projects", label: "Hands-on Practice" },
   { value: "1 Capstone", label: "Real Projects" },
   { value: "GenAI", label: "Core Focus" },
+];
+
+
+const toolsList = [
+  { name: "Python", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "Pandas", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+  { name: "Scikit-Learn", img: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" },
+  { name: "TensorFlow", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+  { name: "SQL", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+  { name: "Tableau", img: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" },
+  { name: "Power BI", img: "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" },
+  { name: "AWS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", invert: true },
+  { name: "Docker", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "OpenAI", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", invert: true },
 ];
 
 const careerPaths = [
@@ -542,6 +557,44 @@ const DataScience = () => {
         </div>
       </section>
 
+      
+      {/* TOOLS & TECHNOLOGIES */}
+      <section id="tools" className="py-24 px-6 bg-[#050505] border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <span className="inline-block bg-[#eab308]/15 text-[#eab308] font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5">
+              Tech Stack
+            </span>
+            <h2 className="text-3xl md:text-[40px] font-black ag-font-outfit text-white tracking-tight mb-3">
+              Tools &amp; Technologies
+            </h2>
+            <p className="text-slate-400 text-lg">Master the modern data science &amp; AI stack</p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-10">
+            {toolsList.map((tool, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center gap-3 w-[90px] group cursor-default"
+              >
+                <div
+                  className="w-16 h-16 bg-[#0B0F13] rounded-2xl flex items-center justify-center overflow-hidden border border-white/5 transition-all duration-300 group-hover:scale-110 group-hover:border-[#eab308]/50 group-hover:shadow-[0_0_20px_rgba(234,179,8,0.25)]"
+                >
+                  {tool.img ? (
+                    <img src={tool.img} alt={tool.name} className={`w-9 h-9 object-contain ${tool.invert ? "invert opacity-80" : ""}`} />
+                  ) : (
+                    <span className="text-sm font-bold text-slate-400">{tool.name.substring(0, 2)}</span>
+                  )}
+                </div>
+                <span className="text-[10px] font-bold text-slate-400 tracking-widest text-center leading-tight uppercase group-hover:text-[#eab308] transition-colors">
+                  {tool.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SALARY GROWTH */}
       <SalaryGrowth domain="DataScience" />
 
@@ -557,27 +610,16 @@ const DataScience = () => {
       {/* PRICING */}
       <section className="py-24 px-6 bg-[#050505] border-t border-white/5" id="pricing">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-8 md:p-14 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-14 items-start mb-20 backdrop-blur-md">
-            <div>
-              <span className="inline-block bg-[#eab308]/15 text-[#eab308] font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-6">
-                Investment
-              </span>
-              <h2 className="text-3xl md:text-[48px] font-black ag-font-outfit text-white tracking-tight leading-tight mb-6">
-                EMI starts from
-                <br />
-                ₹5,000/month
-              </h2>
-              <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                Covers the full 16-week curriculum, AI projects, mentorship, certification, and career support.
-              </p>
-              <button
-                onClick={() => setShowPopup(true)}
-                className="bg-[#eab308] hover:bg-[#ca8a04] text-black px-10 py-4 font-bold text-base rounded-xl transition-colors shadow-lg shadow-[#eab308]/20"
-              >
-                Apply Now
-              </button>
-            </div>
+          <div className="text-center mb-12">
+            <span className="inline-block bg-[#eab308]/15 text-[#eab308] font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5">
+              Pricing & Financing
+            </span>
+            <h2 className="text-3xl md:text-[44px] font-black text-white tracking-tight mb-3">
+              Invest in your future
+            </h2>
+            <p className="text-gray-400 text-lg">Transparent pricing. Flexible payment options.</p>
           </div>
+          <PaymentPlanWidget basePrice={51999} durationMonths={6} courseName="Data Science" themeColor="#eab308" />
         </div>
       </section>
 

@@ -1,3 +1,4 @@
+import PaymentPlanWidget from "../../Components/PaymentPlanWidget";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -355,27 +356,12 @@ const DataAnalytics = () => {
         </div>
       </section>
 
-      {/* 11. PRICING */}
-      <section className="da-sec-white" id="pricing">
-        <div className="shell">
-           <h2 className="sec-title">Fees and payment options</h2>
-           <p className="sec-sub">Transparent program investment with structured installment plans and financial assistance.</p>
-           <div className="p-card" style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(300px, 1fr))', gap:'64px', padding:'48px', alignItems:'start'}}>
-              <div>
-                 <div style={{fontSize:'14px', fontWeight:800, color:'var(--da-primary)', textTransform:'uppercase', marginBottom:'20px'}}>Enrollment Fee</div>
-                 <div style={{fontSize:'64px', fontWeight:950, letterSpacing:'-3px', marginBottom:'16px'}}>₹89,999</div>
-                 <p style={{color:'var(--da-text-dim)', marginBottom:'40px', lineHeight:1.6}}>Inclusive of all training materials, live sessions, project reviews, and placement assistance.</p>
-                 <div style={{display:'flex', gap:'16px'}}><ApplyNowButton courseValue="Data Analytics" /><DownloadBrochureButton courseValue="Data Analytics" brochureLink={daBrochure} /></div>
-              </div>
-              <div style={{display:'grid', gap:'12px'}}>
-                 {[{l:"Booking Seat", v:"₹10,000"}, {l:"Installment 1", v:"₹26,666"}, {l:"Installment 2", v:"₹26,666"}, {l:"Installment 3", v:"₹26,666"}].map((row, i) => (
-                    <div key={i} style={{padding:'20px', background:'var(--da-bg)', borderRadius:'8px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-                       <span style={{fontSize:'13px', fontWeight:700}}>{row.l}</span><span style={{fontWeight:800}}>{row.v}</span>
-                    </div>
-                 ))}
-                 <div style={{marginTop:'12px', display:'flex', alignItems:'center', gap:'12px', opacity:0.6}}><Zap size={18} /> <img src={Flashaidlogo} alt="Flashaid" style={{height:'14px', filter:'grayscale(1)'}} /> <span style={{fontSize:'12px'}}>0% Installment Facility</span></div>
-              </div>
-           </div>
+      {/* PRICING */}
+      <section id="pricing" style={{padding: '100px 0', background: '#fff'}}>
+        <div style={{maxWidth: '1200px', margin: '0 auto', padding: '0 24px'}}>
+           <h2 style={{fontSize: '32px', fontWeight: 800, marginBottom: '16px'}}>Fees & Payment Options</h2>
+           <p style={{fontSize: '17px', color: '#6B7280', marginBottom: '48px'}}>Transparent program cost with structured installment plans and financial assistance.</p>
+           <PaymentPlanWidget basePrice={51999} durationMonths={3} courseName="DataAnalytics" />
         </div>
       </section>
 

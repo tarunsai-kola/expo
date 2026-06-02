@@ -63,14 +63,16 @@ const PremiumCurriculum = ({
           
           {/* Left: Sticky Navigation */}
           <div className="lg:w-[35%] relative">
-            <div className="lg:sticky lg:top-32 flex flex-col pr-0 lg:pr-8 border-r-0 lg:border-r border-white/10">
+            <div className={`lg:sticky lg:top-32 flex flex-col p-6 lg:p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]`}>
               {phases.map((p) => {
                 const isActive = activePhase === p.id;
                 return (
                   <button
                     key={p.id}
                     onClick={() => scrollToPhase(p.id)}
-                    className="text-left py-6 border-b border-white/10 last:border-b-0 group transition-all duration-300"
+                    className={`text-left py-6 border-b border-white/10 last:border-b-0 group transition-all duration-300 ${
+                      isActive ? "bg-white/5 px-4 -mx-4 rounded-2xl border-transparent" : "hover:bg-white/5 hover:px-4 hover:-mx-4 hover:rounded-2xl"
+                    }`}
                   >
                     <div className={`text-[10px] md:text-xs font-bold tracking-widest uppercase mb-2 ${accentColor}`}>
                       {p.phase} ({p.duration}):

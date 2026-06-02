@@ -1,3 +1,4 @@
+import PaymentPlanWidget from "../Components/PaymentPlanWidget";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -31,6 +32,19 @@ const trustStats = [
   { value: "30+ Tools", label: "Mastered" },
   { value: "Live Budgets", label: "Real Campaigns" },
   { value: "AI-Powered", label: "Marketing Workflows" },
+];
+
+const toolsList = [
+  { name: "Analytics", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" },
+  { name: "Facebook", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" },
+  { name: "WordPress", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" },
+  { name: "Figma", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Mailchimp", img: "/tools/mailchimp.svg", invert: true },
+  { name: "HubSpot", img: "https://cdn.worldvectorlogo.com/logos/hubspot-1.svg" },
+  { name: "Canva", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
+  { name: "Semrush", img: "/tools/semrush.svg", invert: true },
+  { name: "ChatGPT", img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", invert: true },
+  { name: "Python", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
 ];
 
 const careerPaths = [
@@ -425,6 +439,44 @@ const DigitalMarketing = () => {
         cardBgColor="bg-[#0f0600]"
       />
 
+      {/* TECH STACK */}
+      <section id="tools" className="py-24 px-6 bg-[#0f0600] border-t border-amber-950/50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(245,158,11,0.05)_0%,transparent_70%)] pointer-events-none" />
+        <div className="max-w-[1000px] mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block bg-amber-950/50 text-amber-400 border border-amber-800/50 font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5">
+              Tech Stack
+            </span>
+            <h2 className="text-3xl md:text-[40px] font-black ag-font-outfit text-white tracking-tight mb-3">
+              Tools &amp; Technologies
+            </h2>
+            <p className="text-gray-400 text-lg">Master the modern digital marketing &amp; AI business stack</p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-10">
+            {toolsList.map((tool, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center gap-3 w-[90px] group cursor-default"
+              >
+                <div
+                  className="w-16 h-16 bg-[#1a0b02] rounded-2xl flex items-center justify-center overflow-hidden border border-amber-950/50 transition-all duration-300 group-hover:scale-110 group-hover:border-amber-500/50 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.25)]"
+                >
+                  {tool.img ? (
+                    <img src={tool.img} alt={tool.name} className={`w-9 h-9 object-contain ${tool.invert ? "invert opacity-80" : ""}`} />
+                  ) : (
+                    <span className="text-sm font-bold text-gray-400">{tool.name.substring(0, 2)}</span>
+                  )}
+                </div>
+                <span className="text-[10px] font-bold text-gray-400 tracking-widest text-center leading-tight uppercase group-hover:text-amber-400 transition-colors">
+                  {tool.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PROJECTS */}
       <section id="projects" className="py-24 px-6 bg-[#0f0600] border-t border-amber-950/50">
         <div className="max-w-6xl mx-auto">
@@ -531,29 +583,18 @@ const DigitalMarketing = () => {
       <MeetYourMentors />
 
       {/* PRICING */}
-      <section className="py-24 px-6 bg-[#0f0600] border-t border-amber-950/50" id="pricing">
+      <section className="py-24 px-6 bg-[#0f0600] border-t border-white/5" id="pricing">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-[#1a0a00] border border-amber-900/50 rounded-2xl p-8 md:p-14 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-14 items-start mb-20 shadow-2xl">
-            <div>
-              <span className="inline-block bg-amber-950/50 text-amber-400 border border-amber-800/50 font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-6">
-                Investment
-              </span>
-              <h2 className="text-3xl md:text-[48px] font-black ag-font-outfit text-white tracking-tight leading-tight mb-6">
-                EMI starts from
-                <br />
-                ₹5,000/month
-              </h2>
-              <p className="text-amber-100/70 text-lg leading-relaxed mb-8">
-                Covers the full 16-week Digital Marketing & AI curriculum, ad budgets for projects, mentorship, certification, and career support.
-              </p>
-              <button
-                onClick={() => setShowPopup(true)}
-                className="bg-amber-500 hover:bg-amber-400 text-black px-10 py-4 font-bold text-base rounded-xl transition-colors shadow-lg shadow-amber-500/20"
-              >
-                Apply Now
-              </button>
-            </div>
+          <div className="text-center mb-12">
+            <span className="inline-block bg-[#f59e0b]/15 text-[#f59e0b] font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5">
+              Pricing & Financing
+            </span>
+            <h2 className="text-3xl md:text-[44px] font-black text-white tracking-tight mb-3">
+              Invest in your future
+            </h2>
+            <p className="text-gray-400 text-lg">Transparent pricing. Flexible payment options.</p>
           </div>
+          <PaymentPlanWidget basePrice={51999} durationMonths={6} courseName="Digital Marketing" themeColor="#f59e0b" />
         </div>
       </section>
 

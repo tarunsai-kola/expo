@@ -1,3 +1,4 @@
+import PaymentPlanWidget from "../../Components/PaymentPlanWidget";
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -232,183 +233,14 @@ const DigitalMarket = () => {
       <TopOnePercent />
 
       {/* 2. AUDIENCE */}
-      <section className="dm-section">
-        <div className="shell">
-          <h2 className="sec-title">Who this program is for</h2>
-          <p className="sec-sub">Essential for anyone aiming to master full-funnel marketing execution, from creators to career switchers.</p>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(320px, 1fr))', gap:'20px'}}>
-             {audience.map((item, i) => (
-                <div key={i} className="p-card">
-                  <div style={{color:'var(--dm-primary)', marginBottom:'16px'}}>{item.icon}</div>
-                  <h4 style={{fontSize:'18px', fontWeight:800, marginBottom:'10px'}}>{item.title}</h4>
-                  <p style={{fontSize:'14px', color:'var(--dm-text-dim)', lineHeight:1.6}}>{item.desc}</p>
-                </div>
-             ))}
-          </div>
-        </div>
-      </section>
+      
 
-      {/* 3. MARKET OPPORTUNITY */}
-      <section className="dm-sec-white">
-        <div className="shell text-left">
-          <h2 className="sec-title">The Digital Opportunity</h2>
-          <p className="sec-sub">Why there has never been a better time to build a technical marketing career.</p>
-          <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(300px, 1fr))', gap:'40px'}}>
-             {marketOpportunity.map((item, i) => (
-               <div key={i} style={{paddingRight:'40px'}}>
-                 <div style={{color:'var(--dm-primary)', marginBottom:'20px'}}>{item.icon}</div>
-                 <h4 style={{fontSize:'18px', fontWeight:800, marginBottom:'12px'}}>{item.title}</h4>
-                 <p style={{fontSize:'15px', color:'var(--dm-text-dim)', lineHeight:1.6}}>{item.desc}</p>
-               </div>
-             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. TOOLS */}
-      <ToolStack 
-        categories={techStack} 
-        accentColor="#4F46E5"
-        subtitle="Gain execution depth across a suite of 40+ industry tools for design, search, and automation."
-      />
-
-      {/* 5. ROADMAP */}
-      <section className="dm-sec-white">
-        <div className="shell">
-           <h2 className="sec-title">Progressive Learning Roadmap</h2>
-           <p className="sec-sub">From organic search foundations to complex performance attribution and career acceleration.</p>
-           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap:'16px'}}>
-              {curriculumRoadmap.map((item, idx) => (
-                 <div key={idx} className="p-card" onClick={() => setExpandedModule(expandedModule === idx ? null : idx)} style={{cursor:'pointer', borderLeft: expandedModule === idx ? '4px solid var(--dm-primary)' : '1px solid var(--dm-border)'}}>
-                    <div style={{display:'flex', justifyContent:'space-between', marginBottom:'12px'}}>
-                       <span style={{fontSize:'12px', fontWeight:800, color:'var(--dm-primary)', background:'rgba(79,70,229,0.05)', padding:'4px 12px', borderRadius:'99px'}}>{item.module}</span>
-                       <ChevronDown size={16} style={{transform: expandedModule === idx ? 'rotate(180deg)' : 'none', transition:'0.3s'}} />
-                    </div>
-                    <h4 style={{fontSize:'20px', fontWeight:800, marginBottom:'4px'}}>{item.title}</h4>
-                    <p style={{fontSize:'14px', color:'var(--dm-text-dim)', marginBottom:'8px'}}>{item.summary}</p>
-                    <div style={{fontSize:'13px', fontWeight:700, color:'var(--dm-primary)'}}>{item.topics}</div>
-                    {expandedModule === idx && (
-                       <div style={{marginTop:'20px', paddingTop:'20px', borderTop:'1px solid var(--dm-border)', color:'var(--dm-text-dim)', fontSize:'14px', lineHeight:1.6}}>
-                          {item.details}
-                       </div>
-                    )}
-                 </div>
-              ))}
-           </div>
-        </div>
-      </section>
-
-      {/* 6. PROJECTS */}
-      <section className="dm-section">
-        <div className="shell">
-           <h2 className="sec-title">Practical projects and campaigns</h2>
-           <p className="sec-sub">Execute end-to-end marketing cycles on real industrial datasets to build your proof-of-work.</p>
-           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(350px, 1fr))', gap:'24px'}}>
-              {portfolioProjects.map((p, i) => (
-                 <div key={i} className="p-card">
-                    <h4 style={{fontSize:'20px', fontWeight:800, marginBottom:'16px'}}>{p.title}</h4>
-                    <div style={{marginBottom:'16px'}}><div style={{fontSize:'11px', fontWeight:800, color:'var(--dm-text-dim)', textTransform:'uppercase', marginBottom:'4px'}}>Business Objective</div><p style={{fontSize:'14px'}}>{p.problem}</p></div>
-                    <div><div style={{fontSize:'11px', fontWeight:800, color:'var(--dm-text-dim)', textTransform:'uppercase', marginBottom:'4px'}}>Mastered Skill</div><p style={{fontSize:'14px', fontWeight:700, color:'var(--dm-primary)'}}>{p.outcome}</p></div>
-                 </div>
-              ))}
-           </div>
-        </div>
-      </section>
-
-      {/* 7. HOW IT WORKS */}
-      <section className="dm-sec-white">
-        <div className="shell">
-           <h2 className="sec-title">How Learning Works</h2>
-           <p className="sec-sub">A premium experience focused on live instruction, mentor accountability, and practical lab hours.</p>
-           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(260px, 1fr))', gap:'20px'}}>
-              {[{t:"Live Classes", d:"Weekend and evening sessions timed for professionals.", i:<Video size={20}/>}, {t:"Technical Mentors", d:"Personal reviews for your campaigns and growth assets.", i:<UserCheck size={20}/>}, {t:"Practical Labs", d:"Weekly activities focused on campaign execution drills.", i:<Terminal size={20}/>}, {t:"Placement Hub", d:"Direct referral pipeline for our 500+ hiring partners.", i:<MessagesSquare size={20}/>}].map((item, i) => (
-                 <div key={i} className="p-card text-center">
-                    <div style={{color:'var(--dm-primary)', margin:'0 auto 20px', width:'fit-content'}}>{item.i}</div>
-                    <div style={{fontWeight:800, marginBottom:'8px'}}>{item.t}</div>
-                    <p style={{fontSize:'13px', color:'var(--dm-text-dim)', lineHeight:1.5}}>{item.d}</p>
-                 </div>
-              ))}
-           </div>
-        </div>
-      </section>
-
-      {/* 8. CAREER PROCESS */}
-      <CareerSupport courseValue="Digital Marketing" brochureLink={dmBrochure} />
-
-      {/* 9. ALUMNI */}
-      <section className="dm-sec-white">
-        <div className="shell">
-           <h2 className="sec-title">Learner outcomes and success</h2>
-           <p className="sec-sub">Our graduates have built growth systems for global brands and accelerated their internal career tracks.</p>
-           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(350px, 1fr))', gap:'20px', marginBottom:'48px'}}>
-              {alumniOutcomes.map((a, i) => (
-                 <div key={i} className="p-card">
-                    <div style={{display:'flex', justifyContent:'space-between', marginBottom:'16px'}}>
-                       <div><div style={{fontWeight:800}}>{a.name}</div><div style={{fontSize:'12px', color:'var(--dm-text-dim)'}}>{a.role} → {a.target}</div></div>
-                       <div style={{fontSize:'14px', fontWeight:800, color:'var(--dm-primary)'}}>{a.company}</div>
-                    </div>
-                    <p style={{fontSize:'14px', fontStyle:'italic', opacity:0.8}}>"{a.desc}"</p>
-                 </div>
-              ))}
-           </div>
-           <ClientsCarousel />
-        </div>
-      </section>
-
-      {/* 10. PATHS */}
-      <section className="dm-section">
-        <div className="shell text-left">
-           <h2 className="sec-title">Career paths after the program</h2>
-           <p className="sec-sub">Target specialized roles with high demand and measurable salary growth models.</p>
-           <div style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(280px, 1fr))', gap:'12px'}}>
-              {careerRoles.map((r, i) => (
-                 <div key={i} className="p-card flex justify-between items-center" style={{padding:'20px'}}>
-                    <div style={{fontWeight:800}}>{r.role}</div>
-                    <div style={{fontSize:'13px', color:'var(--dm-primary)', fontWeight:700}}>{r.range}</div>
-                 </div>
-              ))}
-           </div>
-        </div>
-      </section>
-
-      {/* 11. CERTIFICATION */}
-      <section className="dm-sec-white">
-        <div className="shell">
-           <Certification />
-           <ProgramCohorts courseValue="Digital Marketing" date="31st May" />
-        </div>
-      </section>
-
-      {/* 12. PRICING */}
-      <section className="dm-section" id="pricing">
-        <div className="shell box-border">
-           <h2 className="sec-title">Program Investment</h2>
-           <p className="sec-sub">Transparent enrollment options with secure payment partners and installment plans.</p>
-           <div className="p-card box-border w-full max-w-full" style={{display:'grid', gridTemplateColumns:'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap:'clamp(32px, 5vw, 60px)', padding:'clamp(24px, 5vw, 48px)', alignItems:'start'}}>
-              <div className="w-full min-w-0">
-                 <div style={{fontSize:'13px', fontWeight:800, color:'var(--dm-primary)', textTransform:'uppercase', marginBottom:'16px'}}>All-access certification</div>
-                 <div className="break-words" style={{fontSize:'clamp(48px, 8vw, 64px)', fontWeight:950, letterSpacing:'-3px', marginBottom:'16px'}}>₹95,999</div>
-                 <p style={{color:'var(--dm-text-dim)', marginBottom:'40px', lineHeight:1.6}}>Includes all tools, live sessions, project reviews, and 100% career support access.</p>
-                 <div className="flex flex-col sm:flex-row gap-4 w-full">
-                    <div className="w-full sm:w-auto [&>div]:w-full [&>div>button]:w-full">
-                       <ApplyNowButton courseValue="Digital Marketing" />
-                    </div>
-                    <DownloadBrochureButton courseValue="Digital Marketing" brochureLink={dmBrochure} className="btn-sec text-center" />
-                 </div>
-              </div>
-              <div style={{display:'grid', gap:'12px'}} className="w-full min-w-0">
-                 {[{l:"Seat Reservation", v:"₹10,000"}, {l:"Installment 1", v:"₹28,666"}, {l:"Installment 2", v:"₹28,666"}, {l:"Installment 3", v:"₹28,666"}].map((row, i) => (
-                    <div key={i} style={{padding:'20px', background:'var(--dm-bg)', borderRadius:'12px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-                       <span style={{fontSize:'13px', fontWeight:700}}>{row.l}</span><span style={{fontWeight:800}}>{row.v}</span>
-                    </div>
-                 ))}
-                 <div style={{marginTop:'12px', display:'flex', alignItems:'center', gap:'12px', opacity:0.6}} className="flex-wrap min-w-0">
-                    <Zap size={18} className="shrink-0" /> 
-                    <img src={Flashaidlogo} alt="Flashaid" style={{height:'14px', filter:'grayscale(1)'}} className="shrink-0" /> 
-                    <span className="break-words min-w-0 flex-1" style={{fontSize:'12px'}}>EMI ₹10,666/MO</span>
-                 </div>
-              </div>
-           </div>
+      {/* PRICING */}
+      <section id="pricing" style={{padding: '100px 0', background: '#fff'}}>
+        <div style={{maxWidth: '1200px', margin: '0 auto', padding: '0 24px'}}>
+           <h2 style={{fontSize: '32px', fontWeight: 800, marginBottom: '16px'}}>Fees & Payment Options</h2>
+           <p style={{fontSize: '17px', color: '#6B7280', marginBottom: '48px'}}>Transparent program cost with structured installment plans and financial assistance.</p>
+           <PaymentPlanWidget basePrice={51999} durationMonths={3} courseName="DigitalMarket" />
         </div>
       </section>
 

@@ -58,8 +58,8 @@ const FloatingNav = ({ onApplyClick }) => {
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
           className="fixed bottom-6 lg:bottom-10 left-1/2 z-[100] w-[95%] max-w-fit"
         >
-          {/* Glassy Light Pill Background */}
-          <div className="flex items-center gap-1 md:gap-3 p-1.5 md:p-2 rounded-full bg-gradient-to-r from-primary/20 to-white shadow-[0_12px_40px_rgba(19,138,82,0.25)] border border-white/60 backdrop-blur-xl mx-auto overflow-x-auto hide-scrollbar max-w-full">
+          {/* Glassy Dark Pill Background */}
+          <div className="flex items-center gap-1 md:gap-3 p-1.5 md:p-2 rounded-full bg-black/40 shadow-[0_12px_40px_rgba(0,0,0,0.5)] border border-white/10 backdrop-blur-xl mx-auto overflow-x-auto hide-scrollbar max-w-full">
             
             {navItems.map((item) => (
               <button
@@ -68,7 +68,7 @@ const FloatingNav = ({ onApplyClick }) => {
                 className={`px-4 py-2 rounded-full text-[13px] md:text-sm font-bold transition-all whitespace-nowrap ${
                   activeSection === item.id 
                     ? "text-black bg-white shadow-sm" 
-                    : "text-gray-600 hover:text-black hover:bg-white/40"
+                    : "text-slate-400 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {item.name}
@@ -78,7 +78,7 @@ const FloatingNav = ({ onApplyClick }) => {
             {/* Premium CTA Pill */}
             <button
               onClick={onApplyClick}
-              className="ml-1 md:ml-2 px-5 md:px-7 py-2 md:py-2.5 rounded-full text-[13px] md:text-sm font-black text-white bg-primary hover:bg-primaryHover transition-colors whitespace-nowrap shadow-lg flex items-center gap-2"
+              className="ml-1 md:ml-2 px-6 md:px-7 py-2 md:py-2.5 rounded-full text-[13px] md:text-sm font-black text-black bg-white hover:bg-gray-200 transition-colors whitespace-nowrap shadow-[0_0_20px_rgba(255,255,255,0.2)] flex items-center gap-2"
             >
               Apply Now
             </button>

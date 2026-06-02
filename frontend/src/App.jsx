@@ -43,6 +43,7 @@ import AdvanceForm from "./page/AdvanceForm";
 import AgenticAndGenAI from "./page/AgenticAndGenAI";
 import SoftwareDeveloper from "./page/SoftwareDeveloper";
 import AIFullStack from "./page/AIFullStack";
+import Blog from "./page/Blog";
 // Admin
 import AdminHeader from "./Admin/AdminHeader";
 import AddCourse from "./Admin/AddCourse";
@@ -452,7 +453,7 @@ const AppContent = () => {
   const noFooterPaths = ["/operationdashboard", "/bookedpayment", "/fullpayment", "/defaultpayment", "/operationrevenuesheet", "/advoperationdashboard", "/advfullpayment", "/advbookedpayment", "/advdefaultpayment", "/advoperationrevenuesheet", "/advteam/home", "/advteam/onboarding", "/advteam/revenue", "/advteam/booked", "/advteam/fullpaid", "/advteam/default", "/advteam/record", "/advteam/lead-management", "/advteam/team-login", "/advteam/adduser", "/advteam/my-leads", "/advteam/leads-book", "/advteam/leaderboard", "/home", "/fullpaid", "/default", "/booked", "/onboarding", "/adduser", "/teamdetail", "/bdarevenuesheet", "/reference", "/companyleads", "/addteam", "/assigntarget", "/leaderboard"];
   const placementcoodinatorHeaderPaths = ["/pcdashboard", "/jobpost"];
   const userheaderPaths = ["/profile", "/resume-builder"];
-  const headerPaths = ["/", "/login", "/loginwithotp", "/forgotpassword", "/contactus", "/aboutus", "/career", "/collabration", "/advancecourses", "/terms", "/privacy", "/refundpolicy", "/feestructure", "/advance", "/advance-apply", "/mentorship", "/datascience", "/dataanalytics", "/digitalmarket", "/mernstack", "/investmentbanking", "/productmanagement", "/automationtesting", "/promptengineering", "/generativeai", "/operationlogin", "/advoperationlogin", "/teamlogin", "/adminlogin", "/managerlogin", "/loginadmin", "/pclogin", "/advteamlogin", "/dashboardaccessform", "/advancedashboardaccess", "/masterclass", "/alumni", "/verify", "/marketing/login", "/interviewer-login", "/interviewerlogin", "/hrlogin", "/advanceform", "/agenticandgenai", "/softwaredeveloper", "/free-career-assessment"];
+  const headerPaths = ["/", "/login", "/loginwithotp", "/forgotpassword", "/contactus", "/aboutus", "/career", "/collabration", "/advancecourses", "/terms", "/privacy", "/refundpolicy", "/feestructure", "/advance", "/advance-apply", "/mentorship", "/datascience", "/dataanalytics", "/digitalmarket", "/mernstack", "/investmentbanking", "/productmanagement", "/automationtesting", "/promptengineering", "/generativeai", "/operationlogin", "/advoperationlogin", "/teamlogin", "/adminlogin", "/managerlogin", "/loginadmin", "/pclogin", "/advteamlogin", "/dashboardaccessform", "/advancedashboardaccess", "/masterclass", "/alumni", "/verify", "/marketing/login", "/interviewer-login", "/interviewerlogin", "/hrlogin", "/advanceform", "/agenticandgenai", "/softwaredeveloper", "/free-career-assessment", "/blog"];
 
   return (
     <div>
@@ -497,6 +498,7 @@ const AppContent = () => {
         <Route path="/FeeStructure" element={<FeeStructure />} />
         <Route path="/events" element={<TalentHunt />} />
         <Route path="/EventRegister" element={<EventRegister />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/Advance" element={<Advance />} />
         <Route path="/AgenticAndGenAI" element={<AgenticAndGenAI />} />
         <Route path="/SoftwareDeveloper" element={<SoftwareDeveloper />} />

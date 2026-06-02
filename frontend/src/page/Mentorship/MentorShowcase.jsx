@@ -76,6 +76,14 @@ const MentorShowcase = () => {
       color: "#f59e0b", 
       img: sachinImg,
       position: "Software Architect"
+    },
+    { 
+      name: "Aditya Verma", 
+      domain: "Full Stack Dev", 
+      exp: "8+ Yrs", 
+      color: "#3b82f6", 
+      img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200",
+      position: "Lead Engineer"
     }
   ];
 

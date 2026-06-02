@@ -75,7 +75,15 @@ const FreeCareerAssessment = () => {
   ];
 
   return (
-    <div className="bg-[#050505] text-zinc-300 font-['Inter'] min-h-screen selection:bg-indigo-500/30">
+    <div 
+      className="text-zinc-300 font-['Inter'] min-h-screen selection:bg-indigo-500/30"
+      style={{
+        backgroundImage: "linear-gradient(to bottom, rgba(5,5,5,0.85), rgba(5,5,5,0.95)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed"
+      }}
+    >
       <Helmet>
         <title>Free Career Growth Assessment | Atorax</title>
         <meta name="description" content="Discover Your Career Potential, Strengths, Skill Gaps & Personalized Growth Roadmap." />
