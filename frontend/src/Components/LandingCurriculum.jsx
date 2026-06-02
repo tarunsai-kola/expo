@@ -81,14 +81,14 @@ const LandingCurriculum = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar */}
-          <div className="w-full lg:w-[30%] flex flex-col gap-4">
+        <div className="flex flex-col lg:flex-row gap-6">
+          {/* Sidebar — scrollable horizontally on mobile, vertical on desktop */}
+          <div className="w-full lg:w-[30%] flex flex-row lg:flex-col gap-3 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
             {curriculum.map((phase, idx) => (
               <button
                 key={idx}
                 onClick={() => setActivePhase(idx)}
-                className={`w-full text-left px-6 py-5 rounded-xl border transition-all duration-300 flex items-center justify-between group ${
+                className={`shrink-0 lg:w-full text-left px-5 py-4 lg:py-5 rounded-xl border transition-all duration-300 flex items-center justify-between group ${
                   activePhase === idx
                     ? "bg-[#1A8352] border-[#1A8352] shadow-[0_0_20px_rgba(26,131,82,0.3)]"
                     : "bg-[#1A1A1A] border-white/10 hover:border-white/20 hover:bg-[#222]"
@@ -125,26 +125,33 @@ const LandingCurriculum = () => {
                   transition={{ duration: 0.2 }}
                   className="flex-1 flex flex-col"
                 >
-                  {/* Table Layout */}
+                  {/* Table Layout — stacks on mobile, side-by-side on desktop */}
                   <div className="rounded-xl border border-white/10 overflow-hidden mb-8">
-                    {/* Header Row */}
-                    <div className="grid grid-cols-[1fr_2fr] border-b border-white/10">
-                       <div className="p-4 bg-[#1A8352] text-[10px] font-bold tracking-widest text-white uppercase">Domain</div>
-                       <div className="p-4 bg-[#111111] text-[10px] font-bold tracking-widest text-white/50 uppercase border-l border-white/10">Key Outcomes</div>
-                    </div>
-                    {/* Content Row */}
-                    <div className="grid grid-cols-[1fr_2fr]">
-                       <div className="p-6 bg-[#1A1A1A] border-r border-white/10 flex items-center">
-                          <span className="text-gray-200 font-semibold text-sm">{curriculum[activePhase].title}</span>
-                       </div>
-                       <div className="p-6 bg-[#111111] flex flex-col gap-4">
+                    {/* Domain header + content */}
+                    <div className="flex flex-col md:flex-row">
+                      {/* Left: Domain */}
+                      <div className="md:w-[35%] flex flex-col">
+                        <div className="p-4 bg-[#1A8352] text-[10px] font-bold tracking-widest text-white uppercase border-b border-white/10">
+                          Domain
+                        </div>
+                        <div className="p-5 bg-[#1A1A1A] flex items-start md:items-center flex-1 border-b md:border-b-0 md:border-r border-white/10">
+                          <span className="text-gray-200 font-semibold text-sm leading-snug">{curriculum[activePhase].title}</span>
+                        </div>
+                      </div>
+                      {/* Right: Key Outcomes */}
+                      <div className="flex flex-col flex-1">
+                        <div className="p-4 bg-[#111111] text-[10px] font-bold tracking-widest text-white/50 uppercase border-b border-white/10">
+                          Key Outcomes
+                        </div>
+                        <div className="p-5 bg-[#111111] flex flex-col gap-3">
                           {curriculum[activePhase].outcomes.map((outcome, idx) => (
                             <div key={idx} className="flex items-start gap-3">
                               <div className="w-1.5 h-1.5 rounded-full bg-[#1A8352] mt-1.5 flex-shrink-0 shadow-[0_0_8px_rgba(26,131,82,0.8)]" />
                               <p className="text-gray-300 text-[13px] font-medium leading-relaxed">{outcome}</p>
                             </div>
                           ))}
-                       </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
