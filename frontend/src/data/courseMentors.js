@@ -17,10 +17,10 @@ import aifs1 from "../assets/mentors/aifs_mentor_1_1780417363619.png";
 import aifs2 from "../assets/mentors/aifs_mentor_2_1780417380519.png";
 
 // Using Unsplash realistic placeholders for the remaining 4 due to API quota limits
-const aifs3 = "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200&h=200";
-const genai1 = "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=200&h=200";
-const genai2 = "https://images.unsplash.com/photo-1583341612074-ccea5cd64f6a?auto=format&fit=crop&q=80&w=200&h=200";
-const genai3 = "https://images.unsplash.com/photo-1566492031516-e322b7c6c40a?auto=format&fit=crop&q=80&w=200&h=200";
+const aifs3 = "/newimages/piece_90.png";
+const genai1 = "/newimages/piece_91.png";
+const genai2 = "/newimages/piece_92.png";
+const genai3 = "/newimages/piece_93.png";
 
 export const courseMentors = {
   SoftwareDeveloper: [

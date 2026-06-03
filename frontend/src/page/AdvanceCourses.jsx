@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import birendraImg from "../assets/alumni/birendra_kumar.png";
 import rajaImg from "../assets/alumni/raja_singh.png";
 import mithunImg from "../assets/alumni/mithun_prajapati.png";
-import advanceHeroImg from "../../atorax/images/advance.jpg";
+
 import BannerSlider from "../Components/BannerSlider";
 import AdvancedApplyPopup from "../Components/AdvancedApplyPopup";
 import FeatureStrip from "../Components/FeatureStrip";

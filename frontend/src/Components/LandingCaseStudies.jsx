@@ -14,7 +14,7 @@ const LandingCaseStudies = () => {
       newSalary: "22 LPA",
       hike: "388%",
       timeline: "5 months",
-      image: "/avatars/m1.png",
+      image: "/newimages/piece_1.png",
       quote: "I was handling support tickets for 2 years. Atorax taught me to think in distributed systems. The mock interviews were harder than the actual Amazon loop."
     },
     {
@@ -27,7 +27,7 @@ const LandingCaseStudies = () => {
       newSalary: "28 LPA",
       hike: "366%",
       timeline: "6 months",
-      image: "/avatars/w1.png",
+      image: "/newimages/piece_2.png",
       quote: "Transitioning from React to core backend architecture felt impossible until Atorax. The 1:1 mentorship from a Microsoft engineer made everything click."
     },
     {
@@ -40,7 +40,7 @@ const LandingCaseStudies = () => {
       newSalary: "18 LPA",
       hike: "414%",
       timeline: "4 months",
-      image: "/avatars/m2.png",
+      image: "/newimages/piece_3.png",
       quote: "I was stuck in manual QA. The rigorous DSA and system design modules at Atorax helped me crack Swiggy's backend round with ease."
     },
     {
@@ -53,7 +53,7 @@ const LandingCaseStudies = () => {
       newSalary: "24 LPA",
       hike: "500%",
       timeline: "6 months",
-      image: "/avatars/w2.png",
+      image: "/newimages/piece_4.png",
       quote: "Moving from an analyst to a core data engineering role at Walmart was a dream. Atorax's hands-on projects were the key differentiator in my interviews."
     },
     {
@@ -66,7 +66,7 @@ const LandingCaseStudies = () => {
       newSalary: "26 LPA",
       hike: "712%",
       timeline: "7 months",
-      image: "/avatars/m3.png",
+      image: "/newimages/piece_5.png",
       quote: "The personalized mentorship and mock interviews gave me the confidence to negotiate a senior role at Paytm, jumping straight from L1 support."
     },
     {
@@ -79,7 +79,7 @@ const LandingCaseStudies = () => {
       newSalary: "20 LPA",
       hike: "300%",
       timeline: "4 months",
-      image: "/avatars/w4.png",
+      image: "/newimages/piece_6.png",
       quote: "I knew React, but Atorax taught me web performance and large-scale architecture. That's exactly what Flipkart tested me on."
     },
     {
@@ -92,7 +92,7 @@ const LandingCaseStudies = () => {
       newSalary: "35 LPA",
       hike: "438%",
       timeline: "8 months",
-      image: "/avatars/m4.png",
+      image: "/newimages/piece_7.png",
       quote: "Atlassian's interview loop is notoriously tough. The intensive system design curriculum at Atorax helped me clear all 5 rounds effortlessly."
     },
     {
@@ -105,7 +105,7 @@ const LandingCaseStudies = () => {
       newSalary: "22 LPA",
       hike: "358%",
       timeline: "5 months",
-      image: "/avatars/w1.png",
+      image: "/newimages/piece_8.png",
       quote: "I was terrified of competitive programming. Atorax broke it down into patterns rather than rote learning. Zomato's coding round felt like a breeze."
     },
     {
@@ -118,7 +118,7 @@ const LandingCaseStudies = () => {
       newSalary: "32 LPA",
       hike: "481%",
       timeline: "9 months",
-      image: "/avatars/m1.png",
+      image: "/newimages/piece_9.png",
       quote: "The Google interview is a marathon. My Atorax mentor, a former Googler, guided my prep strategy perfectly. I wouldn't have made it without them."
     },
     {
@@ -131,7 +131,7 @@ const LandingCaseStudies = () => {
       newSalary: "18 LPA",
       hike: "620%",
       timeline: "7 months",
-      image: "/avatars/w2.png",
+      image: "/newimages/piece_10.png",
       quote: "Transitioning from a non-tech role seemed impossible. Atorax's foundation courses and dedicated TA support helped me land a job at Cred."
     },
     {
@@ -144,7 +144,7 @@ const LandingCaseStudies = () => {
       newSalary: "25 LPA",
       hike: "525%",
       timeline: "6 months",
-      image: "/avatars/m2.png",
+      image: "/newimages/piece_11.png",
       quote: "I wanted to move from networking to cloud engineering. Atorax's AWS and DevOps curriculum was precisely what I needed to clear the loop."
     },
     {
@@ -157,7 +157,7 @@ const LandingCaseStudies = () => {
       newSalary: "28 LPA",
       hike: "677%",
       timeline: "6 months",
-      image: "/avatars/w4.png",
+      image: "/newimages/piece_12.png",
       quote: "The sheer depth of Atorax's backend engineering module is unmatched. It gave me the competitive edge I needed for Uber."
     },
     {
@@ -170,7 +170,7 @@ const LandingCaseStudies = () => {
       newSalary: "45 LPA",
       hike: "542%",
       timeline: "10 months",
-      image: "/avatars/m3.png",
+      image: "/newimages/piece_13.png",
       quote: "Netflix looks for extreme depth. The massive scale data pipelines we built in the Atorax capstone project became the highlight of my interview."
     },
     {
@@ -183,7 +183,7 @@ const LandingCaseStudies = () => {
       newSalary: "21 LPA",
       hike: "320%",
       timeline: "4 months",
-      image: "/avatars/w1.png",
+      image: "/newimages/piece_14.png",
       quote: "I knew the basics, but Atorax pushed me to master advanced JS concepts and React internals. Razorpay's machine coding round was exactly what we practiced."
     },
     {
@@ -196,7 +196,7 @@ const LandingCaseStudies = () => {
       newSalary: "38 LPA",
       hike: "375%",
       timeline: "7 months",
-      image: "/avatars/m4.png",
+      image: "/newimages/piece_15.png",
       quote: "I was stagnating at a service-based firm. Atorax's high-level system design classes gave me the exact tools to break into PhonePe."
     },
     {
@@ -209,7 +209,7 @@ const LandingCaseStudies = () => {
       newSalary: "16 LPA",
       hike: "433%",
       timeline: "8 months",
-      image: "/avatars/w2.png",
+      image: "/newimages/piece_16.png",
       quote: "Switching from content to coding was hard, but Atorax's structured frontend roadmap and portfolio reviews got me into Myntra."
     },
     {
@@ -222,7 +222,7 @@ const LandingCaseStudies = () => {
       newSalary: "24 LPA",
       hike: "300%",
       timeline: "5 months",
-      image: "/avatars/m1.png",
+      image: "/newimages/piece_17.png",
       quote: "I felt trapped in legacy tech. Atorax updated my stack to Go and microservices, which is exactly what top startups are looking for."
     },
     {
@@ -235,7 +235,7 @@ const LandingCaseStudies = () => {
       newSalary: "27 LPA",
       hike: "500%",
       timeline: "6 months",
-      image: "/avatars/w4.png",
+      image: "/newimages/piece_18.png",
       quote: "The emphasis Atorax places on writing clean, production-ready code is what impressed my interviewers at LinkedIn the most."
     },
     {
@@ -248,7 +248,7 @@ const LandingCaseStudies = () => {
       newSalary: "29 LPA",
       hike: "663%",
       timeline: "7 months",
-      image: "/avatars/m2.png",
+      image: "/newimages/piece_19.png",
       quote: "Atorax's niche tracks are incredible. I took the cybersecurity elective and landed a role at CrowdStrike with multiple competing offers."
     },
     {
@@ -261,7 +261,7 @@ const LandingCaseStudies = () => {
       newSalary: "25 LPA",
       hike: "284%",
       timeline: "5 months",
-      image: "/avatars/w1.png",
+      image: "/newimages/piece_20.png",
       quote: "Moving from basic analytics to core ML required heavy math and deployment skills. Atorax filled that gap perfectly."
     },
     {
@@ -274,7 +274,7 @@ const LandingCaseStudies = () => {
       newSalary: "23 LPA",
       hike: "447%",
       timeline: "6 months",
-      image: "/avatars/m3.png",
+      image: "/newimages/piece_21.png",
       quote: "I thought my tier-3 college background would hold me back. Atorax proved that skills trump degrees every single time."
     },
     {
@@ -287,7 +287,7 @@ const LandingCaseStudies = () => {
       newSalary: "19 LPA",
       hike: "375%",
       timeline: "4 months",
-      image: "/avatars/w2.png",
+      image: "/newimages/piece_22.png",
       quote: "I lacked the discipline to upskill alone. The cohort-based learning and strict deadlines at Atorax completely transformed my career trajectory."
     }
   ];

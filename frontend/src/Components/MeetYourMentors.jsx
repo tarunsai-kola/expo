@@ -11,7 +11,7 @@ const mentors = [
     bio: "Dr. Rhea Mukherjee is a Principal AI Engineer at NovaMind Labs with 9+ years of experience building LLM applications, retrieval systems, and production-grade AI workflows. She has mentored developers and product teams across GenAI, RAG pipelines, and agent-based automation.",
     rating: "4.9",
     reviews: "Excellent reviews",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200",
+    image: "/newimages/piece_87.png",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const mentors = [
     bio: "Karthik leads AI initiatives specializing in predictive modeling, scalable data architectures, and deploying large-scale deep learning models into production. He brings a wealth of hands-on experience from top tech firms.",
     rating: "5.0",
     reviews: "Top rated mentor",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200&h=200",
+    image: "/newimages/piece_88.png",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const mentors = [
     bio: "Aditya is a Lead Full Stack Engineer with 8+ years of experience in React, Next.js, and scalable cloud deployments. With a strong passion for teaching, he has guided hundreds of students to build production-ready applications and achieve their career goals.",
     rating: "4.9",
     reviews: "Highly recommended",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200",
+    image: "/newimages/piece_89.png",
   }
 ];
 

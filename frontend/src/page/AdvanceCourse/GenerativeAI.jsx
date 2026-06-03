@@ -36,7 +36,7 @@ import ToolStack from "./Components/ToolStack";
 import TopOnePercent from "../../Components/TopOnePercent";
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import genaiBrochure from "../../../atorax/Prompt engineering for generative AI Advanced Program.pdf";
+const genaiBrochure = "";
 import AdvanceBanner from "./Components/AdvanceBanner";
 
 const heroStats = [

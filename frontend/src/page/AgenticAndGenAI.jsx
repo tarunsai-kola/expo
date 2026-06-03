@@ -24,7 +24,7 @@ import "./AgenticAndGenAI.css";
 const heroImages = [cyberTechBg, cyberTechBg2, cyberTechBg3];
 
 const trustStats = [
-  { value: "16 Weeks", label: "Duration" },
+  { value: "24 Weeks", label: "Duration" },
   { value: "100% Online", label: "Format" },
   { value: "60 Students", label: "Batch Size" },
   { value: "5 Capstones", label: "Enterprise Projects" },
@@ -479,7 +479,7 @@ const AgenticAndGenAI = () => {
           </div>
 
           <div style={{background:"var(--bg-white)",border:"1px solid var(--border)",borderRadius:12,overflow:"hidden",boxShadow:"0 4px 12px rgba(0,0,0,0.02)"}}>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 120px 120px",padding:"16px 24px",background:"var(--bg-subtle)",borderBottom:"1px solid var(--border)"}}>
+            <div className="ato-table-header">
               <p className="ato-label">Feature</p>
               <p className="ato-label" style={{textAlign:"center",color:"var(--green)"}}>Atorax</p>
               <p className="ato-label" style={{textAlign:"center"}}>Others</p>
@@ -606,7 +606,7 @@ const AgenticAndGenAI = () => {
             <h2 className="ato-h2 text-white" style={{marginBottom:14,marginTop:16}}>Transparent pricing. Zero surprises.</h2>
             <p className="ato-sub text-gray-400">Complete curriculum access, mentor reviews, and career support.</p>
           </div>
-          <PaymentPlanWidget basePrice={91000} durationMonths={6} courseName="Agentic AI" themeColor="#7c3aed" />
+          <PaymentPlanWidget basePrice={96000} durationMonths={6} courseName="Agentic AI" themeColor="#7c3aed" />
         </div>
       </section>
 

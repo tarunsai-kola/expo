@@ -8,7 +8,7 @@ const LandingMentors = () => {
       name: "Rahul Sharma",
       role: "Senior SDE-III",
       company: "Microsoft",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop",
+      image: "/newimages/piece_23.png",
       expertise: ["Distributed Systems", "Azure Cloud"],
       quote: "My goal is to teach you how to think like a staff engineer, not just a junior developer."
     },
@@ -16,7 +16,7 @@ const LandingMentors = () => {
       name: "Priya Desai",
       role: "Engineering Manager",
       company: "Amazon",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop",
+      image: "/newimages/piece_24.png",
       expertise: ["Backend Architecture", "AWS Scalability"],
       quote: "I'll show you exactly what FAANG interviewers look for when they ask system design questions."
     },
@@ -24,7 +24,7 @@ const LandingMentors = () => {
       name: "Amit Patel",
       role: "Staff Engineer",
       company: "Google",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=300&auto=format&fit=crop",
+      image: "/newimages/piece_25.png",
       expertise: ["Algorithms", "GenAI Integration"],
       quote: "We don't solve LeetCode for sport. We build scalable systems that handle millions of users."
     },
@@ -32,7 +32,7 @@ const LandingMentors = () => {
       name: "Aditya Verma",
       role: "Lead Engineer",
       company: "InnovateTech",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300&h=300",
+      image: "/newimages/piece_26.png",
       expertise: ["Full Stack", "Cloud Deployments"],
       quote: "I'll guide you to build production-ready applications and scale your career to the next level."
     }

@@ -510,10 +510,10 @@ const MasterClassDetails = () => {
               {/* Social Proof */}
               <div className="flex items-center gap-4 flex-wrap mt-2">
                 <div className="flex -space-x-3">
-                  <img className="w-9 h-9 rounded-full border-2 border-[#030712]" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Learner" />
-                  <img className="w-9 h-9 rounded-full border-2 border-[#030712]" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Learner" />
-                  <img className="w-9 h-9 rounded-full border-2 border-[#030712]" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=100&q=80" alt="Learner" />
-                  <img className="w-9 h-9 rounded-full border-2 border-[#030712]" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Learner" />
+                  <img className="w-9 h-9 rounded-full border-2 border-[#030712]" src="/newimages/piece_94.png" alt="Learner" />
+                  <img className="w-9 h-9 rounded-full border-2 border-[#030712]" src="/newimages/piece_95.png" alt="Learner" />
+                  <img className="w-9 h-9 rounded-full border-2 border-[#030712]" src="/newimages/piece_96.png" alt="Learner" />
+                  <img className="w-9 h-9 rounded-full border-2 border-[#030712]" src="/newimages/piece_97.png" alt="Learner" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-slate-200 font-extrabold text-sm">{info.registeredCount} Professionals Registered</span>

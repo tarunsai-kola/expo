@@ -56,7 +56,7 @@ const trustStats = [
   { value: "100% Online", label: "Format" },
   { value: "120+ Hours", label: "Hands-on Practice" },
   { value: "6 Capstones", label: "Real Projects" },
-  { value: "20+", label: "Interview Opportunities" },
+  { value: "15+", label: "Interview Opportunities" },
 ];
 
 const careerPaths = [

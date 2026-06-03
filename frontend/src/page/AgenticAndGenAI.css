@@ -150,6 +150,12 @@
 .ato-tab:not(.on) .ato-tab-name { color: var(--txt-mut); }
 
 /* ─── COMPARE ─── */
+.ato-table-header {
+  display: grid; grid-template-columns: 1fr 120px 120px;
+  align-items: center; padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
 .ato-row {
   display: grid; grid-template-columns: 1fr 120px 120px;
   align-items: center; padding: 16px 24px;
@@ -227,5 +233,5 @@
 
 @media (max-width: 768px) {
   .ato-sec, .ato-sec-alt { padding: 60px 20px; }
-  .ato-row { grid-template-columns: 1fr 80px 80px; padding: 14px 16px; }
+  .ato-row, .ato-table-header { grid-template-columns: 1fr 80px 80px; padding: 14px 16px; }
 }
