@@ -63,7 +63,7 @@ const TopOnePercent = ({
   const displayFeatures = customFeatures || features;
 
   return (
-    <section className="py-24 px-6" style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}>
+    <section className="py-10 md:py-24 px-6" style={{ fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}>
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="text-left mb-14">

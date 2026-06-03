@@ -37,7 +37,7 @@ import c28 from "../assets/company logo/28.png";
  * ClientsCarousel Component
  * Renders a smooth, continuous linear marquee of company logos.
  */
-const ClientsCarousel = () => {
+const ClientsCarousel = ({ isDark }) => {
   // Common settings for the continuous marquee effect
   const baseMarqueeSettings = {
     infinite: true,
@@ -74,7 +74,7 @@ const ClientsCarousel = () => {
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 2,
         speed: 10000, // Extra-slow loop on small screens
       }
     }
@@ -100,7 +100,7 @@ const ClientsCarousel = () => {
   const row2Logos = [c15, c16, c17, c18, c19, c20, c21, c22, c23, c24, c25, c26, c27, c28];
 
   return (
-    <div className="workatslider">
+    <div className={`workatslider ${isDark ? 'dark-mode-logos' : ''}`}>
       <style>{`
         .workatslider {
           width: 100%;
@@ -110,40 +110,58 @@ const ClientsCarousel = () => {
         
         /* Logo Containers */
         .workatslider .slick-slide > div {
+          padding: 0 10px;
+        }
+
+        .workatslider .logo-slide {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.04);
+          border-radius: 16px;
           display: flex !important;
           align-items: center;
           justify-content: center;
-          height: 100px; /* Base container height for alignment */
-          padding: 0 0.5rem;
+          height: 85px;
+          margin: 10px 0;
+          transition: all 0.3s ease;
+        }
+
+        .workatslider .logo-slide:hover {
+          background: rgba(255, 255, 255, 0.05);
+          border-color: rgba(255, 255, 255, 0.08);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         /* Branding Logos */
         .workatslider .client-img {
-          max-width: 170px;
-          max-height: 50px;
-          width: auto;
-          height: auto;
+          max-width: 130px;
+          max-height: 45px;
+          width: 100%;
+          height: 100%;
           object-fit: contain !important;
-          transition: transform 0.3s ease;
           display: block;
-          margin: 0 auto;
-        }
-
-        /* Desktop Hover Interaction */
-        .workatslider .client-img:hover {
-          transform: scale(1.1);
+          transition: transform 0.3s ease;
         }
 
         /* Responsive Branding Adjustments */
         @media (max-width: 768px) {
           .workatslider .slick-slide > div {
-            padding: 0 0.25rem;
-            height: 90px;
+            padding: 0 8px;
+          }
+          .workatslider .logo-slide {
+            height: 75px;
+            border-radius: 12px;
           }
           .workatslider .client-img {
-            max-width: 140px;
-            max-height: 55px; /* Slightly larger on mobile as requested */
+            max-width: 100px;
+            max-height: 38px; 
           }
+        }
+        
+        /* Dark Mode Logo Adjustments */
+        .dark-mode-logos .client-img {
+          filter: drop-shadow(0px 1px 2px rgba(255,255,255,0.15));
+          opacity: 1;
         }
         
         .workatslider .row-divider {

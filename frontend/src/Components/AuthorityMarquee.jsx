@@ -6,7 +6,7 @@ const AuthorityMarquee = ({ theme = "light" }) => {
   const isDark = theme === "dark";
 
   return (
-    <section className={isDark ? "py-12 w-full" : "cine-proof-chapter"}>
+    <section className={isDark ? "py-6 md:py-12 w-full" : "cine-proof-chapter"}>
       <div className={isDark ? "max-w-6xl mx-auto px-6" : "cine-container"} style={{ textAlign: "center", marginBottom: "40px" }}>
         <motion.span 
           className={isDark ? "inline-block bg-primary/15 text-primary font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5" : "cine-eyebrow"}
@@ -45,7 +45,7 @@ const AuthorityMarquee = ({ theme = "light" }) => {
         viewport={{ once: true }}
         transition={{ delay: 0.4, duration: 1 }}
       >
-        <ClientsCarousel />
+        <ClientsCarousel isDark={isDark} />
       </motion.div>
     </section>
   );

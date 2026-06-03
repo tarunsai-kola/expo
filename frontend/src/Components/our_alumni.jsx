@@ -78,9 +78,25 @@ const ClientsCarousel = () => {
           height: auto;
           object-fit: contain !important;
           margin: 0 auto !important;
+          filter: drop-shadow(0px 1px 2px rgba(255,255,255,0.15));
         }
         .workatslider .slick-slide > div {
-          padding: 0 2.5rem;
+          padding: 0 0.5rem;
+        }
+        .workatslider .box {
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          border-radius: 16px;
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          height: 85px;
+          transition: all 0.3s ease;
+        }
+        .workatslider .box:hover {
+          background: rgba(255, 255, 255, 0.06);
+          border-color: rgba(255, 255, 255, 0.1);
+          transform: translateY(-2px);
         }
       `}</style>
       <div className="clients">

@@ -450,7 +450,7 @@ const Advance = () => {
       <AuthorityMarquee theme="dark" />
 
       {/* 2. PROGRAM CATEGORY & CATALOG */}
-      <section className="py-32 bg-zinc-950 relative z-10" id="catalog">
+      <section className="py-16 lg:py-32 bg-zinc-950 relative z-10" id="catalog">
          <div className="max-w-[1400px] mx-auto px-6">
             <motion.div 
                initial={{ opacity: 0, y: 30 }}
@@ -545,7 +545,7 @@ const Advance = () => {
       </section>
 
       {/* 3. BENTO-BOX VALUE FRAMEWORK */}
-      <section className="py-32 bg-[#050505] relative border-y border-white/5 overflow-hidden">
+      <section className="py-16 lg:py-32 bg-[#050505] relative border-y border-white/5 overflow-hidden">
          {/* Background Image */}
          <div className="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" alt="Cyber Security Pattern" className="w-full h-full object-cover opacity-[0.03] mix-blend-luminosity grayscale" />
@@ -604,7 +604,7 @@ const Advance = () => {
                      </div>
                   </div>
 
-                  <div className="absolute top-10 right-10 p-4 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md z-20">
+                  <div className="hidden md:block absolute top-10 right-10 p-4 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md z-20">
                     <Server size={48} className="text-indigo-400" strokeWidth={1}/>
                   </div>
                   
@@ -664,7 +664,7 @@ const Advance = () => {
       </section>
 
       {/* 4. PEDAGOGY TIMELINE */}
-      <section className="py-32 bg-zinc-950 border-b border-white/5 relative overflow-hidden">
+      <section className="py-16 lg:py-32 bg-zinc-950 border-b border-white/5 relative overflow-hidden">
          <div className="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" alt="Space Network" className="w-full h-full object-cover opacity-10 mix-blend-overlay grayscale" />
          </div>
@@ -707,7 +707,7 @@ const Advance = () => {
       </section>
 
       {/* 5. CAREER OUTCOMES MATRIX */}
-      <section className="py-32 bg-[#050505] overflow-hidden">
+      <section className="py-16 lg:py-32 bg-[#050505] overflow-hidden">
          <div className="max-w-[1400px] mx-auto px-6">
             <div className="mb-20">
                <h2 className="k-title text-4xl md:text-5xl font-bold text-white mb-6">Outcomes & Career Scaffolding</h2>
@@ -768,7 +768,7 @@ const Advance = () => {
       </section>
 
       {/* 6. TESTIMONIALS / TRANSITIONS */}
-      <section className="py-32 bg-zinc-950 border-t border-white/5 relative overflow-hidden">
+      <section className="py-16 lg:py-32 bg-zinc-950 border-t border-white/5 relative overflow-hidden">
          <div className="max-w-[1400px] mx-auto px-6 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20">
                <h2 className="k-title text-4xl md:text-5xl font-bold text-white mb-6">Demonstrated Transitions</h2>
@@ -834,7 +834,7 @@ const Advance = () => {
       </section>
 
       {/* 7. ALUMNI NETWORK */}
-      <section className="py-24 bg-[#050505] border-y border-white/5">
+      <section className="py-12 lg:py-24 bg-[#050505] border-y border-white/5">
          <div className="max-w-[1400px] mx-auto px-6">
             <div className="flex flex-col md:flex-row gap-12 items-center">
                <div className="w-full md:w-1/3 text-center md:text-left">
@@ -847,7 +847,7 @@ const Advance = () => {
                
                <div className="w-full md:w-2/3">
                   <div className="glass-panel rounded-3xl p-8 border-white/5">
-                     <div className="opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+                     <div className="opacity-90 transition-opacity duration-300">
                         <ClientsCarousel />
                      </div>
                   </div>
@@ -857,7 +857,7 @@ const Advance = () => {
       </section>
 
       {/* 8. ADMISSIONS CTA (Ultra Premium Block) */}
-      <section className="py-32 bg-zinc-950 relative overflow-hidden">
+      <section className="py-16 lg:py-32 bg-zinc-950 relative overflow-hidden">
          <div className="max-w-[1400px] mx-auto px-6">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}

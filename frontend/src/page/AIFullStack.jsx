@@ -333,7 +333,7 @@ const AIFullStack = () => {
       />
 
       {/* CAREER TRACKS */}
-      <section id="paths" className="py-24 px-6 bg-[#0a0a0a] border-t border-slate-900">
+      <section id="paths" className="py-12 md:py-24 px-6 bg-[#0a0a0a] border-t border-slate-900">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
             <div>
@@ -440,7 +440,7 @@ const AIFullStack = () => {
       />
 
       {/* PROJECTS */}
-      <section id="projects" className="py-24 px-6 bg-[#0a0a0a] border-t border-slate-900">
+      <section id="projects" className="py-12 md:py-24 px-6 bg-[#0a0a0a] border-t border-slate-900">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
             <div>
@@ -526,7 +526,7 @@ const AIFullStack = () => {
       </section>
 
       {/* CERTIFICATION */}
-      <section className="py-24 px-6 bg-black">
+      <section className="py-12 md:py-24 px-6 bg-black">
         <div className="max-w-6xl mx-auto">
           <Certification />
         </div>
@@ -534,7 +534,7 @@ const AIFullStack = () => {
 
       
       {/* TOOLS & TECHNOLOGIES */}
-      <section id="tools" className="py-24 px-6 bg-[#0a0a0a] border-t border-slate-900">
+      <section id="tools" className="py-12 md:py-24 px-6 bg-[#0a0a0a] border-t border-slate-900">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block bg-[#10b981]/15 text-[#10b981] font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5">
@@ -583,7 +583,7 @@ const AIFullStack = () => {
       <MeetYourMentors />
 
       {/* PRICING */}
-      <section className="py-24 px-6 bg-[#0a0a0a] border-t border-white/5" id="pricing">
+      <section className="py-12 md:py-24 px-6 bg-[#0a0a0a] border-t border-white/5" id="pricing">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-block bg-[#10b981]/15 text-[#10b981] font-extrabold text-[11px] uppercase tracking-[1.5px] px-5 py-2 rounded-full mb-5">

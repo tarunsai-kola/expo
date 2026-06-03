@@ -412,7 +412,7 @@ const HomePage = () => {
       </Helmet>
 
       {/* ─── Hero Section ─── */}
-      <section className="scene-3d" style={{ position: "relative", minHeight: "95vh", display: "flex", alignItems: "center", overflow: "hidden", padding: "110px 0 80px" }}>
+      <section className="scene-3d pt-[40px] md:pt-[110px] pb-[60px] md:pb-[80px]" style={{ position: "relative", minHeight: "95vh", display: "flex", alignItems: "center", overflow: "hidden" }}>
         <HeroBackground />
 
         {/* Ambient Volumetric Glow */}
@@ -820,7 +820,7 @@ const HomePage = () => {
                   </p>
                 </div>
 
-                <div className="bg-white/5 border border-white/10 shadow-sm rounded-2xl p-6.5 lg:p-8 backdrop-blur-md">
+                <div className="bg-white/5 border border-white/10 shadow-sm rounded-2xl p-6 lg:p-8 backdrop-blur-md">
                   <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3.5">Milestone Outcome</h4>
                   <p className="text-white text-sm md:text-base font-semibold leading-relaxed">
                     {cohortSlides[activeSlide].outcome}

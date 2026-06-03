@@ -42,7 +42,7 @@ const PremiumCurriculum = ({
   };
 
   return (
-    <section className={`${bgColor} text-gray-300 py-24 px-6 md:px-12 font-sans border-t border-white/5`}>
+    <section className={`${bgColor} text-gray-300 py-12 md:py-24 px-6 md:px-12 font-sans border-t border-white/5`}>
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
