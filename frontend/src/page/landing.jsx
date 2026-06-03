@@ -1244,11 +1244,7 @@ const HomePage = () => {
       {/* ─── NEW: Admissions Flow ─── */}
       <LandingAdmissionsFlow />
 
-      {/* ─── Pricing & Scholarships ─── */}
-      <LandingPricing />
 
-      {/* ─── FAQ ─── */}
-      <LandingFAQ />
 
       {/* ─── Testimonials Section ─── */}
       <section className="relative overflow-hidden py-32 bg-[#020202] border-t border-white/5">
@@ -1331,6 +1327,9 @@ const HomePage = () => {
 
       {/* ─── Immersive Conversion CTA ─── */}
       <LandingCTA />
+
+      {/* ─── FAQ ─── */}
+      <LandingFAQ />
 
       {/* Applied popup for seamless conversions */}
       {showPopup && (
