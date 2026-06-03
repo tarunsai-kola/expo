@@ -235,7 +235,7 @@ const Header = () => {
             <div className="atx-nav-divider" />
             <Link to="/login" className="atx-login-btn">Login</Link>
             <button onClick={() => setShowPopup(true)} className="atx-enroll-btn">
-              Enroll Now
+              Request a Callback
             </button>
           </nav>
 
@@ -258,7 +258,7 @@ const Header = () => {
             ))}
             <Link to="/login">Login</Link>
             <button className="mob-enroll" onClick={() => { setShowPopup(true); setIsMobileOpen(false); }}>
-              Enroll Now
+              Request a Callback
             </button>
           </div>
         )}

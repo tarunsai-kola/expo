@@ -7,7 +7,7 @@ import AdvancedApplyPopup from "../../../Components/AdvancedApplyPopup";
  * ApplyNowButton
  * Triggers the premium AdvancedApplyPopup modal without navigating away.
  */
-const ApplyNowButton = ({ courseValue, className = "", label = "Enroll Now" }) => {
+const ApplyNowButton = ({ courseValue, className = "", label = "Request a Callback" }) => {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
