@@ -109,20 +109,20 @@ import AdvDefaultPayment from "./AdvOperation/DefaultPayment";
 import AdvOperationRevenueSheets from "./AdvOperation/OperationRevenueSheets";
 
 // BDA Team
-import TeamLogin from "./BDA/TeamLogin";
-import Home from "./BDA/Home";
-import Booked from "./BDA/Booked";
-import BDAHeader from "./BDA/BDAHeader";
-import Default from "./BDA/Default";
-import FullPaid from "./BDA/FullPaid";
-import OnBoarding from "./BDA/OnBoarding";
-import AddUser from "./BDA/AddUser";
-import TeamDetail from "./BDA/TeamDetail";
-import BDARevenueSheet from "./BDA/BDARevenueSheet";
-import Reference from "./BDA/Reference";
-import CompanyLeads from "./BDA/CompanyLeads";
-import AddTeam from "./BDA/AddTeam";
-import AssignTarget from "./BDA/AssignTarget";
+// import TeamLogin from "./BDA/TeamLogin";
+// import Home from "./BDA/Home";
+// import Booked from "./BDA/Booked";
+// import BDAHeader from "./BDA/BDAHeader";
+// import Default from "./BDA/Default";
+// import FullPaid from "./BDA/FullPaid";
+// import OnBoarding from "./BDA/OnBoarding";
+// import AddUser from "./BDA/AddUser";
+// import TeamDetail from "./BDA/TeamDetail";
+// import BDARevenueSheet from "./BDA/BDARevenueSheet";
+// import Reference from "./BDA/Reference";
+// import CompanyLeads from "./BDA/CompanyLeads";
+// import AddTeam from "./BDA/AddTeam";
+// import AssignTarget from "./BDA/AssignTarget";
 
 // User Student
 import UserHeader from "./User/UserHeader";
@@ -172,7 +172,7 @@ import InterviewerDashboard from "./Interviewer/InterviewerDashboard";
 //event
 import EventDashBoard from "./Event/EventDashBoard";
 import Verified from "./Components/Verified";
-import LeaderBoard from "./BDA/LeaderBoard";
+// import LeaderBoard from "./BDA/LeaderBoard";
 
 // Advance Team
 import AdvTeamLogin from "./AdvTeam/AdvTeamLogin";
@@ -192,13 +192,13 @@ import AdvTeamTeamLogin from "./AdvTeam/AdvTeamTeamLogin";
 import AdvLeaderBoard from "./AdvTeam/AdvLeaderBoard";
 // MarketingLogind
 
-import MarketingHeader from "./Marketing/MarketingHeader";
-import MarketingLogin from "./Marketing/MarketingLogin";
-import MarketingDashboard from "./Marketing/MarketingDashboard";
-import MarketingPrePayment from "./Marketing/MarketingPrePayment";
-import MarketingLeads from "./Marketing/MarketingLeads";
-import MarketingAddExecutive from "./Marketing/MarketingAddExecutive";
-import BDAAgainLogin from "./BDA/BDAAgainLogin";
+// import MarketingHeader from "./Marketing/MarketingHeader";
+// import MarketingLogin from "./Marketing/MarketingLogin";
+// import MarketingDashboard from "./Marketing/MarketingDashboard";
+// import MarketingPrePayment from "./Marketing/MarketingPrePayment";
+// import MarketingLeads from "./Marketing/MarketingLeads";
+// import MarketingAddExecutive from "./Marketing/MarketingAddExecutive";
+// import BDAAgainLogin from "./BDA/BDAAgainLogin";
 import EventDetails from "./page/EventDetails";
 import AdvanceDashboardLayout from "./new_user/AdvanceDashboardLayout";
 
@@ -629,15 +629,15 @@ const AppContent = () => {
 
 
         {/* Marketing Panel */}
-        <Route path="/marketing/login" element={<MarketingLogin />} />
+        {/* <Route path="/marketing/login" element={<MarketingLogin />} />
         <Route path="/marketing/home" element={isAuthenticatedMarketing() ? <MarketingDashboard /> : <Navigate to="/marketing/login" />} />
         <Route path="/marketing/previous" element={isAuthenticatedMarketing() ? <MarketingPrePayment /> : <Navigate to="/marketing/login" />} />
-        {/* <Route path="/marketing/leads" element={isAuthenticatedMarketing() ? <MarketingLeads /> : <Navigate to="/marketing/login" />} /> */}  {/* DISABLED */}
-        <Route path="/marketing/addexecutive" element={isAuthenticatedMarketing() ? <MarketingAddExecutive /> : <Navigate to="/marketing/login" />} />
+        <Route path="/marketing/leads" element={isAuthenticatedMarketing() ? <MarketingLeads /> : <Navigate to="/marketing/login" />} />
+        <Route path="/marketing/addexecutive" element={isAuthenticatedMarketing() ? <MarketingAddExecutive /> : <Navigate to="/marketing/login" />} /> */}
         {/* Marketing Panel */}
 
         {/* bda panel start */}
-        <Route path="/TeamLogin" element={<TeamLogin />} />
+        {/* <Route path="/TeamLogin" element={<TeamLogin />} />
         <Route path="/BDAAgainLogin" element={<BDAAgainLogin />} />
         <Route path="/Home" element={isAuthenticatedBda() ? <Home /> : <Navigate to="/TeamLogin" />} />
         <Route path="/FullPaid" element={isAuthenticatedBda() ? <FullPaid /> : <Navigate to="/TeamLogin" />} />
@@ -651,7 +651,7 @@ const AppContent = () => {
         <Route path="/CompanyLeads" element={isAuthenticatedBda() ? <CompanyLeads /> : <Navigate to="/TeamLogin" />} />
         <Route path="/AddTeam" element={isAuthenticatedBda() ? <AddTeam /> : <Navigate to="/TeamLogin" />} />
         <Route path="/AssignTarget" element={isAuthenticatedBda() ? <AssignTarget /> : <Navigate to="/TeamLogin" />} />
-        <Route path="/LeaderBoard" element={isAuthenticatedBda() ? <LeaderBoard /> : <Navigate to="/TeamLogin" />} />
+        <Route path="/LeaderBoard" element={isAuthenticatedBda() ? <LeaderBoard /> : <Navigate to="/TeamLogin" />} /> */}
 
 
         {/* bda panel ends */}

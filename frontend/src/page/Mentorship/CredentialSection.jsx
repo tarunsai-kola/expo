@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaDownload, FaShareAlt, FaAward, FaIdCard, FaProjectDiagram } from 'react-icons/fa';
-import certInternship from '../../assets/certificates/c/internship.jpg';
-import certTraining from '../../assets/certificates/c/training.jpg';
+import certInternship from '../../assets/certificates/Certificateofinternshipp.jpg';
+import certTraining from '../../assets/certificates/CertificateOfTraining.jpg';
 
 const CredentialSection = () => {
   return (
