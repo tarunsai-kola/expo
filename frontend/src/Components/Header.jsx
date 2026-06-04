@@ -56,7 +56,7 @@ const Header = () => {
           box-shadow: 0 4px 24px rgba(0,0,0,0.5);
         }
         .atx-header-inner {
-          max-width: 1280px;
+          max-width: 1440px; /* Increased to allow more room for links */
           margin: 0 auto;
           padding: 0 24px;
           display: flex;
@@ -64,6 +64,13 @@ const Header = () => {
           justify-content: space-between;
           height: 64px;
           gap: 16px;
+        }
+        .atx-logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          flex-shrink: 0; /* Prevents logo from crushing */
         }
         .atx-logo img {
           height: 38px;
@@ -73,13 +80,13 @@ const Header = () => {
         .atx-nav {
           display: flex;
           align-items: center;
-          gap: 4px;
+          gap: 2px; /* Reduced gap */
         }
         .atx-nav-link {
           color: rgba(255,255,255,0.65);
           font-size: 14px;
           font-weight: 500;
-          padding: 7px 13px;
+          padding: 7px 10px; /* Reduced horizontal padding */
           border-radius: 6px;
           text-decoration: none;
           transition: color 0.18s, background 0.18s;
@@ -99,7 +106,7 @@ const Header = () => {
           gap: 6px;
           font-size: 12px;
           font-weight: 600;
-          padding: 6px 12px;
+          padding: 6px 10px;
           border-radius: 6px;
           background: rgba(255,255,255,0.07);
           color: rgba(255,255,255,0.8);
@@ -108,6 +115,7 @@ const Header = () => {
           text-transform: uppercase;
           transition: background 0.18s, color 0.18s;
           border: 1px solid rgba(255,255,255,0.1);
+          white-space: nowrap;
         }
         .atx-masterclass-btn:hover {
           background: rgba(255,255,255,0.12);
@@ -118,12 +126,13 @@ const Header = () => {
           height: 20px;
           background: rgba(255,255,255,0.1);
           margin: 0 6px;
+          flex-shrink: 0;
         }
         .atx-login-btn {
           color: rgba(255,255,255,0.65);
           font-size: 14px;
           font-weight: 500;
-          padding: 7px 16px;
+          padding: 7px 12px;
           border-radius: 6px;
           text-decoration: none;
           transition: color 0.18s;
@@ -137,13 +146,14 @@ const Header = () => {
           color: #fff;
           font-size: 14px;
           font-weight: 600;
-          padding: 8px 20px;
+          padding: 8px 16px;
           border-radius: 6px;
           border: none;
           cursor: pointer;
           transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
           white-space: nowrap;
           box-shadow: 0 2px 12px rgba(20,98,238,0.25);
+          flex-shrink: 0;
         }
         .atx-enroll-btn:hover {
           background: #0D4FC0;
@@ -199,7 +209,7 @@ const Header = () => {
         .atx-mobile-menu .mob-enroll:hover {
           background: #0D4FC0;
         }
-        @media (max-width: 1300px) {
+        @media (max-width: 1350px) {
           .atx-nav { display: none; }
           .atx-hamburger { display: block; }
         }
