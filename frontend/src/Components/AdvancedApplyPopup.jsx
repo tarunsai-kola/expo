@@ -80,6 +80,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
     const [otp, setOtp] = useState("");
     const [emailVerified, setEmailVerified] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -152,7 +153,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                 domain: formData.interestedDomain, // Map to what the backend expects
             });
             toast.success("Application submitted successfully!");
-            onClose();
+            setIsSuccess(true);
             if (onSuccess) onSuccess();
         } catch (error) {
             toast.error(error.response?.data?.message || "Submission failed");
@@ -244,16 +245,34 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
 
                 {/* Right Side: Professional Form Column */}
                 <div className="w-full md:w-[62%] bg-white p-8 md:p-12 flex flex-col h-full overflow-hidden">
-                    <div className="mb-0">
-                        <h3 className="text-2xl font-black text-[#050d2f]">
-                            {popupType === "brochure" ? "Download Curriculum" : "Program Application"}
-                        </h3>
-                        <p className="text-slate-400 text-sm mt-1">
-                            {popupType === "brochure" 
-                                ? "Complete the details to access the complete syllabus."
-                                : "Complete the steps below to secure your spot."}
-                        </p>
-                    </div>
+                    {isSuccess ? (
+                        <div className="flex flex-col items-center justify-center h-full text-center space-y-4 animate-in zoom-in duration-500">
+                            <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mb-2">
+                                <FaCheckCircle className="text-emerald-500 text-5xl" />
+                            </div>
+                            <h3 className="text-3xl font-black text-[#050d2f]">Successfully Sent!</h3>
+                            <p className="text-slate-500 max-w-sm mx-auto leading-relaxed text-sm">
+                                Thank you for your application. Our team will review your details and connect with you shortly.
+                            </p>
+                            <button
+                                onClick={onClose}
+                                className="mt-8 px-10 py-3.5 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700 transition-all shadow-lg uppercase tracking-widest text-xs"
+                            >
+                                Done
+                            </button>
+                        </div>
+                    ) : (
+                        <>
+                            <div className="mb-0">
+                                <h3 className="text-2xl font-black text-[#050d2f]">
+                                    {popupType === "brochure" ? "Download Curriculum" : "Program Application"}
+                                </h3>
+                                <p className="text-slate-400 text-sm mt-1">
+                                    {popupType === "brochure" 
+                                        ? "Complete the details to access the complete syllabus."
+                                        : "Complete the steps below to secure your spot."}
+                                </p>
+                            </div>
 
                     <form id="advanced-apply-form" onSubmit={handleFormSubmit} className="mt-8 space-y-6 flex-1 overflow-y-auto px-1 custom-scrollbar pr-5 pb-20">
                         {/* Name & Phone Grid */}
@@ -391,12 +410,12 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                             onChange={handleInputChange}
                             placeholder="Select intended learning path"
                             options={[
-                                { value: "Data Science Advanced Program", label: "Data Science Advanced Program" },
-                                { value: "Data Analytics Advanced Program", label: "Data Analytics Advanced Program" },
-                                { value: "Digital Marketing Advanced Program", label: "Digital Marketing Advanced Program" },
-                                { value: "Prompt Engineering with GenAI Advanced Program", label: "Prompt Engineering with GenAI Advanced Program" },
-                                { value: "Product Management Advanced Program", label: "Product Management Advanced Program" },
-                                { value: "MERN Stack Development Advanced Program", label: "MERN Stack Development Advanced Program" }
+                                { value: "Data Science", label: "Data Science" },
+                                { value: "Data Analytics", label: "Data Analytics" },
+                                { value: "Digital Marketing", label: "Digital Marketing" },
+                                { value: "Prompt Engineering with GenAI", label: "Prompt Engineering with GenAI" },
+                                { value: "Product Management", label: "Product Management" },
+                                { value: "MERN Stack Development", label: "MERN Stack Development" }
                             ]}
                         />
 
@@ -463,6 +482,8 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                             <span className="group-hover:translate-x-1 transition-transform">→</span>
                         </button>
                     </div>
+                        </>
+                    )}
                 </div>
             </div>
             

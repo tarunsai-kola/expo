@@ -50,6 +50,9 @@ router.post("/advance/register", async (req, res) => {
       passedOutYear: passedOutYear || undefined,
       reason: reason
     });
+    
+    await newRegistration.save();
+    
     res.status(201).json({ message: "Registration successful!" });
   } catch (error) {
     console.error(error);
@@ -114,7 +117,7 @@ router.put("/advancequery/:id", verifyAnyAuth, async (req, res) => {
   }
 });
 
-let otpStoreAdvance = {};
+const AdvanceOtp = require("../models/AdvanceOtp");
 
 // ✅ Send OTP
 router.post("/advance-send-otp", async (req, res) => {
@@ -122,9 +125,12 @@ router.post("/advance-send-otp", async (req, res) => {
 
   try {
     const otp = crypto.randomInt(100000, 999999);
-    const otpExpires = Date.now() + 10 * 60 * 1000;
 
-    otpStoreAdvance[email] = { otp, otpExpires };
+    await AdvanceOtp.findOneAndUpdate(
+      { email },
+      { otp, createdAt: Date.now() },
+      { upsert: true, new: true }
+    );
 
     const content = `
       <p style="font-size: 16px; color: #0f172a; font-weight: 600;">Hello,</p>
@@ -145,7 +151,7 @@ router.post("/advance-send-otp", async (req, res) => {
 
     await sendEmail({ email, subject: "Your OTP for Advanced Program Application", message: EmailMessage });
 
-    res.status(200).json({ message: "OTP sent successfully", otpExpires });
+    res.status(200).json({ message: "OTP sent successfully" });
   } catch (err) {
     console.error("Error sending OTP:", err);
     res.status(500).json({ message: "Error sending OTP. Please try again later." });
@@ -153,26 +159,26 @@ router.post("/advance-send-otp", async (req, res) => {
 });
 
 // ✅ Verify OTP
-router.post("/advance-verify-otp", (req, res) => {
+router.post("/advance-verify-otp", async (req, res) => {
   const { email, otp } = req.body;
 
-  if (!otpStoreAdvance[email]) {
-    return res.status(400).json({ success: false, message: "OTP expired or not sent." });
+  try {
+    const record = await AdvanceOtp.findOne({ email });
+
+    if (!record) {
+      return res.status(400).json({ success: false, message: "OTP expired or not sent." });
+    }
+
+    if (record.otp !== parseInt(otp)) {
+      return res.status(400).json({ success: false, message: "Invalid OTP. Please try again." });
+    }
+
+    await AdvanceOtp.deleteOne({ email });
+    res.status(200).json({ success: true, message: "OTP verified successfully!" });
+  } catch (error) {
+    console.error("OTP verification error:", error);
+    res.status(500).json({ success: false, message: "Server error during OTP verification." });
   }
-
-  const { otp: storedOtp, otpExpires } = otpStoreAdvance[email];
-
-  if (Date.now() > otpExpires) {
-    delete otpStoreAdvance[email];
-    return res.status(400).json({ success: false, message: "OTP has expired. Request a new one." });
-  }
-
-  if (storedOtp !== parseInt(otp)) {
-    return res.status(400).json({ success: false, message: "Invalid OTP. Please try again." });
-  }
-
-  delete otpStoreAdvance[email];
-  res.status(200).json({ success: true, message: "OTP verified successfully!" });
 });
 
 module.exports = router;

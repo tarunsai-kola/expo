@@ -450,7 +450,57 @@ const DashboardAccessForm = () => {
               )}
 
             </div>
-
+              <div className="input-field">
+              <input
+                value={collegeName}
+                onChange={(e) => setCollegeName(e.target.value)}
+                type="text"
+                required
+              />
+              <label htmlFor=" College Name"> College Name</label>
+            </div>
+              <div className="input-field">
+              <input
+                value={branch}
+                onChange={(e) => setBranch(e.target.value)}
+                type="text"
+                required
+              />
+              <label htmlFor="Branch/Department Name">Branch/Department</label>
+            </div>
+             <select
+              value={yearOfStudy}
+              onChange={(e) => setYearOfStudy(e.target.value)}
+              required
+            >
+              <option value="" disabled>
+                Year of Study
+              </option>
+              <option value="1st Year">1st Year</option>
+              <option value="2nd Year">2nd Year</option>
+              <option value="3rd Year">3rd Year</option>
+              <option value="4th Year">4th Year</option>
+              <option value="Graduated">Graduated</option>
+            </select>
+             <div className="input-field">
+              <input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                type="number"
+                required
+              />
+              <label htmlFor=" Contact No">Contact No</label>
+            </div>
+    
+    <div className="input-field">
+              <input
+                value={whatsAppNumber}
+                onChange={(e) => setWhatsAppNumber(e.target.value)}
+                type="number"
+                required
+              />
+              <label htmlFor=" Whatsapp Number">Whatsapp Number</label>
+            </div>
             <div className="input-field">
               <input
                 value={alternativeEmail}
@@ -461,37 +511,11 @@ const DashboardAccessForm = () => {
               <label htmlFor="College Email">College Email</label>
             </div>
 
-            <div className="input-field">
-              <input
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                type="number"
-                required
-              />
-              <label htmlFor=" Contact No">Contact No</label>
-            </div>
+            
 
-            <div className="input-field">
-              <input
-                value={whatsAppNumber}
-                onChange={(e) => setWhatsAppNumber(e.target.value)}
-                type="number"
-                required
-              />
-              <label htmlFor=" Whatsapp Number">Whatsapp Number</label>
-            </div>
+            
 
-            <div className="input-field">
-              <input
-                type="text"
-                value={counselor}
-                onChange={(e) => setCounselor(e.target.value)}
-                required
-              />
-              <label htmlFor="Counselor Name">Counselor Name</label>
-            </div>
-
-            <select
+                     <select
               value={program}
               onChange={(e) => setProgram(e.target.value)}
               required
@@ -579,40 +603,11 @@ const DashboardAccessForm = () => {
               <label htmlFor="Remaining Amount">Remaining Amount</label>
             </div>
 
-            <div className="input-field">
-              <input
-                value={collegeName}
-                onChange={(e) => setCollegeName(e.target.value)}
-                type="text"
-                required
-              />
-              <label htmlFor=" College Name"> College Name</label>
-            </div>
+          
 
-            <div className="input-field">
-              <input
-                value={branch}
-                onChange={(e) => setBranch(e.target.value)}
-                type="text"
-                required
-              />
-              <label htmlFor="Branch/Department Name">Branch/Department</label>
-            </div>
+          
 
-            <select
-              value={yearOfStudy}
-              onChange={(e) => setYearOfStudy(e.target.value)}
-              required
-            >
-              <option value="" disabled>
-                Year of Study
-              </option>
-              <option value="1st Year">1st Year</option>
-              <option value="2nd Year">2nd Year</option>
-              <option value="3rd Year">3rd Year</option>
-              <option value="4th Year">4th Year</option>
-              <option value="Graduated">Graduated</option>
-            </select>
+           
 
             <div className="input-field">
               <input
