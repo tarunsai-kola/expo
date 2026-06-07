@@ -28,7 +28,7 @@ const LandingFAQ = () => {
     },
     {
       question: "What is the refund policy?",
-      answer: "We offer a 14-day, no-questions-asked refund. Attend the first two weeks of live classes, and if you feel the quality does not match our commitment, we will refund 100% of your fee — immediately."
+      answer: "Our courses are crafted with care and commitment. Therefore, we do not offer refunds."
     }
   ];
 
