@@ -3,64 +3,47 @@ import axios from "axios";
 import API from "../API";
 import toast, { Toaster } from "react-hot-toast";
 import { 
-  MapPin, 
-  History, 
-  Fingerprint, 
-  Send, 
-  CheckCircle2, 
-  Clock,
-  UserCheck,
-  LogOut,
-  Calendar,
-  Navigation,
-  ShieldCheck,
-  Mail,
-  Lock,
-  ArrowRight,
-  User,
-  Activity,
-  Zap,
-  Filter,
-  Download,
-  PieChart,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight
+  MapPin, History, Fingerprint, Send, CheckCircle2, Clock, UserCheck,
+  LogOut, Calendar, Navigation, ShieldCheck, Mail, Lock, ArrowRight,
+  User, Activity, ChevronLeft, ChevronRight, Check
 } from "lucide-react";
 import Logo from "../assets/LOGO3.png";
 
-const StatCard = ({ icon, label, value, color, subLabel }) => (
-  <div style={styles.statCard}>
-     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
-        <div style={{ ...styles.iconBox, backgroundColor: `${color}15` }}>{icon}</div>
-        {subLabel && <div style={{ fontSize: "10px", fontWeight: "800", color: "#94a3b8" }}>{subLabel}</div>}
+const StatCard = ({ icon, label, value, color, bgColor, subLabel }) => (
+  <div className="bg-white p-6 rounded-[24px] shadow-sm border border-slate-100 flex flex-col relative overflow-hidden transition-all hover:shadow-md hover:-translate-y-1 group">
+     <div className="flex justify-between items-start mb-6">
+        <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${bgColor} ${color}`}>
+            {icon}
+        </div>
+        {subLabel && <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest bg-slate-50 px-2.5 py-1.5 rounded-lg border border-slate-100">{subLabel}</div>}
      </div>
-     <div style={styles.statLabel}>{label}</div>
-     <div style={{ ...styles.statValue, color }}>{value}</div>
+     <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-1">{label}</div>
+     <div className={`text-4xl font-black tracking-tight ${color}`}>{value}</div>
   </div>
 );
 
-/**
- * Professional Attendance Dashboard - Redesigned (Light Theme)
- * Feature: Server-side Monthly Filtering & 5-Day Pagination
- */
-
-// Stable sub-component moved outside to prevent re-mounting on every render
-const AuthCard = ({ children, title, sub, icon: Icon }) => (
-  <div className="auth-animate-in" style={styles.authCard}>
-    <div style={{ textAlign: "center", marginBottom: "32px" }}>
-      <div style={styles.iconCircle}>
-         <Icon size={28} color="#FF6B00" />
+const AuthWrapper = ({ children, title, sub }) => (
+  <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center relative overflow-hidden font-sans p-4">
+    <div className="absolute top-0 left-0 w-full h-[55vh] bg-indigo-600 rounded-b-[100px] shadow-2xl shadow-indigo-200/50 -z-0 transform -translate-y-10 skew-y-2"></div>
+    <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl -z-0 pointer-events-none"></div>
+    
+    <div className="w-full max-w-[440px] relative z-10 animate-[fadeIn_0.5s_ease-out] mt-10">
+      <div className="text-center mb-8 flex flex-col items-center">
+        <div className="inline-flex items-center justify-center p-4 bg-white rounded-2xl mb-6 shadow-lg shadow-indigo-900/10 hover:-translate-y-1 transition-transform">
+           <img src={Logo} alt="Logo" className="h-8 object-contain" />
+        </div>
+        <h2 className="text-3xl font-black text-white tracking-tight mb-2">{title}</h2>
+        <p className="text-indigo-100 font-medium text-sm">{sub}</p>
       </div>
-      <h2 style={styles.authTitle}>{title}</h2>
-      <p style={styles.authSub}>{sub}</p>
+      <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-100 transition-all duration-300">
+         {children}
+      </div>
     </div>
-    {children}
   </div>
 );
 
 const Attendance = () => {
-  const [step, setStep] = useState(1); // 1: Email, 2: Choice, 3: OTP, 4: PIN, 5: Dashboard, 6: Set PIN
+  const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
   const [userData, setUserData] = useState(null);
   const [otp, setOtp] = useState("");
@@ -71,7 +54,6 @@ const Attendance = () => {
   const [marking, setMarking] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
 
-  // Pagination & Filter State (Stored on server-side now)
   const [history, setHistory] = useState([]);
   const [totalRecords, setTotalRecords] = useState(0);
   const [onTimeCount, setOnTimeCount] = useState(0);
@@ -82,37 +64,27 @@ const Attendance = () => {
   const [filterMonth, setFilterMonth] = useState(new Date().getMonth());
   const [filterYear, setFilterYear] = useState(new Date().getFullYear());
 
-  // Update clock every second
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
-  // Load token and initial data (Auto-login)
   useEffect(() => {
     const token = localStorage.getItem("atdToken");
     const storedUser = localStorage.getItem("atdUser");
-    if (token) {
-      if (storedUser) {
+    if (token && storedUser) {
         setUserData(JSON.parse(storedUser));
         setStep(5);
         fetchHistory(token, 1, filterMonth, filterYear);
-      } else {
-        setStep(5);
-      }
     } else if (storedUser) {
       const user = JSON.parse(storedUser);
       setEmail(user.email);
       setUserData(user);
-      if (user.hasPin) {
-        setStep(4);
-      } else {
-        setStep(2);
-      }
+      if (user.hasPin) setStep(4);
+      else setStep(2);
     }
   }, []);
 
-  // Trigger fetch on page/filter changes
   useEffect(() => {
     const token = localStorage.getItem("atdToken");
     if (token && step === 5) {
@@ -145,7 +117,7 @@ const Attendance = () => {
       setUserData(res.data);
       if (res.data.hasPin) {
         setCameFromEmail(true);
-        setStep(4); // Direct to PIN screen
+        setStep(4); 
       } else {
         handleSendOtp(); 
       }
@@ -280,296 +252,321 @@ const Attendance = () => {
     setCurrentPage(1);
   };
 
-  const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
+  const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   return (
-    <div style={styles.container}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-        * { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .auth-animate-in { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .pulse-btn { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7); animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(255, 107, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); } }
-        .glass-card { background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
-        .input-group:focus-within svg { color: #FF6B00 !important; }
-        .spin { animation: spin 1s linear infinite; }
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        .custom-select { appearance: none !important; -webkit-appearance: none !important; -moz-appearance: none !important; background-color: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 8px 32px 8px 12px; font-size: 13px; font-weight: 700; color: #0f172a; cursor: pointer; outline: none; transition: all 0.2s; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important; background-repeat: no-repeat !important; background-position: right 10px center !important; }
-        .custom-select::-ms-expand { display: none !important; }
-        .custom-select:hover { border-color: #cbd5e1; }
-        .custom-select:focus { border-color: #FF6B00; }
-        .pagination-btn { width: 38px; height: 38px; display: flex; alignItems: center; justifyContent: center; border-radius: 10px; background-color: #f8fafc; border: 1.5px solid #e2e8f0; color: #64748b; cursor: pointer; transition: all 0.2s; }
-        .pagination-btn:hover:not(:disabled) { border-color: #FF6B00; color: #FF6B00; }
-        .pagination-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-        @media (max-width: 768px) {
-          .dash-grid { grid-template-columns: 1fr !important; }
-          .auth-wrapper { padding: 20px !important; }
-          .hide-mobile { display: none !important; }
-          .header-main { padding: 0 15px !important; height: auto !important; padding-top: 15px !important; padding-bottom: 15px !important; }
-          .time-display { flex-direction: column !important; align-items: flex-end !important; gap: 0 !important; transform: scale(0.8); }
-          .brand-box { gap: 8px !important; }
-          .brand-text { font-size: 11px !important; }
-          .log-header { flex-direction: column !important; align-items: flex-start !important; gap: 15px !important; }
-          .log-controls { width: 100% !important; justify-content: space-between !important; }
-        }
-      `}</style>
-      
+    <div className="font-sans">
       <Toaster position="top-center" />
 
-      {step !== 5 && (
-        <div className="auth-wrapper" style={styles.authWrapper}>
-           <div style={{ position: "absolute", top: "40px", left: "40px" }}>
-              <img src={Logo} alt="Logo" style={{ height: "40px" }} />
-           </div>
-
-          {step === 1 && (
-            <AuthCard icon={Mail} title="Welcome back" sub="Enter your corporate email to access the system.">
-              <form onSubmit={handleEmailCheck}>
-                <div style={styles.inputGroup} className="input-group">
-                   <Mail size={20} style={styles.inputIcon} />
-                   <input type="email" placeholder="E-mail Address" style={styles.formInput} value={email} onChange={e => setEmail(e.target.value)} required />
+      {step === 1 && (
+        <AuthWrapper title="Employee Access" sub="Enter your corporate email to access the system.">
+          <form onSubmit={handleEmailCheck} className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Company Email</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors">
+                  <Mail size={18} />
                 </div>
-                <button type="submit" disabled={loading} style={styles.primaryBtn}>
-                  {loading ? "Verifying..." : "Continue"}
-                  <ArrowRight size={20} style={{ marginLeft: "8px" }} />
-                </button>
-              </form>
-            </AuthCard>
-          )}
-
-          {step === 2 && (
-            <AuthCard icon={User} title={`Hello, ${userData?.name?.split(' ')[0]}`} sub="Verify your identity using one of the methods below.">
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <button onClick={() => setStep(4)} style={styles.choiceBtn}>
-                  <div style={styles.choiceIcon}><Lock size={20} /></div>
-                  <div style={{ textAlign: "left" }}>
-                    <div style={styles.choiceLabel}>Login with PIN</div>
-                    <div style={styles.choiceSub}>Quick access with your 4-6 digit code</div>
-                  </div>
-                </button>
-                <button onClick={handleSendOtp} style={styles.choiceBtn}>
-                  <div style={styles.choiceIcon}><Send size={20} /></div>
-                  <div style={{ textAlign: "left" }}>
-                    <div style={styles.choiceLabel}>Use Email OTP</div>
-                    <div style={styles.choiceSub}>Verification code sent to your inbox</div>
-                  </div>
-                </button>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-700 font-medium placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white transition-all sm:text-sm"
+                  placeholder="name@company.com"
+                />
               </div>
-            </AuthCard>
-          )}
+            </div>
+            <button type="submit" disabled={loading} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black text-sm tracking-wide transition-all shadow-lg shadow-indigo-200 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed">
+              {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> : <>Continue <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></>}
+            </button>
+          </form>
+        </AuthWrapper>
+      )}
 
-          {step === 3 && (
-            <AuthCard icon={Fingerprint} title="Verify OTP" sub={`We sent a code to ${email}`}>
-              <form onSubmit={handleVerifyOtp}>
-                <div style={styles.inputGroup} className="input-group">
-                   <input type="text" placeholder="• • • • • •" maxLength="6" style={{ ...styles.formInput, textAlign: "center", fontSize: "28px", letterSpacing: "8px", fontWeight: "800" }} value={otp} onChange={e => setOtp(e.target.value)} required />
-                </div>
-                <button type="submit" disabled={loading} style={styles.primaryBtn}>Verify Identity</button>
-                <button type="button" onClick={handleSendOtp} style={styles.textBtn}>Resend verification code</button>
-              </form>
-            </AuthCard>
-          )}
+      {step === 2 && (
+        <AuthWrapper title={`Hello, ${userData?.name?.split(' ')[0] || "User"}`} sub="Verify your identity using one of the methods below.">
+          <div className="space-y-4">
+            <button onClick={() => setStep(4)} className="w-full flex items-center gap-4 bg-slate-50 hover:bg-white border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all p-4 rounded-2xl text-left group">
+              <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center text-indigo-600 group-hover:scale-110 transition-transform">
+                <Lock size={20} />
+              </div>
+              <div>
+                <div className="text-sm font-black text-slate-800 mb-0.5">Login with PIN</div>
+                <div className="text-xs font-semibold text-slate-500">Quick access with your 4-6 digit code</div>
+              </div>
+            </button>
+            <button onClick={handleSendOtp} className="w-full flex items-center gap-4 bg-slate-50 hover:bg-white border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all p-4 rounded-2xl text-left group">
+              <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center text-indigo-600 group-hover:scale-110 transition-transform">
+                <Send size={20} />
+              </div>
+              <div>
+                <div className="text-sm font-black text-slate-800 mb-0.5">Use Email OTP</div>
+                <div className="text-xs font-semibold text-slate-500">Verification code sent to your inbox</div>
+              </div>
+            </button>
+          </div>
+        </AuthWrapper>
+      )}
 
-          {step === 4 && (
-            <AuthCard icon={ShieldCheck} title="Enter PIN" sub="Access your secure dashboard.">
-              <form onSubmit={handleLoginPin}>
-                <div style={styles.inputGroup} className="input-group">
-                   <input type="password" placeholder="Enter PIN" maxLength="6" style={{ ...styles.formInput, textAlign: "center", fontSize: "28px", letterSpacing: "12px", fontWeight: "800" }} value={pin} onChange={e => setPin(e.target.value)} required />
+      {step === 3 && (
+        <AuthWrapper title="Verify Identity" sub={`We sent a 6-digit code to ${email}`}>
+          <form onSubmit={handleVerifyOtp} className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">One Time Password</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
+                  <Fingerprint size={18} />
                 </div>
-                <button type="submit" disabled={loading} style={styles.primaryBtn}>Login Dashboard</button>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
-                  <button type="button" onClick={() => { if (cameFromEmail) { setStep(1); setCameFromEmail(false); } else { setStep(2); } }} style={styles.textBtn}>Back</button>
-                  <button type="button" onClick={() => { setResetMode(true); handleSendOtp(); }} style={styles.textBtn}>Forgot PIN?</button>
-                </div>
-              </form>
-            </AuthCard>
-          )}
+                <input
+                  type="text"
+                  required
+                  maxLength="6"
+                  value={otp}
+                  onChange={e => setOtp(e.target.value)}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-800 font-bold placeholder-slate-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:bg-white transition-all text-center tracking-[0.5em] text-lg"
+                  placeholder="------"
+                />
+              </div>
+            </div>
+            <button type="submit" disabled={loading} className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-black text-sm tracking-wide transition-all shadow-lg shadow-emerald-200 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed">
+              {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> : "Verify Code"}
+            </button>
+            <div className="text-center pt-2">
+              <button type="button" onClick={handleSendOtp} className="text-sm font-bold text-slate-400 hover:text-indigo-600 transition-colors">Resend verification code</button>
+            </div>
+          </form>
+        </AuthWrapper>
+      )}
 
-          {step === 6 && (
-            <AuthCard icon={Lock} title="Create Secret PIN" sub="Set a quick access PIN for your next login.">
-              <form onSubmit={handleSetFirstPin}>
-                <div style={styles.inputGroup} className="input-group">
-                   <input type="password" placeholder="Set New PIN" maxLength="6" style={{ ...styles.formInput, textAlign: "center", fontSize: "28px", letterSpacing: "12px", fontWeight: "800" }} value={pin} onChange={e => setPin(e.target.value)} required />
+      {step === 4 && (
+        <AuthWrapper title="Enter PIN" sub="Access your secure dashboard.">
+          <form onSubmit={handleLoginPin} className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Security PIN</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors">
+                  <ShieldCheck size={18} />
                 </div>
-                <button type="submit" disabled={loading} style={styles.primaryBtn}>Confirm & Finish</button>
-              </form>
-            </AuthCard>
-          )}
-        </div>
+                <input
+                  type="password"
+                  required
+                  maxLength="6"
+                  value={pin}
+                  onChange={e => setPin(e.target.value)}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-800 font-bold placeholder-slate-300 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white transition-all text-center tracking-[0.5em] text-lg"
+                  placeholder="****"
+                />
+              </div>
+            </div>
+            <button type="submit" disabled={loading} className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black text-sm tracking-wide transition-all shadow-lg shadow-indigo-200 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed">
+              {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> : "Login to Dashboard"}
+            </button>
+            <div className="flex justify-between items-center pt-2 px-1">
+               <button type="button" onClick={() => { if (cameFromEmail) { setStep(1); setCameFromEmail(false); } else { setStep(2); } }} className="text-sm font-bold text-slate-400 hover:text-slate-700 flex items-center gap-1"><ChevronLeft size={16}/> Back</button>
+               <button type="button" onClick={() => { setResetMode(true); handleSendOtp(); }} className="text-sm font-bold text-indigo-600 hover:text-indigo-700">Forgot PIN?</button>
+            </div>
+          </form>
+        </AuthWrapper>
+      )}
+
+      {step === 6 && (
+        <AuthWrapper title="Create Secret PIN" sub="Set a quick access PIN for your next login.">
+          <form onSubmit={handleSetFirstPin} className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">New PIN</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
+                  <Lock size={18} />
+                </div>
+                <input
+                  type="password"
+                  required
+                  maxLength="6"
+                  value={pin}
+                  onChange={e => setPin(e.target.value)}
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-800 font-bold placeholder-slate-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:bg-white transition-all text-center tracking-[0.5em] text-lg"
+                  placeholder="****"
+                />
+              </div>
+            </div>
+            <button type="submit" disabled={loading} className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-black text-sm tracking-wide transition-all shadow-lg shadow-emerald-200 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed">
+              {loading ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> : "Confirm & Finish"}
+            </button>
+          </form>
+        </AuthWrapper>
       )}
 
       {step === 5 && (
-        <div style={styles.dashContainer}>
-          <header className="header-main" style={styles.dashHeader}>
-            <div className="brand-box">
-               <img src={Logo} alt="Logo" style={styles.headerLogo} />
+        <div className="min-h-screen bg-[#f8fafc]">
+          <header className="h-[72px] bg-white border-b border-slate-200 px-6 flex items-center justify-between sticky top-0 z-50 shadow-sm">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-indigo-50 rounded-xl flex items-center justify-center border border-indigo-100">
+                <Navigation size={20} className="text-indigo-600" />
+              </div>
+              <h1 className="text-lg font-black tracking-tight text-slate-800 hidden sm:block">Attendance <span className="text-indigo-600">Portal</span></h1>
             </div>
             
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-               <div className="time-display" style={styles.timeCluster}>
-                  <div style={styles.timeMain}>{currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</div>
-                  <div className="hide-mobile" style={styles.timeSec}>{currentTime.toLocaleTimeString([], { second: '2-digit' })}</div>
+            <div className="flex items-center gap-6">
+               <div className="flex items-baseline gap-1 bg-slate-50 px-4 py-1.5 rounded-full border border-slate-100">
+                  <Clock size={16} className="text-slate-400 mr-1" />
+                  <span className="text-lg font-black text-slate-700">{currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                  <span className="text-xs font-bold text-indigo-600 hidden sm:block">{currentTime.toLocaleTimeString([], { second: '2-digit' })}</span>
                </div>
-               <div style={{ display: 'flex', gap: '10px' }}>
-                 <button onClick={logout} style={styles.logoutBtn}>
-                   <LogOut size={18} />
-                   <span className="hide-mobile">Logout</span>
-                 </button>
-               </div>
+               <button onClick={logout} className="flex items-center gap-2 bg-rose-50 text-rose-600 hover:bg-rose-100 px-4 py-2.5 rounded-xl font-bold transition-colors text-sm">
+                 <LogOut size={16} /> <span className="hidden sm:block">Logout</span>
+               </button>
             </div>
           </header>
 
-          <main style={styles.dashMain}>
-             <div style={styles.dashHero}>
+          <main className="max-w-[1200px] mx-auto p-6 md:p-8">
+             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
                 <div>
-                   <h1 style={styles.welcomeText}>
-                     Welcome, <span>{(userData?.name && userData.name !== "Unknown") ? userData.name.split(' ')[0] : "Member"}</span>
-                   </h1>
-                   <div style={styles.dateChip}>
-                     <Calendar size={14} color="#FF6B00" />
+                   <h2 className="text-3xl font-black text-slate-800 mb-2 tracking-tight">
+                     Welcome, <span className="text-indigo-600">{(userData?.name && userData.name !== "Unknown") ? userData.name.split(' ')[0] : "Member"}</span>
+                   </h2>
+                   <div className="flex items-center gap-2 text-sm font-bold text-slate-500 bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm w-fit">
+                     <Calendar size={16} className="text-indigo-500" />
                      {currentTime.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
                    </div>
                 </div>
-                <div style={styles.statusIndicator}>
-                   <div style={{ ...styles.statusDot, background: history.some(h => h.date === new Date().toISOString().split("T")[0]) ? "#10b981" : "#FF6B00" }} />
-                   <span>Real-time Sync Active</span>
+                
+                <div className="flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-sm">
+                   <div className={`w-2.5 h-2.5 rounded-full ${history.some(h => h.date === new Date().toISOString().split("T")[0]) ? "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]" : "bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]"}`} />
+                   <span className="text-xs font-bold text-slate-600 uppercase tracking-widest">Real-time Sync Active</span>
                 </div>
              </div>
 
-             <div className="dash-grid" style={styles.dashGrid}>
-                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                   <div className="glass-card" style={styles.mainActionCard}>
-                      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "30px" }}>
+             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                {/* Left Column: Actions & Stats */}
+                <div className="lg:col-span-7 flex flex-col gap-6">
+                   <div className="bg-white p-8 rounded-[32px] shadow-sm border border-slate-200 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 -mr-10 -mt-10 opacity-[0.03] pointer-events-none">
+                         <Fingerprint size={250} />
+                      </div>
+
+                      <div className="flex justify-between items-start mb-8 relative z-10">
                          <div>
-                            <h3 style={styles.cardLabel}>PRESENCE VERIFICATION</h3>
-                            <div style={styles.statusTitle}>
+                            <h3 className="text-xs font-black text-slate-400 tracking-widest uppercase mb-1">Presence Verification</h3>
+                            <div className="text-2xl font-black text-slate-800">
                                {history.some(h => h.date === new Date().toISOString().split("T")[0]) ? "Check-in Confirmed" : "Awaiting Check-in"}
                             </div>
                          </div>
-                         <div style={{ ...styles.statusIconBox, background: history.some(h => h.date === new Date().toISOString().split("T")[0]) ? "#f0fdf4" : "#fff7ed" }}>
-                            {history.some(h => h.date === new Date().toISOString().split("T")[0]) ? <UserCheck color="#10b981" /> : <MapPin color="#FF6B00" />}
+                         <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${history.some(h => h.date === new Date().toISOString().split("T")[0]) ? "bg-emerald-50 text-emerald-500" : "bg-indigo-50 text-indigo-500"}`}>
+                            {history.some(h => h.date === new Date().toISOString().split("T")[0]) ? <UserCheck size={28} /> : <MapPin size={28} />}
                          </div>
                       </div>
 
-                      <p style={styles.actionPrompt}>Our system uses high-precision geolocation. Please ensure you are within the designated office boundary to complete verification.</p>
+                      <p className="text-slate-500 font-medium mb-8 leading-relaxed max-w-lg relative z-10">
+                        Our system uses high-precision geolocation. Please ensure you are within the designated office boundary to complete verification successfully.
+                      </p>
 
                       <button 
                         onClick={handleMarkAttendance} 
                         disabled={marking || history.some(h => h.date === new Date().toISOString().split("T")[0])} 
-                        className={!history.some(h => h.date === new Date().toISOString().split("T")[0]) ? "pulse-btn" : ""}
-                        style={{ 
-                          ...styles.checkBtn,
-                          opacity: (marking || history.some(h => h.date === new Date().toISOString().split("T")[0])) ? 0.6 : 1,
-                          cursor: (marking || history.some(h => h.date === new Date().toISOString().split("T")[0])) ? "not-allowed" : "pointer"
-                        }}
+                        className={`w-full h-16 rounded-2xl text-white font-black text-lg flex items-center justify-center gap-3 transition-all relative z-10 ${
+                           history.some(h => h.date === new Date().toISOString().split("T")[0]) 
+                           ? "bg-emerald-500 shadow-lg shadow-emerald-200 cursor-not-allowed opacity-90" 
+                           : "bg-indigo-600 hover:bg-indigo-700 shadow-lg shadow-indigo-200 hover:-translate-y-1"
+                        } ${(!marking && !history.some(h => h.date === new Date().toISOString().split("T")[0])) ? "animate-[pulse_2s_ease-in-out_infinite]" : ""}`}
                       >
-                         {marking ? <><Activity className="spin" size={24} /> Processing...</> : 
-                          history.some(h => h.date === new Date().toISOString().split("T")[0]) ? <><CheckCircle2 size={24} /> Checked-in Today</> : 
+                         {marking ? <><Activity className="animate-spin" size={24} /> Processing Location...</> : 
+                          history.some(h => h.date === new Date().toISOString().split("T")[0]) ? <><CheckCircle2 size={24} /> Verified Today</> : 
                           <><Navigation size={22} /> Confirm Attendance</>}
                       </button>
+                   </div>
 
-                      <div className="stats-grid" style={styles.statsGrid}>
-                         <StatCard icon={<Fingerprint color="#1e293b" />} label="TOTAL LOGINS" value={totalRecords} color="#1e293b" subLabel={`${monthNames[filterMonth]} ${filterYear}`} />
-                         <StatCard icon={<UserCheck color="#10b981" />} label="FULL PRESENT" value={onTimeCount} color="#10b981" subLabel="Before 11:05 AM" />
-                         <StatCard icon={<Clock color="#f59e0b" />} label="LATE LOGINS" value={lateCount} color="#f59e0b" subLabel="11:05 AM - 02:00 PM" />
-                         <StatCard icon={<Clock color="#f43f5e" />} label="HALF DAYS" value={halfDayCount} color="#f43f5e" subLabel="After 02:00 PM" />
-                      </div>
-                      
-                      <div style={{ ...styles.statCard, background: "#f8fafc", boxShadow: "none", border: "1px solid #e2e8f0", marginBottom: "30px", padding: "15px 24px" }}>
-                         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                            <ShieldCheck size={18} color="#64748b" />
-                            <div style={{ fontSize: "13px", color: "#475569", fontWeight: "600" }}>
-                               Attendance Policy: Logins before <b>11:05 AM</b> are "Full Present". After <b>2:00 PM</b> counts as "Half Day".
-                            </div>
-                         </div>
-                      </div>
+                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      <StatCard icon={<Fingerprint size={24} />} label="Logins" value={totalRecords} color="text-slate-700" bgColor="bg-slate-100" subLabel={`${monthNames[filterMonth].slice(0,3)} '${filterYear.toString().slice(-2)}`} />
+                      <StatCard icon={<UserCheck size={24} />} label="On Time" value={onTimeCount} color="text-emerald-600" bgColor="bg-emerald-50" />
+                      <StatCard icon={<Clock size={24} />} label="Late" value={lateCount} color="text-amber-500" bgColor="bg-amber-50" />
+                      <StatCard icon={<Clock size={24} />} label="Half Day" value={halfDayCount} color="text-rose-500" bgColor="bg-rose-50" />
+                   </div>
+                   
+                   <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex items-start gap-3">
+                      <ShieldCheck size={20} className="text-slate-400 mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                         <strong className="text-slate-800">Policy:</strong> Logins before <strong>11:05 AM</strong> are "Full Present". After <strong>2:00 PM</strong> counts as "Half Day".
+                      </p>
                    </div>
                 </div>
 
-                <div className="glass-card" style={styles.logCard}>
-                   <div className="log-header" style={styles.logHeader}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                         <div style={styles.logCircle}><History size={18} /></div>
-                         <h3 style={{ ...styles.cardLabel, margin: 0 }}>ACTIVITY LOG</h3>
+                {/* Right Column: Log */}
+                <div className="lg:col-span-5">
+                   <div className="bg-white rounded-[32px] border border-slate-200 shadow-sm overflow-hidden h-full flex flex-col">
+                      <div className="px-6 py-5 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
+                         <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center">
+                               <History size={18} />
+                            </div>
+                            <h3 className="text-base font-black text-slate-800">Activity Log</h3>
+                         </div>
+                         
+                         <div className="flex items-center gap-2">
+                           <select 
+                              value={filterMonth} 
+                              onChange={(e) => { setFilterMonth(e.target.value); setCurrentPage(1); }} 
+                              className="bg-white border border-slate-200 text-slate-700 text-xs font-bold rounded-lg px-3 py-2 outline-none focus:border-indigo-500 cursor-pointer shadow-sm"
+                           >
+                              {monthNames.map((name, i) => (<option key={i} value={i}>{name.slice(0, 3)}</option>))}
+                           </select>
+                           <select 
+                              value={filterYear} 
+                              onChange={(e) => { setFilterYear(e.target.value); setCurrentPage(1); }} 
+                              className="bg-white border border-slate-200 text-slate-700 text-xs font-bold rounded-lg px-3 py-2 outline-none focus:border-indigo-500 cursor-pointer shadow-sm"
+                           >
+                              {[2024, 2025, 2026].map(year => (<option key={year} value={year}>{year}</option>))}
+                           </select>
+                         </div>
                       </div>
-                      
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                         <span style={{ fontSize: '11px', fontWeight: '800', color: '#94a3b8', textTransform: 'uppercase' }}>Filter:</span>
-                         <div className="log-controls" style={{ display: "flex", gap: "8px", position: "relative" }}>
-                          <div style={{ position: "relative" }}>
-                             <select value={filterMonth} onChange={(e) => { setFilterMonth(e.target.value); setCurrentPage(1); }} className="custom-select">
-                                {monthNames.map((name, i) => (<option key={i} value={i}>{name}</option>))}
-                             </select>
-                          </div>
-                          <div style={{ position: "relative" }}>
-                             <select value={filterYear} onChange={(e) => { setFilterYear(e.target.value); setCurrentPage(1); }} className="custom-select">
-                                {[2024, 2025, 2026].map(year => (<option key={year} value={year}>{year}</option>))}
-                             </select>
-                          </div>
-                      </div>
-                      </div>
-                   </div>
 
-                   <div style={styles.logContent}>
-                      {history.length === 0 ? (
-                        <div style={styles.emptyState}>
-                           <Clock size={40} style={{ opacity: 0.1, marginBottom: "15px" }} />
-                           <p>No activity recorded yet.</p>
-                        </div>
-                      ) : (
-                        <>
-                           {history.map((h, i) => (
-                             <div key={i} style={styles.logRow}>
-                                <div style={{ display: "flex", gap: "15px", alignItems: "center" }}>
-                                   <div style={styles.dateBadge}>
-                                      <div style={styles.dateDay}>{new Date(h.date).getDate()}</div>
-                                      <div style={styles.dateMonth}>{new Date(h.date).toLocaleDateString('en-US', { month: 'short' })}</div>
-                                   </div>
-                                   <div>
-                                      <div style={styles.rowTitle}>{new Date(h.date).toLocaleDateString('en-US', { weekday: 'long' })}</div>
-                                      <div style={styles.rowSub}>
-                                         Verified • 
-                                         <span style={{ 
-                                            color: h.isHalfDay ? "#f43f5e" : 
-                                                   h.isLate ? "#f59e0b" : 
-                                                   (h.timestamp && new Date(h.timestamp).getHours() >= 14) ? "#f43f5e" :
-                                                   (h.timestamp && (new Date(h.timestamp).getHours() > 11 || (new Date(h.timestamp).getHours() === 11 && new Date(h.timestamp).getMinutes() > 5))) ? "#f59e0b" : "#10b981", 
-                                            fontWeight: "700", 
-                                            marginLeft: "5px" 
-                                         }}>
-                                            {h.isHalfDay ? "HALF DAY" :
-                                             h.isLate ? "LATE" :
-                                             (h.timestamp && new Date(h.timestamp).getHours() >= 14) ? "HALF DAY" :
-                                             (h.timestamp && (new Date(h.timestamp).getHours() > 11 || (new Date(h.timestamp).getHours() === 11 && new Date(h.timestamp).getMinutes() > 5))) ? "LATE" : "ON TIME"}
-                                         </span>
-                                      </div>
-                                   </div>
-                                </div>
-                                <div style={
-                                   h.isHalfDay ? { ...styles.timeBadge, background: "#fff1f2", color: "#be123c", border: "1px solid #ffe4e6" } :
-                                   h.isLate ? { ...styles.timeBadge, background: "#fff7ed", color: "#c2410c", border: "1px solid #ffedd5" } :
-                                   (h.timestamp && new Date(h.timestamp).getHours() >= 14) ? { ...styles.timeBadge, background: "#fff1f2", color: "#be123c", border: "1px solid #ffe4e6" } :
-                                   (h.timestamp && (new Date(h.timestamp).getHours() > 11 || (new Date(h.timestamp).getHours() === 11 && new Date(h.timestamp).getMinutes() > 5))) ? { ...styles.timeBadge, background: "#fff7ed", color: "#c2410c", border: "1px solid #ffedd5" } : 
-                                   styles.timeBadge
-                                }>
-                                   {new Date(h.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                                </div>
-                             </div>
-                           ))}
+                      <div className="p-6 flex-1">
+                         {history.length === 0 ? (
+                           <div className="py-16 flex flex-col items-center justify-center text-slate-400">
+                              <History size={48} className="opacity-20 mb-4" />
+                              <p className="font-bold text-sm">No activity recorded yet.</p>
+                           </div>
+                         ) : (
+                           <div className="space-y-4">
+                              {history.map((h, i) => {
+                                const isHalf = h.isHalfDay || (h.timestamp && new Date(h.timestamp).getHours() >= 14);
+                                const isLate = !isHalf && (h.isLate || (h.timestamp && (new Date(h.timestamp).getHours() > 11 || (new Date(h.timestamp).getHours() === 11 && new Date(h.timestamp).getMinutes() > 5))));
+                                const statusColor = isHalf ? "text-rose-600 bg-rose-50 border-rose-100" : isLate ? "text-amber-600 bg-amber-50 border-amber-100" : "text-emerald-600 bg-emerald-50 border-emerald-100";
+                                const statusText = isHalf ? "HALF DAY" : isLate ? "LATE" : "ON TIME";
+                                
+                                return (
+                                 <div key={i} className="flex items-center justify-between p-4 rounded-2xl border border-slate-100 hover:border-slate-200 hover:shadow-sm transition-all bg-white group">
+                                    <div className="flex gap-4 items-center">
+                                       <div className="w-12 h-14 bg-slate-50 border border-slate-200 rounded-xl flex flex-col items-center justify-center">
+                                          <span className="text-lg font-black text-slate-800 leading-none">{new Date(h.date).getDate()}</span>
+                                          <span className="text-[10px] font-bold text-indigo-600 uppercase mt-1">{new Date(h.date).toLocaleDateString('en-US', { month: 'short' })}</span>
+                                       </div>
+                                       <div>
+                                          <div className="text-sm font-bold text-slate-800 mb-1">{new Date(h.date).toLocaleDateString('en-US', { weekday: 'long' })}</div>
+                                          <div className="flex items-center gap-2">
+                                             <span className="text-xs font-semibold text-slate-400">Verified</span>
+                                             <span className="w-1 h-1 rounded-full bg-slate-300"></span>
+                                             <span className={`text-[10px] font-black tracking-widest px-1.5 py-0.5 rounded border ${statusColor}`}>{statusText}</span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div className="text-sm font-black text-slate-700 bg-slate-100 px-3 py-1.5 rounded-lg group-hover:bg-indigo-50 group-hover:text-indigo-700 transition-colors">
+                                       {new Date(h.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                    </div>
+                                 </div>
+                               )
+                              })}
 
-                           {totalPages > 1 && (
-                             <div style={styles.paginationRow}>
-                                <button disabled={currentPage === 1} onClick={() => setCurrentPage(p => p - 1)} className="pagination-btn"><ChevronLeft size={18} /></button>
-                                <span style={styles.pageIndicator}>{currentPage} / {totalPages}</span>
-                                <button disabled={currentPage === totalPages} onClick={() => setCurrentPage(p => p + 1)} className="pagination-btn"><ChevronRight size={18} /></button>
-                             </div>
-                           )}
-                        </>
-                      )}
+                              {totalPages > 1 && (
+                                <div className="flex items-center justify-center gap-4 mt-8 pt-4 border-t border-slate-100">
+                                   <button disabled={currentPage === 1} onClick={() => setCurrentPage(p => p - 1)} className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-500 hover:text-indigo-600 hover:border-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"><ChevronLeft size={18} /></button>
+                                   <span className="text-sm font-bold text-slate-600">Page {currentPage} of {totalPages}</span>
+                                   <button disabled={currentPage === totalPages} onClick={() => setCurrentPage(p => p + 1)} className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center text-slate-500 hover:text-indigo-600 hover:border-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"><ChevronRight size={18} /></button>
+                                </div>
+                              )}
+                           </div>
+                         )}
+                      </div>
                    </div>
                 </div>
              </div>
@@ -578,402 +575,6 @@ const Attendance = () => {
       )}
     </div>
   );
-};
-
-const styles = {
-  container: {
-    minHeight: "100vh",
-    backgroundColor: "#ffffff",
-    color: "#0f172a",
-    display: "flex",
-    flexDirection: "column",
-  },
-  statsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-    gap: "15px",
-    margin: "20px 0"
-  },
-  statCard: {
-    backgroundColor: "#fff",
-    padding: "20px",
-    borderRadius: "20px",
-    boxShadow: "0 4px 6px -1px rgba(0,0,0,0.05)",
-    border: "1px solid #f1f5f9"
-  },
-  iconBox: {
-    width: "40px",
-    height: "40px",
-    borderRadius: "12px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  statValue: {
-    fontSize: "28px",
-    fontWeight: "800",
-    lineHeight: "1"
-  },
-  statLabel: {
-    fontSize: "12px",
-    fontWeight: "700",
-    color: "#64748b",
-    textTransform: "uppercase",
-    letterSpacing: "0.5px",
-    marginBottom: "4px"
-  },
-  authWrapper: {
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "40px",
-    background: "#f8fafc",
-    position: "relative",
-    overflow: "hidden"
-  },
-  authCard: {
-    width: "100%",
-    maxWidth: "460px",
-    backgroundColor: "#ffffff",
-    borderRadius: "28px",
-    padding: "48px",
-    border: "1px solid #e2e8f0",
-    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01)"
-  },
-  iconCircle: {
-     width: "60px",
-     height: "60px",
-     borderRadius: "18px",
-     backgroundColor: "#fff7ed",
-     display: "flex",
-     alignItems: "center",
-     justifyContent: "center",
-     margin: "0 auto 20px"
-  },
-  authTitle: {
-    fontSize: "28px",
-    fontWeight: "800",
-    color: "#0f172a",
-    marginBottom: "12px",
-    letterSpacing: "-0.5px"
-  },
-  authSub: {
-    fontSize: "15px",
-    color: "#64748b",
-    lineHeight: "1.6"
-  },
-  inputGroup: {
-    position: "relative",
-    marginBottom: "24px"
-  },
-  inputIcon: {
-    position: "absolute",
-    left: "16px",
-    top: "50%",
-    transform: "translateY(-50%)",
-    color: "#94a3b8",
-    transition: "color 0.2s"
-  },
-  formInput: {
-    width: "100%",
-    backgroundColor: "#f8fafc",
-    border: "1.5px solid #e2e8f0",
-    borderRadius: "16px",
-    padding: "16px 16px 16px 48px",
-    color: "#0f172a",
-    fontSize: "16px",
-    outline: "none",
-    transition: "all 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
-    boxSizing: "border-box"
-  },
-  primaryBtn: {
-    width: "100%",
-    backgroundColor: "#FF6B00",
-    color: "#fff",
-    border: "none",
-    borderRadius: "16px",
-    padding: "18px",
-    fontSize: "16px",
-    fontWeight: "700",
-    cursor: "pointer",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    transition: "all 0.3s ease",
-    boxShadow: "0 8px 16px -4px rgba(255, 107, 0, 0.4)"
-  },
-  choiceBtn: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    gap: "16px",
-    backgroundColor: "#f8fafc",
-    border: "1px solid #e2e8f0",
-    padding: "20px",
-    borderRadius: "18px",
-    cursor: "pointer",
-    transition: "all 0.2s",
-    textAlign: "left"
-  },
-  choiceIcon: {
-    width: "44px",
-    height: "44px",
-    borderRadius: "12px",
-    backgroundColor: "#ffffff",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "#FF6B00",
-    border: "1px solid #e2e8f0"
-  },
-  choiceLabel: {
-    fontSize: "16px",
-    fontWeight: "700",
-    color: "#0f172a",
-    marginBottom: "4px"
-  },
-  choiceSub: {
-    fontSize: "13px",
-    color: "#64748b"
-  },
-  textBtn: {
-    background: "none",
-    border: "none",
-    color: "#64748b",
-    fontSize: "14px",
-    fontWeight: "600",
-    cursor: "pointer",
-    textDecoration: "underline"
-  },
-  dashContainer: {
-    minHeight: "100vh",
-    backgroundColor: "#f8fafc",
-  },
-  dashHeader: {
-    height: "72px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "0 20px",
-    borderBottom: "1px solid #e2e8f0",
-    backgroundColor: "#ffffff",
-    position: "sticky",
-    top: 0,
-    zIndex: 100,
-    flexWrap: "nowrap",
-    overflow: "hidden"
-  },
-  headerLogo: {
-    height: "24px",
-    maxWidth: "140px",
-    objectFit: "contain"
-  },
-  timeCluster: {
-    display: "flex",
-    alignItems: "baseline",
-    gap: "4px"
-  },
-  timeMain: {
-    fontSize: "24px",
-    fontWeight: "800",
-    color: "#0f172a",
-    lineHeight: 1
-  },
-  timeSec: {
-    fontSize: "13px",
-    fontWeight: "700",
-    color: "#FF6B00",
-    opacity: 0.9
-  },
-  logoutBtn: {
-    backgroundColor: "#fee2e2",
-    color: "#ef4444",
-    border: "none",
-    padding: "10px 16px",
-    borderRadius: "12px",
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    fontSize: "14px",
-    fontWeight: "700",
-    cursor: "pointer",
-    transition: "all 0.2s"
-  },
-  dashMain: {
-    maxWidth: "1100px",
-    margin: "0 auto",
-    padding: "40px 20px"
-  },
-  dashHero: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: "40px",
-    flexWrap: "wrap",
-    gap: "20px"
-  },
-  welcomeText: {
-    fontSize: "32px",
-    fontWeight: "800",
-    color: "#0f172a",
-    marginBottom: "10px",
-    letterSpacing: "-1px"
-  },
-  dateChip: {
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    color: "#64748b",
-    fontSize: "14px",
-    fontWeight: "600",
-    backgroundColor: "#ffffff",
-    padding: "8px 16px",
-    borderRadius: "100px",
-    width: "fit-content",
-    border: "1px solid #e2e8f0"
-  },
-  statusIndicator: {
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-    backgroundColor: "#ffffff",
-    padding: "10px 16px",
-    borderRadius: "12px",
-    border: "1px solid #e2e8f0",
-    fontSize: "13px",
-    fontWeight: "600",
-    color: "#64748b"
-  },
-  statusDot: {
-    width: "8px",
-    height: "8px",
-    borderRadius: "50%",
-    boxShadow: "0 0 8px currentColor"
-  },
-  dashGrid: {
-    display: "grid",
-    gridTemplateColumns: "1.2fr 1fr",
-    gap: "30px",
-    alignItems: "start"
-  },
-  mainActionCard: {
-     padding: "40px",
-     borderRadius: "32px",
-     backgroundColor: "#ffffff"
-  },
-  cardLabel: {
-    fontSize: "12px",
-    fontWeight: "800",
-    color: "#94a3b8",
-    letterSpacing: "1.5px",
-    marginBottom: "8px"
-  },
-  statusTitle: {
-     fontSize: "24px",
-     fontWeight: "800",
-     color: "#0f172a"
-  },
-  statusIconBox: {
-    width: "56px",
-    height: "56px",
-    borderRadius: "16px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  actionPrompt: {
-    fontSize: "15px",
-    lineHeight: "1.6",
-    color: "#64748b",
-    margin: "24px 0 32px",
-  },
-  checkBtn: {
-     width: "100%",
-     height: "72px",
-     borderRadius: "20px",
-     backgroundColor: "#FF6B00",
-     color: "#fff",
-     border: "none",
-     fontSize: "18px",
-     fontWeight: "800",
-     display: "flex",
-     alignItems: "center",
-     justifyContent: "center",
-     gap: "12px",
-     transition: "all 0.3s cubic-bezier(0.16, 1, 0.3, 1)",
-     boxShadow: "0 10px 20px -5px rgba(255, 107, 0, 0.4)"
-  },
-  logCard: {
-    padding: "0",
-    borderRadius: "32px",
-    backgroundColor: "#ffffff"
-  },
-  logHeader: {
-    padding: "30px 40px",
-    borderBottom: "1px solid #f1f5f9",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center"
-  },
-  logCircle: {
-     width: "36px",
-     height: "36px",
-     borderRadius: "10px",
-     backgroundColor: "#fff7ed",
-     color: "#FF6B00",
-     display: "flex",
-     alignItems: "center",
-     justifyContent: "center"
-  },
-  logRow: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "20px 0",
-    borderBottom: "1px solid #f1f5f9"
-  },
-  dateBadge: {
-    width: "48px",
-    height: "52px",
-    backgroundColor: "#f8fafc",
-    borderRadius: "12px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    border: "1px solid #e2e8f0"
-  },
-  dateDay: { fontSize: "18px", fontWeight: "800", color: "#0f172a", lineHeight: 1 },
-  dateMonth: { fontSize: "10px", fontWeight: "700", color: "#FF6B00", textTransform: "uppercase", marginTop: "2px" },
-  rowTitle: { fontSize: "16px", fontWeight: "700", color: "#0f172a", marginBottom: "2px" },
-  rowSub: { fontSize: "13px", color: "#94a3b8" },
-  timeBadge: {
-    fontSize: "15px",
-    fontWeight: "700",
-    color: "#0f172a",
-    backgroundColor: "#f1f5f9",
-    padding: "6px 12px",
-    borderRadius: "8px"
-  },
-  emptyState: {
-    padding: "80px 0",
-    textAlign: "center",
-    color: "#94a3b8"
-  },
-  paginationRow: {
-     display: "flex",
-     alignItems: "center",
-     justifyContent: "center",
-     gap: "15px",
-     marginTop: "30px",
-     paddingTop: "10px"
-  },
-  pageIndicator: {
-     fontSize: "14px",
-     fontWeight: "700",
-     color: "#64748b"
-  }
 };
 
 export default Attendance;

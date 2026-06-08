@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import API from "../API";
 import toast, { Toaster } from 'react-hot-toast';
-import { FiMail, FiKey, FiArrowRight } from "react-icons/fi";
+import { Mail, KeyRound, ArrowRight, ArrowLeft, Shield } from "lucide-react";
 
 const AdvTeamLogin = () => {
   const [email, setEmail] = useState("");
@@ -54,106 +54,123 @@ const AdvTeamLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#05050A] text-gray-300 font-sans relative overflow-hidden flex items-center justify-center">
-      <Toaster 
-        position="top-center" 
-        toastOptions={{
-          style: {
-            background: '#11111a',
-            color: '#fff',
-            border: '1px solid rgba(255,255,255,0.1)',
-            borderRadius: '12px'
-          }
-        }} 
-      />
+    <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center p-4 relative overflow-hidden font-sans">
+      <Toaster position="top-center" reverseOrder={false} />
 
-      {/* Decorative background elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-600/10 blur-[120px] pointer-events-none"></div>
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-[55vh] bg-indigo-600 rounded-b-[100px] shadow-2xl shadow-indigo-200/50 -z-0 transform -translate-y-10 skew-y-2"></div>
+      <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl -z-0 pointer-events-none"></div>
 
-      <div className="relative w-full max-w-md p-8 bg-[#0a0a14]/80 backdrop-blur-xl border border-white/10 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] z-10 mx-4">
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-blue-500/20 mb-6">
-            <span className="text-2xl font-bold text-white">AT</span>
+      <div className="w-full max-w-[440px] relative z-10 animate-[fadeIn_0.5s_ease-out] mt-10">
+        
+        {/* Header Section */}
+        <div className="text-center mb-8 flex flex-col items-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-white rounded-2xl mb-6 shadow-lg shadow-indigo-900/10">
+            <span className="text-2xl font-black text-indigo-600">AT</span>
           </div>
-          <h2 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-            Advance Team
-          </h2>
-          <p className="text-gray-500 mt-2 text-sm font-medium">Secure Access Portal</p>
+          <h1 className="text-3xl font-black text-white tracking-tight mb-2">Advance Team</h1>
+          <p className="text-indigo-100 font-medium text-sm">Secure Access Portal</p>
         </div>
 
-        {step === 1 ? (
-          <form onSubmit={handleSendOTP} className="space-y-6">
-            <div className="space-y-1.5 group">
-              <label htmlFor="email" className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">Company Email</label>
-              <div className="relative">
-                <FiMail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-blue-500 transition-colors" />
-                <input
-                  type="email"
-                  id="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-black/40 border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm"
-                  placeholder="Enter your official email"
-                />
-              </div>
+        {/* Glassmorphic Form Card */}
+        <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-100 relative overflow-hidden transition-all duration-300">
+          
+          <div className="space-y-6 relative z-10">
+            {step === 1 ? (
+              <form onSubmit={handleSendOTP} className="space-y-6 animate-[fadeIn_0.3s_ease-out]">
+                {/* Email Input */}
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Company Email</label>
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors">
+                      <Mail size={18} />
+                    </div>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-700 font-medium placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white transition-all sm:text-sm"
+                      placeholder="Enter your official email"
+                    />
+                  </div>
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black text-sm tracking-wide transition-all shadow-lg shadow-indigo-200 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {loading ? (
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    ) : (
+                      <>Send OTP <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></>
+                    )}
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <form onSubmit={handleVerifyOTP} className="space-y-6 animate-[fadeIn_0.3s_ease-out]">
+                {/* OTP Input */}
+                <div className="space-y-2">
+                  <label htmlFor="otp" className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1 flex justify-between">
+                    <span>One Time Password</span>
+                  </label>
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors">
+                      <KeyRound size={18} />
+                    </div>
+                    <input
+                      type="text"
+                      id="otp"
+                      required
+                      value={otp}
+                      onChange={(e) => setOtp(e.target.value)}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-800 font-bold placeholder-slate-300 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white transition-all text-center tracking-[0.5em] text-lg"
+                      placeholder="------"
+                      maxLength={6}
+                    />
+                  </div>
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black text-sm tracking-wide transition-all shadow-lg shadow-indigo-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {loading ? (
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    ) : (
+                      "Verify & Login"
+                    )}
+                  </button>
+                </div>
+
+                <div className="text-center pt-2">
+                  <button
+                    type="button"
+                    className="text-sm font-bold text-slate-400 hover:text-indigo-600 transition-colors flex items-center justify-center gap-1.5 w-full"
+                    onClick={() => setStep(1)}
+                  >
+                    <ArrowLeft size={16} /> Back to Email
+                  </button>
+                </div>
+              </form>
+            )}
+
+            <div className="text-center flex items-center justify-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest pt-6 border-t border-slate-100">
+              <Shield size={14} className="text-slate-400" />
+              Protected by Atorax Gateway
             </div>
 
-            <button 
-              disabled={loading} 
-              type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-3.5 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-              ) : (
-                <>Send OTP <FiArrowRight /></>
-              )}
-            </button>
-          </form>
-        ) : (
-          <form onSubmit={handleVerifyOTP} className="space-y-6 animate-[fadeIn_0.3s_ease-out]">
-            <div className="space-y-1.5 group">
-              <label htmlFor="otp" className="text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">One Time Password</label>
-              <div className="relative">
-                <FiKey className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-blue-500 transition-colors" />
-                <input
-                  type="text"
-                  id="otp"
-                  required
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
-                  className="w-full bg-black/40 border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all text-sm text-center tracking-[0.5em] font-mono text-lg"
-                  placeholder="------"
-                  maxLength={6}
-                />
-              </div>
-            </div>
+          </div>
+        </div>
 
-            <button 
-              disabled={loading}
-              type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-3.5 px-4 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 hover:scale-[1.02] disabled:opacity-70 disabled:hover:scale-100 disabled:cursor-not-allowed"
-            >
-              {loading ? (
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-              ) : (
-                "Verify & Login"
-              )}
-            </button>
-
-            <div className="text-center">
-              <button
-                type="button"
-                className="text-sm text-gray-400 hover:text-white transition-colors"
-                onClick={() => setStep(1)}
-              >
-                ← Back to Email
-              </button>
-            </div>
-          </form>
-        )}
       </div>
     </div>
   );

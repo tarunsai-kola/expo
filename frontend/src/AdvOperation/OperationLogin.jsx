@@ -3,21 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import API from "../API";
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
-
-// --- SVG Icons ---
-const Icons = {
-  Mail: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>,
-  Lock: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>,
-  ShieldCheck: <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>,
-  ArrowRight: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-};
+import { Mail, KeyRound, ArrowRight, ShieldCheck, Shield, ArrowLeft } from 'lucide-react';
 
 const OperationLogin = () => {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
   const errorRef = useRef(null);
   const navigate = useNavigate();
 
@@ -77,7 +69,7 @@ const OperationLogin = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (errorRef.current && !errorRef.current.contains(event.target)) {
-        toast.dismiss(); // dismiss all toasts instead of passing null
+        toast.dismiss(); 
       }
     };
     document.addEventListener("click", handleClickOutside);
@@ -87,254 +79,124 @@ const OperationLogin = () => {
   }, []);
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
-      fontFamily: "'Inter', sans-serif",
-      padding: '20px',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
-      {/* Decorative background glows */}
-      <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 70%)', filter: 'blur(60px)', pointerEvents: 'none' }}></div>
-      <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(139,92,246,0.15) 0%, rgba(0,0,0,0) 70%)', filter: 'blur(60px)', pointerEvents: 'none' }}></div>
+    <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center p-4 relative overflow-hidden font-sans">
+      <Toaster position="top-center" reverseOrder={false} />
 
-      <Toaster 
-        position="top-center" 
-        toastOptions={{
-          style: {
-            background: '#1E293B',
-            color: '#F8FAFC',
-            border: '1px solid rgba(255,255,255,0.1)',
-            borderRadius: '12px',
-          }
-        }} 
-      />
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-[55vh] bg-indigo-600 rounded-b-[100px] shadow-2xl shadow-indigo-200/50 -z-0 transform -translate-y-10 skew-y-2"></div>
+      <div className="absolute top-20 right-20 w-64 h-64 bg-white/10 rounded-full blur-3xl -z-0 pointer-events-none"></div>
 
-      <div 
-        ref={errorRef}
-        style={{
-          background: 'rgba(30, 41, 59, 0.7)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          border: '1px solid rgba(255, 255, 255, 0.1)',
-          borderRadius: '32px',
-          padding: '48px 40px',
-          width: '100%',
-          maxWidth: '440px',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.1)',
-          transform: 'translateY(0)',
-          transition: 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-          position: 'relative',
-          zIndex: 10
-        }}
-        onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'}
-        onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-      >
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
-          <div style={{
-            background: 'rgba(59, 130, 246, 0.1)',
-            padding: '20px',
-            borderRadius: '50%',
-            border: '1px solid rgba(59, 130, 246, 0.2)',
-            boxShadow: '0 0 20px rgba(59, 130, 246, 0.1)'
-          }}>
-            {Icons.ShieldCheck}
+      <div className="w-full max-w-[440px] relative z-10 animate-[fadeIn_0.5s_ease-out] mt-10" ref={errorRef}>
+        
+        {/* Header Section */}
+        <div className="text-center mb-8 flex flex-col items-center">
+          <div className="inline-flex items-center justify-center p-4 bg-white rounded-2xl mb-6 shadow-lg shadow-indigo-900/10">
+            <ShieldCheck size={40} className="text-indigo-600" />
+          </div>
+          <h1 className="text-3xl font-black text-white tracking-tight mb-2">Operations Login</h1>
+          <p className="text-indigo-100 font-medium text-sm">Secure access for Atorax operations team</p>
+        </div>
+
+        {/* Glassmorphic Form Card */}
+        <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-100 relative overflow-hidden transition-all duration-300">
+          
+          <div className="space-y-6 relative z-10">
+            {!otpSent ? (
+              <form onSubmit={handleSendOtp} className="space-y-6 animate-[fadeIn_0.3s_ease-out]">
+                {/* Email Input */}
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Corporate Email</label>
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-600 transition-colors">
+                      <Mail size={18} />
+                    </div>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-700 font-medium placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white transition-all sm:text-sm"
+                      placeholder="name@company.com"
+                    />
+                  </div>
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-black text-sm tracking-wide transition-all shadow-lg shadow-indigo-200 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {loading ? (
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    ) : (
+                      <>Send Verification Code <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" /></>
+                    )}
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <form onSubmit={handleVerifyOtp} className="space-y-6 animate-[fadeIn_0.3s_ease-out]">
+                {/* OTP Input */}
+                <div className="space-y-2">
+                  <label htmlFor="otp" className="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1 flex justify-between">
+                    <span>One Time Password</span>
+                  </label>
+                  <div className="relative group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-emerald-600 transition-colors">
+                      <KeyRound size={18} />
+                    </div>
+                    <input
+                      type="text"
+                      id="otp"
+                      required
+                      value={otp}
+                      onChange={(e) => setOtp(e.target.value)}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-800 font-bold placeholder-slate-300 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:bg-white transition-all text-center tracking-[0.5em] text-lg"
+                      placeholder="------"
+                      maxLength={6}
+                    />
+                  </div>
+                </div>
+
+                {/* Action Button */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-black text-sm tracking-wide transition-all shadow-lg shadow-emerald-200 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  >
+                    {loading ? (
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    ) : (
+                      "Verify & Secure Login"
+                    )}
+                  </button>
+                </div>
+
+                <div className="text-center pt-2">
+                  <button
+                    type="button"
+                    className="text-sm font-bold text-slate-400 hover:text-indigo-600 transition-colors flex items-center justify-center gap-1.5 w-full"
+                    onClick={() => setOtpSent(false)}
+                  >
+                    <ArrowLeft size={16} /> Use a different email
+                  </button>
+                </div>
+              </form>
+            )}
+
+            <div className="text-center flex items-center justify-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest pt-6 border-t border-slate-100">
+              <Shield size={14} className="text-slate-400" />
+              Protected by Atorax Gateway
+            </div>
+
           </div>
         </div>
 
-        <h2 style={{ 
-          color: '#F8FAFC', 
-          fontSize: '28px', 
-          fontWeight: '800', 
-          textAlign: 'center', 
-          margin: '0 0 8px 0',
-          letterSpacing: '-0.5px' 
-        }}>
-          ADV Operation Login
-        </h2>
-        <p style={{ 
-          color: '#94A3B8', 
-          fontSize: '15px', 
-          textAlign: 'center', 
-          margin: '0 0 40px 0',
-          fontWeight: '500'
-        }}>
-          {!otpSent ? "Authenticate to access your secure workspace" : "Check your email for the verification code"}
-        </p>
-
-        {!otpSent ? (
-          <form onSubmit={handleSendOtp} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <div>
-              <label style={{ display: 'block', color: '#CBD5E1', fontSize: '13px', fontWeight: '600', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                Corporate Email
-              </label>
-              <div style={{ position: 'relative' }}>
-                <div style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: isFocused ? '#60A5FA' : '#64748B', transition: 'color 0.3s ease' }}>
-                  {Icons.Mail}
-                </div>
-                <input
-                  type="email"
-                  placeholder="name@company.com"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onFocus={() => setIsFocused(true)}
-                  onBlur={() => setIsFocused(false)}
-                  style={{
-                    width: '100%',
-                    background: 'rgba(15, 23, 42, 0.6)',
-                    border: isFocused ? '1px solid #3B82F6' : '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '16px',
-                    padding: '16px 16px 16px 48px',
-                    color: '#F8FAFC',
-                    fontSize: '15px',
-                    outline: 'none',
-                    transition: 'all 0.3s ease',
-                    boxShadow: isFocused ? '0 0 0 4px rgba(59, 130, 246, 0.1)' : 'none'
-                  }}
-                />
-              </div>
-            </div>
-            
-            <button 
-              disabled={loading}
-              type="submit"
-              style={{
-                background: loading ? '#475569' : 'linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '16px',
-                padding: '16px',
-                fontSize: '16px',
-                fontWeight: '700',
-                cursor: loading ? 'not-allowed' : 'pointer',
-                transition: 'all 0.3s ease',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: loading ? 'none' : '0 10px 20px -10px rgba(37, 99, 235, 0.5)',
-                marginTop: '8px'
-              }}
-              onMouseEnter={(e) => {
-                if(!loading) {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 15px 25px -10px rgba(37, 99, 235, 0.6)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if(!loading) {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 10px 20px -10px rgba(37, 99, 235, 0.5)';
-                }
-              }}
-            >
-              {loading ? "Sending Code..." : "Send Verification Code"}
-              {!loading && Icons.ArrowRight}
-            </button>
-          </form>
-        ) : (
-          <form onSubmit={handleVerifyOtp} style={{ display: 'flex', flexDirection: 'column', gap: '24px', animation: 'fadeIn 0.5s ease' }}>
-            <div>
-              <label style={{ display: 'block', color: '#CBD5E1', fontSize: '13px', fontWeight: '600', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                One-Time Password
-              </label>
-              <div style={{ position: 'relative' }}>
-                <div style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: isFocused ? '#10B981' : '#64748B', transition: 'color 0.3s ease' }}>
-                  {Icons.Lock}
-                </div>
-                <input
-                  type="text"
-                  placeholder="Enter 6-digit OTP"
-                  required
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value)}
-                  onFocus={() => setIsFocused(true)}
-                  onBlur={() => setIsFocused(false)}
-                  style={{
-                    width: '100%',
-                    background: 'rgba(15, 23, 42, 0.6)',
-                    border: isFocused ? '1px solid #10B981' : '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '16px',
-                    padding: '16px 16px 16px 48px',
-                    color: '#F8FAFC',
-                    fontSize: '18px',
-                    letterSpacing: '2px',
-                    outline: 'none',
-                    transition: 'all 0.3s ease',
-                    boxShadow: isFocused ? '0 0 0 4px rgba(16, 185, 129, 0.1)' : 'none'
-                  }}
-                />
-              </div>
-            </div>
-            
-            <button 
-              type="submit"
-              disabled={loading}
-              style={{
-                background: loading ? '#475569' : 'linear-gradient(135deg, #10B981 0%, #059669 100%)',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '16px',
-                padding: '16px',
-                fontSize: '16px',
-                fontWeight: '700',
-                cursor: loading ? 'not-allowed' : 'pointer',
-                transition: 'all 0.3s ease',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                boxShadow: loading ? 'none' : '0 10px 20px -10px rgba(16, 185, 129, 0.5)',
-                marginTop: '8px'
-              }}
-              onMouseEnter={(e) => {
-                if(!loading) {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 15px 25px -10px rgba(16, 185, 129, 0.6)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if(!loading) {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 10px 20px -10px rgba(16, 185, 129, 0.5)';
-                }
-              }}
-            >
-              {loading ? "Verifying..." : "Verify & Secure Login"}
-            </button>
-
-            <div style={{ textAlign: 'center', marginTop: '16px' }}>
-              <button 
-                type="button" 
-                onClick={() => setOtpSent(false)} 
-                style={{ 
-                  background: 'none', 
-                  border: 'none', 
-                  color: '#94A3B8', 
-                  fontSize: '14px', 
-                  cursor: 'pointer',
-                  textDecoration: 'underline',
-                  fontWeight: '500'
-                }}
-              >
-                Use a different email
-              </button>
-            </div>
-          </form>
-        )}
       </div>
-
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   );
 };
