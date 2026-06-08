@@ -262,7 +262,6 @@ const AdminAnalytics = () => {
     const filteredMembers = getFilteredMembers();
 
     return (
-        <>
         <div className="admin-content-wrap min-h-screen bg-slate-50/50 p-6 sm:p-10 font-sans">
             <Toaster position="top-center" />
             <div className="max-w-[1600px] mx-auto space-y-10">
@@ -788,8 +787,7 @@ const AdminAnalytics = () => {
                                                 <p className="text-sm font-bold m-0">No call logs found for this outcome</p>
                                             </div>
                                         ) : (
-                                            <>
-                                                <div className="max-h-[380px] overflow-y-auto">
+                                            <div className="max-h-[380px] overflow-y-auto">
                                                     <table className="w-full text-left text-sm whitespace-nowrap">
                                                         <thead className="sticky top-0 bg-slate-50 border-b border-slate-200 z-10 shadow-sm">
                                                             <tr>
@@ -879,8 +877,7 @@ const AdminAnalytics = () => {
                                         <span className="material-symbols-outlined text-3xl text-indigo-500 animate-spin">sync</span>
                                     </div>
                                 ) : (
-                                    <>
-                                        <div className="h-[220px] mb-8 bg-white p-4 rounded-3xl border border-slate-200 shadow-sm">
+                                    <div className="h-[220px] mb-8 bg-white p-4 rounded-3xl border border-slate-200 shadow-sm">
                                             <ResponsiveContainer width="100%" height="100%">
                                                 <BarChart data={memberMonthly} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
                                                     <XAxis dataKey="month" stroke="#94a3b8" fontSize={11} tickLine={false} axisLine={false} />
@@ -926,7 +923,6 @@ const AdminAnalytics = () => {
                                                 </AreaChart>
                                             </ResponsiveContainer>
                                         </div>
-                                    </>
                                 )}
                             </div>
                         </div>
@@ -940,7 +936,7 @@ const AdminAnalytics = () => {
             `}</style>
             </div>
             </div>
-        </>
+        </div>
     );
 };
 

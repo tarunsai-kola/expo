@@ -163,13 +163,14 @@ const AdvTeamHeader = () => {
     <div id="TeamHeader">
       <UserActivityTracker userId={advTeamId} />
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="navbar">
-        <div>
-          <Link to="/">
-            <img src={logo} alt="Logo" />
+      <div className="navbar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 32px', background: '#0A0F1C', borderBottom: '1px solid rgba(255,255,255,0.05)', width: '100%', height: '70px', position: 'fixed', top: 0, left: 0, zIndex: 1100 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+            <img src={logo} alt="Logo" style={{ height: '35px', objectFit: 'contain', filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))' }} />
           </Link>
+          <div style={{ width: '1px', height: '24px', background: 'rgba(255,255,255,0.1)' }}></div>
+          <span style={{ color: 'rgba(129, 140, 248, 0.8)', fontSize: '12px', fontWeight: '900', letterSpacing: '0.2em', textTransform: 'uppercase', background: 'rgba(99, 102, 241, 0.1)', padding: '4px 10px', borderRadius: '6px', border: '1px solid rgba(99, 102, 241, 0.2)' }}>Team Portal</span>
         </div>
-
         {/* Futuristic Ultra-Premium Stats Section */}
         {dailyStats.targets.callTarget > 0 && (
           <>
@@ -404,6 +405,11 @@ const AdvTeamHeader = () => {
           <div ref={mobileMenuRef}>
             {/* <span onClick={toggleVisibility}>☰</span> */}
           </div>
+          
+          <button onClick={handleLogout} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(244, 63, 94, 0.1)', color: 'rgba(251, 113, 133, 1)', border: '1px solid rgba(244, 63, 94, 0.2)', borderRadius: '12px', transition: 'all 0.2s ease', fontWeight: '700', fontSize: '14px', cursor: 'pointer' }} onMouseOver={(e) => { e.currentTarget.style.background = '#f43f5e'; e.currentTarget.style.color = '#fff'; }} onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(244, 63, 94, 0.1)'; e.currentTarget.style.color = 'rgba(251, 113, 133, 1)'; }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> 
+            Logout
+          </button>
         </div>
 
         <style>{`
@@ -417,11 +423,11 @@ const AdvTeamHeader = () => {
       <style>{`
         .premium-sidebar {
           position: fixed;
-          top: 0;
+          top: 70px;
           left: 0;
-          height: 100vh;
+          height: calc(100vh - 70px);
           width: 280px;
-          background: #0f172a;
+          background: #0B0F19;
           color: #f8fafc;
           display: flex;
           flex-direction: column;
@@ -626,10 +632,6 @@ const AdvTeamHeader = () => {
             <Link to="/advteam/revenue">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Revenue
             </Link>
-            
-            <button className="logout-btn" onClick={handleLogout}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Logout
-            </button>
           </div>
         </div>
       )}

@@ -2,16 +2,20 @@ import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import API from "../API";
+import { 
+    Users, Phone, Calendar, Clock, ChevronRight, Activity, 
+    RefreshCcw, Eye, FileText, PhoneCall, X, UserSearch, History 
+} from "lucide-react";
 
 const CALL_OUTCOMES = [
-    { value: "interested", label: "✅ Interested", color: "#52c41a" },
-    { value: "not_interested", label: "❌ Not Interested", color: "#ff4d4f" },
-    { value: "no_answer", label: "📵 No Answer", color: "#faad14" },
-    { value: "callback_requested", label: "🔄 Callback Requested", color: "#1890ff" },
-    { value: "converted", label: "🏆 Converted", color: "#722ed1" },
-    { value: "junk", label: "🗑️ Junk Leads", color: "#8c8c8c" },
-    { value: "follow_up", label: "📅 Follow Up", color: "#eb2f96" },
-    { value: "qualified", label: "🌟 Qualified", color: "#fa8c16" },
+    { value: "interested", label: "✅ Interested", color: "text-emerald-700 bg-emerald-50 border-emerald-200" },
+    { value: "not_interested", label: "❌ Not Interested", color: "text-rose-700 bg-rose-50 border-rose-200" },
+    { value: "no_answer", label: "📵 No Answer", color: "text-amber-700 bg-amber-50 border-amber-200" },
+    { value: "callback_requested", label: "🔄 Callback Requested", color: "text-blue-700 bg-blue-50 border-blue-200" },
+    { value: "converted", label: "🏆 Converted", color: "text-purple-700 bg-purple-50 border-purple-200" },
+    { value: "junk", label: "🗑️ Junk Leads", color: "text-slate-700 bg-slate-100 border-slate-300" },
+    { value: "follow_up", label: "📅 Follow Up", color: "text-pink-700 bg-pink-50 border-pink-200" },
+    { value: "qualified", label: "🌟 Qualified", color: "text-orange-700 bg-orange-50 border-orange-200" },
 ];
 
 const AdvTeamRecord = () => {
@@ -26,7 +30,7 @@ const AdvTeamRecord = () => {
 
     // Navigation State
     const [view, setView] = useState("specialists"); // "specialists" | "leads" | "history"
-     const [selectedSpecialist, setSelectedSpecialist] = useState(null);
+    const [selectedSpecialist, setSelectedSpecialist] = useState(null);
     const [selectedLead, setSelectedLead] = useState(null);
     const [selectedLeadForDetails, setSelectedLeadForDetails] = useState(null);
 
@@ -136,131 +140,6 @@ const AdvTeamRecord = () => {
         return Object.values(specialists).sort((a, b) => new Date(b.lastActivity) - new Date(a.lastActivity));
     }, [activities]);
 
-    const styles = {
-        container: {
-            padding: '24px',
-            marginLeft: '280px',
-            background: '#F8FAFC',
-            minHeight: '100vh',
-            fontFamily: "'Inter', system-ui, -apple-system, sans-serif"
-        },
-        header: {
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: '24px'
-        },
-        titleSection: {
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '8px'
-        },
-        title: {
-            fontSize: '28px',
-            fontWeight: '800',
-            color: '#1E293B',
-            margin: 0,
-            letterSpacing: '-0.5px'
-        },
-        breadcrumb: {
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            fontSize: '14px',
-            color: '#64748B'
-        },
-        breadcrumbItem: {
-            cursor: 'pointer',
-            fontWeight: '600',
-            color: '#3B82F6',
-            transition: 'color 0.2s'
-        },
-        cardGrid: {
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-            gap: '20px',
-            marginTop: '20px'
-        },
-        card: {
-            background: '#FFFFFF',
-            borderRadius: '16px',
-            padding: '24px',
-            border: '1px solid #E2E8F0',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
-            position: 'relative',
-            overflow: 'hidden'
-        },
-        cardActive: {
-            borderColor: '#3B82F6',
-            boxShadow: '0 10px 15px -3px rgba(59, 130, 246, 0.1)'
-        },
-        cardTitle: {
-            fontSize: '18px',
-            fontWeight: '700',
-            color: '#1E293B',
-            margin: 0
-        },
-        cardStat: {
-            fontSize: '13px',
-            color: '#64748B',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '6px'
-        },
-        tableContainer: {
-            background: '#FFFFFF',
-            borderRadius: '16px',
-            border: '1px solid #E2E8F0',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-            overflow: 'hidden',
-            marginTop: '20px'
-        },
-        table: {
-            width: '100%',
-            borderCollapse: 'collapse',
-            textAlign: 'left'
-        },
-        th: {
-            padding: '16px 24px',
-            background: '#F8FAFC',
-            borderBottom: '1px solid #E2E8F0',
-            fontSize: '12px',
-            fontWeight: '700',
-            color: '#64748B',
-            textTransform: 'uppercase'
-        },
-        td: {
-            padding: '16px 24px',
-            borderBottom: '1px solid #F1F5F9',
-            fontSize: '14px',
-            color: '#334155'
-        },
-        badge: (color) => ({
-            padding: '4px 12px',
-            borderRadius: '100px',
-            fontSize: '11px',
-            fontWeight: '600',
-            background: `${color}15`,
-            color: color,
-            border: `1px solid ${color}30`
-        }),
-        pagination: {
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginTop: '32px',
-            padding: '16px 24px',
-            background: '#FFFFFF',
-            borderRadius: '16px',
-            border: '1px solid #E2E8F0',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
-        }
-    };
-
     const formatDate = (dateString) => {
         if (!dateString) return "N/A";
         return new Date(dateString).toLocaleDateString('en-GB', {
@@ -273,300 +152,341 @@ const AdvTeamRecord = () => {
     };
 
     return (
-        <div style={styles.container}>
-            {/* ─── Lead Details Modal ─── */}
-            {selectedLeadForDetails && (
-                <div style={{
-                    position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-                    backgroundColor: 'rgba(0,0,0,0.7)', display: 'flex',
-                    justifyContent: 'center', alignItems: 'center', zIndex: 2000,
-                    backdropFilter: 'blur(4px)'
-                }}>
-                    <div style={{
-                        backgroundColor: '#fff', padding: '32px', borderRadius: '16px',
-                        width: '600px', maxHeight: '85vh', overflowY: 'auto',
-                        boxShadow: '0 20px 50px rgba(0,0,0,0.3)', position: 'relative'
-                    }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', borderBottom: '1px solid #eee', paddingBottom: '16px' }}>
-                            <h2 style={{ margin: 0, color: '#1a1a1a' }}>📝 Lead Intelligence</h2>
-                            <button onClick={() => setSelectedLeadForDetails(null)} style={{ border: 'none', background: '#f5f5f5', borderRadius: '50%', width: '32px', height: '32px', cursor: 'pointer', fontSize: '18px' }}>&times;</button>
-                        </div>
-
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px' }}>
-                            <div>
-                                <label style={{ fontSize: '11px', fontWeight: '800', color: '#888', textTransform: 'uppercase' }}>Full Name</label>
-                                <div style={{ fontSize: '15px', fontWeight: '600' }}>{selectedLeadForDetails.name}</div>
-                            </div>
-                            <div>
-                                <label style={{ fontSize: '11px', fontWeight: '800', color: '#888', textTransform: 'uppercase' }}>Email Address</label>
-                                <div style={{ fontSize: '15px', fontWeight: '600' }}>{selectedLeadForDetails.email}</div>
-                            </div>
-                            <div>
-                                <label style={{ fontSize: '11px', fontWeight: '800', color: '#888', textTransform: 'uppercase' }}>Phone Number</label>
-                                <div style={{ fontSize: '15px', fontWeight: '600' }}>{selectedLeadForDetails.phone}</div>
-                            </div>
-                            <div>
-                                <label style={{ fontSize: '11px', fontWeight: '800', color: '#888', textTransform: 'uppercase' }}>Target Domain</label>
-                                <div style={{ fontSize: '15px', fontWeight: '600' }}>{selectedLeadForDetails.domain || 'General'}</div>
-                            </div>
-                        </div>
-
-                        <div style={{ background: '#f9f9f9', padding: '20px', borderRadius: '12px', border: '1px solid #eee' }}>
-                            <h3 style={{ marginTop: 0, marginBottom: '16px', fontSize: '14px', color: '#3B82F6', borderBottom: '1px dashed #ddd', paddingBottom: '8px' }}>🚀 Meta Ads & Questionnaire Info</h3>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                                {Object.entries(selectedLeadForDetails.extra_fields || {}).map(([key, val]) => (
-                                    <div key={key}>
-                                        <div style={{ fontSize: '10px', fontWeight: '800', color: '#888', textTransform: 'uppercase', marginBottom: '2px' }}>{key.replace(/_/g, ' ')}</div>
-                                        <div style={{ fontSize: '13px', color: '#333', fontWeight: '500' }}>{val || '—'}</div>
-                                    </div>
-                                ))}
-                                {(!selectedLeadForDetails.extra_fields || Object.keys(selectedLeadForDetails.extra_fields).length === 0) && (
-                                    <div style={{ color: '#999', fontStyle: 'italic', fontSize: '13px' }}>No questionnaire data available.</div>
-                                )}
-                            </div>
-                        </div>
-                        
-                        <div style={{ marginTop: '24px', textAlign: 'right' }}>
-                            <button onClick={() => setSelectedLeadForDetails(null)} style={{ padding: '10px 24px', background: '#3B82F6', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: '600', cursor: 'pointer' }}>Close Details</button>
-                        </div>
-                    </div>
-                </div>
-            )}
+        <div className="bg-[#f8fafc] min-h-screen font-sans ml-[280px] mt-[70px] p-8 md:p-10">
             <Toaster position="top-center" />
 
-            <header style={styles.header}>
-                <div style={styles.titleSection}>
-                    <h1 style={styles.title}>Call Records</h1>
-                    <div style={styles.breadcrumb}>
-                        <span
-                            style={view !== "specialists" ? styles.breadcrumbItem : { fontWeight: '600' }}
+            {/* Header & Breadcrumbs */}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
+                <div>
+                    <h1 className="text-3xl font-black tracking-tight text-slate-900 mb-2">Activity Records</h1>
+                    <div className="flex items-center gap-2 text-sm font-semibold text-slate-500 flex-wrap">
+                        <button 
+                            className={`flex items-center gap-1.5 transition-colors ${view === 'specialists' ? 'text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full' : 'hover:text-indigo-600'}`}
                             onClick={() => { setView("specialists"); setSelectedSpecialist(null); setSelectedLead(null); }}
                         >
-                            Specialists
-                        </span>
+                            <Users size={16} /> All Teams
+                        </button>
+                        
                         {selectedSpecialist && (
                             <>
-                                <span>/</span>
-                                <span
-                                    style={view !== "leads" ? styles.breadcrumbItem : { fontWeight: '600' }}
+                                <ChevronRight size={14} className="text-slate-300" />
+                                <button 
+                                    className={`flex items-center gap-1.5 transition-colors ${view === 'leads' ? 'text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full' : 'hover:text-indigo-600'}`}
                                     onClick={() => { setView("leads"); setSelectedLead(null); }}
                                 >
-                                    {selectedSpecialist.name}
+                                    <UserSearch size={16} /> {selectedSpecialist.name}
+                                </button>
+                            </>
+                        )}
+
+                        {selectedLead && (
+                            <>
+                                <ChevronRight size={14} className="text-slate-300" />
+                                <span className="flex items-center gap-1.5 text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                                    <PhoneCall size={16} /> {selectedLead.name}
                                 </span>
                             </>
                         )}
-                        {selectedLead && (
-                            <>
-                                <span>/</span>
-                                <span style={{ fontWeight: '600' }}>{selectedLead.name}</span>
-                            </>
-                        )}
                     </div>
                 </div>
-                <div style={{ display: 'flex', gap: '12px' }}>
-                    <div style={{ padding: '4px 16px', background: '#3B82F610', color: '#3B82F6', borderRadius: '12px', display: 'flex', alignItems: 'center', fontSize: '14px', fontWeight: '600' }}>
-                        Total Logs: {totalCount}
+
+                <div className="flex items-center gap-3">
+                    <div className="px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl shadow-sm text-sm font-bold flex items-center gap-2">
+                        <Activity size={16} className="text-indigo-500" />
+                        Total Logs: <span className="text-indigo-600">{totalCount}</span>
                     </div>
                     <button
-                        onClick={() => fetchRecords(1)}
-                        style={{
-                            padding: '10px 20px', background: '#FFFFFF', border: '1px solid #E2E8F0',
-                            borderRadius: '12px', cursor: 'pointer', fontWeight: '600', color: '#475569',
-                            display: 'flex', alignItems: 'center', gap: '8px'
-                        }}
+                        onClick={() => fetchRecords(currentPage)}
+                        className="px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 border border-indigo-200 rounded-xl shadow-sm text-sm font-bold transition-all flex items-center gap-2"
                     >
-                        🔄 Refresh
+                        <RefreshCcw size={16} /> Refresh
                     </button>
                 </div>
-            </header>
+            </div>
 
             {loading ? (
-                <div style={{ padding: '100px', textAlign: 'center', color: '#64748B' }}>
-                    <div className="three-body">
-                        <div className="three-body__dot"></div>
-                        <div className="three-body__dot"></div>
-                        <div className="three-body__dot"></div>
-                    </div>
-                    <p style={{ marginTop: '20px' }}>Analyzing records...</p>
+                <div className="bg-white rounded-2xl border border-slate-100 p-20 flex flex-col items-center justify-center shadow-sm">
+                    <div className="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin mb-4"></div>
+                    <p className="text-slate-500 font-bold tracking-wide">Analyzing Activity Logs...</p>
                 </div>
             ) : activities.length === 0 ? (
-                <div style={{ padding: '100px', textAlign: 'center', color: '#64748B' }}>
-                    <div style={{ fontSize: '48px', marginBottom: '16px' }}>Empty</div>
-                    <p>No activity records found for your team.</p>
+                <div className="bg-white rounded-2xl border border-slate-100 p-20 flex flex-col items-center justify-center text-center shadow-sm">
+                    <div className="w-24 h-24 bg-slate-50 rounded-full flex items-center justify-center mb-6">
+                        <History className="text-slate-300 w-12 h-12" />
+                    </div>
+                    <h3 className="text-xl font-black text-slate-800 mb-2">No Records Found</h3>
+                    <p className="text-slate-500 font-medium">There is no call activity logged for your team on this page.</p>
                 </div>
             ) : (
                 <>
                     {/* Level 1: Specialists List */}
                     {view === "specialists" && (
-                        <>
-                            <div style={styles.cardGrid}>
+                        <div className="animate-[fadeIn_0.3s_ease-out]">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
                                 {groupedData.map(spec => (
                                     <div
                                         key={spec.id}
-                                        style={styles.card}
+                                        className="group relative bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-xl hover:shadow-indigo-500/10 hover:border-indigo-300 transition-all duration-300 cursor-pointer overflow-hidden flex flex-col"
                                         onClick={() => { setSelectedSpecialist(spec); setView("leads"); }}
-                                        onMouseEnter={(e) => Object.assign(e.currentTarget.style, styles.cardActive)}
-                                        onMouseLeave={(e) => Object.assign(e.currentTarget.style, { borderColor: '#E2E8F0', boxShadow: 'none' })}
                                     >
-                                        <h3 style={styles.cardTitle}>{spec.name}</h3>
-                                        <div style={styles.cardStat}>
-                                            <span>👥</span> {Object.keys(spec.leads).length} Leads handled
+                                        <div className="absolute -right-6 -bottom-6 text-slate-50 group-hover:text-indigo-50 transition-colors duration-300">
+                                            <Users size={120} strokeWidth={1} />
                                         </div>
-                                        <div style={styles.cardStat}>
-                                            <span>📞</span> {spec.totalActivities} logs on this page
+                                        
+                                        <div className="relative z-10 flex-1">
+                                            <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition-transform">
+                                                {spec.name.charAt(0).toUpperCase()}
+                                            </div>
+                                            <h3 className="text-xl font-black text-slate-800 mb-4">{spec.name}</h3>
+                                            
+                                            <div className="space-y-3 mb-6">
+                                                <div className="flex items-center gap-3 text-sm font-semibold text-slate-600 bg-slate-50 px-4 py-2.5 rounded-xl border border-slate-100">
+                                                    <UserSearch size={16} className="text-slate-400" />
+                                                    <span className="flex-1">Unique Leads</span>
+                                                    <span className="bg-white px-2 py-0.5 rounded-md shadow-sm text-slate-800">{Object.keys(spec.leads).length}</span>
+                                                </div>
+                                                <div className="flex items-center gap-3 text-sm font-semibold text-slate-600 bg-slate-50 px-4 py-2.5 rounded-xl border border-slate-100">
+                                                    <Phone size={16} className="text-slate-400" />
+                                                    <span className="flex-1">Total Calls</span>
+                                                    <span className="bg-white px-2 py-0.5 rounded-md shadow-sm text-slate-800">{spec.totalActivities}</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div style={{ ...styles.cardStat, marginTop: 'auto', fontSize: '11px', color: '#94A3B8' }}>
-                                            Last active: {formatDate(spec.lastActivity)}
+                                        
+                                        <div className="relative z-10 flex items-center gap-2 text-xs font-bold text-slate-400 pt-4 border-t border-slate-100">
+                                            <Clock size={12} /> Last active: {formatDate(spec.lastActivity)}
                                         </div>
-                                        <div style={{
-                                            position: 'absolute', right: '-10px', bottom: '-10px',
-                                            fontSize: '80px', opacity: '0.05', pointerEvents: 'none'
-                                        }}>👤</div>
                                     </div>
                                 ))}
                             </div>
 
                             {/* Pagination UI */}
-                            <div style={styles.pagination}>
-                                <div style={{ fontSize: '14px', color: '#64748B' }}>
-                                    Showing <strong>{(currentPage - 1) * limit + 1}</strong> - <strong>{Math.min(currentPage * limit, totalCount)}</strong> of <strong>{totalCount}</strong> logs
+                            <div className="bg-white border border-slate-200 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+                                <div className="text-sm font-medium text-slate-500">
+                                    Showing <span className="text-slate-800 font-bold">{(currentPage - 1) * limit + 1}</span> to <span className="text-slate-800 font-bold">{Math.min(currentPage * limit, totalCount)}</span> of <span className="text-indigo-600 font-black">{totalCount}</span> logs
                                 </div>
-                                <div style={{ display: 'flex', gap: '8px' }}>
+                                <div className="flex items-center gap-2">
                                     <button
                                         disabled={currentPage === 1}
                                         onClick={() => handlePageChange(currentPage - 1)}
-                                        style={{
-                                            padding: '8px 16px', borderRadius: '10px', border: '1px solid #E2E8F0',
-                                            background: currentPage === 1 ? '#F1F5F9' : '#fff',
-                                            color: currentPage === 1 ? '#94A3B8' : '#1E293B',
-                                            cursor: currentPage === 1 ? 'not-allowed' : 'pointer', fontWeight: '600'
-                                        }}
+                                        className="px-4 py-2 rounded-xl text-sm font-bold border border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                                     >
-                                        Previous
+                                        Prev
                                     </button>
                                     {[...Array(totalPages)].map((_, i) => {
                                         const p = i + 1;
-                                        if (p === 1 || p === totalPages || (p >= currentPage - 2 && p <= currentPage + 2)) {
+                                        if (p === 1 || p === totalPages || (p >= currentPage - 1 && p <= currentPage + 1)) {
                                             return (
                                                 <button
                                                     key={p}
                                                     onClick={() => handlePageChange(p)}
-                                                    style={{
-                                                        width: '40px', height: '40px', borderRadius: '10px',
-                                                        border: '1px solid',
-                                                        borderColor: currentPage === p ? '#3B82F6' : '#E2E8F0',
-                                                        background: currentPage === p ? '#3B82F6' : '#fff',
-                                                        color: currentPage === p ? '#fff' : '#1E293B',
-                                                        fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s ease'
-                                                    }}
+                                                    className={`w-10 h-10 rounded-xl text-sm font-bold transition-all ${
+                                                        currentPage === p 
+                                                        ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200' 
+                                                        : 'text-slate-600 hover:bg-slate-50 border border-slate-200'
+                                                    }`}
                                                 >
                                                     {p}
                                                 </button>
                                             );
-                                        } else if (p === currentPage - 3 || p === currentPage + 3) {
-                                            return <span key={p} style={{ width: '40px', textAlign: 'center', color: '#94A3B8' }}>...</span>;
+                                        } else if (p === currentPage - 2 || p === currentPage + 2) {
+                                            return <span key={p} className="text-slate-400 font-bold px-2">...</span>;
                                         }
                                         return null;
                                     })}
                                     <button
                                         disabled={currentPage === totalPages}
                                         onClick={() => handlePageChange(currentPage + 1)}
-                                        style={{
-                                            padding: '8px 16px', borderRadius: '10px', border: '1px solid #E2E8F0',
-                                            background: currentPage === totalPages ? '#F1F5F9' : '#fff',
-                                            color: currentPage === totalPages ? '#94A3B8' : '#1E293B',
-                                            cursor: currentPage === totalPages ? 'not-allowed' : 'pointer', fontWeight: '600'
-                                        }}
+                                        className="px-4 py-2 rounded-xl text-sm font-bold border border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                                     >
                                         Next
                                     </button>
                                 </div>
                             </div>
-                        </>
+                        </div>
                     )}
 
                     {/* Level 2: Leads List for Selected Specialist */}
                     {view === "leads" && selectedSpecialist && (
-                        <div style={styles.tableContainer}>
-                            <table style={styles.table}>
-                                <thead>
-                                    <tr>
-                                        <th style={styles.th}>Lead Name</th>
-                                        <th style={styles.th}>Contact</th>
-                                        <th style={styles.th}>Activities</th>
-                                        <th style={styles.th}>Last Updated At</th>
-                                        <th style={styles.th}>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {Object.values(selectedSpecialist.leads).sort((a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated)).map(lead => (
-                                        <tr key={lead.id}>
-                                            <td style={{ ...styles.td, fontWeight: '700' }}>{lead.name}</td>
-                                            <td style={styles.td}>{lead.phone}</td>
-                                            <td style={styles.td}>
-                                                <span style={styles.badge('#3B82F6')}>{lead.activities.length} logs</span>
-                                            </td>
-                                            <td style={styles.td}>{formatDate(lead.lastUpdated)}</td>
-                                            <td style={{ ...styles.td, display: 'flex', gap: '8px' }}>
-                                                <button
-                                                    onClick={() => { setSelectedLead(lead); setView("history"); }}
-                                                    style={{
-                                                        padding: '6px 12px', background: '#3B82F6', color: '#fff',
-                                                        border: 'none', borderRadius: '8px', cursor: 'pointer', fontSize: '12px'
-                                                    }}
-                                                >
-                                                    View History
-                                                </button>
-                                                <button
-                                                    onClick={() => { setSelectedLeadForDetails(lead); }}
-                                                    style={{
-                                                        padding: '6px 12px', background: '#fff', color: '#3B82F6',
-                                                        border: '1px solid #3B82F6', borderRadius: '8px', cursor: 'pointer', fontSize: '12px'
-                                                    }}
-                                                >
-                                                    View Details
-                                                </button>
-                                            </td>
+                        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden animate-[fadeIn_0.3s_ease-out]">
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr className="bg-slate-50 border-b border-slate-200">
+                                            <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Lead Prospect</th>
+                                            <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Contact Info</th>
+                                            <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest text-center">Activities</th>
+                                            <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Last Updated</th>
+                                            <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest text-right">Actions</th>
                                         </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody className="divide-y divide-slate-100">
+                                        {Object.values(selectedSpecialist.leads).sort((a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated)).map(lead => (
+                                            <tr key={lead.id} className="hover:bg-slate-50/50 transition-colors">
+                                                <td className="px-6 py-4">
+                                                    <span className="font-bold text-slate-800 text-sm">{lead.name}</span>
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    <span className="font-semibold text-slate-600 text-sm bg-slate-100 px-3 py-1 rounded-lg">{lead.phone}</span>
+                                                </td>
+                                                <td className="px-6 py-4 text-center">
+                                                    <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 font-black text-sm border border-indigo-100">
+                                                        {lead.activities.length}
+                                                    </span>
+                                                </td>
+                                                <td className="px-6 py-4">
+                                                    <div className="flex items-center gap-2 text-sm font-semibold text-slate-500">
+                                                        <Calendar size={14} /> {formatDate(lead.lastUpdated)}
+                                                    </div>
+                                                </td>
+                                                <td className="px-6 py-4 text-right space-x-3">
+                                                    <button
+                                                        onClick={() => { setSelectedLeadForDetails(lead); }}
+                                                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-white border border-slate-200 text-slate-600 hover:text-indigo-600 hover:border-indigo-200 rounded-xl text-xs font-bold transition-all shadow-sm"
+                                                    >
+                                                        <Eye size={14} /> Details
+                                                    </button>
+                                                    <button
+                                                        onClick={() => { setSelectedLead(lead); setView("history"); }}
+                                                        className="inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm shadow-indigo-200"
+                                                    >
+                                                        <History size={14} /> History
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     )}
 
                     {/* Level 3: Call History for Selected Lead */}
                     {view === "history" && selectedLead && (
-                        <div style={styles.tableContainer}>
-                            <table style={styles.table}>
-                                <thead>
-                                    <tr>
-                                        <th style={styles.th}>Date</th>
-                                        <th style={styles.th}>Outcome</th>
-                                        <th style={styles.th}>Interaction Summary</th>
-                                        <th style={styles.th}>Internal Remark</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {selectedLead.activities.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(act => {
-                                        const outcome = CALL_OUTCOMES.find(o => o.value === act.callOutcome);
-                                        return (
-                                            <tr key={act._id}>
-                                                <td style={styles.td}>{formatDate(act.createdAt)}</td>
-                                                <td style={styles.td}>
-                                                    <span style={styles.badge(outcome?.color || '#64748B')}>
-                                                        {outcome?.label || act.callOutcome}
-                                                    </span>
-                                                </td>
-                                                <td style={{ ...styles.td, maxWidth: '400px', fontSize: '13px' }}>{act.summary || "No summary"}</td>
-                                                <td style={{ ...styles.td, color: '#64748B', fontSize: '13px' }}>{act.remark || "-"}</td>
-                                            </tr>
-                                        );
-                                    })}
-                                </tbody>
-                            </table>
+                        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden animate-[fadeIn_0.3s_ease-out]">
+                            <div className="px-6 py-5 border-b border-slate-100 bg-slate-50 flex items-center justify-between">
+                                <h3 className="text-lg font-black text-slate-800 flex items-center gap-2">
+                                    <FileText className="text-indigo-500" size={20} /> Interaction Log for {selectedLead.name}
+                                </h3>
+                                <span className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-lg text-xs font-bold">
+                                    {selectedLead.activities.length} Interactions
+                                </span>
+                            </div>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr className="border-b border-slate-200">
+                                            <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest w-[200px]">Date & Time</th>
+                                            <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest w-[250px]">Call Outcome</th>
+                                            <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Interaction Summary & Remarks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-slate-100">
+                                        {selectedLead.activities.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).map(act => {
+                                            const outcome = CALL_OUTCOMES.find(o => o.value === act.callOutcome);
+                                            return (
+                                                <tr key={act._id} className="hover:bg-slate-50/50 transition-colors">
+                                                    <td className="px-6 py-4">
+                                                        <div className="flex flex-col gap-1 text-sm font-semibold text-slate-600">
+                                                            <span className="flex items-center gap-1.5"><Calendar size={12} className="text-slate-400"/> {new Date(act.createdAt).toLocaleDateString('en-GB')}</span>
+                                                            <span className="flex items-center gap-1.5"><Clock size={12} className="text-slate-400"/> {new Date(act.createdAt).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}</span>
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-4">
+                                                        <span className={`inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold border ${outcome?.color || 'text-slate-700 bg-slate-50 border-slate-200'}`}>
+                                                            {outcome?.label || act.callOutcome}
+                                                        </span>
+                                                    </td>
+                                                    <td className="px-6 py-4">
+                                                        <div className="flex flex-col gap-2">
+                                                            <div className="text-sm font-semibold text-slate-800 leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                                                {act.summary || "No summary provided for this interaction."}
+                                                            </div>
+                                                            {act.remark && (
+                                                                <div className="text-xs font-bold text-slate-400 uppercase tracking-wide flex items-center gap-1.5 mt-1 ml-1">
+                                                                    <span>Internal Remark:</span> <span className="text-slate-600 normal-case">{act.remark}</span>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            );
+                                        })}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     )}
                 </>
+            )}
+
+            {/* ── Lead Details Modal ── */}
+            {selectedLeadForDetails && (
+                <div 
+                    onClick={() => setSelectedLeadForDetails(null)}
+                    className="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-[3000] flex items-center justify-center p-4 sm:p-6"
+                >
+                    <div 
+                        onClick={e => e.stopPropagation()}
+                        className="bg-white w-full max-w-3xl rounded-3xl shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-[fadeIn_0.2s_ease-out]"
+                    >
+                        <div className="px-6 py-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                            <h2 className="text-xl font-black tracking-tight text-slate-800 flex items-center gap-2">
+                                <FileText className="text-indigo-500" /> Full Lead Intelligence
+                            </h2>
+                            <button onClick={() => setSelectedLeadForDetails(null)} className="p-2 bg-white rounded-full text-slate-400 hover:text-slate-600 shadow-sm border border-slate-100 transition-colors">
+                                <X size={20} />
+                            </button>
+                        </div>
+                        
+                        <div className="p-6 overflow-y-auto custom-scrollbar">
+                            <div className="bg-indigo-50/50 rounded-2xl border border-indigo-100 p-6 mb-6">
+                                <div className="flex items-center gap-4 mb-4">
+                                    <div className="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-xl font-black shadow-lg shadow-indigo-200">
+                                        {selectedLeadForDetails.name.charAt(0).toUpperCase()}
+                                    </div>
+                                    <div>
+                                        <h3 className="text-2xl font-black text-slate-900 mb-1">{selectedLeadForDetails.name}</h3>
+                                        <div className="text-sm font-medium text-slate-500">{selectedLeadForDetails.email || 'No email provided'}</div>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-2 gap-4 pt-4 border-t border-indigo-100/50">
+                                    <div>
+                                        <div className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-1">Phone Number</div>
+                                        <div className="text-sm font-bold text-slate-700 bg-white px-3 py-1.5 rounded-lg border border-indigo-100 inline-block">{selectedLeadForDetails.phone}</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-1">Target Domain</div>
+                                        <div className="text-sm font-bold text-slate-700">{selectedLeadForDetails.domain || 'General Exploration'}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {selectedLeadForDetails.extra_fields && Object.keys(selectedLeadForDetails.extra_fields).length > 0 && (
+                                <>
+                                    <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-4 ml-1">Meta Ads & Custom Questionnaire</h3>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                                        {Object.entries(selectedLeadForDetails.extra_fields).map(([key, val]) => (
+                                            <div key={key}>
+                                                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wide mb-1">{key.replace(/_/g, ' ')}</div>
+                                                <div className="text-sm font-semibold text-slate-800">{String(val) || '—'}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                        
+                        <div className="px-6 py-4 border-t border-slate-100 bg-white flex justify-end">
+                            <button 
+                                onClick={() => setSelectedLeadForDetails(null)} 
+                                className="px-6 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-sm font-bold transition-all shadow-md shadow-slate-200"
+                            >
+                                Close Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
             )}
         </div>
     );

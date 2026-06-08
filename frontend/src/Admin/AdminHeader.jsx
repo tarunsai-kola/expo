@@ -4,7 +4,13 @@ import axios from "axios";
 import API from "../API";
 import logo from "../assets/LOGO3.png";
 import toast, { Toaster } from "react-hot-toast";
-import { FaSignOutAlt } from "react-icons/fa";
+import { 
+  LogOut, Home, LayoutDashboard, PhoneCall, Activity, FileSpreadsheet, 
+  PlusCircle, List, Code, Briefcase, Users, GraduationCap, 
+  Bookmark, CheckSquare, XCircle, HelpCircle, FileText, UserCog, 
+  LineChart, UploadCloud, TrendingUp, CheckCircle, CalendarPlus, 
+  UserCheck, CalendarDays
+} from "lucide-react";
 
 const AdminHeader = () => {
   const navigate = useNavigate();
@@ -13,7 +19,7 @@ const AdminHeader = () => {
   const handleLogout = async () => {
     try {
       await axios.post(`${API}/admin/logout`, {}, { withCredentials: true });
-      toast.success("Logout successful!!!");
+      toast.success("Logout successful!");
       setTimeout(() => {
         localStorage.removeItem("adminToken");
         navigate("/AdminLogin");
@@ -26,112 +32,131 @@ const AdminHeader = () => {
   };
 
   const isActive = (path) => {
-    return location.pathname === path ? "bg-blue-600/20 text-blue-400 border-blue-500/30" : "text-gray-400 hover:bg-white/5 hover:text-gray-200 border-transparent";
+    return location.pathname === path 
+      ? "bg-gradient-to-r from-indigo-500/10 to-transparent text-indigo-400 border-l-4 border-indigo-500 font-bold" 
+      : "text-slate-400 hover:bg-white/5 hover:text-slate-200 border-l-4 border-transparent font-medium";
   };
 
+  const menuItems = [
+    { category: "CRM Governance" },
+    { to: "/AdvAdminDashboard", icon: LayoutDashboard, text: "Admin Dashboard" },
+    { to: "/Admin/CallLogs", icon: PhoneCall, text: "Call Activity Logs" },
+    { to: "/Admin/LiveMonitor", icon: Activity, text: "Live Monitoring", isLive: true },
+    { to: "/Admin/Reports", icon: FileSpreadsheet, text: "System Reports" },
+    
+    { category: "Course Management" },
+    { to: "/AddAdvCourse", icon: PlusCircle, text: "Create Course" },
+    { to: "/AddAdvModule", icon: List, text: "Course List" },
+    { to: "/AdvExercisePage", icon: Code, text: "Exercise Builder" },
+    { to: "/CreateAdvOperation", icon: Briefcase, text: "Create Operation" },
+    { to: "/CreateAdvTeam", icon: Users, text: "Create Team" },
+    { to: "/AdvOnBoardingDetails", icon: GraduationCap, text: "Onboarding" },
+    { to: "/AdvBooked", icon: Bookmark, text: "Booked" },
+    { to: "/AdvFullPaid", icon: CheckSquare, text: "FullPaid" },
+    { to: "/AdvDefault", icon: XCircle, text: "Default" },
+    
+    { category: "Operations & Analytics" },
+    { to: "/AdvanceQueries", icon: HelpCircle, text: "Course Queries" },
+    { to: "/AdvLeadManagement", icon: Users, text: "Lead Mgmt" },
+    { to: "/AdvFormLeads", icon: FileText, text: "Form Leads" },
+    { to: "/AdvTeamDetail", icon: Users, text: "Team Details" },
+    { to: "/AdvUserManagement", icon: UserCog, text: "User Mgmt" },
+    { to: "/AdminAnalytics", icon: LineChart, text: "Analytics" },
+    { to: "/BulkImport", icon: UploadCloud, text: "Bulk Import Leads" },
+    { to: "/AdvRevenueSheet", icon: TrendingUp, text: "Revenue Sheet" },
+    
+    { category: "Special Programs" },
+    { to: "/AdvProjectPage", icon: CheckCircle, text: "Project Mgmt" },
+    { to: "/CreateInterview", icon: CalendarPlus, text: "Create Mock Interview" },
+    { to: "/MasterClasses", icon: GraduationCap, text: "Master Class" },
+    { to: "/admin-career-assessment", icon: UserCheck, text: "Career Assessments" },
+    { to: "/Admin/Attendance", icon: CalendarDays, text: "Attendance" },
+  ];
+
   return (
-    <div className="z-[1000] fixed top-0 left-0 w-full h-[70px] bg-[#05050A]/80 backdrop-blur-md border-b border-white/10 flex items-center px-6 justify-between">
-      <Toaster position="top-center" reverseOrder={false} toastOptions={{
-        style: { background: '#1e1e2d', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }
-      }} />
-      
+    <>
       {/* Top Navbar */}
-      <div className="flex items-center gap-4">
-        <Link to="/">
-          <img src={logo} alt="Atorax Logo" className="h-10 object-contain" />
-        </Link>
-        <span className="text-white/50 text-sm font-bold tracking-widest uppercase border-l border-white/10 pl-4 ml-2">Admin Portal</span>
+      <div className="z-[1000] fixed top-0 left-0 w-full h-[70px] bg-[#0A0F1C]/90 backdrop-blur-xl border-b border-white/5 flex items-center px-6 justify-between shadow-sm">
+        <Toaster position="top-center" reverseOrder={false} toastOptions={{
+          style: { background: '#1e1e2d', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }
+        }} />
+        
+        <div className="flex items-center gap-4">
+          <Link to="/" className="flex items-center">
+            <img src={logo} alt="Atorax Logo" className="h-9 object-contain drop-shadow-md" />
+          </Link>
+          <div className="h-6 w-px bg-white/10 ml-2"></div>
+          <span className="text-indigo-400/80 text-xs font-black tracking-[0.2em] uppercase ml-2 bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/20">Admin Portal</span>
+        </div>
+
+        <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2 bg-rose-500/10 hover:bg-rose-500 hover:text-white text-rose-400 border border-rose-500/20 rounded-xl transition-all font-bold text-sm shadow-sm group">
+          <LogOut size={16} className="group-hover:animate-pulse" /> <span className="hidden sm:inline">Logout</span>
+        </button>
       </div>
 
-      <button onClick={handleLogout} className="flex items-center gap-2 px-4 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/20 rounded-xl transition-all font-bold text-sm">
-        <FaSignOutAlt /> Logout
-      </button>
-
-      {/* Sidebar */}
-      <div className="fixed top-[70px] left-0 w-[265px] h-[calc(100vh-70px)] bg-[#0A0A0F]/95 backdrop-blur-2xl border-r border-white/5 overflow-y-auto custom-scrollbar pb-10">
+      {/* Sidebar Navigation */}
+      <div className="fixed top-[70px] left-0 w-[265px] h-[calc(100vh-70px)] bg-[#0B0F19]/95 backdrop-blur-2xl border-r border-white/5 overflow-y-auto custom-scrollbar pb-10 z-[900]">
         
-        {/* Ambient Glow inside Sidebar */}
-        <div className="absolute top-0 left-0 w-full h-32 bg-blue-600/10 blur-[50px] pointer-events-none"></div>
+        {/* Subtle Ambient Glow */}
+        <div className="absolute top-0 left-0 w-full h-40 bg-indigo-500/5 blur-[60px] pointer-events-none"></div>
 
-        <div className="flex flex-col p-4 gap-1 relative z-10">
+        <div className="flex flex-col py-6 relative z-10">
           
-          <Link to="/AdminDashboard" className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all border text-sm font-bold ${isActive('/AdminDashboard')}`}>
-            <i className="fa fa-home w-5 text-center text-blue-500"></i> Home
-          </Link>
-          
-          <div className="mt-6 mb-2">
-            <h3 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] px-4">CRM Governance</h3>
-          </div>
-          
-          <Link to="/AdvAdminDashboard" className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all border text-sm font-semibold ${isActive('/AdvAdminDashboard')}`}>
-            <i className="fa fa-dashboard w-5 text-center text-blue-400"></i> Admin Dashboard
-          </Link>
-          <Link to="/Admin/CallLogs" className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all border text-sm font-semibold ${isActive('/Admin/CallLogs')}`}>
-            <i className="fa fa-phone w-5 text-center text-indigo-400"></i> Call Activity Logs
-          </Link>
-          <Link to="/Admin/LiveMonitor" className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all border text-sm font-semibold justify-between ${isActive('/Admin/LiveMonitor')}`}>
-            <div className="flex items-center gap-3">
-              <i className="fa fa-heartbeat w-5 text-center text-emerald-400"></i> Live Monitoring
-            </div>
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.8)]"></span>
-          </Link>
-          <Link to="/Admin/Reports" className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all border text-sm font-semibold ${isActive('/Admin/Reports')}`}>
-            <i className="fa fa-file-excel-o w-5 text-center text-blue-400"></i> System Reports
-          </Link>
-
-          <div className="mt-6 mb-2">
-            <h3 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] px-4">Course Management</h3>
-          </div>
-
-          {[
-            { to: "/AddAdvCourse", icon: "fa-plus-circle", text: "Create Course", color: "text-blue-400" },
-            { to: "/AddAdvModule", icon: "fa-list", text: "Course List", color: "text-blue-400" },
-            { to: "/AdvExercisePage", icon: "fa-code", text: "Exercise Builder", color: "text-indigo-400" },
-            { to: "/CreateAdvOperation", icon: "fa-briefcase", text: "Create Operation", color: "text-blue-400" },
-            { to: "/CreateAdvTeam", icon: "fa-users", text: "Create Team", color: "text-purple-400" },
-            { to: "/AdvOnBoardingDetails", icon: "fa-graduation-cap", text: "Onboarding", color: "text-emerald-400" },
-            { to: "/AdvBooked", icon: "fa-bookmark", text: "Booked", color: "text-blue-400" },
-            { to: "/AdvFullPaid", icon: "fa-check-square", text: "FullPaid", color: "text-emerald-400" },
-            { to: "/AdvDefault", icon: "fa-times-circle", text: "Default", color: "text-red-400" },
-            { to: "/AdvanceQueries", icon: "fa-question-circle", text: "Course Queries", color: "text-yellow-400" },
-            { to: "/AdvLeadManagement", icon: "fa-users", text: "Lead Mgmt", color: "text-purple-400" },
-            { to: "/AdvFormLeads", icon: "fa-wpforms", text: "Form Leads", color: "text-blue-400" },
-            { to: "/AdvTeamDetail", icon: "fa-users", text: "Team Details", color: "text-purple-400" },
-            { to: "/AdvUserManagement", icon: "fa-users-cog", text: "User Mgmt", color: "text-indigo-400" },
-            { to: "/AdminAnalytics", icon: "fa-area-chart", text: "Analytics", color: "text-emerald-400" },
-            { to: "/BulkImport", icon: "fa-upload", text: "Bulk Import Leads", color: "text-blue-400" },
-            { to: "/AdvRevenueSheet", icon: "fa-line-chart", text: "Revenue Sheet", color: "text-emerald-400" },
-            { to: "/AdvProjectPage", icon: "fa-tasks", text: "Project Mgmt", color: "text-indigo-400" },
-            { to: "/CreateInterview", icon: "fa-calendar-plus-o", text: "Create Mock Interview", color: "text-blue-400" },
-            { to: "/MasterClasses", icon: "fa-graduation-cap", text: "Master Class", color: "text-purple-400" },
-            { to: "/admin-career-assessment", icon: "fa-address-card", text: "Career Assessments", color: "text-emerald-400" },
-            { to: "/Admin/Attendance", icon: "fa-calendar", text: "Attendance", color: "text-blue-400" },
-          ].map((item, index) => (
-            <Link key={index} to={item.to} className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all border text-sm font-semibold group ${isActive(item.to)}`}>
-              <i className={`fa ${item.icon} w-5 text-center ${item.color} group-hover:scale-110 transition-transform`}></i> 
-              <span className="truncate">{item.text}</span>
+          <div className="px-3 mb-2">
+            <Link to="/AdminDashboard" className={`flex items-center gap-3 px-4 py-3 rounded-r-xl transition-all text-sm group ${isActive('/AdminDashboard')}`}>
+              <Home size={18} className={`${location.pathname === '/AdminDashboard' ? 'text-indigo-400' : 'text-slate-400 group-hover:text-indigo-300'} transition-colors`} /> 
+              <span>Home</span>
             </Link>
-          ))}
-          
+          </div>
+
+          {menuItems.map((item, index) => {
+            if (item.category) {
+              return (
+                <div key={index} className="mt-8 mb-3 px-7">
+                  <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">{item.category}</h3>
+                </div>
+              );
+            }
+
+            const active = location.pathname === item.to;
+            const Icon = item.icon;
+
+            return (
+              <div key={index} className="px-3 mb-1">
+                <Link to={item.to} className={`flex items-center justify-between px-4 py-2.5 rounded-r-xl transition-all text-sm group ${isActive(item.to)}`}>
+                  <div className="flex items-center gap-3">
+                    <Icon size={18} className={`${active ? 'text-indigo-400' : 'text-slate-400 group-hover:text-indigo-300'} transition-colors`} /> 
+                    <span className="truncate">{item.text}</span>
+                  </div>
+                  {item.isLive && (
+                    <span className="relative flex h-2.5 w-2.5">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                  )}
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
       
       <style dangerouslySetInnerHTML={{__html: `
         .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
+          width: 5px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
           background: transparent;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 4px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.15);
         }
       `}} />
-    </div>
+    </>
   );
 };
 

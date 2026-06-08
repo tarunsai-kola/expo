@@ -5,32 +5,10 @@ import toast, { Toaster } from "react-hot-toast";
 import { saveAs } from "file-saver";
 import * as XLSX from "xlsx";
 import { 
-  Users, 
-  Search, 
-  Calendar, 
-  ChevronLeft, 
-  ChevronRight, 
-  X,
-  Clock,
-  UserCheck,
-  Mail,
-  Shield,
-  ArrowRight,
-  Filter,
-  Download,
-  Send,
-  Loader,
-  Trash2,
-  Edit3,
-  Check,
-  AlertCircle
+  Users, Search, Calendar, ChevronLeft, ChevronRight, X, Clock,
+  UserCheck, ArrowRight, Filter, Download, Send,
+  Loader, Edit3, AlertCircle, Plus, Bell, Mail, Shield, CalendarDays
 } from "lucide-react";
-
-/**
- * Admin Attendance Dashboard
- * Server-side paging (50 members/page), search, and monthly filtering.
- * Detailed user history (10/page) in modal.
- */
 
 const AdminAttendance = () => {
   const [members, setMembers] = useState([]);
@@ -44,13 +22,12 @@ const AdminAttendance = () => {
   const [filterMonth, setFilterMonth] = useState(new Date().getMonth());
   const [filterYear, setFilterYear] = useState(new Date().getFullYear());
 
-  // Detail Modal State
   const [selectedUser, setSelectedUser] = useState(null);
   const [userHistory, setUserHistory] = useState([]);
   const [historyPage, setHistoryPage] = useState(1);
   const [historyTotalPages, setHistoryTotalPages] = useState(1);
   const [loadingHistory, setLoadingHistory] = useState(false);
-  const [sendingReport, setSendingReport] = useState(null); // stores userId being sent
+  const [sendingReport, setSendingReport] = useState(null);
   const [isBulkSending, setIsBulkSending] = useState(false);
   const [isReminding, setIsReminding] = useState(false);
   const [isSendingAbsent, setIsSendingAbsent] = useState(false);
@@ -60,18 +37,13 @@ const AdminAttendance = () => {
   const [newMember, setNewMember] = useState({ email: "", name: "", role: "Employee", pin: "" });
   const [addingMember, setAddingMember] = useState(false);
   
-  // Summary State
   const [dailySummary, setDailySummary] = useState([]);
   const [loadingSummary, setLoadingSummary] = useState(false);
-  const [editingRecord, setEditingRecord] = useState(null);
-  const [deletingRecord, setDeletingRecord] = useState(null);
   
-  // User Account Edit State
   const [showEditUserModal, setShowEditUserModal] = useState(false);
-  const [editingUser, setEditingUser] = useState(null); // stores the user object being edited
+  const [editingUser, setEditingUser] = useState(null);
   const [isUpdatingUser, setIsUpdatingUser] = useState(false);
   
-  // Override System State
   const [isOverrideActive, setIsOverrideActive] = useState(false);
   const [loadingOverride, setLoadingOverride] = useState(false);
 
@@ -81,13 +53,7 @@ const AdminAttendance = () => {
       const token = localStorage.getItem("adminToken");
       const res = await axios.get(`${API}/api/atd/admin/users`, {
         headers: { Authorization: `Bearer ${token}` },
-        params: { 
-          page: currentPage, 
-          limit: 50, 
-          search, 
-          month: filterMonth, 
-          year: filterYear 
-        }
+        params: { page: currentPage, limit: 50, search, month: filterMonth, year: filterYear }
       });
       setMembers(res.data.data);
       setTotalMembers(res.data.total);
@@ -143,12 +109,7 @@ const AdminAttendance = () => {
       const token = localStorage.getItem("adminToken");
       const res = await axios.get(`${API}/api/atd/admin/user/${userId}/history`, {
         headers: { Authorization: `Bearer ${token}` },
-        params: { 
-          page, 
-          limit: 10, 
-          month: filterMonth, 
-          year: filterYear 
-        }
+        params: { page, limit: 10, month: filterMonth, year: filterYear }
       });
       setUserHistory(res.data.data);
       setHistoryTotalPages(res.data.totalPages);
@@ -166,12 +127,7 @@ const AdminAttendance = () => {
       const token = localStorage.getItem("adminToken");
       const res = await axios.get(`${API}/api/atd/admin/users`, {
         headers: { Authorization: `Bearer ${token}` },
-        params: { 
-          all: true,
-          search, 
-          month: filterMonth, 
-          year: filterYear 
-        }
+        params: { all: true, search, month: filterMonth, year: filterYear }
       });
       
       const daysInMonth = new Date(filterYear, parseInt(filterMonth) + 1, 0).getDate();
@@ -181,13 +137,7 @@ const AdminAttendance = () => {
       }
 
       const dataToExport = res.data.data.map(m => {
-        const row = {
-          "Name": m.name,
-          "Email": m.email,
-          "Role": m.role || "Member",
-        };
-
-        // Dynamically add columns for each day of the month
+        const row = { "Name": m.name, "Email": m.email, "Role": m.role || "Member" };
         for (let i = 1; i <= daysInMonth; i++) {
           const dayKey = i.toString().padStart(2, '0');
           const dayStr = `${filterYear}-${(parseInt(filterMonth) + 1).toString().padStart(2, '0')}-${i.toString().padStart(2, '0')}`;
@@ -197,17 +147,15 @@ const AdminAttendance = () => {
             else if (record.status === "Late") row[dayKey] = "L";
             else if (record.status === "Half Day") row[dayKey] = "HD";
           } else {
-            row[dayKey] = "-"; // Absent
+            row[dayKey] = "-";
           }
         }
-
         row["Total Present"] = m.daysPresent;
         row["Full Present"] = m.onTimeCount;
         row["Late"] = m.lateCount;
         row["Half Day"] = m.halfDayCount;
         row["Month"] = monthNames[filterMonth];
         row["Year"] = filterYear;
-
         return row;
       });
 
@@ -236,12 +184,7 @@ const AdminAttendance = () => {
     setSendingReport(user._id);
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.post(`${API}/api/atd/admin/send-report/${user._id}`, {
-        month: filterMonth,
-        year: filterYear
-      }, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      await axios.post(`${API}/api/atd/admin/send-report/${user._id}`, { month: filterMonth, year: filterYear }, { headers: { Authorization: `Bearer ${token}` } });
       toast.success(`Report sent to ${user.email}`);
     } catch (err) {
       toast.error("Failed to send report");
@@ -252,16 +195,10 @@ const AdminAttendance = () => {
 
   const sendAllReports = async () => {
     if (!window.confirm(`Are you sure you want to send reports to ALL employees for ${monthNames[filterMonth]} ${filterYear}?`)) return;
-    
     setIsBulkSending(true);
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.post(`${API}/api/atd/admin/send-all-reports`, {
-        month: filterMonth,
-        year: filterYear
-      }, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      await axios.post(`${API}/api/atd/admin/send-all-reports`, { month: filterMonth, year: filterYear }, { headers: { Authorization: `Bearer ${token}` } });
       toast.success("Bulk report dispatch started successfully");
     } catch (err) {
       toast.error("Failed to start bulk dispatch");
@@ -275,9 +212,7 @@ const AdminAttendance = () => {
     setIsReminding(true);
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await axios.post(`${API}/api/atd/admin/send-reminders`, {}, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const res = await axios.post(`${API}/api/atd/admin/send-reminders`, {}, { headers: { Authorization: `Bearer ${token}` } });
       toast.success(res.data.message);
     } catch (err) {
       toast.error("Failed to send reminders");
@@ -291,9 +226,7 @@ const AdminAttendance = () => {
     setIsSendingAbsent(true);
     try {
       const token = localStorage.getItem("adminToken");
-      const res = await axios.post(`${API}/api/atd/admin/send-absent-mails`, {}, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const res = await axios.post(`${API}/api/atd/admin/send-absent-mails`, {}, { headers: { Authorization: `Bearer ${token}` } });
       toast.success(res.data.message);
     } catch (err) {
       toast.error("Failed to send absent emails");
@@ -302,84 +235,15 @@ const AdminAttendance = () => {
     }
   };
 
-  const toggleHalfDay = async (recordId, currentVal) => {
-    setUpdatingRecord(recordId);
-    try {
-      const token = localStorage.getItem("adminToken");
-      await axios.patch(`${API}/api/atd/admin/attendance/${recordId}`, {
-        isHalfDayOverride: !currentVal
-      }, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      toast.success("Status updated");
-      // Update local history
-      setUserHistory(prev => prev.map(r => r._id === recordId ? { ...r, isHalfDayOverride: !currentVal, isHalfDay: !currentVal ? true : r.isHalfDay } : r));
-      // Refresh count in main list
-      fetchMembers();
-      fetchDailySummary();
-    } catch (err) {
-      toast.error("Failed to update status");
-    } finally {
-      setUpdatingRecord(null);
-    }
-  };
-
-  const handleEditTime = async (recordId, newTime) => {
-    setUpdatingRecord(recordId);
-    try {
-      const token = localStorage.getItem("adminToken");
-      await axios.patch(`${API}/api/atd/admin/attendance/${recordId}`, {
-        newTime
-      }, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      toast.success("Time updated successfully");
-      setEditingRecord(null);
-      if (selectedUser) fetchUserDetail(selectedUser._id, historyPage);
-      fetchMembers();
-    } catch (err) {
-      toast.error("Failed to update time");
-    } finally {
-      setUpdatingRecord(null);
-    }
-  };
-
-  const handleDeleteRecord = async (recordId) => {
-    if (!window.confirm("Delete this record permanently?")) return;
-    setDeletingRecord(recordId);
-    try {
-      const token = localStorage.getItem("adminToken");
-      await axios.delete(`${API}/api/atd/admin/attendance/${recordId}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      toast.success("Record deleted");
-      if (selectedUser) fetchUserDetail(selectedUser._id, historyPage);
-      fetchMembers();
-      fetchDailySummary();
-    } catch (err) {
-      toast.error("Failed to delete record");
-    } finally {
-      setDeletingRecord(null);
-    }
-  };
-
   const handleAddMember = async (e) => {
     e.preventDefault();
-    if (!newMember.email || !newMember.name || !newMember.pin) {
-      toast.error("Please fill all fields");
-      return;
-    }
-    if (newMember.pin.length < 4 || newMember.pin.length > 6) {
-      toast.error("PIN must be 4-6 digits");
-      return;
-    }
+    if (!newMember.email || !newMember.name || !newMember.pin) { toast.error("Please fill all fields"); return; }
+    if (newMember.pin.length < 4 || newMember.pin.length > 6) { toast.error("PIN must be 4-6 digits"); return; }
 
     setAddingMember(true);
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.post(`${API}/api/atd/admin/add-user`, newMember, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      await axios.post(`${API}/api/atd/admin/add-user`, newMember, { headers: { Authorization: `Bearer ${token}` } });
       toast.success("Member added successfully!");
       setShowAddModal(false);
       setNewMember({ email: "", name: "", role: "Employee", pin: "" });
@@ -394,16 +258,11 @@ const AdminAttendance = () => {
 
   const handleUpdateUser = async (e) => {
     e.preventDefault();
-    if (!editingUser.email || !editingUser.name || !editingUser.pin) {
-      toast.error("Please fill all fields");
-      return;
-    }
+    if (!editingUser.email || !editingUser.name || !editingUser.pin) { toast.error("Please fill all fields"); return; }
     setIsUpdatingUser(true);
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.patch(`${API}/api/atd/admin/user/${editingUser._id}`, editingUser, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      await axios.patch(`${API}/api/atd/admin/user/${editingUser._id}`, editingUser, { headers: { Authorization: `Bearer ${token}` } });
       toast.success("User credentials updated");
       setShowEditUserModal(false);
       fetchMembers();
@@ -415,23 +274,6 @@ const AdminAttendance = () => {
     }
   };
 
-  const handleDeleteUser = async (user, e) => {
-    if (e) e.stopPropagation();
-    if (!window.confirm(`PERMANENTLY DELETE ${user.name}? This will wipe their account and ALL attendance history. This action cannot be undone.`)) return;
-    
-    try {
-      const token = localStorage.getItem("adminToken");
-      await axios.delete(`${API}/api/atd/admin/user/${user._id}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      toast.success("User deleted permanently");
-      fetchMembers();
-      fetchDailySummary();
-    } catch (err) {
-      toast.error("Failed to delete user");
-    }
-  };
-
   const handleToggleOverride = async () => {
     const newVal = !isOverrideActive;
     if (!window.confirm(`Are you sure you want to turn ${newVal ? 'ON' : 'OFF'} the Emergency Attendance Override?\n\nIf ON, ALL new attendance marked from now on will be recorded at 11:00 AM IST (Full/On-Time).`)) return;
@@ -439,9 +281,7 @@ const AdminAttendance = () => {
     setLoadingOverride(true);
     try {
       const token = localStorage.getItem("adminToken");
-      await axios.post(`${API}/api/atd/admin/attendance-override`, { value: newVal }, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      await axios.post(`${API}/api/atd/admin/attendance-override`, { value: newVal }, { headers: { Authorization: `Bearer ${token}` } });
       setIsOverrideActive(newVal);
       toast.success(`Emergency Override is now ${newVal ? 'ACTIVE' : 'INACTIVE'}`);
     } catch (err) {
@@ -457,799 +297,455 @@ const AdminAttendance = () => {
   ];
 
   return (
-    <div className="admin-attendance-container min-h-screen bg-slate-50 text-slate-700 font-sans p-6" style={{ ...styles.container, backgroundColor: '#0B0F19', color: '#cbd5e1' }}>
-      {/* Add Member Modal */}
-      {showAddModal && (
-        <div style={styles.modalOverlay}>
-           <div style={{ ...styles.modalContent, maxWidth: "450px" }}>
-              <div style={styles.modalHeader}>
-                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                    <div style={{ ...styles.iconBox, backgroundColor: "#fff7ed" }}><Users color="#FF6B00" /></div>
-                    <div>
-                       <h2 style={styles.modalTitle}>Add New Member</h2>
-                       <p style={{ fontSize: "12px", color: "#64748b" }}>Register a new employee for attendance tracking</p>
-                    </div>
-                 </div>
-                 <button onClick={() => setShowAddModal(false)} style={styles.closeBtn}><X size={20} /></button>
-              </div>
-
-              <form onSubmit={handleAddMember} style={{ padding: "30px" }}>
-                 <div style={styles.formGroup}>
-                    <label style={styles.label}>Full Name</label>
-                    <input 
-                       type="text" 
-                       placeholder="e.g. John Doe"
-                       style={styles.input}
-                       value={newMember.name}
-                       onChange={e => setNewMember({...newMember, name: e.target.value})}
-                       required
-                    />
-                 </div>
-                 <div style={styles.formGroup}>
-                    <label style={styles.label}>Email Address</label>
-                    <input 
-                       type="email" 
-                       placeholder="john@atorax.com"
-                       style={styles.input}
-                       value={newMember.email}
-                       onChange={e => setNewMember({...newMember, email: e.target.value})}
-                       required
-                    />
-                 </div>
-                 <div style={styles.formGroup}>
-                    <label style={styles.label}>Designation/Role</label>
-                    <input 
-                       type="text" 
-                       placeholder="e.g. Software Engineer"
-                       style={styles.input}
-                       value={newMember.role}
-                       onChange={e => setNewMember({...newMember, role: e.target.value})}
-                       required
-                    />
-                 </div>
-                 <div style={styles.formGroup}>
-                    <label style={styles.label}>Predefined PIN (4-6 digits)</label>
-                    <input 
-                       type="text" 
-                       placeholder="123456"
-                       style={styles.input}
-                       value={newMember.pin}
-                       onChange={e => setNewMember({...newMember, pin: e.target.value})}
-                       required
-                    />
-                 </div>
-
-                 <button type="submit" disabled={addingMember} style={styles.primaryBtn}>
-                    {addingMember ? "Registering..." : "Add Member"}
-                 </button>
-              </form>
-           </div>
-        </div>
-      )}
-
-      {/* Edit Member Modal */}
-      {showEditUserModal && editingUser && (
-        <div style={styles.modalOverlay}>
-           <div style={{ ...styles.modalContent, maxWidth: "450px" }}>
-              <div style={styles.modalHeader}>
-                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                    <div style={{ ...styles.iconBox, backgroundColor: "#f1f5f9" }}><Edit3 color="#64748b" /></div>
-                    <div>
-                       <h2 style={styles.modalTitle}>Edit Credentials</h2>
-                       <p style={{ fontSize: "12px", color: "#64748b" }}>Update employee profile and PIN</p>
-                    </div>
-                 </div>
-                 <button onClick={() => setShowEditUserModal(false)} style={styles.closeBtn}><X size={20} /></button>
-              </div>
-
-              <form onSubmit={handleUpdateUser} style={{ padding: "30px" }}>
-                 <div style={styles.formGroup}>
-                    <label style={styles.label}>Full Name</label>
-                    <input 
-                       type="text" 
-                       style={styles.input}
-                       value={editingUser.name}
-                       onChange={e => setEditingUser({...editingUser, name: e.target.value})}
-                       required
-                    />
-                 </div>
-                 <div style={styles.formGroup}>
-                    <label style={styles.label}>Email Address</label>
-                    <input 
-                       type="email" 
-                       style={styles.input}
-                       value={editingUser.email}
-                       onChange={e => setEditingUser({...editingUser, email: e.target.value})}
-                       required
-                    />
-                 </div>
-                 <div style={styles.formGroup}>
-                    <label style={styles.label}>Designation/Role</label>
-                    <input 
-                       type="text" 
-                       style={styles.input}
-                       value={editingUser.role}
-                       onChange={e => setEditingUser({...editingUser, role: e.target.value})}
-                       required
-                    />
-                 </div>
-                 <div style={styles.formGroup}>
-                    <label style={styles.label}>Employee PIN</label>
-                    <input 
-                       type="text" 
-                       style={styles.input}
-                       value={editingUser.pin || ""}
-                       onChange={e => setEditingUser({...editingUser, pin: e.target.value})}
-                       required
-                    />
-                 </div>
-                 
-                 <div style={styles.formGroup}>
-                    <label style={styles.label}>Account Status</label>
-                    <select 
-                       style={styles.input}
-                       value={editingUser.status || "active"}
-                       onChange={e => setEditingUser({...editingUser, status: e.target.value})}
-                    >
-                       <option value="active">Active (Access Allowed)</option>
-                       <option value="inactive">Inactive (Access Blocked)</option>
-                    </select>
-                 </div>
-
-                 <button type="submit" disabled={isUpdatingUser} style={styles.primaryBtn}>
-                    {isUpdatingUser ? "Updating..." : "Update Credentials"}
-                 </button>
-              </form>
-           </div>
-        </div>
-      )}
-
+    <div className="admin-content-wrap min-h-screen bg-[#F4F7FE] p-6 sm:p-10 font-sans md:ml-64 relative">
       <Toaster position="top-center" />
-      <style>{`
-        .admin-table { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
-        .admin-table th { padding: 16px; text-align: left; color: #94a3b8; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; background-color: rgba(15, 23, 42, 0.8) !important; border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important; }
-        .admin-table td { padding: 16px; background: rgba(30, 41, 59, 0.4) !important; border-top: 1px solid rgba(51, 65, 85, 0.5) !important; border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important; color: #cbd5e1 !important; }
-        .admin-table tr td:first-child { border-left: 1px solid rgba(51, 65, 85, 0.5) !important; border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
-        .admin-table tr td:last-child { border-right: 1px solid rgba(51, 65, 85, 0.5) !important; border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
-        .admin-table tr:hover td { background: rgba(30, 41, 59, 0.8) !important; cursor: pointer; }
-        
-        .search-box:focus-within { border-color: #818cf8 !important; box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.1); }
-        .pagination-btn { padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(51, 65, 85, 0.5); background: rgba(30, 41, 59, 0.5); cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 5px; font-weight: 600; color: #cbd5e1; }
-        .pagination-btn:hover:not(:disabled) { border-color: #818cf8; color: #818cf8; }
-        .pagination-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(11, 15, 25, 0.8); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 1000; animation: fadeIn 0.3s ease; }
-        .modal-card { width: 90%; maxWidth: 700px; background: rgba(30, 41, 59, 0.95) !important; backdrop-filter: blur(12px); border: 1px solid rgba(51, 65, 85, 0.5); borderRadius: 24px; padding: 32px; boxShadow: 0 25px 50px -12px rgba(0,0,0,0.5); position: relative; animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1); color: #cbd5e1; }
-        
-        /* Overrides for inline styles */
-        .admin-attendance-container h1, .admin-attendance-container h2, .admin-attendance-container h3, 
-        .admin-attendance-container div[style*="color: '#0f172a'"], .admin-attendance-container div[style*='color: "#0f172a"'],
-        .admin-attendance-container div[style*="color: '#1e293b'"], .admin-attendance-container div[style*='color: "#1e293b"'] { color: #f8fafc !important; }
-        
-        .admin-attendance-container div[style*="background: '#fff'"], .admin-attendance-container div[style*='background: "#fff"'],
-        .admin-attendance-container div[style*="background: rgb(255, 255, 255)"] { background-color: rgba(30, 41, 59, 0.4) !important; border-color: rgba(51, 65, 85, 0.5) !important; }
-        
-        .admin-attendance-container div[style*="background: '#f1f5f9'"] { background-color: rgba(15, 23, 42, 0.5) !important; color: #94a3b8 !important; }
-        .admin-attendance-container div[style*="background: '#f8fafc'"], .admin-attendance-container div[style*='background: "#f8fafc"'] { background-color: rgba(30, 41, 59, 0.2) !important; border-color: rgba(51, 65, 85, 0.5) !important; color: #cbd5e1 !important; }
-        
-        .admin-attendance-container input, .admin-attendance-container select, .admin-attendance-container button[style*="background: '#fff'"] {
-           background-color: rgba(15, 23, 42, 0.5) !important; border: 1px solid rgba(51, 65, 85, 0.5) !important; color: #f8fafc !important;
-        }
-        
-        .admin-attendance-container button[style*="background: '#f59e0b'"] { background-color: #d97706 !important; }
-        .admin-attendance-container button[style*="background: '#ef4444'"] { background-color: #b91c1c !important; }
-        .admin-attendance-container button[style*="background: '#0f172a'"] { background-color: #1e293b !important; }
-        .admin-attendance-container button[style*="background: '#f97316'"] { background-color: #ea580c !important; }
-        
-        /* Badges */
-        .admin-attendance-container div[style*="background: '#fff7ed'"], .admin-attendance-container button[style*="background: '#fff7ed'"] { background-color: rgba(251, 146, 60, 0.1) !important; color: #fb923c !important; border-color: rgba(251, 146, 60, 0.2) !important; }
-        .admin-attendance-container div[style*="background: '#fff1f2'"] { background-color: rgba(244, 63, 94, 0.1) !important; color: #fb7185 !important; border-color: rgba(244, 63, 94, 0.2) !important; }
-        .admin-attendance-container div[style*="background: '#fee2e2'"] { background-color: rgba(239, 68, 68, 0.1) !important; color: #ef4444 !important; border-color: rgba(239, 68, 68, 0.2) !important; }
-        
-        /* Main Theme Color override (#FF6B00 -> #4f46e5) */
-        .admin-attendance-container button[style*="backgroundColor: '#FF6B00'"], .admin-attendance-container button[style*='backgroundColor: "#FF6B00"'],
-        .admin-attendance-container div[style*="backgroundColor: '#FF6B00'"], .admin-attendance-container div[style*='backgroundColor: "#FF6B00"'],
-        .admin-attendance-container div[style*="background: '#FF6B00'"] {
-            background-color: #4f46e5 !important; color: #fff !important; 
-        }
-        .admin-attendance-container svg[color="#FF6B00"] { stroke: #818cf8 !important; }
-        .admin-attendance-container span[style*="color: '#FF6B00'"], .admin-attendance-container div[style*="color: '#FF6B00'"] { color: #818cf8 !important; }
-        
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-
-        @media screen and (max-width: 1024px) {
-           .admin-attendance-container { margin-left: 0 !important; padding: 20px !important; }
-           .admin-controls { flex-direction: column !important; align-items: stretch !important; }
-           .stats-row { flex-direction: column !important; gap: 10px !important; }
-        }
-      `}</style>
 
       {/* Header Area */}
-      <div style={styles.header}>
-        <div>
-          <h1 style={styles.title}>Attendance Management</h1>
-          <p style={styles.subtitle}>Track and manage employee presence across all departments</p>
-        </div>
-        <div style={{ display: 'flex', gap: '12px' }}>
-          <button style={styles.addBtn} onClick={() => setShowAddModal(true)}><Users size={18} /><span>Add Member</span></button>
-          <button style={{ ...styles.exportBtn, background: '#f59e0b', color: 'white', border: 'none' }} onClick={sendReminders} disabled={isReminding}>{isReminding ? <><Loader size={18} className="animate-spin" /> Reminding...</> : <><Clock size={18} /> Send Reminders</>}</button>
-          <button style={{ ...styles.exportBtn, background: '#ef4444', color: 'white', border: 'none' }} onClick={sendAbsentMails} disabled={isSendingAbsent}>{isSendingAbsent ? <><Loader size={18} className="animate-spin" /> Sending...</> : <><X size={18} /> Send Absent Mails</>}</button>
-          <button style={{ ...styles.exportBtn, background: '#0f172a', color: 'white', border: 'none' }} onClick={sendAllReports} disabled={isBulkSending}>{isBulkSending ? <><Loader size={18} className="animate-spin" /> Dispatching...</> : <><Send size={18} /> Send All Reports</>}</button>
-          <button 
-             style={{ 
-               ...styles.exportBtn, 
-               background: isOverrideActive ? '#f97316' : '#fff', 
-               color: isOverrideActive ? 'white' : '#64748b', 
-               border: isOverrideActive ? 'none' : '1px solid #e2e8f0',
-               boxShadow: isOverrideActive ? '0 0 15px rgba(249, 115, 22, 0.3)' : 'none'
-             }} 
-             onClick={handleToggleOverride} 
-             disabled={loadingOverride}
-          >
-            {loadingOverride ? <Loader size={18} className="animate-spin" /> : <AlertCircle size={18} />}
-            <span>Override: {isOverrideActive ? 'ON' : 'OFF'}</span>
-          </button>
-          <button style={styles.exportBtn} onClick={exportToExcel} disabled={exportLoading}>{exportLoading ? <>Exporting...</> : <><Download size={18} /> Export Report</>}</button>
+      <div className="max-w-[1500px] mx-auto mb-10">
+        <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-6">
+          <div>
+            <h1 className="text-3xl font-bold text-slate-800 tracking-tight m-0 flex items-center gap-3">
+              Attendance Hub
+            </h1>
+            <p className="text-slate-500 mt-2 text-sm font-medium">Manage daily check-ins, employee presence, and generate reports.</p>
+          </div>
+          
+          <div className="flex flex-wrap items-center gap-3">
+            <button onClick={() => setShowAddModal(true)} className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold flex items-center gap-2 transition-colors shadow-sm">
+              <Plus size={18} strokeWidth={2.5} /> Add Member
+            </button>
+            <button onClick={sendReminders} disabled={isReminding} className="px-4 py-2.5 bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 rounded-xl font-bold flex items-center gap-2 transition-colors shadow-sm disabled:opacity-50">
+              {isReminding ? <Loader size={18} className="animate-spin text-amber-500" /> : <Bell size={18} className="text-amber-500" />}
+              <span className="hidden sm:inline">Remind</span>
+            </button>
+            <button onClick={sendAbsentMails} disabled={isSendingAbsent} className="px-4 py-2.5 bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 rounded-xl font-bold flex items-center gap-2 transition-colors shadow-sm disabled:opacity-50">
+              {isSendingAbsent ? <Loader size={18} className="animate-spin text-rose-500" /> : <Mail size={18} className="text-rose-500" />}
+              <span className="hidden sm:inline">Absent</span>
+            </button>
+            <button onClick={sendAllReports} disabled={isBulkSending} className="px-4 py-2.5 bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 rounded-xl font-bold flex items-center gap-2 transition-colors shadow-sm disabled:opacity-50">
+              {isBulkSending ? <Loader size={18} className="animate-spin text-indigo-500" /> : <Send size={18} className="text-indigo-500" />}
+              <span className="hidden sm:inline">Reports</span>
+            </button>
+            <button 
+              onClick={handleToggleOverride} 
+              disabled={loadingOverride}
+              className={`px-4 py-2.5 rounded-xl font-bold flex items-center gap-2 transition-colors shadow-sm border ${isOverrideActive ? 'bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'}`}
+              title="Emergency Override"
+            >
+              {loadingOverride ? <Loader size={18} className="animate-spin" /> : <AlertCircle size={18} className={isOverrideActive ? "text-orange-500" : "text-slate-400"} />}
+              <span className="hidden sm:inline">Override</span>
+            </button>
+            <button onClick={exportToExcel} disabled={exportLoading} className="px-5 py-2.5 bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 rounded-xl font-bold flex items-center gap-2 transition-colors shadow-sm disabled:opacity-50">
+              {exportLoading ? <Loader size={18} className="animate-spin text-emerald-500" /> : <Download size={18} className="text-emerald-500" />}
+              Export
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Daily Department Summary */}
-      <div style={styles.summaryGrid}>
-        {loadingSummary ? <div className="p-4 text-gray-400">Loading summary...</div> : (dailySummary && dailySummary.length > 0) ? dailySummary.map((s, i) => (
-          <div key={i} style={styles.summaryCard}>
-            <div style={{ ...styles.avatar, width: '32px', height: '32px', fontSize: '12px', background: '#f1f5f9', color: '#64748b' }}><UserCheck size={16} /></div>
-            <div style={{ flex: 1 }}>
-               <div style={{ fontSize: '11px', fontWeight: '800', textTransform: 'uppercase', color: '#94a3b8', letterSpacing: '0.5px' }}>{s.department || "Other"}</div>
-               <div style={{ fontSize: '20px', fontWeight: '900', color: '#1e293b' }}>{s.count} <span style={{ fontSize: '12px', fontWeight: '600', color: '#94a3b8' }}>Present</span></div>
-            </div>
-          </div>
-        )) : <div style={{ padding: '20px', color: '#94a3b8', fontStyle: 'italic', fontSize: '13px' }}>No records found for today</div>}
-      </div>
-
-      {/* Controls Area */}
-      <div className="admin-controls" style={styles.controls}>
-        <div className="search-box" style={styles.searchContainer}>
-          <Search size={18} color="#94a3b8" />
-          <input 
-            type="text" 
-            placeholder="Search by name or email..." 
-            style={styles.searchInput}
-            value={search}
-            onChange={(e) => { setSearch(e.target.value); setCurrentPage(1); }}
-          />
-        </div>
-
-        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-          <span style={{ fontSize: '13px', fontWeight: '800', color: '#94a3b8', textTransform: 'uppercase' }}>Filter By:</span>
-          <div style={styles.selectWrapper}>
-            <Calendar size={16} color="#64748b" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
-            <select 
-              style={styles.select} 
-              value={filterMonth} 
-              onChange={(e) => { setFilterMonth(e.target.value); setCurrentPage(1); }}
-            >
-              {monthNames.map((m, i) => <option key={i} value={i}>{m}</option>)}
-            </select>
-          </div>
-          <div style={styles.selectWrapper}>
-            <Filter size={16} color="#64748b" style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }} />
-            <select 
-              style={styles.select} 
-              value={filterYear} 
-              onChange={(e) => { setFilterYear(e.target.value); setCurrentPage(1); }}
-            >
-              {[2024, 2025, 2026].map(y => <option key={y} value={y}>{y}</option>)}
-            </select>
-          </div>
-        </div>
-      </div>
-
-      {/* Table Area */}
-      <div style={styles.tableCard}>
-        {loading ? (
-          <div style={styles.loadingState}>Loading members...</div>
-        ) : (
-          <>
-            <table className="admin-table">
-              <thead>
-                <tr>
-                  <th>Employee</th>
-                  <th>Department / Role</th>
-                  <th>Total</th>
-                  <th>Full Present</th>
-                  <th>Late</th>
-                  <th><span style={{ backgroundColor: '#fef2f2', color: '#ef4444', padding: '4px 8px', borderRadius: '6px', border: '1px solid #fee2e2' }}>Half Day</span></th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {members.map((user) => (
-                  <tr key={user._id} onClick={() => handleUserClick(user)}>
-                    <td>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                        <div style={styles.avatar}>{user.name.charAt(0)}</div>
-                        <div>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <div style={styles.userName}>{user.name}</div>
-                            {user.status === 'inactive' && (
-                              <span style={{ fontSize: '10px', background: '#fee2e2', color: '#ef4444', padding: '2px 6px', borderRadius: '4px', fontWeight: '800' }}>INACTIVE</span>
-                            )}
-                          </div>
-                          <div style={styles.userEmail}>{user.email}</div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      <span style={styles.roleTag}>
-                        {user.role || "Member"}
-                      </span>
-                    </td>
-                    <td>
-                       <div style={{ ...styles.countBadge, background: '#f8fafc', color: '#0f172a', border: '1px solid #e2e8f0', width: 'fit-content' }}>
-                          {user.daysPresent} Total
-                       </div>
-                    </td>
-                    <td>
-                       <div style={{ ...styles.countBadge, background: '#f8fafc', color: '#10b981', border: '1px solid #d1fae5', width: 'fit-content' }}>
-                          {user.onTimeCount} Full
-                       </div>
-                    </td>
-                    <td>
-                       <div style={{ ...styles.countBadge, background: user.lateCount > 0 ? '#fff7ed' : '#f8fafc', color: user.lateCount > 0 ? '#f59e0b' : '#94a3b8', border: user.lateCount > 0 ? '#ffedd5' : '#e2e8f0', width: 'fit-content' }}>
-                          {user.lateCount} Late
-                       </div>
-                    </td>
-                    <td>
-                       <div style={{ ...styles.countBadge, background: user.halfDayCount > 0 ? '#fff1f2' : '#f8fafc', color: user.halfDayCount > 0 ? '#f43f5e' : '#94a3b8', border: user.halfDayCount > 0 ? '#ffe4e6' : '#e2e8f0', width: 'fit-content' }}>
-                          {user.halfDayCount} Half
-                       </div>
-                    </td>
-                    <td>
-                       <div style={{ display: 'flex', gap: '8px' }}>
-                         <button 
-                           style={{ ...styles.viewBtn, color: '#FF6B00', background: '#fff7ed' }}
-                           onClick={(e) => { e.stopPropagation(); sendReport(user, e); }}
-                           disabled={sendingReport === user._id}
-                           title="Send Report to Email"
-                         >
-                           {sendingReport === user._id ? <Loader size={16} className="animate-spin" /> : <Send size={16} />}
-                         </button>
-                         <button 
-                           style={{ ...styles.viewBtn, color: '#64748b' }}
-                           onClick={(e) => { e.stopPropagation(); setEditingUser(user); setShowEditUserModal(true); }}
-                           title="Edit Credentials & Status"
-                         >
-                           <Edit3 size={16} />
-                         </button>
-                         <button style={styles.viewBtn}>
-                           <ArrowRight size={16} />
-                         </button>
-                       </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
-            {/* Pagination */}
-            {totalPages > 1 && (
-              <div style={styles.paginationRow}>
-                <span style={styles.pageInfo}>Page {currentPage} of {totalPages} ({totalMembers} members)</span>
-                <div style={{ display: 'flex', gap: '10px' }}>
-                <button onClick={() => setShowAddModal(true)} style={styles.addBtn}>
-                   <Users size={18} />
-                   <span>Add Member</span>
-                </button>
-                  <button 
-                    className="pagination-btn" 
-                    disabled={currentPage === 1}
-                    onClick={() => setCurrentPage(p => p - 1)}
-                  >
-                    <ChevronLeft size={18} /> Prev
-                  </button>
-                  <button 
-                    className="pagination-btn" 
-                    disabled={currentPage === totalPages}
-                    onClick={() => setCurrentPage(p => p + 1)}
-                  >
-                    Next <ChevronRight size={18} />
-                  </button>
+      <div className="max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        {loadingSummary ? (
+          <div className="col-span-full py-10 text-center text-slate-500 bg-white rounded-2xl border border-slate-200 font-medium shadow-sm">Loading summary...</div>
+        ) : (dailySummary && dailySummary.length > 0) ? (
+          dailySummary.map((s, i) => {
+            const icons = [
+              <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center"><UserCheck size={24} /></div>,
+              <div className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center"><UserCheck size={24} /></div>,
+              <div className="w-12 h-12 rounded-full bg-purple-50 text-purple-600 flex items-center justify-center"><UserCheck size={24} /></div>,
+              <div className="w-12 h-12 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center"><UserCheck size={24} /></div>,
+              <div className="w-12 h-12 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center"><UserCheck size={24} /></div>
+            ];
+            return (
+              <div key={i} className="bg-white border border-slate-100 rounded-2xl p-6 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
+                {icons[i % icons.length]}
+                <div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{s.department || "Other"}</div>
+                  <div className="text-2xl font-black text-slate-800 flex items-baseline gap-1">
+                    {s.count} <span className="text-sm font-semibold text-slate-500">Present</span>
+                  </div>
                 </div>
               </div>
-            )}
-          </>
+            );
+          })
+        ) : (
+          <div className="col-span-full py-10 text-center text-slate-500 bg-white rounded-2xl border border-slate-200 font-medium shadow-sm">No records found for today</div>
         )}
       </div>
 
-      {/* Detail Modal */}
+      {/* Main Content Area */}
+      <div className="max-w-[1500px] mx-auto bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
+        
+        {/* Controls */}
+        <div className="p-6 border-b border-slate-100 flex flex-col md:flex-row justify-between items-stretch md:items-center gap-4 bg-white">
+          <div className="relative flex-1 max-w-md">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+            <input 
+              type="text" 
+              placeholder="Search employee..." 
+              value={search}
+              onChange={(e) => { setSearch(e.target.value); setCurrentPage(1); }}
+              className="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 transition-all placeholder:text-slate-400"
+            />
+          </div>
+
+          <div className="flex items-center gap-4">
+            <div className="relative">
+              <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+              <select 
+                value={filterMonth} 
+                onChange={(e) => { setFilterMonth(e.target.value); setCurrentPage(1); }}
+                className="pl-11 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 appearance-none cursor-pointer outline-none transition-colors"
+              >
+                {monthNames.map((m, i) => <option key={i} value={i}>{m}</option>)}
+              </select>
+            </div>
+            <div className="relative">
+              <Filter className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+              <select 
+                value={filterYear} 
+                onChange={(e) => { setFilterYear(e.target.value); setCurrentPage(1); }}
+                className="pl-11 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 appearance-none cursor-pointer outline-none transition-colors"
+              >
+                {[2024, 2025, 2026].map(y => <option key={y} value={y}>{y}</option>)}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        {/* Table */}
+        {loading ? (
+          <div className="p-24 flex flex-col justify-center items-center gap-4">
+            <Loader className="animate-spin text-indigo-500" size={40} />
+            <p className="text-slate-400 font-semibold text-sm">Loading employees...</p>
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse whitespace-nowrap">
+              <thead className="bg-slate-50 border-b border-slate-100">
+                <tr>
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Employee</th>
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Department</th>
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Total</th>
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Full Present</th>
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Late</th>
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">Half Day</th>
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-sm">
+                {members.map((user) => (
+                  <tr key={user._id} onClick={() => handleUserClick(user)} className="hover:bg-slate-50 transition-colors cursor-pointer group">
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-lg">
+                          {user.name.charAt(0)}
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="font-semibold text-slate-800">{user.name}</span>
+                            {user.status === 'inactive' && (
+                              <span className="text-[10px] bg-rose-50 text-rose-600 px-2 py-0.5 rounded-md font-bold uppercase border border-rose-100">Inactive</span>
+                            )}
+                          </div>
+                          <div className="text-slate-500 text-xs font-medium mt-0.5">{user.email}</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-600">
+                        {user.role || "Member"}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center justify-center min-w-[32px] h-8 px-2 rounded-lg font-bold bg-slate-100 text-slate-700">
+                        {user.daysPresent}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className="inline-flex items-center justify-center min-w-[32px] h-8 px-2 rounded-lg font-bold bg-emerald-50 text-emerald-600">
+                        {user.onTimeCount}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className={`inline-flex items-center justify-center min-w-[32px] h-8 px-2 rounded-lg font-bold ${user.lateCount > 0 ? 'bg-amber-50 text-amber-600' : 'bg-slate-50 text-slate-400'}`}>
+                        {user.lateCount}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-center">
+                      <span className={`inline-flex items-center justify-center min-w-[32px] h-8 px-2 rounded-lg font-bold ${user.halfDayCount > 0 ? 'bg-rose-50 text-rose-600' : 'bg-slate-50 text-slate-400'}`}>
+                        {user.halfDayCount}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        <button 
+                          onClick={(e) => { e.stopPropagation(); sendReport(user, e); }}
+                          disabled={sendingReport === user._id}
+                          className="w-8 h-8 rounded-lg flex items-center justify-center bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors"
+                          title="Send Report"
+                        >
+                          {sendingReport === user._id ? <Loader size={14} className="animate-spin" /> : <Send size={14} />}
+                        </button>
+                        <button 
+                          onClick={(e) => { e.stopPropagation(); setEditingUser(user); setShowEditUserModal(true); }}
+                          className="w-8 h-8 rounded-lg flex items-center justify-center bg-slate-100 text-slate-500 hover:bg-indigo-500 hover:text-white transition-colors opacity-0 group-hover:opacity-100"
+                          title="Edit User"
+                        >
+                          <Edit3 size={14} />
+                        </button>
+                        <button className="w-8 h-8 rounded-lg flex items-center justify-center bg-slate-50 text-slate-400 group-hover:bg-slate-200 group-hover:text-slate-700 transition-colors">
+                          <ArrowRight size={16} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+                {members.length === 0 && (
+                  <tr>
+                    <td colSpan="7" className="px-6 py-20 text-center">
+                      <Search className="text-slate-300 mx-auto mb-3" size={32} />
+                      <p className="text-slate-500 font-semibold">No employees found.</p>
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {/* Pagination */}
+        {!loading && totalPages > 1 && (
+          <div className="px-6 py-4 border-t border-slate-100 flex justify-between items-center bg-white">
+            <span className="text-sm font-semibold text-slate-500">
+              Page {currentPage} of {totalPages} <span className="font-normal text-slate-400 ml-1">({totalMembers} results)</span>
+            </span>
+            <div className="flex gap-2">
+              <button 
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(p => p - 1)}
+                className="px-4 py-2 rounded-lg border border-slate-200 bg-white text-slate-600 font-semibold text-sm hover:bg-slate-50 disabled:opacity-50 transition-colors flex items-center gap-1"
+              >
+                <ChevronLeft size={16} /> Prev
+              </button>
+              <button 
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage(p => p + 1)}
+                className="px-4 py-2 rounded-lg border border-slate-200 bg-white text-slate-600 font-semibold text-sm hover:bg-slate-50 disabled:opacity-50 transition-colors flex items-center gap-1"
+              >
+                Next <ChevronRight size={16} />
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Add Member Modal */}
+      {showAddModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+            <div className="px-6 py-5 border-b border-slate-100 flex justify-between items-center">
+              <div>
+                <h2 className="text-lg font-bold text-slate-800 m-0">Add New Member</h2>
+                <p className="text-sm text-slate-500 mt-1">Register employee for attendance tracking</p>
+              </div>
+              <button onClick={() => setShowAddModal(false)} className="text-slate-400 hover:text-slate-600">
+                <X size={20} />
+              </button>
+            </div>
+            <form onSubmit={handleAddMember} className="p-6 space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Full Name</label>
+                <input type="text" placeholder="e.g. John Doe" value={newMember.name} onChange={e => setNewMember({...newMember, name: e.target.value})} required className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email Address</label>
+                <input type="email" placeholder="john@atorax.com" value={newMember.email} onChange={e => setNewMember({...newMember, email: e.target.value})} required className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Designation / Role</label>
+                <input type="text" placeholder="e.g. Software Engineer" value={newMember.role} onChange={e => setNewMember({...newMember, role: e.target.value})} required className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Predefined PIN (4-6 digits)</label>
+                <input type="text" placeholder="123456" value={newMember.pin} onChange={e => setNewMember({...newMember, pin: e.target.value})} required className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500" />
+              </div>
+              <button type="submit" disabled={addingMember} className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-semibold transition-colors mt-2 flex justify-center items-center gap-2">
+                {addingMember ? <Loader size={18} className="animate-spin" /> : "Add Member"}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Edit User Modal */}
+      {showEditUserModal && editingUser && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden">
+            <div className="px-6 py-5 border-b border-slate-100 flex justify-between items-center">
+              <div>
+                <h2 className="text-lg font-bold text-slate-800 m-0">Edit Credentials</h2>
+                <p className="text-sm text-slate-500 mt-1">Update profile information</p>
+              </div>
+              <button onClick={() => setShowEditUserModal(false)} className="text-slate-400 hover:text-slate-600">
+                <X size={20} />
+              </button>
+            </div>
+            <form onSubmit={handleUpdateUser} className="p-6 space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Full Name</label>
+                <input type="text" value={editingUser.name} onChange={e => setEditingUser({...editingUser, name: e.target.value})} required className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email Address</label>
+                <input type="email" value={editingUser.email} onChange={e => setEditingUser({...editingUser, email: e.target.value})} required className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Designation / Role</label>
+                <input type="text" value={editingUser.role} onChange={e => setEditingUser({...editingUser, role: e.target.value})} required className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Employee PIN</label>
+                <input type="text" value={editingUser.pin || ""} onChange={e => setEditingUser({...editingUser, pin: e.target.value})} required className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">Account Status</label>
+                <select value={editingUser.status || "active"} onChange={e => setEditingUser({...editingUser, status: e.target.value})} className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500 bg-white">
+                  <option value="active">Active (Access Allowed)</option>
+                  <option value="inactive">Inactive (Access Blocked)</option>
+                </select>
+              </div>
+              <button type="submit" disabled={isUpdatingUser} className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-semibold transition-colors mt-2 flex justify-center items-center gap-2">
+                {isUpdatingUser ? <Loader size={18} className="animate-spin" /> : "Save Changes"}
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Detail History Modal */}
       {selectedUser && (
-        <div className="modal-overlay" onClick={() => setSelectedUser(null)}>
-          <div className="modal-card" onClick={e => e.stopPropagation()}>
-            <button style={styles.closeBtn} onClick={() => setSelectedUser(null)}><X size={20} /></button>
-            
-            <div style={{ marginBottom: '30px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '10px' }}>
-                <div style={{ ...styles.avatar, width: '48px', height: '48px', fontSize: '20px' }}>{selectedUser.name.charAt(0)}</div>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-900/40 backdrop-blur-sm" onClick={() => setSelectedUser(null)}>
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-3xl flex flex-col h-[85vh] overflow-hidden" onClick={e => e.stopPropagation()}>
+            <div className="px-6 py-6 border-b border-slate-100 flex justify-between items-start bg-slate-50 shrink-0">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold text-2xl">
+                  {selectedUser.name.charAt(0)}
+                </div>
                 <div>
-                   <h2 style={{ margin: 0, fontSize: '22px', fontWeight: '800' }}>{selectedUser.name}</h2>
-                   <div style={{ color: '#64748b', fontSize: '14px' }}>{selectedUser.email}</div>
+                  <h2 className="text-xl font-bold text-slate-800 m-0">{selectedUser.name}</h2>
+                  <div className="text-sm font-medium text-slate-500 mt-1">{selectedUser.email} • {selectedUser.role}</div>
+                  
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-semibold bg-white border border-slate-200 text-slate-600 shadow-sm">
+                      <Calendar size={12} className="text-slate-400" /> {monthNames[filterMonth]} {filterYear}
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-100">
+                      <UserCheck size={12} /> Full: {selectedUser.onTimeCount}
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-100">
+                      <Clock size={12} /> Late: {selectedUser.lateCount}
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-100">
+                      <Clock size={12} /> Half: {selectedUser.halfDayCount}
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: '15px', marginTop: '10px' }}>
-                 <div style={styles.modalStat}>
-                    <Calendar size={14} /> <span>{monthNames[filterMonth]} {filterYear}</span>
-                 </div>
-                 <div style={styles.modalStat}>
-                    <UserCheck size={14} /> <span>Full Present: {selectedUser.onTimeCount}</span>
-                 </div>
-                 <div style={{ ...styles.modalStat, color: '#f59e0b', background: '#fff7ed' }}>
-                    <Clock size={14} /> <span>Late: {selectedUser.lateCount}</span>
-                 </div>
-                 <div style={{ ...styles.modalStat, color: '#f43f5e', background: '#fff1f2' }}>
-                    <Clock size={14} /> <span>Half: {selectedUser.halfDayCount}</span>
-                 </div>
-              </div>
+              <button onClick={() => setSelectedUser(null)} className="text-slate-400 hover:text-slate-600 p-1">
+                <X size={20} />
+              </button>
             </div>
-
-            <div style={styles.historySection}>
-               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-                  <h3 style={{ ...styles.sectionLabel, margin: 0 }}>Login History</h3>
-                  <div style={{ fontSize: '11px', color: '#94a3b8', fontWeight: '700' }}>MANUAL PENALTY APPLICABLE</div>
-               </div>
-               {loadingHistory ? (
-                 <div style={{ padding: '40px', textAlign: 'center' }}>Loading logs...</div>
-               ) : (
-                 <div style={styles.historyScroll}>
-                     {(!userHistory || userHistory.length === 0) ? (
-                       <div style={{ padding: '40px', textAlign: 'center' }}>No logs for this period.</div>
-                     ) : (
-                       userHistory.map((h, i) => (
-                         <div key={i} style={styles.historyRow}>
-                           <div style={{ flex: 1 }}>
-                             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '4px' }}>
-                               <div style={styles.smDateBadge}>
-                                 <div style={{ fontWeight: '800' }}>{new Date(h.date).getDate()}</div>
-                                 <div style={{ fontSize: '9px', textTransform: 'uppercase' }}>{new Date(h.date).toLocaleDateString('en-US', { month: 'short' })}</div>
-                               </div>
-                               <div>
-                                 <div style={{ fontWeight: '600', fontSize: '14px' }}>{new Date(h.date).toLocaleDateString('en-US', { weekday: 'long' })}</div>
-                                 <div style={{ fontSize: '10px', fontWeight: '800' }}>
-                                   {h.isHalfDay ? <span style={{ color: '#f43f5e' }}>HALF DAY</span> :
-                                    h.isLate ? <span style={{ color: '#f59e0b' }}>LATE LOGIN</span> :
-                                    <span style={{ color: '#10b981' }}>ON TIME</span>}
-                                 </div>
-                               </div>
-                             </div>
-                             {h.ip && (
-                               <div style={{ display: 'flex', gap: '8px', marginLeft: '45px' }}>
-                                 <div style={{ fontSize: '10px', color: '#94a3b8', background: '#f1f5f9', padding: '2px 6px', borderRadius: '4px', fontWeight: '600' }}>
-                                   IP: {h.ip === "::1" || h.ip === "127.0.0.1" ? "Localhost" : h.ip}
-                                 </div>
-                               </div>
-                             )}
-                           </div>
-                           
-                           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                             <div style={
-                                h.isHalfDay ? { ...styles.smTimeBadge, background: '#fff1f2', color: '#be123c' } :
-                                h.isLate ? { ...styles.smTimeBadge, background: '#fff7ed', color: '#c2410c' } : 
-                                styles.smTimeBadge
-                             }>
-                                <Clock size={12} /> {h.timestamp ? new Date(new Date(h.timestamp).getTime() + (5.5 * 60 * 60 * 1000)).getUTCHours().toString().padStart(2, '0') + ":" + new Date(new Date(h.timestamp).getTime() + (5.5 * 60 * 60 * 1000)).getUTCMinutes().toString().padStart(2, '0') : "--:--"}
-                             </div>
-                           </div>
-                         </div>
-                       ))
-                     )}
-                 </div>
-               )}
-
-               {/* Inner Pagination */}
-               {historyTotalPages > 1 && (
-                  <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', marginTop: '20px' }}>
-                     <button 
-                       className="pagination-btn" 
-                       disabled={historyPage === 1}
-                       onClick={() => fetchUserDetail(selectedUser._id, historyPage - 1)}
-                     >
-                       <ChevronLeft size={16} />
-                     </button>
-                     <span style={styles.smPageInfo}>{historyPage} / {historyTotalPages}</span>
-                     <button 
-                       className="pagination-btn" 
-                       disabled={historyPage === historyTotalPages}
-                       onClick={() => fetchUserDetail(selectedUser._id, historyPage + 1)}
-                     >
-                       <ChevronRight size={16} />
-                     </button>
+            
+            <div className="flex-1 overflow-hidden flex flex-col p-6 bg-white">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-sm font-bold text-slate-700 m-0 flex items-center gap-2">
+                  <CalendarDays size={16} className="text-slate-400" /> Attendance Log
+                </h3>
+                <span className="text-[10px] font-bold uppercase bg-slate-100 text-slate-500 px-2 py-1 rounded-md">
+                  Detailed View
+                </span>
+              </div>
+              
+              <div className="flex-1 overflow-y-auto pr-2">
+                {loadingHistory ? (
+                  <div className="h-full flex items-center justify-center text-slate-400">
+                    <Loader className="animate-spin text-indigo-400 mr-2" size={24} /> Loading records...
                   </div>
-               )}
+                ) : (!userHistory || userHistory.length === 0) ? (
+                  <div className="h-full flex items-center justify-center text-slate-400 font-medium">
+                    No records found for this month.
+                  </div>
+                ) : (
+                  <div className="space-y-3">
+                    {userHistory.map((h, i) => (
+                      <div key={i} className="flex items-center justify-between p-4 bg-white border border-slate-100 rounded-xl hover:border-slate-300 transition-colors">
+                        <div className="flex items-center gap-4">
+                          <div className={`w-12 h-12 rounded-lg flex flex-col items-center justify-center border ${
+                            h.isHalfDay ? 'bg-rose-50 text-rose-600 border-rose-100' : h.isLate ? 'bg-amber-50 text-amber-600 border-amber-100' : 'bg-emerald-50 text-emerald-600 border-emerald-100'
+                          }`}>
+                            <span className="text-lg font-bold leading-none">{new Date(h.date).getDate()}</span>
+                            <span className="text-[10px] font-semibold uppercase">{new Date(h.date).toLocaleDateString('en-US', { month: 'short' })}</span>
+                          </div>
+                          <div>
+                            <div className="font-semibold text-slate-800 text-sm">{new Date(h.date).toLocaleDateString('en-US', { weekday: 'long' })}</div>
+                            <div className="text-[10px] font-bold mt-0.5">
+                              {h.isHalfDay ? <span className="text-rose-500">HALF DAY</span> :
+                               h.isLate ? <span className="text-amber-500">LATE</span> :
+                               <span className="text-emerald-500">ON TIME</span>}
+                            </div>
+                            {h.ip && (
+                              <div className="text-[10px] text-slate-400 mt-1 flex items-center gap-1">
+                                <Shield size={10} /> {h.ip === "::1" || h.ip === "127.0.0.1" ? "Localhost" : h.ip}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-3">
+                          <div className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold border ${
+                            h.isHalfDay ? 'bg-rose-50 text-rose-600 border-rose-100' : h.isLate ? 'bg-amber-50 text-amber-600 border-amber-100' : 'bg-slate-50 text-slate-600 border-slate-200'
+                          }`}>
+                            <Clock size={14} /> 
+                            {h.timestamp ? new Date(new Date(h.timestamp).getTime() + (5.5 * 60 * 60 * 1000)).getUTCHours().toString().padStart(2, '0') + ":" + new Date(new Date(h.timestamp).getTime() + (5.5 * 60 * 60 * 1000)).getUTCMinutes().toString().padStart(2, '0') : "--:--"}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
+              {/* Modal Pagination */}
+              {historyTotalPages > 1 && (
+                <div className="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center">
+                  <span className="text-xs font-semibold text-slate-500">
+                    Page {historyPage} of {historyTotalPages}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <button 
+                      disabled={historyPage === 1}
+                      onClick={() => fetchUserDetail(selectedUser._id, historyPage - 1)}
+                      className="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 flex items-center gap-1 hover:bg-slate-50 disabled:opacity-50 transition-colors text-sm font-semibold"
+                    >
+                      <ChevronLeft size={16} /> Prev
+                    </button>
+                    <button 
+                      disabled={historyPage === historyTotalPages}
+                      onClick={() => fetchUserDetail(selectedUser._id, historyPage + 1)}
+                      className="px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 flex items-center gap-1 hover:bg-slate-50 disabled:opacity-50 transition-colors text-sm font-semibold"
+                    >
+                      Next <ChevronRight size={16} />
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
       )}
     </div>
   );
-};
-
-const styles = {
-  container: {
-    padding: '40px',
-    paddingTop: '90px',
-    marginLeft: '270px',
-    backgroundColor: '#f8fafc',
-    minHeight: '100vh',
-    color: '#0f172a'
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '40px'
-  },
-  title: { fontSize: '28px', fontWeight: '800', margin: '0 0 8px 0', letterSpacing: '-0.5px' },
-  subtitle: { color: '#64748b', margin: 0, fontSize: '15px' },
-  exportBtn: {
-    backgroundColor: '#fff',
-    border: '1px solid #e2e8f0',
-    padding: '10px 20px',
-    borderRadius: '12px',
-    fontWeight: '700',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '8px',
-    cursor: 'pointer',
-    color: '#0f172a',
-    boxShadow: '0 1px 2px rgba(0,0,0,0.05)'
-  },
-  controls: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    marginBottom: '30px',
-    gap: '20px'
-  },
-  searchContainer: {
-    flex: 1,
-    backgroundColor: '#fff',
-    border: '1px solid #e2e8f0',
-    borderRadius: '14px',
-    padding: '0 16px',
-    display: 'flex',
-    alignItems: 'center',
-    maxWidth: '400px'
-  },
-  searchInput: {
-    border: 'none',
-    padding: '14px 12px',
-    fontSize: '15px',
-    outline: 'none',
-    width: '100%',
-    color: '#0f172a'
-  },
-  selectWrapper: { position: 'relative' },
-  select: {
-    backgroundColor: '#fff',
-    border: '1px solid #e2e8f0',
-    borderRadius: '12px',
-    padding: '12px 16px 12px 40px',
-    fontSize: '14px',
-    fontWeight: '700',
-    cursor: 'pointer',
-    outline: 'none',
-    appearance: 'none',
-    minWidth: '140px'
-  },
-  tableCard: {
-    backgroundColor: 'transparent'
-  },
-  userName: { fontWeight: '700', fontSize: '15px' },
-  userEmail: { color: '#64748b', fontSize: '13px' },
-  avatar: {
-    width: '40px',
-    height: '40px',
-    borderRadius: '12px',
-    backgroundColor: '#FF6B00',
-    color: '#fff',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontWeight: '800',
-    fontSize: '16px'
-  },
-  roleTag: {
-    backgroundColor: '#f1f5f9',
-    color: '#64748b',
-    padding: '4px 10px',
-    borderRadius: '8px',
-    fontSize: '12px',
-    fontWeight: '700',
-    textTransform: 'capitalize'
-  },
-  countBadge: {
-    backgroundColor: '#fff7ed',
-    color: '#FF6B00',
-    padding: '6px 12px',
-    borderRadius: '100px',
-    fontSize: '13px',
-    fontWeight: '800'
-  },
-   primaryBtn: {
-    width: "100%",
-    padding: "14px",
-    backgroundColor: "#FF6B00",
-    color: "#ffffff",
-    border: "none",
-    borderRadius: "12px",
-    fontSize: "16px",
-    fontWeight: "700",
-    cursor: "pointer",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "10px",
-    transition: "all 0.2s"
-   },
-   addBtn: {
-    padding: "10px 18px",
-    backgroundColor: "#fff7ed",
-    color: "#C2410C",
-    border: "1px solid #ffedd5",
-    borderRadius: "10px",
-    fontSize: "14px",
-    fontWeight: "700",
-    cursor: "pointer",
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    transition: "all 0.2s"
-   },
-   bulkBtn: {
-    width: '36px',
-    height: '36px',
-    borderRadius: '10px',
-    border: 'none',
-    background: '#f1f5f9',
-    color: '#64748b',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    cursor: 'pointer'
-  },
-  viewBtn: {
-    width: '36px',
-    height: '36px',
-    borderRadius: '10px',
-    border: 'none',
-    background: '#f1f5f9',
-    color: '#64748b',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    cursor: 'pointer'
-  },
-  paginationRow: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: '25px',
-    padding: '0 10px'
-  },
-  pageInfo: { fontSize: '14px', color: '#64748b', fontWeight: '600' },
-  loadingState: { padding: '100px', textAlign: 'center', color: '#64748b' },
-  
-  // Modal Styles
-  modalOverlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 1000,
-    backdropFilter: 'blur(4px)'
-  },
-  modalContent: {
-    backgroundColor: '#fff',
-    borderRadius: '24px',
-    width: '90%',
-    maxWidth: '800px',
-    maxHeight: '90vh',
-    overflowY: 'auto',
-    position: 'relative',
-    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-  },
-  closeBtn: {
-    position: 'absolute',
-    top: '20px',
-    right: '25px',
-    border: 'none',
-    background: 'none',
-    cursor: 'pointer',
-    color: '#94a3b8'
-  },
-   modalHeader: {
-    padding: "24px 30px",
-    borderBottom: "1px solid #f1f5f9",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center"
-   },
-   formGroup: {
-    marginBottom: "20px"
-   },
-   label: {
-    display: "block",
-    fontSize: "13px",
-    fontWeight: "700",
-    color: "#475569",
-    marginBottom: "8px"
-   },
-   input: {
-    width: "100%",
-    padding: "12px 16px",
-    borderRadius: "10px",
-    border: "1.5px solid #e2e8f0",
-    fontSize: "14px",
-    outline: "none",
-    transition: "border-color 0.2s"
-   },
-   modalTitle: {
-     margin: 0,
-     fontSize: "22px",
-     fontWeight: "800",
-     color: "#0f172a"
-   },
-  modalStat: {
-     display: 'flex',
-     alignItems: 'center',
-     gap: '6px',
-     backgroundColor: '#f8fafc',
-     padding: '8px 16px',
-     borderRadius: '100px',
-     fontSize: '13px',
-     fontWeight: '700',
-     color: '#64748b'
-  },
-  sectionLabel: { fontSize: '14px', fontWeight: '800', color: '#94a3b8', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '15px' },
-  historyScroll: { maxHeight: '350px', overflowY: 'auto', paddingRight: '10px' },
-  historyRow: {
-     display: 'flex',
-     justifyContent: 'space-between',
-     alignItems: 'center',
-     padding: '16px 0',
-     borderBottom: '1px solid #f1f5f9'
-  },
-  smDateBadge: {
-     width: '40px',
-     height: '44px',
-     backgroundColor: '#fff7ed',
-     color: '#FF6B00',
-     borderRadius: '8px',
-     display: 'flex',
-     flexDirection: 'column',
-     alignItems: 'center',
-     justifyContent: 'center',
-     lineHeight: 1
-  },
-  smTimeBadge: {
-     display: 'flex',
-     alignItems: 'center',
-     gap: '6px',
-     backgroundColor: '#f1f5f9',
-     padding: '6px 12px',
-     borderRadius: '8px',
-     fontSize: '13px',
-     fontWeight: '700'
-  },
-  smPageInfo: { fontSize: '13px', fontWeight: '700', color: '#94a3b8' },
-  iconBox: { width: '40px', height: '40px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' },
-  summaryGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px', marginBottom: '35px' },
-  summaryCard: { background: '#fff', padding: '20px', borderRadius: '16px', border: '1px solid #e2e8f0', display: 'flex', alignItems: 'center', gap: '15px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.02)' },
-  actionBtn: { width: '32px', height: '32px', borderRadius: '8px', border: '1px solid #e2e8f0', background: '#fff', color: '#64748b', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', transition: '0.2s' }
 };
 
 export default AdminAttendance;

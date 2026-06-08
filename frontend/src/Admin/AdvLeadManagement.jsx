@@ -353,239 +353,70 @@ const AdvLeadManagement = () => {
     }
 
     return (
-        <div id="create-marketing-team" className="admin-content-wrap min-h-screen bg-slate-50 text-slate-700 font-sans p-6" style={{ colorScheme: 'dark' }}>
+        <div id="create-marketing-team" className="admin-content-wrap min-h-screen bg-slate-50/50 py-10 px-4 sm:px-6 lg:px-8">
             <style>{`
-                #create-marketing-team {
-                    background-color: #0B0F19 !important;
-                    color: #cbd5e1 !important;
-                }
-                #create-marketing-team h1, 
-                #create-marketing-team h2, 
-                #create-marketing-team h3, 
-                #create-marketing-team strong {
-                    color: #f8fafc !important;
-                }
-                #create-marketing-team select,
-                #create-marketing-team input,
-                #create-marketing-team textarea {
-                    background-color: rgba(15, 23, 42, 0.5) !important;
-                    border: 1px solid rgba(51, 65, 85, 0.5) !important;
-                    color: #f8fafc !important;
-                }
-                #create-marketing-team select:focus,
-                #create-marketing-team input:focus,
-                #create-marketing-team textarea:focus {
-                    border-color: #818cf8 !important;
-                    outline: none !important;
-                    box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.2) !important;
-                }
-                
-                /* Modal and Panel backgrounds */
-                #create-marketing-team > div > div[style*="background: '#fff'"],
-                #create-marketing-team > div > div[style*='background: "#fff"'],
-                #create-marketing-team > div > div[style*="background: rgb(255, 255, 255)"],
-                #create-marketing-team > div > div[style*="background: #fff"] {
-                    background-color: rgba(30, 41, 59, 0.8) !important;
-                    backdrop-filter: blur(12px) !important;
-                    border: 1px solid rgba(51, 65, 85, 0.5) !important;
-                }
-
-                /* Modals Overlay */
-                #create-marketing-team > div[style*="background: 'rgba(0,0,0,0.45)'"],
-                #create-marketing-team > div[style*='background: "rgba(0,0,0,0.45)"'] {
-                    background-color: rgba(11, 15, 25, 0.8) !important;
-                }
-
-                /* Statistic cards and manual assign bar */
-                #create-marketing-team div[style*="background: '#f9f9f9'"],
-                #create-marketing-team div[style*='background: "#f9f9f9"'],
-                #create-marketing-team div[style*="background: '#f0f7ff'"],
-                #create-marketing-team div[style*='background: "#f0f7ff"'] {
-                    background-color: rgba(30, 41, 59, 0.4) !important;
-                    border-color: rgba(51, 65, 85, 0.5) !important;
-                }
-
-                /* Specific fixes for fresh leads card which uses #e6f7ff inline */
-                #create-marketing-team div[style*="background: '#e6f7ff'"],
-                #create-marketing-team div[style*='background: "#e6f7ff"'] {
-                    background-color: rgba(56, 189, 248, 0.1) !important;
-                    border-color: rgba(56, 189, 248, 0.2) !important;
-                }
-                #create-marketing-team div[style*="background: '#fff7e6'"],
-                #create-marketing-team div[style*='background: "#fff7e6"'] {
-                    background-color: rgba(251, 146, 60, 0.1) !important;
-                    border-color: rgba(251, 146, 60, 0.2) !important;
-                }
-                #create-marketing-team div[style*="background: '#f6ffed'"],
-                #create-marketing-team div[style*='background: "#f6ffed"'] {
-                    background-color: rgba(52, 211, 153, 0.1) !important;
-                    border-color: rgba(52, 211, 153, 0.2) !important;
-                }
-
-                /* Buttons */
-                #create-marketing-team button[style*="background: '#1890ff'"],
-                #create-marketing-team button[style*='background: "#1890ff"'] {
-                    background-color: #4f46e5 !important;
-                }
-                #create-marketing-team button[style*="color: '#1890ff'"],
-                #create-marketing-team button[style*='color: "#1890ff"'] {
-                    color: #818cf8 !important;
-                    border-color: #818cf8 !important;
-                    background-color: transparent !important;
-                }
-                #create-marketing-team button[style*="background: '#f0f0f0'"],
-                #create-marketing-team button[style*='background: "#f0f0f0"'],
-                #create-marketing-team button[style*="background: '#f5f5f5'"],
-                #create-marketing-team button[style*='background: "#f5f5f5"'] {
-                    background-color: rgba(51, 65, 85, 0.5) !important;
-                    color: #cbd5e1 !important;
-                    border-color: rgba(51, 65, 85, 0.5) !important;
-                }
-                #create-marketing-team button[style*="background: '#ff4d4f'"],
-                #create-marketing-team button[style*='background: "#ff4d4f"'] {
-                    background-color: #e11d48 !important;
-                }
-                #create-marketing-team button[style*="color: '#ff4d4f'"],
-                #create-marketing-team button[style*='color: "#ff4d4f"'] {
-                    color: #fb7185 !important;
-                }
-
-                /* Text Colors */
-                #create-marketing-team span[style*="color: '#666'"],
-                #create-marketing-team span[style*='color: "#666"'],
-                #create-marketing-team td[style*="color: '#666'"],
-                #create-marketing-team td[style*='color: "#666"'],
-                #create-marketing-team td[style*="color: '#555'"],
-                #create-marketing-team td[style*='color: "#555"'],
-                #create-marketing-team div[style*="color: '#666'"],
-                #create-marketing-team div[style*='color: "#666"'] {
-                    color: #94a3b8 !important;
-                }
-                #create-marketing-team td[style*="color: '#888'"],
-                #create-marketing-team td[style*='color: "#888"'] {
-                    color: #64748b !important;
-                }
-                #create-marketing-team div[style*="color: '#1890ff'"],
-                #create-marketing-team div[style*='color: "#1890ff"'],
-                #create-marketing-team span[style*="color: '#096dd9'"],
-                #create-marketing-team span[style*='color: "#096dd9"'] {
-                    color: #818cf8 !important;
-                }
-                #create-marketing-team span[style*="color: '#d46b08'"],
-                #create-marketing-team span[style*='color: "#d46b08"'],
-                #create-marketing-team div[style*="color: '#d46b08'"],
-                #create-marketing-team div[style*='color: "#d46b08"'] {
-                    color: #fb923c !important;
-                }
-                #create-marketing-team span[style*="color: '#389e0d'"],
-                #create-marketing-team span[style*='color: "#389e0d"'],
-                #create-marketing-team div[style*="color: '#389e0d'"],
-                #create-marketing-team div[style*='color: "#389e0d"'] {
-                    color: #34d399 !important;
-                }
-
-                /* Table Styling */
-                #create-marketing-team table {
-                    width: 100%;
-                    border-collapse: separate;
-                    border-spacing: 0;
-                    margin-top: 10px;
-                }
-                #create-marketing-team th {
-                    background-color: rgba(15, 23, 42, 0.8) !important;
-                    color: #94a3b8 !important;
-                    border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important;
-                    padding: 12px 16px !important;
-                    text-transform: uppercase;
-                    font-size: 11px;
-                    letter-spacing: 0.05em;
-                }
-                #create-marketing-team td {
-                    border-bottom: 1px solid rgba(51, 65, 85, 0.2) !important;
-                    color: #cbd5e1 !important;
-                    padding: 12px 16px !important;
-                }
-                #create-marketing-team tbody tr:hover td {
-                    background-color: rgba(30, 41, 59, 0.6) !important;
-                }
-
-                /* Group Header Row */
-                #create-marketing-team tr[style*="background: '#f8f9fa'"] td,
-                #create-marketing-team tr[style*='background: "#f8f9fa"'] td {
-                    background-color: rgba(30, 41, 59, 0.8) !important;
-                    color: #818cf8 !important;
-                    border-top: 1px solid rgba(51, 65, 85, 0.5) !important;
-                    border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important;
-                }
-
-                /* Selected Row */
-                #create-marketing-team tr[style*="background: '#f6ffed'"] td,
-                #create-marketing-team tr[style*='background: "#f6ffed"'] td {
-                    background-color: rgba(52, 211, 153, 0.1) !important;
-                }
-
-                /* Unselected Row with #transparent */
-                #create-marketing-team tr[style*="background: 'transparent'"] td,
-                #create-marketing-team tr[style*='background: "transparent"'] td {
-                    background-color: transparent !important;
-                }
+                #create-marketing-team table { width: 100%; border-collapse: separate; border-spacing: 0; }
+                #create-marketing-team td { padding: 16px 24px; border-bottom: 1px solid #e2e8f0; font-size: 14px; }
+                #create-marketing-team tbody tr:hover { background-color: #f8fafc; }
             `}</style>
             <Toaster position="top-center" toastOptions={{ style: { background: '#1e293b', color: '#f8fafc', border: '1px solid #334155' } }} />
 
             {/* ── Assign Panel Overlay ─────────────────────── */}
             {showAssignPanel && (
-                <div style={{
-                    position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.45)',
-                    zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center'
-                }}>
-                    <div style={{
-                        background: '#fff', borderRadius: '12px', padding: '30px',
-                        width: '100%', maxWidth: '440px', boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
-                    }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                            <h2 style={{ margin: 0 }}>Assign Fresh Leads</h2>
-                            <button onClick={() => { setShowAssignPanel(false); setSelectedAssignee(null); setAssignCount(""); }}
-                                style={{ background: 'none', border: 'none', fontSize: '20px', cursor: 'pointer', color: '#999' }}>✕</button>
+                <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[1000] flex items-center justify-center p-4 animate-in fade-in duration-200">
+                    <div className="bg-white rounded-3xl p-8 w-full max-w-lg shadow-2xl animate-in zoom-in-95 duration-200">
+                        <div className="flex justify-between items-center mb-6">
+                            <h2 className="m-0 text-2xl font-extrabold text-slate-900 tracking-tight">Assign Fresh Leads</h2>
+                            <button 
+                                onClick={() => { setShowAssignPanel(false); setSelectedAssignee(null); setAssignCount(""); }}
+                                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
+                            >
+                                <i className="fa fa-times text-lg"></i>
+                            </button>
                         </div>
 
                         {/* Fresh leads available badge */}
-                        <div style={{ padding: '12px 16px', background: '#e6f7ff', border: '1px solid #91d5ff', borderRadius: '8px', marginBottom: '20px', textAlign: 'center' }}>
-                            <span style={{ fontSize: '28px', fontWeight: 'bold', color: '#096dd9' }}>{freshCount}</span>
-                            <div style={{ fontSize: '13px', color: '#666' }}>Fresh Leads Available</div>
+                        <div className="p-4 bg-blue-50 border border-blue-200 rounded-2xl mb-6 flex flex-col items-center justify-center relative overflow-hidden">
+                            <i className="fa fa-leaf absolute -right-4 -bottom-4 text-6xl text-blue-100 opacity-50"></i>
+                            <span className="text-4xl font-black text-blue-600 tracking-tighter z-10">{freshCount}</span>
+                            <div className="text-sm font-bold text-blue-800/70 uppercase tracking-widest mt-1 z-10">Fresh Leads Available</div>
                         </div>
 
                         {/* Step 1: Select Manager */}
-                        <div style={{ marginBottom: '16px' }}>
-                            <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '6px', color: '#333' }}>
-                                Step 1 — Select Manager or Leader
+                        <div className="mb-5">
+                            <label className="block font-bold text-sm text-slate-700 mb-2">
+                                <span className="text-blue-600 mr-1">Step 1 —</span> Select Manager or Leader
                             </label>
-                            <select
-                                value={selectedAssignee?._id || ""}
-                                onChange={e => {
-                                    const m = managers.find(m => m._id === e.target.value);
-                                    setSelectedAssignee(m || null);
-                                }}
-                                style={{ width: '100%', padding: '10px', border: '1px solid #ddd', borderRadius: '6px', fontSize: '14px' }}
-                            >
-                                <option value="">-- Select a Person --</option>
-                                {managers.map(m => (
-                                    <option key={m._id} value={m._id}>{m.fullname} ({m.designation} - {m.team})</option>
-                                ))}
-                            </select>
+                            <div className="relative">
+                                <select
+                                    value={selectedAssignee?._id || ""}
+                                    onChange={e => {
+                                        const m = managers.find(m => m._id === e.target.value);
+                                        setSelectedAssignee(m || null);
+                                    }}
+                                    className="w-full pl-4 pr-10 py-3 bg-white border border-slate-300 rounded-xl text-sm font-medium text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all cursor-pointer appearance-none"
+                                >
+                                    <option value="">-- Select a Person --</option>
+                                    {managers.map(m => (
+                                        <option key={m._id} value={m._id}>{m.fullname} ({m.designation} - {m.team})</option>
+                                    ))}
+                                </select>
+                                <i className="fa fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
+                            </div>
                             {managers.length === 0 && (
-                                <p style={{ margin: '6px 0 0', fontSize: '12px', color: '#ff4d4f' }}>
-                                    No ADV Managers or Leaders found. Create one in Create ADV Team.
+                                <p className="mt-2 text-xs font-medium text-rose-500 flex items-center gap-1">
+                                    <i className="fa fa-exclamation-circle"></i> No ADV Managers or Leaders found. Create one in Create ADV Team.
                                 </p>
                             )}
                         </div>
 
                         {/* Step 2: Enter count (only visible after manager selected) */}
                         {selectedAssignee && (
-                            <div style={{ marginBottom: '20px' }}>
-                                <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '6px', color: '#333' }}>
-                                    Step 2 — How many leads to assign to <strong style={{ color: '#1890ff' }}>{selectedAssignee.fullname}</strong>?
+                            <div className="mb-6 animate-in fade-in slide-in-from-top-2">
+                                <label className="block font-bold text-sm text-slate-700 mb-2">
+                                    <span className="text-blue-600 mr-1">Step 2 —</span> Leads to assign to <strong className="text-blue-600">{selectedAssignee.fullname}</strong>?
                                 </label>
-                                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                                <div className="flex gap-2 items-center">
                                     <input
                                         type="number"
                                         min="1"
@@ -593,19 +424,19 @@ const AdvLeadManagement = () => {
                                         placeholder={`Max: ${freshCount}`}
                                         value={assignCount}
                                         onChange={e => setAssignCount(e.target.value)}
-                                        style={{ flex: 1, padding: '10px', border: '1px solid #ddd', borderRadius: '6px', fontSize: '14px' }}
+                                        className="flex-1 py-3 px-4 border border-slate-300 rounded-xl text-sm font-medium outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
                                         onKeyDown={e => e.key === 'Enter' && handleBulkAssign()}
                                     />
                                     <button
                                         onClick={() => setAssignCount(String(freshCount))}
-                                        style={{ padding: '9px 12px', background: '#f0f0f0', border: '1px solid #ddd', borderRadius: '6px', cursor: 'pointer', fontSize: '12px' }}
+                                        className="px-4 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm rounded-xl transition-colors whitespace-nowrap"
                                     >
-                                        All
+                                        Select All
                                     </button>
                                 </div>
                                 {assignCount && parseInt(assignCount) > freshCount && (
-                                    <p style={{ margin: '5px 0 0', fontSize: '12px', color: '#ff4d4f' }}>
-                                        Only {freshCount} fresh leads available
+                                    <p className="mt-2 text-xs font-medium text-rose-500 flex items-center gap-1">
+                                        <i className="fa fa-exclamation-circle"></i> Only {freshCount} fresh leads available
                                     </p>
                                 )}
                             </div>
@@ -614,48 +445,44 @@ const AdvLeadManagement = () => {
                         <button
                             onClick={handleBulkAssign}
                             disabled={assigning || !selectedAssignee || !assignCount}
-                            style={{
-                                width: '100%', padding: '12px',
-                                background: !selectedAssignee || !assignCount ? '#f0f0f0' : '#1890ff',
-                                color: !selectedAssignee || !assignCount ? '#aaa' : '#fff',
-                                border: 'none', borderRadius: '8px', fontSize: '15px',
-                                fontWeight: 'bold', cursor: !selectedAssignee || !assignCount ? 'not-allowed' : 'pointer'
-                            }}
+                            className={`w-full py-3.5 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 mt-2
+                                ${(!selectedAssignee || !assignCount) 
+                                    ? 'bg-slate-100 text-slate-400 cursor-not-allowed' 
+                                    : 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg hover:-translate-y-0.5'}`}
                         >
-                            {assigning ? "Assigning..." : `✅ Assign ${assignCount || "?"} Leads to ${selectedAssignee?.fullname || "Person"}`}
+                            {assigning ? (
+                                <><i className="fa fa-spinner fa-spin"></i> Assigning...</>
+                            ) : (
+                                <><i className="fa fa-check-circle"></i> Assign {assignCount || "?"} Leads to {selectedAssignee?.fullname || "Person"}</>
+                            )}
                         </button>
                     </div>
                 </div>
             )}
 
-            <div className="coursetable">
+            <div className="max-w-[1600px] mx-auto">
                 {/* ── Header Row ── */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px', flexWrap: 'wrap', gap: '10px' }}>
-                    <h1>ADV Lead Management</h1>
-                    <div style={{ display: 'flex', gap: '10px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '10px' }}>
+                    <div>
+                        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight" style={{ margin: 0 }}>ADV Lead Management</h1>
+                        <p className="text-slate-500 mt-1">Review, manage, and assign inbound leads.</p>
+                    </div>
+                    <div className="flex gap-3">
                         {!isManualAssignMode ? (
                             <>
                                 <button
                                     onClick={() => { setIsManualAssignMode(true); setSelectedLeadIds([]); }}
-                                    style={{
-                                        padding: '10px 22px', background: '#fff', color: '#1890ff',
-                                        border: '1px solid #1890ff', borderRadius: '8px', fontSize: '15px',
-                                        fontWeight: 'bold', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px'
-                                    }}
+                                    className="px-5 py-2.5 bg-white text-blue-600 border border-slate-200 hover:border-blue-300 hover:bg-blue-50 rounded-xl font-bold text-sm transition-all shadow-sm flex items-center gap-2"
                                 >
-                                    🖱️ Manual Assign
+                                    <i className="fa fa-mouse-pointer"></i> Manual Assign
                                 </button>
                                 <button
                                     onClick={() => setShowAssignPanel(true)}
-                                    style={{
-                                        padding: '10px 22px', background: '#1890ff', color: '#fff',
-                                        border: 'none', borderRadius: '8px', fontSize: '15px',
-                                        fontWeight: 'bold', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '8px'
-                                    }}
+                                    className="px-5 py-2.5 bg-blue-600 text-white hover:bg-blue-700 rounded-xl font-bold text-sm transition-all shadow-sm flex items-center gap-2"
                                 >
-                                    📋 Bulk Assign (Count)
+                                    <i className="fa fa-clipboard-list"></i> Bulk Assign
                                     {freshCount > 0 && (
-                                        <span style={{ background: '#fff', color: '#1890ff', borderRadius: '12px', padding: '1px 8px', fontSize: '13px', fontWeight: 'bold' }}>
+                                        <span className="bg-white text-blue-600 rounded-full px-2 py-0.5 text-xs font-extrabold ml-1">
                                             {freshCount} fresh
                                         </span>
                                     )}
@@ -665,156 +492,142 @@ const AdvLeadManagement = () => {
                         ) : (
                             <button
                                 onClick={() => { setIsManualAssignMode(false); setSelectedLeadIds([]); }}
-                                style={{
-                                    padding: '10px 22px', background: '#ff4d4f', color: '#fff',
-                                    border: 'none', borderRadius: '8px', fontSize: '15px',
-                                    fontWeight: 'bold', cursor: 'pointer'
-                                }}
+                                className="px-5 py-2.5 bg-rose-500 text-white hover:bg-rose-600 rounded-xl font-bold text-sm transition-all shadow-sm flex items-center gap-2"
                             >
-                                ❌ Cancel Manual Mode
+                                <i className="fa fa-times"></i> Cancel Manual Mode
                             </button>
                         )}
                     </div>
                 </div>
 
                 {/* ── Stats Row ── */}
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '20px', flexWrap: 'wrap' }}>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                     {[
-                        { label: 'Total Leads', count: totalCount, bg: '#f9f9f9', border: '#d9d9d9', color: '#333' },
-                        { label: '🟢 Fresh', count: freshCount, bg: '#e6f7ff', border: '#91d5ff', color: '#096dd9' },
-                        { label: '🟠 Assigned', count: totalCount - freshCount - leads.filter(l => l.status === 'converted').length, bg: '#fff7e6', border: '#ffd591', color: '#d46b08' },
-                        { label: '✅ Converted', count: 'Check API', bg: '#f6ffed', border: '#b7eb8f', color: '#389e0d' },
+                        { label: 'Total Leads', count: totalCount, icon: 'fa-users', color: 'text-slate-600', bg: 'bg-slate-50', border: 'border-slate-200' },
+                        { label: 'Fresh Leads', count: freshCount, icon: 'fa-leaf', color: 'text-emerald-600', bg: 'bg-emerald-50/50', border: 'border-emerald-200' },
+                        { label: 'Assigned', count: totalCount - freshCount - leads.filter(l => l.status === 'converted').length, icon: 'fa-user-check', color: 'text-blue-600', bg: 'bg-blue-50/50', border: 'border-blue-200' },
+                        { label: 'Converted', count: leads.filter(l => l.status === 'converted').length || 'Check API', icon: 'fa-trophy', color: 'text-amber-600', bg: 'bg-amber-50/50', border: 'border-amber-200' },
                     ].map((s, i) => (
-                        <div key={i} style={{ padding: '12px 20px', background: s.bg, border: `1px solid ${s.border}`, borderRadius: '8px', flex: 1, minWidth: '110px', textAlign: 'center' }}>
-                            <div style={{ fontSize: '22px', fontWeight: 'bold', color: s.color }}>{s.count}</div>
-                            <div style={{ fontSize: '12px', color: '#666' }}>{s.label}</div>
+                        <div key={i} className={`p-6 rounded-2xl border bg-white shadow-sm flex flex-col justify-center items-center relative overflow-hidden group`}>
+                            <div className={`absolute -right-4 -top-4 w-16 h-16 rounded-full ${s.bg} flex items-center justify-center opacity-50 transition-transform group-hover:scale-110`}>
+                                <i className={`fa ${s.icon} ${s.color} text-xl mt-2 mr-2`}></i>
+                            </div>
+                            <div className={`text-3xl font-extrabold ${s.color} mb-1 z-10`}>{s.count}</div>
+                            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider z-10">{s.label}</div>
                         </div>
                     ))}
                 </div>
 
                 {/* ── Manual Assign Bar (Full Width) ── */}
                 {isManualAssignMode && (
-                    <div style={{ 
-                        padding: '16px 24px', 
-                        background: '#f0f7ff', 
-                        border: '1px solid #1890ff', 
-                        borderRadius: '12px', 
-                        marginBottom: '20px', 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        justifyContent: 'space-between',
-                        boxShadow: '0 4px 12px rgba(24, 144, 255, 0.1)',
-                        animation: 'fadeIn 0.3s ease'
-                    }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                            <div style={{ 
-                                background: '#1890ff', 
-                                color: '#fff', 
-                                padding: '8px 16px', 
-                                borderRadius: '8px', 
-                                textAlign: 'center',
-                                minWidth: '100px'
-                            }}>
-                                <div style={{ fontSize: '18px', fontWeight: 'bold' }}>{selectedLeadIds.length}</div>
-                                <div style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Selected</div>
+                    <div className="p-6 bg-blue-50 border border-blue-200 rounded-2xl mb-6 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-inner animate-in fade-in slide-in-from-top-4 duration-300">
+                        <div className="flex items-center gap-6">
+                            <div className="bg-blue-600 text-white py-2 px-5 rounded-xl text-center min-w-[100px] shadow-sm">
+                                <div className="text-2xl font-extrabold">{selectedLeadIds.length}</div>
+                                <div className="text-[10px] uppercase tracking-widest font-bold opacity-80">Selected</div>
                             </div>
                             <div>
-                                <h3 style={{ margin: 0, fontSize: '16px', color: '#003a8c' }}>Manual Assignment Mode</h3>
-                                <p style={{ margin: 0, fontSize: '12px', color: '#40a9ff' }}>Select leads below and choose an assignee</p>
+                                <h3 className="m-0 text-lg font-bold text-blue-900">Manual Assignment Mode</h3>
+                                <p className="m-0 text-sm text-blue-600 mt-1">Select leads from the table below and choose an assignee.</p>
                             </div>
                         </div>
 
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, maxWidth: '600px', marginLeft: '40px' }}>
-                            <select
-                                value={selectedAssignee?._id || ""}
-                                onChange={e => {
-                                    const m = managers.find(m => m._id === e.target.value);
-                                    setSelectedAssignee(m || null);
-                                }}
-                                style={{ 
-                                    flex: 1, 
-                                    padding: '10px 15px', 
-                                    border: '1px solid #d9d9d9', 
-                                    borderRadius: '8px', 
-                                    fontSize: '14px',
-                                    outline: 'none',
-                                    transition: 'border-color 0.3s'
-                                }}
-                            >
-                                <option value="">-- Select Assignee (Manager / Leader / Specialist) --</option>
-                                {managers.map(m => (
-                                    <option key={m._id} value={m._id}>
-                                        {m.fullname} ({m.designation} - {m.team || 'No Team'})
-                                    </option>
-                                ))}
-                            </select>
+                        <div className="flex items-center gap-3 w-full lg:w-auto">
+                            <div className="relative flex-1 min-w-[300px]">
+                                <i className="fa fa-user-tie absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                                <select
+                                    value={selectedAssignee?._id || ""}
+                                    onChange={e => {
+                                        const m = managers.find(m => m._id === e.target.value);
+                                        setSelectedAssignee(m || null);
+                                    }}
+                                    className="w-full pl-10 pr-4 py-3 bg-white border border-slate-300 rounded-xl text-sm font-medium text-slate-700 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all cursor-pointer appearance-none"
+                                >
+                                    <option value="">-- Select Assignee (Manager / Leader / Specialist) --</option>
+                                    {managers.map(m => (
+                                        <option key={m._id} value={m._id}>
+                                            {m.fullname} ({m.designation} - {m.team || 'No Team'})
+                                        </option>
+                                    ))}
+                                </select>
+                                <i className="fa fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
+                            </div>
                             
                             <button
                                 onClick={handleManualAssign}
                                 disabled={assigning || selectedLeadIds.length === 0 || !selectedAssignee}
-                                style={{
-                                    padding: '10px 28px',
-                                    background: (selectedLeadIds.length === 0 || !selectedAssignee) ? '#f5f5f5' : '#1890ff',
-                                    color: (selectedLeadIds.length === 0 || !selectedAssignee) ? '#bfbfbf' : '#fff', 
-                                    border: 'none', 
-                                    borderRadius: '8px', 
-                                    fontWeight: 'bold',
-                                    fontSize: '15px',
-                                    cursor: (selectedLeadIds.length === 0 || !selectedAssignee) ? 'not-allowed' : 'pointer',
-                                    transition: 'all 0.3s',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '8px',
-                                    boxShadow: (selectedLeadIds.length === 0 || !selectedAssignee) ? 'none' : '0 2px 8px rgba(24, 144, 255, 0.3)'
-                                }}
+                                className={`px-6 py-3 rounded-xl font-bold text-sm transition-all flex items-center gap-2 whitespace-nowrap
+                                    ${(selectedLeadIds.length === 0 || !selectedAssignee) 
+                                        ? 'bg-slate-100 text-slate-400 cursor-not-allowed' 
+                                        : 'bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg hover:-translate-y-0.5'}`}
                             >
-                                {assigning ? "Processing..." : <>✅ Confirm Assignment</>}
+                                {assigning ? (
+                                    <><i className="fa fa-spinner fa-spin"></i> Processing...</>
+                                ) : (
+                                    <><i className="fa fa-check"></i> Confirm Assignment</>
+                                )}
                             </button>
                         </div>
                     </div>
                 )}
 
                 {/* ── Filters ── */}
-                <div style={{ display: 'flex', gap: '10px', marginBottom: '15px', flexWrap: 'wrap' }}>
-                    <input
-                        placeholder="Search name or phone..."
-                        value={searchTerm}
-                        onChange={e => setSearchTerm(e.target.value)}
-                        style={{ padding: '8px 12px', border: '1px solid #ddd', borderRadius: '6px', flex: 1, minWidth: '180px' }}
-                    />
-                    <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)}
-                        style={{ padding: '8px', border: '1px solid #ddd', borderRadius: '6px' }}>
-                        <option value="">All Statuses</option>
-                        <option value="fresh">Fresh</option>
-                        <option value="dialed">Dialed</option>
-                        <option value="assigned_to_manager">Assigned to Manager</option>
-                        <option value="assigned_to_leader">Assigned to Leader</option>
-                        <option value="assigned_to_specialist">Assigned to Specialist</option>
-                        <option value="in_followup">In Follow-up</option>
-                        <option value="converted">Converted</option>
-                    </select>
-                    <button onClick={() => { fetchLeads(1); fetchFreshCount(); }}
-                        style={{ padding: '8px 14px', background: '#f0f0f0', border: '1px solid #ddd', borderRadius: '6px', cursor: 'pointer' }}>
-                        🔄 Refresh
-                    </button>
+                <div className="flex flex-wrap items-center gap-4 mb-6 bg-white p-3 rounded-2xl border border-slate-200 shadow-sm">
+                    <div className="relative flex-1 min-w-[250px]">
+                        <i className="fa fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input
+                            placeholder="Search name or phone..."
+                            value={searchTerm}
+                            onChange={e => setSearchTerm(e.target.value)}
+                            className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm outline-none focus:border-blue-400 focus:bg-white transition-all"
+                        />
+                    </div>
+                    
+                    <div className="relative min-w-[180px]">
+                        <select 
+                            value={statusFilter} 
+                            onChange={e => setStatusFilter(e.target.value)}
+                            className="w-full pl-4 pr-10 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-700 outline-none focus:border-blue-400 focus:bg-white transition-all appearance-none cursor-pointer"
+                        >
+                            <option value="">All Statuses</option>
+                            <option value="fresh">Fresh</option>
+                            <option value="dialed">Dialed</option>
+                            <option value="assigned_to_manager">Assigned to Manager</option>
+                            <option value="assigned_to_leader">Assigned to Leader</option>
+                            <option value="assigned_to_specialist">Assigned to Specialist</option>
+                            <option value="in_followup">In Follow-up</option>
+                            <option value="converted">Converted</option>
+                        </select>
+                        <i className="fa fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-[10px]"></i>
+                    </div>
 
-                    <div style={{ display: 'flex', gap: '5px', alignItems: 'center', background: '#fff', padding: '5px 10px', borderRadius: '6px', border: '1px solid #ddd' }}>
-                        <span style={{ fontSize: '13px', color: '#666', fontWeight: 'bold' }}>📅 Month:</span>
+                    <div className="flex items-center bg-slate-50 border border-slate-200 rounded-xl px-2 py-1.5 h-[42px]">
+                        <div className="flex items-center gap-2 px-3 text-sm font-bold text-slate-600 border-r border-slate-200">
+                            <i className="fa fa-calendar-alt text-blue-500"></i>
+                            <span>Date Filter</span>
+                        </div>
                         <select 
                             value={selectedMonth} 
                             onChange={(e) => { setSelectedMonth(e.target.value); setCurrentPage(1); }}
-                            style={{ border: 'none', outline: 'none', background: 'transparent', fontWeight: '600', cursor: 'pointer' }}
+                            className="bg-transparent border-none outline-none text-sm font-semibold text-slate-700 cursor-pointer px-3 appearance-none hover:text-blue-600 transition-colors"
                         >
                             {months.map((m, i) => <option key={i} value={i + 1}>{m}</option>)}
                         </select>
                         <select 
                             value={selectedYear} 
                             onChange={(e) => { setSelectedYear(e.target.value); setCurrentPage(1); }}
-                            style={{ border: 'none', outline: 'none', background: 'transparent', fontWeight: '600', cursor: 'pointer' }}
+                            className="bg-transparent border-none outline-none text-sm font-semibold text-slate-700 cursor-pointer px-2 appearance-none hover:text-blue-600 transition-colors"
                         >
                             {years.map(y => <option key={y} value={y}>{y}</option>)}
                         </select>
                     </div>
+
+                    <button 
+                        onClick={() => { fetchLeads(1); fetchFreshCount(); }}
+                        className="px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ml-auto"
+                    >
+                        <i className="fa fa-sync-alt"></i> Refresh
+                    </button>
                 </div>
 
                 {/* ── Leads Table ── */}
@@ -827,12 +640,13 @@ const AdvLeadManagement = () => {
                     </div>
                 ) : (
                     <>
-                        <div style={{ overflowX: 'auto' }}>
-                            <table>
-                                <thead>
-                                    <tr>
+                        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden relative">
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-left border-collapse whitespace-nowrap">
+                                    <thead>
+                                        <tr className="bg-slate-50 border-b border-slate-200">
                                         {isManualAssignMode && (
-                                            <th style={{ width: '40px' }}>
+                                            <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider" style={{ width: '40px' }}>
                                                 <input
                                                     type="checkbox"
                                                     checked={selectedLeadIds.length === filteredLeads.length && filteredLeads.length > 0}
@@ -840,22 +654,22 @@ const AdvLeadManagement = () => {
                                                 />
                                             </th>
                                         )}
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Source</th>
-                                        <th>Domain</th>
-                                        <th>Preferred Language</th>
-                                        <th style={{ minWidth: '150px' }}>Situation</th>
-                                        <th style={{ minWidth: '150px' }}>Goal</th>
-                                        <th style={{ minWidth: '150px' }}>Challenge</th>
-                                        <th style={{ minWidth: '150px' }}>Willingness</th>
-                                        <th>Status Info</th>
-                                        <th>Backend Status</th>
-                                        <th>Assigned To</th>
-                                        <th>Score</th>
-                                        <th>Actions</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">#</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Name</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Email</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Phone</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Source</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Domain</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Preferred Language</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider" style={{ minWidth: '150px' }}>Situation</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider" style={{ minWidth: '150px' }}>Goal</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider" style={{ minWidth: '150px' }}>Challenge</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider" style={{ minWidth: '150px' }}>Willingness</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Status Info</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Backend Status</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Assigned To</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Score</th>
+                                        <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-right">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -974,60 +788,51 @@ const AdvLeadManagement = () => {
                                 </tbody>
                             </table>
                         </div>
+                    </div>
 
                         {/* Pagination UI */}
-                        <div style={styles.pagination}>
-                            <div style={{ fontSize: '14px', color: '#64748B' }}>
-                                Showing <strong>{(currentPage - 1) * limit + 1}</strong> - <strong>{Math.min(currentPage * limit, totalCount)}</strong> of <strong>{totalCount}</strong> leads
+                        <div className="flex flex-col sm:flex-row justify-between items-center mt-6 p-4 bg-white rounded-2xl border border-slate-200 shadow-sm gap-4">
+                            <div className="text-sm font-medium text-slate-500">
+                                Showing <strong className="text-slate-900 font-bold">{(currentPage - 1) * limit + 1}</strong> - <strong className="text-slate-900 font-bold">{Math.min(currentPage * limit, totalCount)}</strong> of <strong className="text-slate-900 font-bold">{totalCount}</strong> leads
                             </div>
-                            <div style={{ display: 'flex', gap: '8px' }}>
+                            <div className="flex items-center gap-2">
                                 <button
                                     disabled={currentPage === 1}
                                     onClick={() => handlePageChange(currentPage - 1)}
-                                    style={{
-                                        padding: '8px 16px', borderRadius: '10px', border: '1px solid #E2E8F0',
-                                        background: currentPage === 1 ? '#F1F5F9' : '#fff',
-                                        color: currentPage === 1 ? '#94A3B8' : '#1E293B',
-                                        cursor: currentPage === 1 ? 'not-allowed' : 'pointer', fontWeight: '600'
-                                    }}
+                                    className={`px-4 py-2 rounded-xl font-bold text-sm transition-all flex items-center gap-1
+                                        ${currentPage === 1 ? 'bg-slate-100 text-slate-400 cursor-not-allowed border border-transparent' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 shadow-sm'}`}
                                 >
-                                    Previous
+                                    <i className="fa fa-chevron-left text-[10px]"></i> Prev
                                 </button>
-                                {[...Array(totalPages)].map((_, i) => {
-                                    const p = i + 1;
-                                    if (p === 1 || p === totalPages || (p >= currentPage - 2 && p <= currentPage + 2)) {
-                                        return (
-                                            <button
-                                                key={p}
-                                                onClick={() => handlePageChange(p)}
-                                                style={{
-                                                    width: '40px', height: '40px', borderRadius: '10px',
-                                                    border: '1px solid',
-                                                    borderColor: currentPage === p ? '#3B82F6' : '#E2E8F0',
-                                                    background: currentPage === p ? '#3B82F6' : '#fff',
-                                                    color: currentPage === p ? '#fff' : '#1E293B',
-                                                    fontWeight: '700', cursor: 'pointer', transition: 'all 0.2s ease'
-                                                }}
-                                            >
-                                                {p}
-                                            </button>
-                                        );
-                                    } else if (p === currentPage - 3 || p === currentPage + 3) {
-                                        return <span key={p} style={{ width: '40px', textAlign: 'center', color: '#94A3B8' }}>...</span>;
-                                    }
-                                    return null;
-                                })}
+                                
+                                <div className="flex gap-1">
+                                    {[...Array(totalPages)].map((_, i) => {
+                                        const p = i + 1;
+                                        if (p === 1 || p === totalPages || (p >= currentPage - 2 && p <= currentPage + 2)) {
+                                            return (
+                                                <button
+                                                    key={p}
+                                                    onClick={() => handlePageChange(p)}
+                                                    className={`w-10 h-10 rounded-xl font-bold text-sm transition-all shadow-sm flex items-center justify-center
+                                                        ${currentPage === p ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 hover:border-slate-300 border'}`}
+                                                >
+                                                    {p}
+                                                </button>
+                                            );
+                                        } else if (p === currentPage - 3 || p === currentPage + 3) {
+                                            return <span key={p} className="w-10 h-10 flex items-center justify-center text-slate-400 font-bold">...</span>;
+                                        }
+                                        return null;
+                                    })}
+                                </div>
+
                                 <button
                                     disabled={currentPage === totalPages}
                                     onClick={() => handlePageChange(currentPage + 1)}
-                                    style={{
-                                        padding: '8px 16px', borderRadius: '10px', border: '1px solid #E2E8F0',
-                                        background: currentPage === totalPages ? '#F1F5F9' : '#fff',
-                                        color: currentPage === totalPages ? '#94A3B8' : '#1E293B',
-                                        cursor: currentPage === totalPages ? 'not-allowed' : 'pointer', fontWeight: '600'
-                                    }}
+                                    className={`px-4 py-2 rounded-xl font-bold text-sm transition-all flex items-center gap-1
+                                        ${currentPage === totalPages ? 'bg-slate-100 text-slate-400 cursor-not-allowed border border-transparent' : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 shadow-sm'}`}
                                 >
-                                    Next
+                                    Next <i className="fa fa-chevron-right text-[10px]"></i>
                                 </button>
                             </div>
                         </div>

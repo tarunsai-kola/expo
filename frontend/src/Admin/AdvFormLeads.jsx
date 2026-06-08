@@ -55,65 +55,73 @@ const AdvFormLeads = () => {
     };
 
     return (
-        <div className="admin-content-wrap min-h-screen bg-slate-50 text-slate-700 font-sans p-6">
+        <div className="admin-content-wrap min-h-screen bg-slate-50/50 p-6 sm:p-10 font-sans">
             <Toaster toastOptions={{ style: { background: '#1e293b', color: '#f8fafc', border: '1px solid #334155' } }} />
             
-            <div className="max-w-7xl mx-auto py-8">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
+            <div className="max-w-[1600px] mx-auto">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4">
                     <div>
-                        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
-                            <i className="fa fa-users text-indigo-500"></i>
+                        <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight m-0">
                             Advanced Enrollment Leads
                         </h1>
-                        <p className="text-slate-600 mt-1">Total Leads: <span className="font-bold text-indigo-600">{totalLeads}</span></p>
+                        <p className="text-slate-500 mt-1 m-0">Manage and track your inbound form submissions.</p>
                     </div>
                     
-                    <div className="flex items-center gap-3 bg-slate-50 backdrop-blur-md px-4 py-2 rounded-lg border border-slate-200 shadow-sm">
-                        <span className="flex items-center text-sm font-medium text-slate-700 border-r border-slate-200 pr-3">
-                            Page {page} of {totalPages}
-                        </span>
-                        <div className="flex gap-1">
-                            <button 
-                                onClick={() => setPage(p => Math.max(1, p - 1))}
-                                disabled={page === 1 || loading}
-                                className="p-1.5 rounded text-slate-600 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-                                title="Previous Page"
-                            >
-                                <i className="fa fa-chevron-left text-sm"></i>
-                            </button>
-                            <button 
-                                onClick={() => setPage(p => Math.min(totalPages, p + 1))}
-                                disabled={page === totalPages || loading}
-                                className="p-1.5 rounded text-slate-600 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-transparent transition-colors"
-                                title="Next Page"
-                            >
-                                <i className="fa fa-chevron-right text-sm"></i>
-                            </button>
+                    <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 rounded-xl">
+                            <i className="fa fa-users text-blue-500"></i>
+                            <span className="text-sm font-bold text-blue-900 tracking-wide">
+                                {totalLeads} Total Leads
+                            </span>
+                        </div>
+
+                        <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm">
+                            <span className="flex items-center text-sm font-bold text-slate-600 border-r border-slate-200 pr-3">
+                                Page {page} of {totalPages}
+                            </span>
+                            <div className="flex gap-1">
+                                <button 
+                                    onClick={() => setPage(p => Math.max(1, p - 1))}
+                                    disabled={page === 1 || loading}
+                                    className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-500 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+                                    title="Previous Page"
+                                >
+                                    <i className="fa fa-chevron-left text-xs"></i>
+                                </button>
+                                <button 
+                                    onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                                    disabled={page === totalPages || loading}
+                                    className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-500 hover:bg-slate-100 hover:text-slate-900 disabled:opacity-30 disabled:hover:bg-transparent transition-colors"
+                                    title="Next Page"
+                                >
+                                    <i className="fa fa-chevron-right text-xs"></i>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="bg-slate-50 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
+                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden relative">
                     <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse whitespace-nowrap">
                             <thead>
-                                <tr className="bg-white border-b border-slate-200">
-                                    <th className="p-4 text-xs font-semibold text-slate-600 uppercase tracking-widest">Name & Email</th>
-                                    <th className="p-4 text-xs font-semibold text-slate-600 uppercase tracking-widest">Contact</th>
-                                    <th className="p-4 text-xs font-semibold text-slate-600 uppercase tracking-widest">Domain & Goal</th>
-                                    <th className="p-4 text-xs font-semibold text-slate-600 uppercase tracking-widest">Commitment</th>
-                                    <th className="p-4 text-xs font-semibold text-slate-600 uppercase tracking-widest">Preferred Time</th>
-                                    <th className="p-4 text-xs font-semibold text-slate-600 uppercase tracking-widest">Date</th>
-                                    <th className="p-4 text-xs font-semibold text-slate-600 uppercase tracking-widest">Action</th>
+                                <tr className="bg-slate-50 border-b border-slate-200">
+                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Name & Email</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Contact</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Domain & Goal</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Commitment</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Preferred Time</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Date</th>
+                                    <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Action</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-slate-200">
+                            <tbody className="divide-y divide-slate-100">
                                 {loading ? (
                                     <tr>
                                         <td colSpan="7" className="p-20 text-center">
-                                            <div className="flex flex-col items-center gap-4">
-                                                <div className="animate-spin rounded-full h-10 w-10 border-[3px] border-indigo-500 border-t-transparent"></div>
-                                                <p className="text-slate-600 font-medium">Fetching enrollment data...</p>
+                                            <div className="flex flex-col items-center justify-center gap-3">
+                                                <i className="fa fa-spinner fa-spin text-3xl text-blue-500"></i>
+                                                <p className="text-slate-500 font-bold text-sm uppercase tracking-widest">Loading Leads...</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -133,62 +141,60 @@ const AdvFormLeads = () => {
                                             return dateB - dateA;
                                         }).map(date => (
                                             <React.Fragment key={date}>
-                                                <tr className="bg-white">
-                                                    <td colSpan="7" className="px-6 py-3 text-xs font-bold text-indigo-600 uppercase tracking-widest border-y border-slate-200">
-                                                        <div className="flex items-center gap-2">
-                                                            <i className="fa fa-calendar-o"></i>
-                                                            {date}
+                                                <tr className="bg-slate-50/50">
+                                                    <td colSpan="7" className="px-6 py-3 border-y border-slate-200">
+                                                        <div className="flex items-center gap-2 text-xs font-black text-slate-800 uppercase tracking-widest">
+                                                            <i className="fa fa-calendar-alt text-blue-500"></i> {date}
                                                         </div>
                                                     </td>
                                                 </tr>
                                                 {grouped[date].map((lead) => (
                                                     <tr key={lead._id} className="hover:bg-slate-50 transition-colors group">
-                                                        <td className="p-4">
-                                                            <div className="font-bold text-slate-900">{lead.fullName}</div>
-                                                            <div className="text-xs text-slate-600 mt-0.5">{lead.email}</div>
+                                                        <td className="px-6 py-4">
+                                                            <div className="font-extrabold text-slate-900 text-sm">{lead.fullName}</div>
+                                                            <div className="text-xs font-medium text-slate-500 mt-1">{lead.email}</div>
                                                         </td>
-                                                        <td className="p-4">
-                                                            <div className="text-sm font-medium text-slate-700">{lead.contactNumber}</div>
-                                                            <div className="text-xs text-emerald-600 font-medium mt-0.5 flex items-center gap-1">
-                                                                <i className="fa fa-whatsapp text-[10px]"></i> WA: {lead.whatsappNumber}
+                                                        <td className="px-6 py-4">
+                                                            <div className="text-sm font-bold text-slate-700">{lead.contactNumber}</div>
+                                                            <div className="text-[11px] font-bold text-emerald-600 mt-1 flex items-center gap-1.5 uppercase tracking-wide">
+                                                                <i className="fa fa-whatsapp text-[13px]"></i> WA: {lead.whatsappNumber}
                                                             </div>
                                                         </td>
-                                                        <td className="p-4">
-                                                            <div className="text-xs bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 px-2 py-1 rounded inline-block font-bold mb-1.5">
+                                                        <td className="px-6 py-4">
+                                                            <div className="text-[10px] font-black uppercase tracking-wider bg-blue-50 text-blue-600 border border-blue-200 px-2.5 py-1 rounded-md inline-block mb-1.5">
                                                                 {lead.domain}
                                                             </div>
-                                                            <div className="text-xs text-slate-600 truncate max-w-[200px]" title={lead.primaryGoal}>{lead.primaryGoal}</div>
+                                                            <div className="text-xs font-medium text-slate-500 truncate max-w-[200px]" title={lead.primaryGoal}>{lead.primaryGoal}</div>
                                                         </td>
-                                                        <td className="p-4">
+                                                        <td className="px-6 py-4">
                                                             <div className="text-xs font-bold text-slate-700 mb-1">{lead.commitmentLevel}</div>
-                                                            <div className={`text-[10px] uppercase font-bold tracking-wider ${lead.readyToInvest === 'Yes, I\'m ready' ? 'text-emerald-600' : 'text-orange-400'}`}>
+                                                            <div className={`text-[10px] uppercase font-black tracking-widest ${lead.readyToInvest === 'Yes, I\'m ready' ? 'text-emerald-600' : 'text-amber-500'}`}>
                                                                 Invest: {lead.readyToInvest}
                                                             </div>
                                                         </td>
-                                                        <td className="p-4">
+                                                        <td className="px-6 py-4">
                                                             <div className="text-sm font-bold text-slate-700 mb-1">{lead.connectTime}</div>
-                                                            <div className="text-[10px] text-slate-500 uppercase tracking-wider">Lang: {lead.preferredLanguages?.join(', ')}</div>
+                                                            <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Lang: {lead.preferredLanguages?.join(', ')}</div>
                                                         </td>
-                                                        <td className="p-4">
-                                                            <div className="text-xs text-slate-700 font-medium">
+                                                        <td className="px-6 py-4">
+                                                            <div className="text-xs font-bold text-slate-700">
                                                                 {new Date(lead.created_at).toLocaleDateString()}
                                                             </div>
-                                                            <div className="text-[10px] text-slate-500 mt-0.5">
+                                                            <div className="text-[11px] font-medium text-slate-400 mt-0.5">
                                                                 {new Date(lead.created_at).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                                             </div>
                                                         </td>
-                                                        <td className="p-4">
+                                                        <td className="px-6 py-4 text-right">
                                                             <button 
                                                                 onClick={() => !lead.isAddedToCRM && handleAddToCRM(lead._id)}
                                                                 disabled={lead.isAddedToCRM}
-                                                                className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all shadow-sm flex items-center gap-1.5 ${
-                                                                    lead.isAddedToCRM 
-                                                                    ? 'bg-emerald-500/20 text-emerald-600 cursor-default border border-emerald-500/30' 
-                                                                    : 'bg-indigo-600 text-slate-900 hover:bg-indigo-500 border border-transparent shadow-[0_0_15px_rgba(79,70,229,0.3)] hover:shadow-[0_0_20px_rgba(79,70,229,0.5)]'
-                                                                }`}
+                                                                className={`px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-sm flex items-center gap-2 ml-auto
+                                                                    ${lead.isAddedToCRM 
+                                                                    ? 'bg-slate-100 text-slate-500 cursor-not-allowed border border-slate-200 shadow-none' 
+                                                                    : 'bg-blue-600 text-white hover:bg-blue-700 hover:shadow-md hover:-translate-y-0.5 border border-transparent'}`}
                                                             >
-                                                                <i className={`fa ${lead.isAddedToCRM ? 'fa-check-circle' : 'fa-user-plus'}`}></i>
-                                                                {lead.isAddedToCRM ? 'Added to CRM' : 'Add to CRM'}
+                                                                <i className={`fa ${lead.isAddedToCRM ? 'fa-check' : 'fa-plus'}`}></i>
+                                                                {lead.isAddedToCRM ? 'Added' : 'Add to CRM'}
                                                             </button>
                                                         </td>
                                                     </tr>
@@ -200,11 +206,11 @@ const AdvFormLeads = () => {
                                     <tr>
                                         <td colSpan="7" className="p-20 text-center">
                                             <div className="flex flex-col items-center justify-center">
-                                                <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-3 border border-slate-200">
-                                                    <i className="fa fa-folder-open-o text-2xl text-slate-500"></i>
+                                                <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mb-4 border border-slate-200">
+                                                    <i className="fa fa-inbox text-3xl text-slate-400"></i>
                                                 </div>
-                                                <h3 className="text-sm font-medium text-slate-900">No Enrollment Leads</h3>
-                                                <p className="text-xs text-slate-600 mt-1">There are no leads found in the database.</p>
+                                                <h3 className="text-base font-bold text-slate-900">No Enrollment Leads Found</h3>
+                                                <p className="text-sm text-slate-500 mt-1">When leads submit the enrollment form, they will appear here.</p>
                                             </div>
                                         </td>
                                     </tr>

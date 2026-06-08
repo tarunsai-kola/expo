@@ -2,145 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import API from "../API";
 import toast, { Toaster } from "react-hot-toast";
-import { RiMailSendFill } from "react-icons/ri";
-import { PiLockKeyOpenFill, PiLockKeyFill } from "react-icons/pi";
-import { FaUserTimes } from "react-icons/fa";
-import { FaUserCheck } from "react-icons/fa";
+import { 
+  Search, Plus, Info, Send, X, Mail, Lock, Unlock, 
+  UserX, UserCheck, BookOpen, ChevronRight, CalendarDays
+} from "lucide-react";
 
-/* ─── tiny design tokens ─────────────────────────────────── */
-const T = {
-  bg:        "#0F172A",
-  card:      "rgba(30,41,59,0.85)",
-  border:    "rgba(255,255,255,0.07)",
-  text:      "#F1F5F9",
-  muted:     "#94A3B8",
-  accent:    "#3B82F6",   // blue
-  green:     "#10B981",
-  red:       "#EF4444",
-  yellow:    "#F59E0B",
-  radius:    "16px",
-  font:      "'Inter', sans-serif",
-};
-
-/* ─── reusable styles ───────────────────────────────────── */
-const styles = {
-  page: {
-    background: T.bg,
-    minHeight: "100vh",
-    marginLeft: "260px",
-    padding: "36px 28px",
-    fontFamily: T.font,
-    color: T.text,
-    boxSizing: "border-box",
-  },
-  card: {
-    background: T.card,
-    backdropFilter: "blur(12px)",
-    border: `1px solid ${T.border}`,
-    borderRadius: T.radius,
-    boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
-  },
-  input: {
-    width: "100%",
-    background: "rgba(15,23,42,0.7)",
-    border: `1px solid ${T.border}`,
-    borderRadius: "12px",
-    padding: "12px 16px",
-    color: T.text,
-    fontSize: "14px",
-    outline: "none",
-    boxSizing: "border-box",
-    transition: "border 0.2s",
-    fontFamily: T.font,
-  },
-  select: {
-    width: "100%",
-    background: "rgba(15,23,42,0.7)",
-    border: `1px solid ${T.border}`,
-    borderRadius: "12px",
-    padding: "12px 16px",
-    color: T.text,
-    fontSize: "14px",
-    outline: "none",
-    boxSizing: "border-box",
-    fontFamily: T.font,
-    cursor: "pointer",
-  },
-  label: {
-    display: "block",
-    color: T.muted,
-    fontSize: "12px",
-    fontWeight: "600",
-    textTransform: "uppercase",
-    letterSpacing: "0.5px",
-    marginBottom: "6px",
-  },
-  btnPrimary: {
-    background: `linear-gradient(135deg, ${T.accent}, #2563EB)`,
-    color: "#fff",
-    border: "none",
-    borderRadius: "12px",
-    padding: "12px 24px",
-    fontSize: "14px",
-    fontWeight: "700",
-    cursor: "pointer",
-    transition: "all 0.2s",
-    fontFamily: T.font,
-  },
-  btnGhost: {
-    background: "rgba(255,255,255,0.05)",
-    color: T.muted,
-    border: `1px solid ${T.border}`,
-    borderRadius: "12px",
-    padding: "12px 24px",
-    fontSize: "14px",
-    fontWeight: "600",
-    cursor: "pointer",
-    transition: "all 0.2s",
-    fontFamily: T.font,
-  },
-  thStyle: {
-    padding: "12px 16px",
-    textAlign: "left",
-    fontSize: "11px",
-    fontWeight: "700",
-    textTransform: "uppercase",
-    letterSpacing: "0.8px",
-    color: T.muted,
-    whiteSpace: "nowrap",
-    background: "rgba(15,23,42,0.6)",
-    borderBottom: `1px solid ${T.border}`,
-  },
-  tdStyle: {
-    padding: "14px 16px",
-    fontSize: "13px",
-    color: T.text,
-    borderBottom: `1px solid rgba(255,255,255,0.03)`,
-    verticalAlign: "middle",
-    whiteSpace: "nowrap",
-  },
-};
-
-/* ─── SVGs ──────────────────────────────────────────────── */
-const Icons = {
-  Search: (
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-  ),
-  Plus: (
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-  ),
-  Info: (
-    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-  ),
-  Send: (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-  ),
-  Close: (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-  ),
-};
-
-/* ─── Main Component ─────────────────────────────────────── */
 const AdvBookedPayment = () => {
   /* ── State ── */
   const [iscourseFormVisible, setiscourseFormVisible] = useState(false);
@@ -156,9 +22,9 @@ const AdvBookedPayment = () => {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [program, setProgram] = useState([]);
-  const [counselor, setCounselor] = useState([]);
-  const [domain, setDomain] = useState([]);
+  const [program, setProgram] = useState("");
+  const [counselor, setCounselor] = useState("");
+  const [domain, setDomain] = useState("");
   const [programPrice, setProgramPrice] = useState("");
   const [paidAmount, setPaidAmount] = useState("");
   const [monthOpted, setMonthOpted] = useState("");
@@ -186,24 +52,42 @@ const AdvBookedPayment = () => {
     setFullname(""); setEmail(""); setPhone(""); setProgram(""); setCounselor(""); setDomain("");
     setProgramPrice(""); setPaidAmount(""); setMonthOpted(""); setClearPaymentMonth(""); setEditingStudentId(null);
   };
-  const resetOfferLeter = () => { setOfferData(null); setOfferDate(""); setOfferDuration(""); setOfferStart(""); setOfferEnd(""); setOfferLocation("Online"); };
+  
+  const resetOfferLeter = () => { 
+    setOfferData(null); setOfferDate(""); setOfferDuration(""); setOfferStart(""); setOfferEnd(""); setOfferLocation("Online"); 
+  };
+  
   const formatDate = (date) => new Date(date).toLocaleDateString("en-GB");
-  const getCurrentMonth = () => { const m = ["January","February","March","April","May","June","July","August","September","October","November","December"]; const d = new Date(); return `${m[d.getMonth()]} ${d.getFullYear()}`; };
-  const getPastMonths = () => { const m = ["January","February","March","April","May","June","July","August","September","October","November","December"]; const d = new Date(); const ci = d.getMonth(); const cy = d.getFullYear(); return Array.from({length:4},(_,i)=>{ const td=new Date(cy,ci-i,1); return `${m[td.getMonth()]} ${td.getFullYear()}`; }); };
-  const getMonthFromDate = (date) => { const m = ["January","February","March","April","May","June","July","August","September","October","November","December"]; const d = new Date(date); return `${m[d.getMonth()]} ${d.getFullYear()}`; };
+  
+  const getCurrentMonth = () => { 
+    const m = ["January","February","March","April","May","June","July","August","September","October","November","December"]; 
+    const d = new Date(); return `${m[d.getMonth()]} ${d.getFullYear()}`; 
+  };
+  
+  const getPastMonths = () => { 
+    const m = ["January","February","March","April","May","June","July","August","September","October","November","December"]; 
+    const d = new Date(); const ci = d.getMonth(); const cy = d.getFullYear(); 
+    return Array.from({length:4},(_,i)=>{ 
+      const td=new Date(cy,ci-i,1); return `${m[td.getMonth()]} ${td.getFullYear()}`; 
+    }); 
+  };
+  
+  const getMonthFromDate = (date) => { 
+    const m = ["January","February","March","April","May","June","July","August","September","October","November","December"]; 
+    const d = new Date(date); return `${m[d.getMonth()]} ${d.getFullYear()}`; 
+  };
 
   /* ── Fetch ── */
   const fetchCourses = async () => { try { const r = await axios.get(`${API}/getadvcourses`); setCourse(r.data); } catch(e){} };
   const fetchAdvTeam = async () => { try { const r = await axios.get(`${API}/getadvteam`); setAdvTeam(r.data); } catch(e){} };
-  const fetchOperationData = async () => { const operationId = localStorage.getItem("advOperationId"); try { const r = await axios.get(`${API}/getadvoperation`,{params:{operationId}}); setOperationData(r.data); } catch(e){} };
+  const fetchOperationData = async () => { const operationId = localStorage.getItem("advOperationId"); try { const r = await axios.get(`${API}/getadvoperation`,{params:{operationId}}); setOperationData(r.data[0] || r.data); } catch(e){} };
 
   const fetchAdvEnrolls = async () => {
     const operationName = localStorage.getItem("advOperationName");
     try {
       const response = await axios.get(`${API}/getadvenrolls?all=true`);
-      const bookedStudents = response.data
-        ? response.data.filter(i => i.status === "booked" && i.operationName === operationName)
-        : response.filter(i => i.status === "booked" && i.operationName === operationName);
+      const dataArray = response.data.data || response.data;
+      const bookedStudents = dataArray.filter(i => i.status === "booked" && i.operationName === operationName);
       setAdvEnrolls(bookedStudents);
       const currentMonth = getCurrentMonth();
       setSelectedMonth(currentMonth);
@@ -231,7 +115,11 @@ const AdvBookedPayment = () => {
   /* ── Handlers ── */
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = { fullname, email:email.trim(), phone, program, counselor:counselor.trim(), domain:domain.trim(), programPrice, paidAmount, monthOpted, clearPaymentMonth, operationName:operationData.fullname, operationId:operationData._id };
+    const formData = { 
+        fullname, email:email.trim(), phone, program, counselor:counselor.trim(), 
+        domain:domain.trim(), programPrice, paidAmount, monthOpted, clearPaymentMonth, 
+        operationName: operationData?.fullname, operationId: operationData?._id 
+    };
     try {
       let r = editingStudentId ? await axios.put(`${API}/editadvenroll/${editingStudentId}`,formData) : await axios.post(`${API}/advenroll`,formData);
       if (r.status===200||r.status===201) { toast.success(editingStudentId?"Student updated.":"Submitted."); fetchAdvEnrolls(); resetForm(); }
@@ -336,45 +224,69 @@ const AdvBookedPayment = () => {
   const nextPage = () => { if(currentPage<totalPages) setCurrentPage(p=>p+1); };
   const prevPage = () => { if(currentPage>1) setCurrentPage(p=>p-1); };
 
-  const groupedData = currentItems.reduce((acc,item)=>{ const d=formatDate(item.createdAt); if(!acc[d]) acc[d]=[]; acc[d].push(item); return acc; },{});
+  const groupedData = currentItems.reduce((acc,item)=>{ 
+      const d=formatDate(item.createdAt); 
+      if(!acc[d]) acc[d]=[]; 
+      acc[d].push(item); 
+      return acc; 
+  },{});
 
   /* ── RENDER ── */
   return (
-    <div style={styles.page}>
-      <Toaster position="top-center" toastOptions={{ style:{background:'#1E293B',color:'#F8FAFC',border:'1px solid rgba(255,255,255,0.1)',borderRadius:'12px'} }} />
+    <div className="bg-[#f8fafc] min-h-screen font-sans ml-[280px] mt-[70px] p-8 md:p-10">
+      <Toaster position="top-center" />
 
       {/* ── Offer Letter Modal ── */}
       {offerData && (
-        <div style={{ position:"fixed",inset:0,zIndex:1000,display:"flex",alignItems:"center",justifyContent:"center" }}>
-          <div onClick={resetOfferLeter} style={{ position:"absolute",inset:0,background:"rgba(0,0,0,0.6)" }}/>
-          <div style={{ ...styles.card, position:"relative",zIndex:1001,width:"100%",maxWidth:"480px",padding:"36px",display:"flex",flexDirection:"column",gap:"16px" }}>
-            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"8px" }}>
-              <h2 style={{ margin:0,fontSize:"20px",fontWeight:"800" }}>Send Offer Letter</h2>
-              <button onClick={resetOfferLeter} style={{ background:"none",border:"none",color:T.muted,cursor:"pointer" }}>{Icons.Close}</button>
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[1000] flex items-center justify-center p-4">
+          <div onClick={resetOfferLeter} className="absolute inset-0" />
+          <div className="bg-white relative z-[1001] w-full max-w-md rounded-3xl shadow-2xl p-8 animate-[fadeIn_0.2s_ease-out]">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-black text-slate-800 flex items-center gap-2">
+                  <Send className="text-indigo-600" /> Send Offer Letter
+              </h2>
+              <button onClick={resetOfferLeter} className="text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition-colors"><X size={20}/></button>
             </div>
-            <div style={{ background:"rgba(15,23,42,0.5)",borderRadius:"12px",padding:"16px",display:"flex",flexDirection:"column",gap:"4px" }}>
-              <p style={{ margin:0,color:T.muted,fontSize:"13px" }}>Name: <strong style={{ color:T.text }}>{offerData?.fullname}</strong></p>
-              <p style={{ margin:0,color:T.muted,fontSize:"13px" }}>Domain: <strong style={{ color:T.text }}>{offerData?.domain}</strong></p>
-              <p style={{ margin:0,color:T.muted,fontSize:"13px" }}>Email: <strong style={{ color:T.text }}>{offerData?.email}</strong></p>
+            
+            <div className="bg-indigo-50 border border-indigo-100 rounded-2xl p-4 mb-6">
+              <p className="text-sm text-slate-600 mb-1">Name: <strong className="text-indigo-900">{offerData?.fullname}</strong></p>
+              <p className="text-sm text-slate-600 mb-1">Domain: <strong className="text-indigo-900">{offerData?.domain}</strong></p>
+              <p className="text-sm text-slate-600">Email: <strong className="text-indigo-900">{offerData?.email}</strong></p>
             </div>
-            <form onSubmit={sendOfferleter} style={{ display:"flex",flexDirection:"column",gap:"14px" }}>
-              <div><label style={styles.label}>Offer Letter Date</label><input type="date" value={offerDate} onChange={e=>setOfferDate(e.target.value)} required style={styles.input}/></div>
-              <div><label style={styles.label}>Internship Duration</label>
-                <select value={offerDuration} onChange={e=>setOfferDuration(e.target.value)} required style={styles.select}>
+            
+            <form onSubmit={sendOfferleter} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1.5 ml-1">Offer Letter Date</label>
+                <input type="date" value={offerDate} onChange={e=>setOfferDate(e.target.value)} required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"/>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1.5 ml-1">Internship Duration</label>
+                <select value={offerDuration} onChange={e=>setOfferDuration(e.target.value)} required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all cursor-pointer">
                   <option value="">Select Duration</option>
-                  {["One","Two","Three","Four","Five","Six"].map(v=><option key={v} value={v}>{v}</option>)}
+                  {["One","Two","Three","Four","Five","Six"].map(v=><option key={v} value={v}>{v} Months</option>)}
                 </select>
               </div>
-              <div><label style={styles.label}>Start Date</label><input type="date" value={offerStart} onChange={e=>setOfferStart(e.target.value)} required style={styles.input}/></div>
-              <div><label style={styles.label}>End Date</label><input type="date" value={offerEnd} onChange={e=>setOfferEnd(e.target.value)} required style={styles.input}/></div>
-              <div><label style={styles.label}>Reporting Location</label>
-                <select value={offerLocation} onChange={e=>setOfferLocation(e.target.value)} required style={styles.select}>
+              <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1.5 ml-1">Start Date</label>
+                    <input type="date" value={offerStart} onChange={e=>setOfferStart(e.target.value)} required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"/>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1.5 ml-1">End Date</label>
+                    <input type="date" value={offerEnd} onChange={e=>setOfferEnd(e.target.value)} required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"/>
+                  </div>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1.5 ml-1">Reporting Location</label>
+                <select value={offerLocation} onChange={e=>setOfferLocation(e.target.value)} required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all cursor-pointer">
                   <option value="Online">Online</option><option value="Offline">Offline</option>
                 </select>
               </div>
-              <div style={{ display:"flex",gap:"12px",marginTop:"8px" }}>
-                <button type="button" onClick={resetOfferLeter} style={{ ...styles.btnGhost,flex:1 }}>Cancel</button>
-                <button type="submit" disabled={isOfferLetterSending} style={{ ...styles.btnPrimary,flex:1,opacity:isOfferLetterSending?0.6:1 }}>{isOfferLetterSending?"Sending...":"Send Letter"}</button>
+              <div className="flex gap-3 pt-4 border-t border-slate-100">
+                <button type="button" onClick={resetOfferLeter} className="flex-1 bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 rounded-xl py-3 font-bold transition-all shadow-sm">Cancel</button>
+                <button type="submit" disabled={isOfferLetterSending} className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl py-3 font-bold transition-all shadow-sm flex justify-center items-center gap-2">
+                    {isOfferLetterSending ? <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> : <><Send size={18}/> Send Letter</>}
+                </button>
               </div>
             </form>
           </div>
@@ -383,100 +295,135 @@ const AdvBookedPayment = () => {
 
       {/* ── Enrollment Form Modal ── */}
       {iscourseFormVisible && (
-        <div style={{ position:"fixed",inset:0,zIndex:1000,display:"flex",alignItems:"center",justifyContent:"center" }}>
-          <div onClick={resetForm} style={{ position:"absolute",inset:0,background:"rgba(0,0,0,0.6)" }}/>
-          <div style={{ ...styles.card,position:"relative",zIndex:1001,width:"100%",maxWidth:"500px",padding:"36px",maxHeight:"90vh",overflowY:"auto",display:"flex",flexDirection:"column",gap:"14px" }}>
-            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"8px" }}>
-              <h2 style={{ margin:0,fontSize:"20px",fontWeight:"800" }}>{editingStudentId?"Edit Enrollment":"Add New Enrollment"}</h2>
-              <button onClick={resetForm} style={{ background:"none",border:"none",color:T.muted,cursor:"pointer" }}>{Icons.Close}</button>
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[1000] flex items-center justify-center p-4">
+          <div onClick={resetForm} className="absolute inset-0" />
+          <div className="bg-white relative z-[1001] w-full max-w-lg rounded-3xl shadow-2xl p-8 max-h-[90vh] overflow-y-auto custom-scrollbar animate-[fadeIn_0.2s_ease-out]">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-black text-slate-800 flex items-center gap-2">
+                  <BookOpen className="text-indigo-600" /> {editingStudentId?"Edit Enrollment":"Add New Enrollment"}
+              </h2>
+              <button onClick={resetForm} className="text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition-colors"><X size={20}/></button>
             </div>
-            <form onSubmit={handleSubmit} style={{ display:"flex",flexDirection:"column",gap:"14px" }}>
+            
+            <form onSubmit={handleSubmit} className="space-y-4">
               {[{ph:"Candidate Full Name",val:fullname,set:setFullname,type:"text"},{ph:"Candidate Email",val:email,set:setEmail,type:"text"},{ph:"Contact No",val:phone,set:setPhone,type:"number"},{ph:"WhatsApp No",val:whatsAppNumber,set:setWhatsAppNumber,type:"number"}].map(({ph,val,set,type})=>(
-                <input key={ph} value={val} onChange={e=>set(e.target.value)} type={type} placeholder={ph} required style={styles.input}/>
+                <div key={ph}>
+                    <input value={val} onChange={e=>set(e.target.value)} type={type} placeholder={ph} required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"/>
+                </div>
               ))}
-              <select value={program} onChange={e=>setProgram(e.target.value)} style={styles.select}>
-                <option value="" disabled>Mode of Program</option>
-                {["Self-guided","Instructor Led","Career Advancement"].map(v=><option key={v} value={v}>{v}</option>)}
-              </select>
-              <select disabled={editingStudentId!==null} value={counselor} onChange={e=>setCounselor(e.target.value)} style={styles.select}>
-                <option value="" disabled>Select Counselor</option>
-                {advTeam.map(i=><option key={i._id} value={i.fullname}>{i.fullname}</option>)}
-              </select>
-              <select value={domain} onChange={e=>setDomain(e.target.value)} style={styles.select}>
+              
+              <div className="grid grid-cols-2 gap-4">
+                  <select value={program} onChange={e=>setProgram(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all cursor-pointer">
+                    <option value="" disabled>Mode of Program</option>
+                    {["Self-guided","Instructor Led","Career Advancement"].map(v=><option key={v} value={v}>{v}</option>)}
+                  </select>
+                  <select disabled={editingStudentId!==null} value={counselor} onChange={e=>setCounselor(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all cursor-pointer disabled:opacity-50">
+                    <option value="" disabled>Select Counselor</option>
+                    {advTeam.map(i=><option key={i._id} value={i.fullname}>{i.fullname}</option>)}
+                  </select>
+              </div>
+
+              <select value={domain} onChange={e=>setDomain(e.target.value)} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all cursor-pointer">
                 <option value="" disabled>Select Domain</option>
                 {course.map(i=><option key={i._id} value={i.title}>{i.title}</option>)}
               </select>
-              <select value={monthOpted} onChange={e=>setMonthOpted(e.target.value)} required style={styles.select}>
+
+              <select value={monthOpted} onChange={e=>setMonthOpted(e.target.value)} required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all cursor-pointer">
                 <option value="" disabled>Select Month Opted</option>
                 {monthsToShow.map((m,i)=><option key={i} value={m}>{m}</option>)}
               </select>
-              <input value={programPrice} onChange={e=>setProgramPrice(e.target.value)} type="number" placeholder="Program Price" required disabled={editingStudentId!==null} style={{ ...styles.input,opacity:editingStudentId?0.5:1 }}/>
-              <input value={paidAmount} onChange={e=>setPaidAmount(e.target.value)} type="number" placeholder="Paid Amount" required style={styles.input}/>
-              <div>
-                <label style={styles.label}>Next Instalment Date</label>
-                <input value={clearPaymentMonth} onChange={e=>setClearPaymentMonth(e.target.value)} type="date" min={minDate} max={maxDate} style={styles.input}/>
+
+              <div className="grid grid-cols-2 gap-4">
+                  <input value={programPrice} onChange={e=>setProgramPrice(e.target.value)} type="number" placeholder="Program Price" required disabled={editingStudentId!==null} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all disabled:opacity-50"/>
+                  <input value={paidAmount} onChange={e=>setPaidAmount(e.target.value)} type="number" placeholder="Paid Amount" required className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"/>
               </div>
-              <button type="submit" style={{ ...styles.btnPrimary,marginTop:"8px" }}>{editingStudentId?"Save Changes":"Submit Enrollment"}</button>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-1.5 ml-1">Next Instalment Date</label>
+                <input value={clearPaymentMonth} onChange={e=>setClearPaymentMonth(e.target.value)} type="date" min={minDate} max={maxDate} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"/>
+              </div>
+              
+              <div className="pt-4 border-t border-slate-100">
+                  <button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl py-3.5 font-black tracking-wide transition-all shadow-md shadow-indigo-200">
+                      {editingStudentId?"Save Changes":"Submit Enrollment"}
+                  </button>
+              </div>
             </form>
           </div>
         </div>
       )}
 
       {/* ── Page Header ── */}
-      <div style={{ display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:"32px",flexWrap:"wrap",gap:"16px" }}>
-        <div>
-          <h1 style={{ margin:"0 0 6px 0",fontSize:"28px",fontWeight:"800",background:"linear-gradient(90deg,#F8FAFC,#94A3B8)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent" }}>
-            Booked Payments
-          </h1>
-          <p style={{ margin:0,color:T.muted,fontSize:"14px" }}>Advance Program — Enrolled students with pending full payment</p>
+      <div className="bg-indigo-600 rounded-3xl p-8 mb-8 shadow-lg shadow-indigo-200/50 text-white relative overflow-hidden flex flex-col md:flex-row justify-between items-center">
+        <div className="absolute top-0 right-0 -mr-8 -mt-8 opacity-10">
+          <BookOpen size={250} />
         </div>
-        <button onClick={handleAddNewCandidate} style={{ ...styles.btnPrimary,display:"flex",alignItems:"center",gap:"8px",boxShadow:"0 8px 20px -8px rgba(59,130,246,0.5)" }}>
-          {Icons.Plus} Add Enrollment
-        </button>
+        
+        <div className="relative z-10 mb-6 md:mb-0">
+          <h1 className="text-3xl font-black tracking-tight mb-2 flex items-center gap-3">
+            Booked Payments Operations
+          </h1>
+          <p className="text-indigo-100 font-medium max-w-xl">
+            Advance Program — Manage enrolled students with pending full payments, track follow-ups, and send credentials.
+          </p>
+        </div>
+        
+        <div className="relative z-10">
+            <button onClick={handleAddNewCandidate} className="bg-white text-indigo-600 hover:bg-indigo-50 px-6 py-3 rounded-xl font-bold transition-all shadow-sm flex items-center gap-2">
+            <Plus size={20}/> Add Enrollment
+            </button>
+        </div>
       </div>
 
       {/* ── Filters bar ── */}
-      <div style={{ ...styles.card,padding:"20px 24px",marginBottom:"24px",display:"flex",gap:"16px",alignItems:"center",flexWrap:"wrap" }}>
+      <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm mb-6 flex flex-col md:flex-row gap-4 items-center animate-[fadeIn_0.3s_ease-out]">
         {/* Search */}
-        <div style={{ position:"relative",flex:"1",minWidth:"220px" }}>
-          <div style={{ position:"absolute",left:"14px",top:"50%",transform:"translateY(-50%)",color:T.muted }}>{Icons.Search}</div>
+        <div className="relative flex-1 w-full">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
           <input type="text" placeholder="Search by name, email, phone…" value={searchQuery} onChange={handleSearchChange}
-            style={{ ...styles.input,paddingLeft:"42px" }}
-            onFocus={e=>e.target.style.border=`1px solid ${T.accent}`}
-            onBlur={e=>e.target.style.border=`1px solid ${T.border}`}
+            className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-sm font-semibold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 focus:bg-white transition-all"
           />
         </div>
+        
         {/* Month filter */}
-        <select value={selectedMonth} onChange={handleMonthChange} style={{ ...styles.select,minWidth:"180px",flex:"0 0 auto" }}>
-          {months.map((m,i)=><option key={i} value={m}>{m}</option>)}
-        </select>
+        <div className="relative w-full md:w-auto">
+            <CalendarDays className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+            <select value={selectedMonth} onChange={handleMonthChange} className="w-full md:w-48 bg-slate-50 border border-slate-200 rounded-xl pl-12 pr-4 py-3 text-sm font-bold text-slate-700 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 focus:bg-white transition-all cursor-pointer appearance-none">
+            {months.map((m,i)=><option key={i} value={m}>{m}</option>)}
+            </select>
+        </div>
+
         {/* Count badge */}
-        <div style={{ background:"rgba(59,130,246,0.1)",border:`1px solid ${T.accent}33`,borderRadius:"10px",padding:"8px 18px",color:T.accent,fontWeight:"700",fontSize:"14px",whiteSpace:"nowrap" }}>
-          {filteredStudents.length} Records
+        <div className="bg-indigo-50 border border-indigo-100 text-indigo-700 px-5 py-3 rounded-xl font-black text-sm whitespace-nowrap w-full md:w-auto text-center">
+          {filteredStudents.length} Records found
         </div>
       </div>
 
       {/* ── Table ── */}
-      <div style={{ ...styles.card,padding:0,overflow:"hidden" }}>
-        <div style={{ overflowX:"auto" }}>
-          <table style={{ width:"100%",borderCollapse:"collapse" }}>
+      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden animate-[fadeIn_0.4s_ease-out]">
+        <div className="overflow-x-auto custom-scrollbar">
+          <table className="w-full text-left border-collapse whitespace-nowrap">
             <thead>
-              <tr>
-                {["Sl","Name","WhatsApp","Program Price","Paid Amount","Remaining","Month Opted","Next Instalment","Hierarchy","Edit","Credentials","Create User","Onboarding","Offer Letter","Details","Last Remark","Update Remark"].map(h=>(
-                  <th key={h} style={styles.thStyle}>{h}</th>
+              <tr className="bg-slate-50 border-b border-slate-200">
+                {["Sl","Student Details","Financials","Dates","Hierarchy","Actions","Comms","Remark & Update"].map((h, i) => (
+                  <th key={i} className="px-6 py-5 text-xs font-black text-slate-400 uppercase tracking-widest">{h}</th>
                 ))}
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y divide-slate-100">
               {Object.keys(groupedData).length > 0 ? (
                 Object.keys(groupedData).map(date => (
                   <React.Fragment key={date}>
                     {/* Date separator row */}
-                    <tr onClick={()=>handleCopyMobileNumbers(date)} style={{ cursor:"pointer" }}>
-                      <td colSpan={17} style={{ padding:"10px 16px",background:"rgba(59,130,246,0.08)",borderLeft:`3px solid ${T.accent}`,color:T.accent,fontWeight:"700",fontSize:"13px",letterSpacing:"0.5px" }}>
-                        {date} — click to copy WhatsApp numbers
+                    <tr onClick={()=>handleCopyMobileNumbers(date)} className="group cursor-pointer hover:bg-indigo-50/50 transition-colors">
+                      <td colSpan={8} className="px-6 py-3 bg-slate-50/50 border-l-4 border-l-indigo-500 text-indigo-700 font-bold text-xs uppercase tracking-widest">
+                        <div className="flex items-center gap-2">
+                            <CalendarDays size={14}/> {date} 
+                            <span className="text-slate-400 font-medium normal-case ml-2 opacity-0 group-hover:opacity-100 transition-opacity">— Click to copy WhatsApp numbers</span>
+                        </div>
                       </td>
                     </tr>
+                    
                     {/* Student rows */}
                     {groupedData[date].map((item, index) => {
                       const advTeamObj = advTeam.find(b=>b.fullname===item.counselor);
@@ -487,79 +434,97 @@ const AdvBookedPayment = () => {
                       const lastRemark = item.remark&&item.remark[item.remark.length-1];
 
                       // row color based on remark
-                      let rowBg = "transparent";
-                      if(lastRemark==="Cleared") rowBg="rgba(16,185,129,0.05)";
-                      else if(lastRemark==="Default") rowBg="rgba(239,68,68,0.05)";
-                      else if(lastRemark==="DNP"||lastRemark==="NATC") rowBg="rgba(245,158,11,0.05)";
+                      let rowClass = "hover:bg-slate-50 transition-colors ";
+                      if(lastRemark==="Cleared") rowClass += "bg-emerald-50/30";
+                      else if(lastRemark==="Default") rowClass += "bg-rose-50/30";
+                      else if(lastRemark==="DNP"||lastRemark==="NATC") rowClass += "bg-amber-50/30";
 
                       return (
-                        <tr key={item._id} style={{ background:rowBg, transition:"background 0.2s" }}
-                          onMouseEnter={e=>{e.currentTarget.style.background="rgba(255,255,255,0.03)"}}
-                          onMouseLeave={e=>{e.currentTarget.style.background=rowBg}}>
-                          <td style={styles.tdStyle}>{index+1}</td>
-                          <td style={{ ...styles.tdStyle,textTransform:"capitalize",fontWeight:"600",color:"#CBD5E1" }}>{item.fullname}</td>
-                          <td style={styles.tdStyle}>{item.whatsAppNumber}</td>
-                          <td style={{ ...styles.tdStyle,color:T.green }}>₹{Number(item.programPrice).toLocaleString()}</td>
-                          <td style={{ ...styles.tdStyle,color:T.accent }}>₹{Number(item.paidAmount).toLocaleString()}</td>
-                          <td style={{ ...styles.tdStyle,color:T.yellow }}>₹{(item.programPrice-item.paidAmount).toLocaleString()}</td>
-                          <td style={{ ...styles.tdStyle,textTransform:"capitalize" }}>{item.monthOpted}</td>
-                          <td style={styles.tdStyle}>{item.clearPaymentMonth}</td>
-                          <td style={styles.tdStyle}>
-                            <div style={{ display:"flex",flexDirection:"column",gap:"2px" }}>
-                              <span style={{ fontWeight:"700",color:"#CBD5E1",fontSize:"12px" }}>{managerName} <span style={{ color:T.muted,fontWeight:"400" }}>(Mgr)</span></span>
-                              <span style={{ color:T.muted,fontSize:"11px" }}>{teamName}</span>
+                        <tr key={item._id} className={rowClass}>
+                          <td className="px-6 py-4 text-xs font-bold text-slate-400 text-center">{index+1}</td>
+                          
+                          {/* Student Details */}
+                          <td className="px-6 py-4">
+                              <div className="flex flex-col">
+                                  <span className="font-bold text-slate-800 capitalize">{item.fullname}</span>
+                                  <span className="text-xs font-semibold text-slate-500">{item.whatsAppNumber || item.phone}</span>
+                              </div>
+                          </td>
+                          
+                          {/* Financials */}
+                          <td className="px-6 py-4">
+                              <div className="flex flex-col gap-1 text-sm">
+                                  <span className="font-bold text-slate-800">₹{Number(item.programPrice).toLocaleString()} <span className="text-[10px] text-slate-400 uppercase">Total</span></span>
+                                  <span className="font-bold text-emerald-600">₹{Number(item.paidAmount).toLocaleString()} <span className="text-[10px] text-emerald-400 uppercase">Paid</span></span>
+                                  <span className="font-black text-amber-500">₹{(item.programPrice-item.paidAmount).toLocaleString()} <span className="text-[10px] text-amber-400 uppercase">Due</span></span>
+                              </div>
+                          </td>
+                          
+                          {/* Dates */}
+                          <td className="px-6 py-4">
+                              <div className="flex flex-col gap-1">
+                                  <span className="inline-block bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded text-xs capitalize text-center border border-slate-200">{item.monthOpted}</span>
+                                  <span className="text-xs font-semibold text-slate-500 flex items-center gap-1"><CalendarDays size={12}/> Due: {item.clearPaymentMonth || 'N/A'}</span>
+                              </div>
+                          </td>
+                          
+                          {/* Hierarchy */}
+                          <td className="px-6 py-4">
+                            <div className="flex flex-col">
+                              <span className="font-bold text-slate-700 text-xs">{managerName || 'No Manager'} <span className="text-slate-400 font-semibold">(Mgr)</span></span>
+                              <span className="text-slate-500 text-[10px] uppercase font-bold tracking-widest">{teamName || 'No Team'}</span>
                             </div>
                           </td>
-                          {/* Edit */}
-                          <td style={styles.tdStyle}>
-                            <button onClick={()=>handleEdit(item._id)} style={{ background:"rgba(59,130,246,0.1)",color:T.accent,border:`1px solid ${T.accent}33`,borderRadius:"8px",padding:"6px 14px",fontSize:"12px",fontWeight:"600",cursor:"pointer",fontFamily:T.font }}>Edit</button>
+                          
+                          {/* Actions */}
+                          <td className="px-6 py-4">
+                              <div className="flex items-center gap-2">
+                                <button onClick={()=>handleEdit(item._id)} className="bg-indigo-50 hover:bg-indigo-100 text-indigo-600 border border-indigo-200 rounded-lg px-3 py-1.5 text-xs font-bold transition-colors">Edit</button>
+                                <button onClick={()=>handleDialogOpen(item)} className="bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200 rounded-lg p-1.5 transition-colors" title="Info">
+                                    <Info size={16} />
+                                </button>
+                              </div>
                           </td>
-                          {/* Login Credentials */}
-                          <td style={{ ...styles.tdStyle,textAlign:"center" }}>
-                            <div onClick={!item.mailSended?()=>handleSendEmail(item):null} style={{ cursor:item.mailSended?"default":"pointer",display:"flex",alignItems:"center",justifyContent:"center",gap:"4px",color:item.mailSended?T.green:T.red,fontSize:"20px" }}>
-                              {item.mailSended?<PiLockKeyOpenFill/>:<PiLockKeyFill/>}
+                          
+                          {/* Comms (Credentials, User, Onboarding, Offer) */}
+                          <td className="px-6 py-4">
+                            <div className="flex items-center gap-2">
+                                {/* Credentials */}
+                                <button onClick={!item.mailSended?()=>handleSendEmail(item):null} className={`p-1.5 rounded-lg border ${item.mailSended ? 'bg-emerald-50 border-emerald-200 text-emerald-600 cursor-default' : 'bg-rose-50 border-rose-200 text-rose-600 hover:bg-rose-100 transition-colors'}`} title="Credentials Email">
+                                    {item.mailSended ? <Unlock size={16}/> : <Lock size={16}/>}
+                                </button>
+                                
+                                {/* Create User */}
+                                <button onClick={()=>createAccount(item)} className={`p-1.5 rounded-lg border ${item.userCreated ? 'bg-emerald-50 border-emerald-200 text-emerald-600' : 'bg-amber-50 border-amber-200 text-amber-600 hover:bg-amber-100 transition-colors'}`} title="Create User Account">
+                                    {item.userCreated ? <UserCheck size={16}/> : <UserX size={16}/>}
+                                </button>
+
+                                {/* Onboarding */}
+                                <button onClick={()=>handleSendOnboardingDetails(item)} className={`p-1.5 rounded-lg border ${item.onboardingSended ? 'bg-emerald-50 border-emerald-200 text-emerald-600' : 'bg-blue-50 border-blue-200 text-blue-600 hover:bg-blue-100 transition-colors'}`} title="Send Onboarding">
+                                    <Mail size={16}/>
+                                </button>
+
+                                {/* Offer Letter */}
+                                <button onClick={()=>setOfferData(item)} className={`flex items-center gap-1 px-2 py-1.5 rounded-lg border text-xs font-bold ${item.offerlettersended ? 'bg-emerald-50 border-emerald-200 text-emerald-600' : 'bg-purple-50 border-purple-200 text-purple-600 hover:bg-purple-100 transition-colors'}`} title="Offer Letter">
+                                    <Send size={14}/> {item.offerlettersended ? 'Sent' : 'Send'}
+                                </button>
                             </div>
                           </td>
-                          {/* Create User */}
-                          <td style={{ ...styles.tdStyle,textAlign:"center" }}>
-                            <div onClick={()=>createAccount(item)} style={{ cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:"2px",color:item.userCreated?T.green:T.red,fontSize:"18px" }}>
-                              {item.userCreated?<FaUserCheck/>:<FaUserTimes/>}
-                              <span style={{ fontSize:"10px",fontWeight:"600" }}>{item.userCreated?"Created":"Not Yet"}</span>
-                            </div>
-                          </td>
-                          {/* Onboarding */}
-                          <td style={{ ...styles.tdStyle,textAlign:"center" }}>
-                            <div onClick={()=>handleSendOnboardingDetails(item)} style={{ cursor:"pointer",color:item.onboardingSended?T.green:T.red,fontSize:"18px",display:"flex",justifyContent:"center" }}>
-                              <RiMailSendFill/>
-                            </div>
-                          </td>
-                          {/* Offer Letter */}
-                          <td style={{ ...styles.tdStyle,textAlign:"center" }}>
-                            <button onClick={()=>setOfferData(item)} style={{ background:item.offerlettersended?"rgba(16,185,129,0.1)":"rgba(139,92,246,0.1)",color:item.offerlettersended?T.green:"#8B5CF6",border:"none",borderRadius:"8px",padding:"6px 12px",fontSize:"11px",fontWeight:"700",cursor:"pointer",display:"flex",alignItems:"center",gap:"4px",fontFamily:T.font }}>
-                              {Icons.Send} {item.offerlettersended?"Sent":"Send"}
-                            </button>
-                          </td>
-                          {/* More Details */}
-                          <td style={{ ...styles.tdStyle,textAlign:"center" }}>
-                            <button onClick={()=>handleDialogOpen(item)} style={{ background:"rgba(255,255,255,0.05)",color:T.muted,border:`1px solid ${T.border}`,borderRadius:"8px",padding:"6px 10px",cursor:"pointer",display:"flex",alignItems:"center",gap:"4px",fontSize:"12px",fontFamily:T.font }}>
-                              {Icons.Info}
-                            </button>
-                          </td>
-                          {/* Last Remark */}
-                          <td style={styles.tdStyle}>
-                            <span style={{ background:lastRemark==="Cleared"?"rgba(16,185,129,0.15)":lastRemark==="Default"?"rgba(239,68,68,0.15)":"rgba(255,255,255,0.05)",color:lastRemark==="Cleared"?T.green:lastRemark==="Default"?T.red:T.muted,padding:"4px 10px",borderRadius:"20px",fontSize:"11px",fontWeight:"600" }}>
-                              {lastRemark||"None"}
-                            </span>
-                          </td>
-                          {/* Remark dropdown */}
-                          <td style={styles.tdStyle}>
-                            <select onChange={e=>handleRemarkChange(e,item._id)} defaultValue="Select Remark"
-                              style={{ ...styles.select,padding:"8px 12px",fontSize:"12px",minWidth:"160px" }}>
-                              <option disabled value="Select Remark">Select Remark</option>
-                              {["Reminder Issued","DNP","NATC","Not Interested","Cut Call","Default","Cleared","Half_Cleared","Switch Off","Call Back later","Busy","Declined","Need More Time","Reviews are not good","When Batch Starts","No response","False pitch so not intrested","Offer letter issues","Counselor Told To Pay Before Class Start"].map(r=>(
-                                <option key={r} value={r}>{r}</option>
-                              ))}
-                            </select>
+                          
+                          {/* Remark & Update */}
+                          <td className="px-6 py-4">
+                              <div className="flex flex-col gap-2">
+                                <span className={`inline-block px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-widest border text-center ${lastRemark==="Cleared"?"bg-emerald-50 text-emerald-700 border-emerald-200":lastRemark==="Default"?"bg-rose-50 text-rose-700 border-rose-200":"bg-slate-100 text-slate-600 border-slate-200"}`}>
+                                    {lastRemark||"None"}
+                                </span>
+                                <select onChange={e=>handleRemarkChange(e,item._id)} defaultValue="Select Remark"
+                                  className="w-full bg-white border border-slate-200 rounded-lg px-2 py-1.5 text-xs font-bold text-slate-600 outline-none focus:border-indigo-500 cursor-pointer">
+                                  <option disabled value="Select Remark">Select Remark</option>
+                                  {["Reminder Issued","DNP","NATC","Not Interested","Cut Call","Default","Cleared","Half_Cleared","Switch Off","Call Back later","Busy","Declined","Need More Time","Reviews are not good","When Batch Starts","No response","False pitch so not intrested","Offer letter issues","Counselor Told To Pay Before Class Start"].map(r=>(
+                                    <option key={r} value={r}>{r}</option>
+                                  ))}
+                                </select>
+                              </div>
                           </td>
                         </tr>
                       );
@@ -567,7 +532,17 @@ const AdvBookedPayment = () => {
                   </React.Fragment>
                 ))
               ) : (
-                <tr><td colSpan={17} style={{ ...styles.tdStyle,textAlign:"center",padding:"60px",color:T.muted }}>No records found for this month.</td></tr>
+                <tr>
+                    <td colSpan={8} className="py-24 text-center">
+                        <div className="flex flex-col items-center justify-center">
+                            <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mb-4">
+                                <Search className="text-slate-300 w-10 h-10" />
+                            </div>
+                            <h3 className="text-lg font-bold text-slate-700 mb-1">No Records Found</h3>
+                            <p className="text-slate-500 text-sm">Try adjusting your filters or search query.</p>
+                        </div>
+                    </td>
+                </tr>
               )}
             </tbody>
           </table>
@@ -575,44 +550,53 @@ const AdvBookedPayment = () => {
 
         {/* Pagination */}
         {filteredStudents.length > itemsPerPage && (
-          <div style={{ display:"flex",justifyContent:"center",alignItems:"center",gap:"16px",padding:"20px",borderTop:`1px solid ${T.border}` }}>
-            <button onClick={prevPage} disabled={currentPage===1} style={{ ...styles.btnGhost,opacity:currentPage===1?0.4:1,padding:"10px 20px" }}>Previous</button>
-            <span style={{ color:T.muted,fontWeight:"600" }}>Page {currentPage} of {totalPages}</span>
-            <button onClick={nextPage} disabled={currentPage===totalPages} style={{ ...styles.btnPrimary,opacity:currentPage===totalPages?0.4:1,padding:"10px 20px" }}>Next</button>
+          <div className="px-6 py-4 border-t border-slate-100 flex items-center justify-between bg-slate-50">
+            <span className="text-sm font-bold text-slate-500">Page {currentPage} of {totalPages}</span>
+            <div className="flex gap-2">
+                <button onClick={prevPage} disabled={currentPage===1} className="px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl font-bold text-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm">Previous</button>
+                <button onClick={nextPage} disabled={currentPage===totalPages} className="px-4 py-2 bg-white border border-slate-200 text-slate-600 rounded-xl font-bold text-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm">Next</button>
+            </div>
           </div>
         )}
       </div>
 
       {/* ── Details Dialog ── */}
       {dialogVisible && dialogData && (
-        <div style={{ position:"fixed",inset:0,zIndex:1000,display:"flex",alignItems:"center",justifyContent:"center" }}>
-          <div onClick={handleDialogClose} style={{ position:"absolute",inset:0,background:"rgba(0,0,0,0.6)" }}/>
-          <div style={{ ...styles.card,position:"relative",zIndex:1001,width:"100%",maxWidth:"440px",padding:"36px" }}>
-            <div style={{ display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:"24px" }}>
-              <h2 style={{ margin:0,fontSize:"20px",fontWeight:"800" }}>Student Details</h2>
-              <button onClick={handleDialogClose} style={{ background:"none",border:"none",color:T.muted,cursor:"pointer" }}>{Icons.Close}</button>
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[1000] flex items-center justify-center p-4">
+          <div onClick={handleDialogClose} className="absolute inset-0" />
+          <div className="bg-white relative z-[1001] w-full max-w-sm rounded-3xl shadow-2xl p-8 animate-[fadeIn_0.2s_ease-out]">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-xl font-black text-slate-800 flex items-center gap-2">
+                  <Info className="text-indigo-600" /> Student Info
+              </h2>
+              <button onClick={handleDialogClose} className="text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 p-2 rounded-full transition-colors"><X size={20}/></button>
             </div>
-            <div style={{ display:"flex",flexDirection:"column",gap:"14px" }}>
-              {[["Email",dialogData.email],["Phone",dialogData.phone],["Program",dialogData.program],["Domain Opted",dialogData.domain],["Counselor",dialogData.counselor],["College Name",dialogData.collegeName],["Branch",dialogData.branch],["Aadhar No",dialogData.aadharNumber],["Next Instalment",dialogData.clearPaymentMonth||"N/A"]].map(([k,v])=>(
-                <div key={k} style={{ display:"flex",justifyContent:"space-between",gap:"12px",paddingBottom:"12px",borderBottom:`1px solid ${T.border}` }}>
-                  <span style={{ color:T.muted,fontSize:"13px",fontWeight:"600" }}>{k}</span>
-                  <span style={{ color:T.text,fontSize:"13px",textAlign:"right" }}>{v}</span>
+            
+            <div className="space-y-3">
+              {[
+                ["Email",dialogData.email],
+                ["Phone",dialogData.phone],
+                ["Program",dialogData.program],
+                ["Domain Opted",dialogData.domain],
+                ["Counselor",dialogData.counselor],
+                ["College Name",dialogData.collegeName],
+                ["Branch",dialogData.branch],
+                ["Aadhar No",dialogData.aadharNumber],
+                ["Next Instalment",dialogData.clearPaymentMonth||"N/A"]
+              ].map(([k,v])=>(
+                <div key={k} className="flex justify-between items-center py-3 border-b border-slate-100 last:border-0">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">{k}</span>
+                  <span className="text-sm font-black text-slate-800 text-right max-w-[60%] truncate" title={v}>{v || '—'}</span>
                 </div>
               ))}
             </div>
-            <button onClick={handleDialogClose} style={{ ...styles.btnGhost,width:"100%",marginTop:"20px",textAlign:"center" }}>Close</button>
+            
+            <button onClick={handleDialogClose} className="w-full mt-6 bg-slate-900 hover:bg-slate-800 text-white rounded-xl py-3 font-bold transition-all shadow-md">
+                Close Details
+            </button>
           </div>
         </div>
       )}
-
-      <style>{`
-        input::placeholder { color: #475569; }
-        option { background: #1E293B; color: #F1F5F9; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 99px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
-      `}</style>
     </div>
   );
 };

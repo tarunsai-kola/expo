@@ -91,128 +91,148 @@ const AdvUserManagement = () => {
   });
 
   return (
-    <div id="AdminAddCourse" className="p-6">
+    <div className="admin-content-wrap min-h-screen bg-slate-50/50 font-sans p-6 sm:p-10">
       <Toaster position="top-center" />
-      <div className="coursetable bg-white rounded-3xl shadow-xl p-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-          <div>
-            <h2 className="text-3xl font-extrabold text-gray-800">User Management</h2>
-            <p className="text-gray-500 mt-1">Manage statuses for all Operation and Team members</p>
-          </div>
-          
-          <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
-            <select 
-              value={filterStatus}
-              onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-4 py-2 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary/20 outline-none bg-gray-50 font-medium"
-            >
-              <option value="All">All Statuses</option>
-              <option value="Active">Active Only</option>
-              <option value="Inactive">Inactive Only</option>
-            </select>
-
-            <div className="relative flex-grow md:flex-grow-0">
-              <input
-                type="text"
-                placeholder="Search name or email..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full md:w-64 px-10 py-2 border border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary/20 outline-none bg-gray-50"
-              />
-              <i className="fa fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+      <div className="max-w-[1600px] mx-auto">
+        <div className="mb-10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+            <div>
+              <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight m-0">
+                User Management
+              </h1>
+              <p className="text-sm text-slate-500 mt-1 m-0 font-medium">
+                Manage statuses for all Operation and Team members
+              </p>
             </div>
-
-            <button 
-              onClick={fetchUsers}
-              className="p-2 hover:bg-gray-100 rounded-xl transition-colors text-gray-600"
-              title="Refresh List"
-            >
-              <i className="fa fa-refresh"></i>
-            </button>
-          </div>
-        </div>
-
-        {loading ? (
-          <div className="flex flex-col items-center justify-center py-20">
-             <div className="three-body">
-                <div className="three-body__dot"></div>
-                <div className="three-body__dot"></div>
-                <div className="three-body__dot"></div>
+            
+            <div className="flex flex-wrap items-center gap-4 w-full md:w-auto">
+              <div className="relative">
+                <select 
+                  value={filterStatus}
+                  onChange={(e) => setFilterStatus(e.target.value)}
+                  className="w-full sm:w-[200px] rounded-xl border border-slate-300 bg-white text-slate-700 px-4 py-2.5 shadow-sm outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all appearance-none font-medium text-sm"
+                >
+                  <option value="All">All Statuses</option>
+                  <option value="Active">Active Only</option>
+                  <option value="Inactive">Inactive Only</option>
+                </select>
+                <i className="fa fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-[10px]"></i>
               </div>
-              <p className="mt-4 text-gray-400 font-medium tracking-wide">Fetching users...</p>
+
+              <div className="relative flex-grow md:flex-grow-0">
+                <input
+                  type="text"
+                  placeholder="Search name or email..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full md:w-[300px] rounded-xl border border-slate-300 bg-white text-slate-700 pl-10 pr-4 py-2.5 shadow-sm outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all font-medium text-sm"
+                />
+                <i className="fa fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+              </div>
+
+              <button 
+                onClick={fetchUsers}
+                className="w-10 h-10 flex items-center justify-center rounded-xl border border-slate-300 bg-white text-slate-500 hover:bg-slate-50 hover:text-blue-600 shadow-sm transition-all"
+                title="Refresh List"
+              >
+                <i className="fa fa-sync-alt"></i>
+              </button>
+            </div>
           </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="border-b-2 border-gray-50">
-                  <th className="text-left py-4 px-4 font-bold text-gray-600">Sl No.</th>
-                  <th className="text-left py-4 px-4 font-bold text-gray-600">Full Name</th>
-                  <th className="text-left py-4 px-4 font-bold text-gray-600">Email</th>
-                  <th className="text-left py-4 px-4 font-bold text-gray-600">Role / Designation</th>
-                  <th className="text-center py-4 px-4 font-bold text-gray-600">Status</th>
-                  <th className="text-right py-4 px-4 font-bold text-gray-600">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredUsers.length > 0 ? (
-                  filteredUsers.map((user, index) => {
-                    const isActive = (user.status || "Active") === "Active";
-                    return (
-                      <tr key={user._id} className="group hover:bg-gray-50/50 transition-colors border-b border-gray-50">
-                        <td className="py-4 px-4 text-gray-500 font-medium">{index + 1}</td>
-                        <td className="py-4 px-4 text-gray-800 font-bold">{user.fullname}</td>
-                        <td className="py-4 px-4 text-gray-600">{user.email}</td>
-                        <td className="py-4 px-4">
-                          <span className="text-xs font-bold uppercase tracking-wider text-primary/80 bg-primary/5 px-2 py-1 rounded-md">
-                            {user.role}
-                          </span>
-                        </td>
-                        <td className="py-4 px-4 text-center">
-                           <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest ${
-                             isActive 
-                             ? "bg-green-100 text-green-700 ring-1 ring-green-600/20" 
-                             : "bg-red-100 text-red-700 ring-1 ring-red-600/20"
-                           }`}>
-                             <span className={`w-1.5 h-1.5 rounded-full mr-2 ${isActive ? "bg-green-600" : "bg-red-600"}`}></span>
-                             {user.status || "Active"}
-                           </span>
-                        </td>
-                        <td className="py-4 px-4 text-right">
-                          <div className="flex justify-end gap-2 opacity-100 group-hover:opacity-100 transition-opacity">
-                            <button
-                              onClick={() => handleToggleStatus(user)}
-                              className={`px-4 py-1.5 rounded-xl font-bold text-sm transition-all shadow-sm hover:shadow-md active:scale-95 ${
-                                isActive 
-                                ? "bg-red-50 text-red-600 hover:bg-red-600 hover:text-white" 
-                                : "bg-green-50 text-green-600 hover:bg-green-600 hover:text-white"
-                              }`}
-                            >
-                              {isActive ? "Inactivate" : "Activate"}
-                            </button>
-                            <button
-                              onClick={() => handleDelete(user)}
-                              className="px-3 py-1.5 rounded-xl font-bold text-sm bg-gray-50 text-gray-400 hover:bg-gray-800 hover:text-white transition-all active:scale-95"
-                              title="Permanent Delete"
-                            >
-                              <i className="fa fa-trash"></i>
-                            </button>
+
+          {loading ? (
+            <div className="flex flex-col items-center justify-center py-24 bg-white rounded-2xl border border-slate-200 shadow-sm">
+               <div className="three-body">
+                  <div className="three-body__dot"></div>
+                  <div className="three-body__dot"></div>
+                  <div className="three-body__dot"></div>
+                </div>
+                <p className="mt-6 text-slate-500 font-bold uppercase tracking-widest text-xs">Fetching users...</p>
+            </div>
+          ) : (
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse whitespace-nowrap">
+                  <thead>
+                    <tr className="bg-slate-50 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+                      <th className="px-6 py-5">#</th>
+                      <th className="px-6 py-5">Full Name</th>
+                      <th className="px-6 py-5">Email</th>
+                      <th className="px-6 py-5">Role / Designation</th>
+                      <th className="px-6 py-5 text-center">Status</th>
+                      <th className="px-6 py-5 text-right">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 text-sm">
+                    {filteredUsers.length > 0 ? (
+                      filteredUsers.map((user, index) => {
+                        const isActive = (user.status || "Active") === "Active";
+                        return (
+                          <tr key={user._id} className="hover:bg-slate-50 transition-colors group">
+                            <td className="px-6 py-4 text-slate-400 font-mono font-medium text-xs">{index + 1}</td>
+                            <td className="px-6 py-4 font-bold text-slate-900 flex items-center gap-3">
+                              <div className="w-9 h-9 rounded-full bg-blue-50 text-blue-600 border border-blue-200 flex items-center justify-center text-sm shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                {user.fullname?.charAt(0) || "U"}
+                              </div>
+                              {user.fullname}
+                            </td>
+                            <td className="px-6 py-4 text-slate-500 font-medium">{user.email}</td>
+                            <td className="px-6 py-4">
+                              <span className="bg-slate-50 border border-slate-200 px-2.5 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-wider text-slate-600 shadow-sm">
+                                {(user.role || 'N/A').replace(/_/g, ' ')}
+                              </span>
+                            </td>
+                            <td className="px-6 py-4 text-center">
+                               <span className={`px-2.5 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-widest border shadow-sm ${
+                                 isActive 
+                                 ? "bg-emerald-50 text-emerald-600 border-emerald-200" 
+                                 : "bg-rose-50 text-rose-600 border-rose-200"
+                               }`}>
+                                 {user.status || "Active"}
+                               </span>
+                            </td>
+                            <td className="px-6 py-4 text-right">
+                              <div className="flex justify-end items-center gap-3">
+                                <button
+                                  onClick={() => handleToggleStatus(user)}
+                                  className={`px-4 py-2 rounded-xl text-xs font-bold border shadow-sm transition-all hover:-translate-y-0.5 ${
+                                    isActive 
+                                    ? "bg-white text-rose-600 border-slate-200 hover:bg-rose-50 hover:border-rose-200" 
+                                    : "bg-white text-emerald-600 border-slate-200 hover:bg-emerald-50 hover:border-emerald-200"
+                                  }`}
+                                >
+                                  {isActive ? "Deactivate" : "Activate"}
+                                </button>
+                                <button
+                                  onClick={() => handleDelete(user)}
+                                  className="w-8 h-8 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-400 hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 shadow-sm transition-all hover:-translate-y-0.5"
+                                  title="Permanent Delete"
+                                >
+                                  <i className="fa fa-trash text-xs"></i>
+                                </button>
+                              </div>
+                            </td>
+                          </tr>
+                        );
+                      })
+                    ) : (
+                      <tr>
+                        <td colSpan="6" className="px-6 py-12 text-center">
+                          <div className="flex flex-col items-center justify-center gap-3">
+                            <div className="w-16 h-16 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center text-2xl text-slate-400">
+                              <i className="fa fa-users-slash"></i>
+                            </div>
+                            <p className="text-slate-500 font-medium">No matching users found in the system.</p>
                           </div>
                         </td>
                       </tr>
-                    );
-                  })
-                ) : (
-                  <tr>
-                    <td colSpan="6" className="text-center py-20 text-gray-400 font-medium italic">
-                      No matching users found in the system
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-        )}
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

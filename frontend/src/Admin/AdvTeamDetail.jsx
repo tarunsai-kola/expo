@@ -326,18 +326,21 @@ const AdvTeamDetail = () => {
       
       {/* Selected agent detail Overlay */}
       {detailVisible && selectedAgent && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-50/80 backdrop-blur-sm">
-          <div className="bg-white border border-slate-200 shadow-2xl p-6 md:p-8 rounded-2xl w-full max-w-5xl overflow-y-auto max-h-[90vh]">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-indigo-500/20 text-indigo-600 flex items-center justify-center">
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-white border border-slate-200 shadow-2xl p-6 md:p-8 rounded-3xl w-full max-w-5xl overflow-y-auto max-h-[90vh] animate-in zoom-in-95 duration-200">
+            <div className="flex justify-between items-center mb-8 border-b border-slate-100 pb-4">
+              <h2 className="text-2xl font-extrabold text-slate-900 flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center text-xl shadow-sm">
                   {selectedAgent.name.charAt(0)}
                 </div>
-                {selectedAgent.name}
+                <div>
+                  {selectedAgent.name}
+                  <div className="text-xs font-medium text-slate-500 uppercase tracking-widest mt-1">Agent Details</div>
+                </div>
               </h2>
               <button
                 onClick={resetData}
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-50 text-slate-600 hover:bg-rose-500/20 hover:text-rose-600 transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 border border-slate-200 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors shadow-sm"
               >
                 <i className="fa fa-times text-lg"></i>
               </button>
@@ -346,32 +349,34 @@ const AdvTeamDetail = () => {
             <div className="space-y-8">
               {/* Daily Revenue Table */}
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-slate-600 mb-3 pl-1">Daily Revenue (Last 10 Days)</h3>
-                <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-slate-50">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3 pl-1 flex items-center gap-2">
+                  <i className="fa fa-calendar-day text-blue-500"></i> Daily Revenue (Last 10 Days)
+                </h3>
+                <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
                   <table className="w-full text-left whitespace-nowrap">
-                    <thead className="bg-white border-b border-slate-200">
+                    <thead className="bg-slate-50 border-b border-slate-200">
                       <tr>
-                        <th className="px-4 py-3 text-xs font-semibold text-slate-600 uppercase">Date</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-slate-600 uppercase">Booked</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-slate-600 uppercase">Total Revenue</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-emerald-600 uppercase">Credited</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-amber-600 uppercase">Pending</th>
+                        <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Date</th>
+                        <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Booked</th>
+                        <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Total Revenue</th>
+                        <th className="px-6 py-4 text-xs font-bold text-emerald-600 uppercase tracking-wider">Credited</th>
+                        <th className="px-6 py-4 text-xs font-bold text-amber-500 uppercase tracking-wider">Pending</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-200 text-sm">
+                    <tbody className="divide-y divide-slate-100 text-sm">
                       {dailyRevenue.length > 0 ? (
                         dailyRevenue.map((data, index) => (
                           <tr key={index} className="hover:bg-slate-50 transition-colors">
-                            <td className="px-4 py-3 text-slate-900 font-medium">{data.date}</td>
-                            <td className="px-4 py-3 text-slate-700">{data.count}</td>
-                            <td className="px-4 py-3 text-slate-900 font-mono">₹ {data.total.toLocaleString()}</td>
-                            <td className="px-4 py-3 text-emerald-600 font-mono">₹ {data.credited.toLocaleString()}</td>
-                            <td className="px-4 py-3 text-amber-600 font-mono">₹ {(data.total - data.credited).toLocaleString()}</td>
+                            <td className="px-6 py-4 text-slate-900 font-bold">{data.date}</td>
+                            <td className="px-6 py-4 text-slate-600 font-medium">{data.count}</td>
+                            <td className="px-6 py-4 text-slate-900 font-mono font-bold">₹ {data.total.toLocaleString()}</td>
+                            <td className="px-6 py-4 text-emerald-600 font-mono font-bold">₹ {data.credited.toLocaleString()}</td>
+                            <td className="px-6 py-4 text-amber-500 font-mono font-bold">₹ {(data.total - data.credited).toLocaleString()}</td>
                           </tr>
                         ))
                       ) : (
                         <tr>
-                          <td colSpan="5" className="px-4 py-6 text-center text-slate-500 italic">No daily data found</td>
+                          <td colSpan="5" className="px-6 py-8 text-center text-slate-400 font-medium">No daily data found</td>
                         </tr>
                       )}
                     </tbody>
@@ -381,32 +386,34 @@ const AdvTeamDetail = () => {
 
               {/* Monthly Revenue Table */}
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-slate-600 mb-3 pl-1">Monthly Revenue</h3>
-                <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-slate-50">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3 pl-1 flex items-center gap-2">
+                  <i className="fa fa-calendar-alt text-blue-500"></i> Monthly Revenue
+                </h3>
+                <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
                   <table className="w-full text-left whitespace-nowrap">
-                    <thead className="bg-white border-b border-slate-200">
+                    <thead className="bg-slate-50 border-b border-slate-200">
                       <tr>
-                        <th className="px-4 py-3 text-xs font-semibold text-slate-600 uppercase">Month</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-slate-600 uppercase">Booked</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-slate-600 uppercase">Total Revenue</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-emerald-600 uppercase">Credited</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-amber-600 uppercase">Pending</th>
+                        <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Month</th>
+                        <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Booked</th>
+                        <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Total Revenue</th>
+                        <th className="px-6 py-4 text-xs font-bold text-emerald-600 uppercase tracking-wider">Credited</th>
+                        <th className="px-6 py-4 text-xs font-bold text-amber-500 uppercase tracking-wider">Pending</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-200 text-sm">
+                    <tbody className="divide-y divide-slate-100 text-sm">
                       {monthlyRevenue.length > 0 ? (
                         monthlyRevenue.map((data, index) => (
                           <tr key={index} className="hover:bg-slate-50 transition-colors">
-                            <td className="px-4 py-3 text-slate-900 font-medium">{data.month}</td>
-                            <td className="px-4 py-3 text-slate-700">{data.count}</td>
-                            <td className="px-4 py-3 text-slate-900 font-mono">₹ {data.total.toLocaleString()}</td>
-                            <td className="px-4 py-3 text-emerald-600 font-mono">₹ {data.credited.toLocaleString()}</td>
-                            <td className="px-4 py-3 text-amber-600 font-mono">₹ {(data.total - data.credited).toLocaleString()}</td>
+                            <td className="px-6 py-4 text-slate-900 font-bold">{data.month}</td>
+                            <td className="px-6 py-4 text-slate-600 font-medium">{data.count}</td>
+                            <td className="px-6 py-4 text-slate-900 font-mono font-bold">₹ {data.total.toLocaleString()}</td>
+                            <td className="px-6 py-4 text-emerald-600 font-mono font-bold">₹ {data.credited.toLocaleString()}</td>
+                            <td className="px-6 py-4 text-amber-500 font-mono font-bold">₹ {(data.total - data.credited).toLocaleString()}</td>
                           </tr>
                         ))
                       ) : (
                         <tr>
-                          <td colSpan="5" className="px-4 py-6 text-center text-slate-500 italic">No monthly data found</td>
+                          <td colSpan="5" className="px-6 py-8 text-center text-slate-400 font-medium">No monthly data found</td>
                         </tr>
                       )}
                     </tbody>
@@ -416,25 +423,27 @@ const AdvTeamDetail = () => {
 
               {/* All Time Revenue */}
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-slate-600 mb-3 pl-1">All Time Revenue</h3>
-                <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-slate-50">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3 pl-1 flex items-center gap-2">
+                  <i className="fa fa-chart-line text-blue-500"></i> All Time Revenue
+                </h3>
+                <div className="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
                   <table className="w-full text-left whitespace-nowrap">
-                    <thead className="bg-white border-b border-slate-200">
+                    <thead className="bg-slate-50 border-b border-slate-200">
                       <tr>
-                        <th className="px-4 py-3 text-xs font-semibold text-slate-600 uppercase">Total Booked</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-slate-600 uppercase">Total Revenue</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-emerald-600 uppercase">Total Credited</th>
-                        <th className="px-4 py-3 text-xs font-semibold text-amber-600 uppercase">Total Pending</th>
+                        <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Total Booked</th>
+                        <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Total Revenue</th>
+                        <th className="px-6 py-4 text-xs font-bold text-emerald-600 uppercase tracking-wider">Total Credited</th>
+                        <th className="px-6 py-4 text-xs font-bold text-amber-500 uppercase tracking-wider">Total Pending</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-200 text-sm">
+                    <tbody className="divide-y divide-slate-100 text-sm">
                       {selectedAgent.enrollments.length > 0 ? (
-                        <tr className="bg-indigo-500/5">
-                          <td className="px-4 py-4 text-slate-900 font-bold text-lg">{selectedAgent.enrollments.length}</td>
-                          <td className="px-4 py-4 text-indigo-600 font-mono font-bold text-lg">
+                        <tr className="bg-blue-50/30">
+                          <td className="px-6 py-6 text-slate-900 font-black text-xl">{selectedAgent.enrollments.length}</td>
+                          <td className="px-6 py-6 text-blue-600 font-mono font-black text-xl">
                             ₹ {selectedAgent.enrollments.reduce((sum, item) => sum + (item.programPrice || 0), 0).toLocaleString()}
                           </td>
-                          <td className="px-4 py-4 text-emerald-600 font-mono font-bold text-lg">
+                          <td className="px-6 py-6 text-emerald-600 font-mono font-black text-xl">
                             ₹ {selectedAgent.enrollments.reduce((sum, item) => {
                               const isFullPaid = item.status === "fullPaid";
                               const hasHalfClearedRemark = Array.isArray(item.remark) && item.remark.length > 0 && item.remark[item.remark.length - 1] === "Half_Cleared";
@@ -442,7 +451,7 @@ const AdvTeamDetail = () => {
                               return sum;
                             }, 0).toLocaleString()}
                           </td>
-                          <td className="px-4 py-4 text-amber-600 font-mono font-bold text-lg">
+                          <td className="px-6 py-6 text-amber-500 font-mono font-black text-xl">
                             ₹ {(selectedAgent.enrollments.reduce((sum, item) => sum + (item.programPrice || 0), 0) -
                               selectedAgent.enrollments.reduce((sum, item) => {
                                 const isFullPaid = item.status === "fullPaid";
@@ -454,7 +463,7 @@ const AdvTeamDetail = () => {
                         </tr>
                       ) : (
                         <tr>
-                          <td colSpan="4" className="px-4 py-6 text-center text-slate-500 italic">No enrollments recorded</td>
+                          <td colSpan="4" className="px-6 py-8 text-center text-slate-400 font-medium">No enrollments recorded</td>
                         </tr>
                       )}
                     </tbody>
@@ -466,254 +475,288 @@ const AdvTeamDetail = () => {
         </div>
       )}
 
-      <div className="max-w-7xl mx-auto py-8">
-        <div className="mb-8">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-6">
+      <div className="max-w-[1600px] mx-auto">
+        <div className="mb-10">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-8">
             <div>
-              <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight flex items-center gap-3">
-                <i className="fa fa-sitemap text-indigo-500"></i>
+              <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight m-0">
                 Team Details
               </h1>
-              <p className="text-sm text-slate-600 mt-1">
+              <p className="text-sm text-slate-500 mt-1 m-0 font-medium">
                 Team Performance Snapshot
-                <span className="text-indigo-600 font-medium ml-1">
+                <span className="text-blue-600 font-bold ml-1">
                   {selectedTeam ? ` - ${selectedTeam}` : " - All Teams"}
                 </span>
               </p>
             </div>
 
-            <select
-              className="min-w-[240px] rounded-xl border border-slate-200 bg-white text-slate-900 px-4 py-3 shadow-sm outline-none focus:ring-2 focus:ring-indigo-500 transition-all appearance-none"
-              value={selectedTeam}
-              onChange={(e) => setSelectedTeam(e.target.value)}
-            >
-              <option value="">Filter by Team: All Teams</option>
-              {availableTeamOptions.map((teamName, index) => (
-                <option key={index} value={teamName}>
-                  {teamName}
-                </option>
-              ))}
-            </select>
+            <div className="relative">
+              <select
+                className="w-full sm:w-[300px] rounded-xl border border-slate-300 bg-white text-slate-700 px-4 py-3 shadow-sm outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-500 transition-all appearance-none font-medium"
+                value={selectedTeam}
+                onChange={(e) => setSelectedTeam(e.target.value)}
+              >
+                <option value="">Filter by Team: All Teams</option>
+                {availableTeamOptions.map((teamName, index) => (
+                  <option key={index} value={teamName}>
+                    {teamName}
+                  </option>
+                ))}
+              </select>
+              <i className="fa fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
+            </div>
           </div>
 
           {/* Overview Metric Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-4">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 backdrop-blur-md p-6 shadow-lg flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-600 flex items-center justify-center text-xl">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-100 text-blue-600 flex items-center justify-center text-2xl shadow-inner">
                 <i className="fa fa-users"></i>
               </div>
               <div>
-                <p className="text-xs uppercase font-bold tracking-wider text-slate-600">Total Agents</p>
-                <p className="text-3xl font-bold text-slate-900 mt-1">{filteredData.length}</p>
+                <p className="text-[11px] uppercase font-bold tracking-widest text-slate-500">Total Agents</p>
+                <p className="text-3xl font-black text-slate-900 mt-1 tracking-tight">{filteredData.length}</p>
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 backdrop-blur-md p-6 shadow-lg flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-600 flex items-center justify-center text-xl">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 rounded-2xl bg-indigo-50 border border-indigo-100 text-indigo-600 flex items-center justify-center text-2xl shadow-inner">
                 <i className="fa fa-layer-group"></i>
               </div>
               <div>
-                <p className="text-xs uppercase font-bold tracking-wider text-slate-600">Active Teams</p>
-                <p className="text-3xl font-bold text-slate-900 mt-1">{teamNames.length}</p>
+                <p className="text-[11px] uppercase font-bold tracking-widest text-slate-500">Active Teams</p>
+                <p className="text-3xl font-black text-slate-900 mt-1 tracking-tight">{teamNames.length}</p>
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 backdrop-blur-md p-6 shadow-lg flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-600 flex items-center justify-center text-xl">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm flex items-center gap-5 hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-100 text-amber-500 flex items-center justify-center text-2xl shadow-inner">
                 <i className="fa fa-star"></i>
               </div>
               <div>
-                <p className="text-xs uppercase font-bold tracking-wider text-slate-600">Top Managers Shown</p>
-                <p className="text-3xl font-bold text-slate-900 mt-1">{Math.min(getTop3Managers().length, 3)}</p>
+                <p className="text-[11px] uppercase font-bold tracking-widest text-slate-500">Top Managers Shown</p>
+                <p className="text-3xl font-black text-slate-900 mt-1 tracking-tight">{Math.min(getTop3Managers().length, 3)}</p>
               </div>
             </div>
           </div>
         </div>
 
-        <h3 className="text-lg font-semibold text-slate-900 mb-4 uppercase tracking-wider pl-1">Leaderboards</h3>
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-10">
-          {/* Top 3 Teams */}
-          <div className="border border-slate-200 rounded-2xl p-6 bg-slate-50 backdrop-blur-md shadow-lg overflow-hidden">
-            <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <span>🏆</span> Top 3 Teams
-            </h3>
-            <div className="overflow-x-auto rounded-xl border border-slate-200">
-              <table className="w-full text-left whitespace-nowrap">
-                <thead className="bg-white border-b border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-widest">
-                  <tr>
-                    <th className="px-4 py-3">Rank</th>
-                    <th className="px-4 py-3">Team Name</th>
-                    <th className="px-4 py-3">Agent Count</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200 text-sm">
-                  {getTop3Teams().map((team, index) => (
-                    <tr key={index} className="hover:bg-slate-50 transition-colors">
-                      <td className="px-4 py-3 font-bold text-amber-600">#{index + 1}</td>
-                      <td className="px-4 py-3 text-slate-900 font-medium">{team.team}</td>
-                      <td className="px-4 py-3 text-slate-700">{team.agentCount}</td>
+        <div className="mb-10">
+          <h3 className="text-sm font-bold text-slate-500 mb-4 uppercase tracking-widest flex items-center gap-2">
+            <i className="fa fa-trophy text-amber-500"></i> Leaderboards
+          </h3>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            {/* Top 3 Teams */}
+            <div className="border border-slate-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-extrabold text-slate-900 mb-5 flex items-center gap-2">
+                <span className="text-2xl">🏆</span> Top 3 Teams
+              </h3>
+              <div className="overflow-x-auto rounded-xl border border-slate-200">
+                <table className="w-full text-left whitespace-nowrap">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+                    <tr>
+                      <th className="px-5 py-4">Rank</th>
+                      <th className="px-5 py-4">Team Name</th>
+                      <th className="px-5 py-4">Agent Count</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 text-sm">
+                    {getTop3Teams().map((team, index) => (
+                      <tr key={index} className="hover:bg-slate-50 transition-colors">
+                        <td className="px-5 py-4 font-black text-amber-500">#{index + 1}</td>
+                        <td className="px-5 py-4 text-slate-900 font-bold">{team.team}</td>
+                        <td className="px-5 py-4 text-slate-600 font-medium">
+                          <span className="bg-slate-100 px-2 py-1 rounded-md text-xs border border-slate-200">{team.agentCount}</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Top 3 Managers */}
+            <div className="border border-slate-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md transition-shadow">
+              <h3 className="text-lg font-extrabold text-slate-900 mb-5 flex items-center gap-2">
+                <span className="text-2xl">⭐</span> Top 3 Managers
+              </h3>
+              <div className="overflow-x-auto rounded-xl border border-slate-200">
+                <table className="w-full text-left whitespace-nowrap">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+                    <tr>
+                      <th className="px-5 py-4">Rank</th>
+                      <th className="px-5 py-4">Name</th>
+                      <th className="px-5 py-4">Email</th>
+                      <th className="px-5 py-4">Team</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 text-sm">
+                    {getTop3Managers().length > 0 ? (
+                      getTop3Managers().map((manager, index) => (
+                        <tr key={index} className="hover:bg-slate-50 transition-colors">
+                          <td className="px-5 py-4 font-black text-blue-500">#{index + 1}</td>
+                          <td className="px-5 py-4 text-slate-900 font-bold">{manager.name}</td>
+                          <td className="px-5 py-4 text-slate-500 text-xs font-medium">{manager.email}</td>
+                          <td className="px-5 py-4 text-slate-700">
+                            <span className="bg-blue-50 border border-blue-100 text-blue-600 px-2.5 py-1 rounded-md text-[10px] font-bold tracking-wider uppercase">{manager.team}</span>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="4" className="px-5 py-8 text-center text-slate-400 font-medium">No Managers Found</td>
+                      </tr>
+                    )}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Top 3 Managers */}
-          <div className="border border-slate-200 rounded-2xl p-6 bg-slate-50 backdrop-blur-md shadow-lg overflow-hidden">
-            <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <span>⭐</span> Top 3 Managers
-            </h3>
-            <div className="overflow-x-auto rounded-xl border border-slate-200">
-              <table className="w-full text-left whitespace-nowrap">
-                <thead className="bg-white border-b border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-widest">
-                  <tr>
-                    <th className="px-4 py-3">Rank</th>
-                    <th className="px-4 py-3">Name</th>
-                    <th className="px-4 py-3">Email</th>
-                    <th className="px-4 py-3">Team</th>
+        <div className="mb-10">
+          <h3 className="text-sm font-bold text-slate-500 mb-4 uppercase tracking-widest flex items-center gap-2">
+            <i className="fa fa-star text-indigo-500"></i> Role Highlights
+          </h3>
+          <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Top 3 Leaders",
+                icon: "👑",
+                roles: ["leader", "adv_leader"],
+                emptyLabel: "No Leaders",
+                color: "text-purple-600",
+                bg: "bg-purple-50",
+                border: "border-purple-200"
+              },
+              {
+                title: "Top 3 Inside Sales",
+                icon: "📞",
+                roles: ["inside_sales_specialist", "inside sales specialist"],
+                emptyLabel: "No Inside Sales Specialists",
+                color: "text-blue-600",
+                bg: "bg-blue-50",
+                border: "border-blue-200"
+              },
+              {
+                title: "Top 3 SR Inside Sales",
+                icon: "🚀",
+                roles: ["sr_inside_sales_specialist", "sr inside sales specialist"],
+                emptyLabel: "No SR Specialists",
+                color: "text-emerald-600",
+                bg: "bg-emerald-50",
+                border: "border-emerald-200"
+              },
+            ].map((roleConfig) => {
+              const roleData = getTop3ByRoles(roleConfig.roles);
+
+              return (
+                <div key={roleConfig.title} className="border border-slate-200 rounded-2xl p-6 bg-white shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="text-lg font-extrabold text-slate-900 mb-5 flex items-center gap-3">
+                    <span className={`w-10 h-10 rounded-xl ${roleConfig.bg} ${roleConfig.border} flex items-center justify-center text-lg shadow-inner`}>
+                      {roleConfig.icon}
+                    </span> 
+                    {roleConfig.title}
+                  </h3>
+                  <div className="overflow-x-auto rounded-xl border border-slate-200">
+                    <table className="w-full text-left whitespace-nowrap">
+                      <thead className="bg-slate-50 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+                        <tr>
+                          <th className="px-5 py-4">Rank</th>
+                          <th className="px-5 py-4">Name</th>
+                          <th className="px-5 py-4">Team</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100 text-sm">
+                        {roleData.length > 0 ? (
+                          roleData.map((agent, index) => (
+                            <tr key={index} className="hover:bg-slate-50 transition-colors">
+                              <td className={`px-5 py-4 font-black ${roleConfig.color}`}>#{index + 1}</td>
+                              <td className="px-5 py-4 text-slate-900 font-bold">{agent.name}</td>
+                              <td className="px-5 py-4 text-slate-600 text-xs font-medium truncate max-w-[150px]" title={agent.team}>
+                                <span className="bg-slate-100 px-2 py-1 rounded-md border border-slate-200">{agent.team}</span>
+                              </td>
+                            </tr>
+                          ))
+                        ) : (
+                          <tr>
+                            <td colSpan="3" className="px-5 py-8 text-center text-slate-400 font-medium">{roleConfig.emptyLabel}</td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-bold text-slate-500 mb-4 uppercase tracking-widest flex items-center gap-2">
+            <i className="fa fa-list-ul text-blue-500"></i> All Agents Master List
+          </h3>
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse whitespace-nowrap">
+                <thead>
+                  <tr className="bg-slate-50 border-b border-slate-200 text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+                    <th className="px-6 py-5">#</th>
+                    <th className="px-6 py-5">Name</th>
+                    <th className="px-6 py-5">Email</th>
+                    <th className="px-6 py-5">Role</th>
+                    <th className="px-6 py-5">Team</th>
+                    <th className="px-6 py-5">Status</th>
+                    <th className="px-6 py-5 text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-200 text-sm">
-                  {getTop3Managers().length > 0 ? (
-                    getTop3Managers().map((manager, index) => (
-                      <tr key={index} className="hover:bg-slate-50 transition-colors">
-                        <td className="px-4 py-3 font-bold text-emerald-600">#{index + 1}</td>
-                        <td className="px-4 py-3 text-slate-900 font-medium">{manager.name}</td>
-                        <td className="px-4 py-3 text-slate-600 text-xs">{manager.email}</td>
-                        <td className="px-4 py-3 text-slate-700"><span className="bg-slate-100 px-2 py-1 rounded text-xs">{manager.team}</span></td>
-                      </tr>
-                    ))
-                  ) : (
+                <tbody className="divide-y divide-slate-100 text-sm">
+                  {filteredData.length > 0 ? filteredData.map((agent, index) => (
+                    <tr key={index} className="hover:bg-slate-50 transition-colors group">
+                      <td className="px-6 py-4 text-slate-400 font-mono font-medium text-xs">{index + 1}</td>
+                      <td 
+                        className="px-6 py-4 font-bold text-slate-900 cursor-pointer group-hover:text-blue-600 transition-colors flex items-center gap-3"
+                        onClick={() => selectedAgentDetail(agent)}
+                      >
+                        <div className="w-9 h-9 rounded-full bg-blue-50 text-blue-600 border border-blue-200 flex items-center justify-center text-sm shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                          {agent.name.charAt(0)}
+                        </div>
+                        {agent.name}
+                      </td>
+                      <td className="px-6 py-4 text-slate-500 text-xs font-medium">{agent.email}</td>
+                      <td className="px-6 py-4">
+                        <span className="bg-slate-50 border border-slate-200 px-2.5 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-wider text-slate-600 shadow-sm">
+                          {(agent.role || 'N/A').replace(/_/g, ' ')}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 text-slate-700 font-medium truncate max-w-[200px]" title={getAgentTeamName(agent)}>{getAgentTeamName(agent)}</td>
+                      <td className="px-6 py-4">
+                        <span className={`px-2.5 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-widest border shadow-sm ${agent.status === 'Active' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' : 'bg-slate-50 text-slate-500 border-slate-200'}`}>
+                          {agent.status || "Active"}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 text-right">
+                        <button
+                          className="px-4 py-2 rounded-xl text-xs font-bold border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:text-blue-600 hover:border-blue-200 shadow-sm transition-all hover:shadow hover:-translate-y-0.5 ml-auto flex items-center gap-2"
+                          onClick={() => selectedAgentDetail(agent)}
+                        >
+                          Details <i className="fa fa-arrow-right text-[10px]"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  )) : (
                     <tr>
-                      <td colSpan="4" className="px-4 py-6 text-center text-slate-500">No Managers</td>
+                      <td colSpan="7" className="px-6 py-12 text-center">
+                        <div className="flex flex-col items-center justify-center gap-3">
+                          <div className="w-16 h-16 bg-slate-50 border border-slate-200 rounded-full flex items-center justify-center text-2xl text-slate-400">
+                            <i className="fa fa-users-slash"></i>
+                          </div>
+                          <p className="text-slate-500 font-medium">No agents found for the selected team.</p>
+                        </div>
+                      </td>
                     </tr>
                   )}
                 </tbody>
               </table>
             </div>
-          </div>
-        </div>
-
-        <h3 className="text-lg font-semibold text-slate-900 mb-4 uppercase tracking-wider pl-1">Role Highlights</h3>
-        <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 mb-10">
-          {[
-            {
-              title: "Top 3 Leaders",
-              icon: "👑",
-              roles: ["leader", "adv_leader"],
-              emptyLabel: "No Leaders",
-              color: "text-purple-600"
-            },
-            {
-              title: "Top 3 Inside Sales",
-              icon: "📞",
-              roles: ["inside_sales_specialist", "inside sales specialist"],
-              emptyLabel: "No Inside Sales Specialists",
-              color: "text-blue-600"
-            },
-            {
-              title: "Top 3 SR Inside Sales",
-              icon: "🚀",
-              roles: ["sr_inside_sales_specialist", "sr inside sales specialist"],
-              emptyLabel: "No SR Specialists",
-              color: "text-rose-600"
-            },
-          ].map((roleConfig) => {
-            const roleData = getTop3ByRoles(roleConfig.roles);
-
-            return (
-              <div key={roleConfig.title} className="border border-slate-200 rounded-2xl p-6 bg-slate-50 backdrop-blur-md shadow-lg overflow-hidden">
-                <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                  <span>{roleConfig.icon}</span> {roleConfig.title}
-                </h3>
-                <div className="overflow-x-auto rounded-xl border border-slate-200">
-                  <table className="w-full text-left whitespace-nowrap">
-                    <thead className="bg-white border-b border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-widest">
-                      <tr>
-                        <th className="px-4 py-3">Rank</th>
-                        <th className="px-4 py-3">Name</th>
-                        <th className="px-4 py-3">Team</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-200 text-sm">
-                      {roleData.length > 0 ? (
-                        roleData.map((agent, index) => (
-                          <tr key={index} className="hover:bg-slate-50 transition-colors">
-                            <td className={`px-4 py-3 font-bold ${roleConfig.color}`}>#{index + 1}</td>
-                            <td className="px-4 py-3 text-slate-900 font-medium">{agent.name}</td>
-                            <td className="px-4 py-3 text-slate-600 text-xs truncate max-w-[120px]" title={agent.team}>{agent.team}</td>
-                          </tr>
-                        ))
-                      ) : (
-                        <tr>
-                          <td colSpan="3" className="px-4 py-6 text-center text-slate-500">{roleConfig.emptyLabel}</td>
-                        </tr>
-                      )}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        <h3 className="text-lg font-semibold text-slate-900 mb-4 uppercase tracking-wider pl-1">All Agents Master List</h3>
-        <div className="bg-slate-50 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse whitespace-nowrap">
-              <thead>
-                <tr className="bg-white border-b border-slate-200 text-xs font-bold text-slate-600 uppercase tracking-widest">
-                  <th className="px-6 py-4">#</th>
-                  <th className="px-6 py-4">Name</th>
-                  <th className="px-6 py-4">Email</th>
-                  <th className="px-6 py-4">Role</th>
-                  <th className="px-6 py-4">Team</th>
-                  <th className="px-6 py-4">Status</th>
-                  <th className="px-6 py-4 text-center">Action</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-200 text-sm">
-                {filteredData.length > 0 ? filteredData.map((agent, index) => (
-                  <tr key={index} className="hover:bg-slate-50 transition-colors group">
-                    <td className="px-6 py-4 text-slate-500 font-mono">{index + 1}</td>
-                    <td 
-                      className="px-6 py-4 font-bold text-indigo-600 cursor-pointer hover:text-indigo-300 transition-colors flex items-center gap-2"
-                      onClick={() => selectedAgentDetail(agent)}
-                    >
-                      <div className="w-8 h-8 rounded-full bg-indigo-500/20 text-indigo-600 border border-indigo-500/30 flex items-center justify-center text-xs">
-                        {agent.name.charAt(0)}
-                      </div>
-                      {agent.name}
-                    </td>
-                    <td className="px-6 py-4 text-slate-600 text-xs">{agent.email}</td>
-                    <td className="px-6 py-4">
-                      <span className="bg-slate-100 border border-slate-600 px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider text-slate-700">
-                        {(agent.role || 'N/A').replace(/_/g, ' ')}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-slate-700 truncate max-w-[200px]" title={getAgentTeamName(agent)}>{getAgentTeamName(agent)}</td>
-                    <td className="px-6 py-4">
-                      <span className={`px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider border ${agent.status === 'Active' ? 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20' : 'bg-slate-500/10 text-slate-600 border-slate-500/20'}`}>
-                        {agent.status || "Active"}
-                      </span>
-                    </td>
-                    <td className="px-6 py-4 text-center">
-                      <button
-                        className="px-4 py-1.5 rounded-lg text-xs font-bold border border-indigo-500/50 bg-indigo-500/10 text-indigo-600 hover:bg-indigo-500/20 transition-colors"
-                        onClick={() => selectedAgentDetail(agent)}
-                      >
-                        Details
-                      </button>
-                    </td>
-                  </tr>
-                )) : (
-                  <tr>
-                    <td colSpan="7" className="px-6 py-10 text-center text-slate-500 italic">
-                      No agents found for the selected team.
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
           </div>
         </div>
       </div>
