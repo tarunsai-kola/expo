@@ -74,6 +74,7 @@ import wiproLogo from "../assets/company logo/Wipro_Primary_Logo_Color_RGB.svg";
 import tcsLogo from "../assets/company logo/tcs.png";
 import pwcLogo from "../assets/company logo/pwc.png";
 import musigmaLogo from "../assets/company logo/mu sigma.png";
+import professionalBoyBoard from "../assets/professional_boy_board_nobg.png";
 
 const heroImages = [techHeroBg, advanceHeroNew, agentAiHero];
 
@@ -349,6 +350,11 @@ const renderCompanyLogo = (companyName) => {
     </div>
   );
 };
+const bubbleTexts = [
+  "To Build Your Dream Career",
+  "Trusted by 7000+ students",
+  "Average salary hike 350%"
+];
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -357,6 +363,7 @@ const HomePage = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [currentProgramIndex, setCurrentProgramIndex] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
+  const [bubbleIndex, setBubbleIndex] = useState(0);
 
   // Premium Parallax & 3D Tilt Hooks
   const { scrollY } = useScroll();
@@ -374,6 +381,14 @@ const HomePage = () => {
       setCurrentProgramIndex((prev) => (prev + 1) % programSlides.length);
     }, 6000);
     return () => clearInterval(progInterval);
+  }, []);
+
+  // Auto-advance bubble text every 2.5 seconds
+  useEffect(() => {
+    const bubbleInterval = setInterval(() => {
+      setBubbleIndex((prev) => (prev + 1) % bubbleTexts.length);
+    }, 2500);
+    return () => clearInterval(bubbleInterval);
   }, []);
 
   const handleNextProgram = () => {
@@ -479,17 +494,42 @@ const HomePage = () => {
               transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
               className="flex flex-col items-center lg:items-end w-full preserve-3d"
             >
-              <motion.div 
-                className="w-full max-w-[410px] glass-panel-3d rounded-[32px] p-8 relative group dashboard-card-3d"
-                onMouseMove={heroTilt.handleMouseMove}
-                onMouseLeave={heroTilt.handleMouseLeave}
-                style={{ 
-                  rotateX: heroTilt.rotateX, 
-                  rotateY: heroTilt.rotateY,
-                  scale: heroTilt.scale,
-                  transformPerspective: 1200
-                }}
-              >
+              <div className="relative w-full max-w-[410px] preserve-3d">
+                {/* Professional Boy Behind Card */}
+                <div
+                  className="hidden md:block absolute left-1/2 -translate-x-1/2 w-[220px] md:w-[260px] pointer-events-none"
+                  style={{ top: "-180px", zIndex: -1 }}
+                >
+                  <img src={professionalBoyBoard} alt="Give a chance" className="w-full h-auto drop-shadow-2xl" />
+                  
+                  {/* Floating text beside */}
+                  <div className="absolute top-[38%] left-[75%] md:left-[80%] w-[250px] perspective-[1000px] z-10 h-[40px]">
+                    <AnimatePresence mode="wait">
+                      <motion.div 
+                        key={bubbleIndex}
+                        initial={{ opacity: 0, rotateX: -90, y: 10 }}
+                        animate={{ opacity: 1, rotateX: 0, y: 0 }}
+                        exit={{ opacity: 0, rotateX: 90, y: -10 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        className="absolute inset-0 w-max bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl rounded-bl-sm shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/50 text-[13px] font-extrabold text-[#0F7B53] flex items-center gap-2 origin-center"
+                      >
+                        {bubbleTexts[bubbleIndex]} <Sparkles size={14} className="text-[#0F7B53] shrink-0" />
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                <motion.div 
+                  className="w-full glass-panel-3d rounded-[32px] p-8 relative group dashboard-card-3d bg-white/90"
+                  onMouseMove={heroTilt.handleMouseMove}
+                  onMouseLeave={heroTilt.handleMouseLeave}
+                  style={{ 
+                    rotateX: heroTilt.rotateX, 
+                    rotateY: heroTilt.rotateY,
+                    scale: heroTilt.scale,
+                    transformPerspective: 1200
+                  }}
+                >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#E7F5EE]/40 to-transparent z-0 pointer-events-none rounded-[32px]" />
                 <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#0F7B53]/10 rounded-full blur-2xl pointer-events-none" style={{ transform: "translateZ(-20px)" }} />
 
@@ -554,6 +594,7 @@ const HomePage = () => {
                   <Award size={13} className="text-[#0F7B53]" /> Endorsed by top 500+ corporate hiring layers
                 </div>
               </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
