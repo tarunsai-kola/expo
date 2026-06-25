@@ -795,6 +795,166 @@ const sendCareerAssessmentWelcomeEmail = async (userEmail, userName) => {
     }
 };
 
+const sendSkillEvaluationWelcomeEmail = async (userEmail, fullName, slotDate, slotTime) => {
+    try {
+        const mailOptions = {
+            from: senderEmail,
+            to: userEmail,
+            subject: "Your Career Assessment & Consultation Slot is Confirmed - Atorax",
+            html: `
+<div style="background:#f5f7fb;padding:40px 20px;font-family:'Segoe UI',Arial,sans-serif;">
+    <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #e5e7eb;box-shadow:0 4px 20px rgba(0,0,0,0.05);">
+
+        <!-- Header -->
+        <div style="background:#4f46e5;padding:30px;text-align:center;">
+            <h1 style="margin:0;color:#ffffff;font-size:24px;font-weight:700;">
+                Atorax
+            </h1>
+        </div>
+
+        <!-- Content -->
+        <div style="padding:40px 35px;">
+
+            <!-- Success Icon -->
+            <div style="text-align:center;margin-bottom:25px;">
+                <svg width="70" height="70" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="48" fill="#ECFDF3" stroke="#12B76A" stroke-width="3"/>
+                    <path d="M30 52L44 66L72 38" stroke="#12B76A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <h2 style="text-align:center;color:#111827;font-size:28px;margin-top:0;margin-bottom:10px;">
+                Payment Received Successfully
+            </h2>
+
+            <p style="text-align:center;color:#6b7280;font-size:16px;margin-bottom:35px;">
+                Your consultation slot has been confirmed.
+            </p>
+
+            <p style="color:#374151;font-size:16px;line-height:1.7;">
+                Dear <strong>${fullName}</strong>,
+            </p>
+
+            <p style="color:#374151;font-size:16px;line-height:1.7;">
+                Thank you for successfully completing the payment for the
+                <strong>Career Growth Assessment</strong>.
+            </p>
+
+            <p style="color:#374151;font-size:16px;line-height:1.7;">
+                We are pleased to confirm your 1-on-1 Career Consultation session.
+            </p>
+
+            <!-- Appointment Card -->
+            <div style="margin:30px 0;background:#f0f0ff;border:1px solid #c7d2fe;border-radius:12px;padding:25px;">
+
+                <div style="font-size:14px;color:#9ca3af;text-transform:uppercase;font-weight:600;letter-spacing:1px;margin-bottom:15px;">
+                    Appointment Details
+                </div>
+
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="padding:8px 0;color:#6b7280;font-size:15px;">Date</td>
+                        <td style="padding:8px 0;color:#111827;font-size:15px;font-weight:600;text-align:right;">${slotDate}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px 0;color:#6b7280;font-size:15px;">Time</td>
+                        <td style="padding:8px 0;color:#111827;font-size:15px;font-weight:600;text-align:right;">${slotTime}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <p style="color:#374151;font-size:16px;line-height:1.7;">
+                Our career experts will contact you shortly and guide you through the next steps to ensure you are fully prepared for your consultation.
+            </p>
+
+            <p style="color:#374151;font-size:16px;line-height:1.7;">
+                We look forward to helping you discover your strengths, identify career opportunities, and create a personalized growth roadmap.
+            </p>
+
+            <p style="color:#374151;font-size:16px;line-height:1.7;margin-bottom:0;">
+                Regards,<br>
+                <strong>Team Atorax</strong>
+            </p>
+
+        </div>
+
+        <!-- Footer -->
+        <div style="background:#f9fafb;border-top:1px solid #e5e7eb;padding:20px;text-align:center;">
+            <p style="margin:0;color:#6b7280;font-size:13px;">
+                &copy; 2026 Atorax. All rights reserved.
+            </p>
+        </div>
+
+    </div>
+</div>
+            `,
+        };
+        await transporter.sendMail(mailOptions);
+        console.log(`Skill evaluation welcome email sent to ${userEmail}`);
+    } catch (error) {
+        console.error("Error sending skill evaluation welcome email:", error);
+    }
+};
+
+const sendSkillEvaluationAdminNotification = async (assessmentDetails) => {
+    try {
+        const mailOptions = {
+            from: senderEmail,
+            to: "tarunsaikolaa@gmail.com",
+            subject: "New Enrollment: Career Assessment Submitted - Atorax",
+            html: `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
+                    <h2 style="color: #4f46e5;">New Career Assessment Enrollment</h2>
+                    <p style="color: #34495e;">A new candidate has successfully paid and booked their slot on Atorax.</p>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Name</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.fullName}</td></tr>
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Email</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.email}</td></tr>
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Mobile Number</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.mobileNumber}</td></tr>
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>City</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.city}</td></tr>
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Booked Slot</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.bookedDate} at ${assessmentDetails.bookedTimeSlot}</td></tr>
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Payment ID</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.paymentId}</td></tr>
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Assigned Executive</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.assignedExecutiveName || 'Unassigned / Not found in CRM'}</td></tr>
+                    </table>
+                </div>
+            `,
+        };
+        await transporter.sendMail(mailOptions);
+        console.log(`Admin notification sent for new career assessment: ${assessmentDetails.fullName}`);
+    } catch (error) {
+        console.error("Error sending admin notification email:", error);
+    }
+};
+
+const sendSkillEvaluationExecutiveNotification = async (executiveEmail, assessmentDetails) => {
+    try {
+        const mailOptions = {
+            from: senderEmail,
+            to: executiveEmail,
+            subject: "SUCCESS! Your Lead Enrolled for Career Assessment - Atorax",
+            html: `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #27ae60; border-radius: 10px;">
+                    <h2 style="color: #27ae60;">Great News! Your Lead Enrolled!</h2>
+                    <p style="color: #34495e;">Dear Executive,</p>
+                    <p style="color: #34495e;">One of your leads has successfully paid and enrolled for the <strong>Career Growth Assessment & Consultation</strong> on Atorax.</p>
+                    <p style="color: #34495e; font-weight: bold;">Please take care of this candidate and prepare for their upcoming slot!</p>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 20px;">
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Lead Name</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.fullName}</td></tr>
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Email</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.email}</td></tr>
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Mobile Number</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.mobileNumber}</td></tr>
+                        <tr><td style="padding: 8px; border: 1px solid #ddd;"><strong>Slot Time</strong></td><td style="padding: 8px; border: 1px solid #ddd;">${assessmentDetails.bookedDate} at ${assessmentDetails.bookedTimeSlot}</td></tr>
+                    </table>
+                    <p style="color: #34495e;">You can view the full details of their assessment on the Atorax ADV Dashboard.</p>
+                    <p style="color: #34495e;">Best regards,<br><strong>Atorax Admin</strong></p>
+                </div>
+            `,
+        };
+        await transporter.sendMail(mailOptions);
+        console.log(`Executive notification sent to ${executiveEmail}`);
+    } catch (error) {
+        console.error("Error sending executive notification email:", error);
+    }
+};
+
 module.exports = { 
     sendWelcomeEmail, 
     sendCredentialsEmail, 
@@ -803,5 +963,8 @@ module.exports = {
     sendMasterclassWelcomeEmail,
     sendMasterclassDailyReminder,
     sendMasterclassTodayReminder,
-    sendCareerAssessmentWelcomeEmail
+    sendCareerAssessmentWelcomeEmail,
+    sendSkillEvaluationWelcomeEmail,
+    sendSkillEvaluationAdminNotification,
+    sendSkillEvaluationExecutiveNotification
 };

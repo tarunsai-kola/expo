@@ -44,6 +44,8 @@ const MasterClass = require("./routes/MasterClass")
 const AddEvent = require("./routes/AddEvent")
 const Certificate = require("./routes/Certificate")
 const CareerAssessment = require("./routes/CareerAssessment");
+const AssessmentPayment = require("./routes/AssessmentPayment");
+const AssessmentSlot = require("./routes/AssessmentSlot");
 const Scraper = require("./routes/Scraper");
 const microCourseRoutes = require("./routes/microCourseRoutes");
 const microCourseAdminRoutes = require("./routes/microCourseAdminRoutes");
@@ -182,6 +184,8 @@ app.use("/", Excercise);
 
 app.use("/", Certificate);
 app.use("/", CareerAssessment);
+app.use("/api/assessment-payment", AssessmentPayment);
+app.use("/api/assessment-slots", AssessmentSlot);
 app.use("/", Scraper);
 
 //AddEvent

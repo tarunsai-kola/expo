@@ -9,7 +9,7 @@ const Footer = () => {
     { label: "All Programs", to: "/SoftwareDeveloper" },
     { label: "Advanced Programs", to: "/Advance" },
     { label: "Masterclass", to: "/MasterClass" },
-    { label: "Free Assessment", to: "/free-career-assessment" },
+    { label: "Career Assessment", to: "/career-assessment" },
     { label: "Blog", to: "/blog" },
   ];
 
@@ -36,8 +36,8 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">Join the top 1% of tech professionals today.</p>
           </div>
           <div className="flex gap-4">
-            <Link to="/free-career-assessment" className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transform hover:-translate-y-1 flex items-center gap-2">
-              Get Free Assessment <FaArrowRight size={12} />
+            <Link to="/career-assessment" className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transform hover:-translate-y-1 flex items-center gap-2">
+              Career Assessment <FaArrowRight size={12} />
             </Link>
           </div>
         </div>

@@ -24,6 +24,19 @@ const careerAssessmentSchema = new mongoose.Schema({
   wantConsultation: { type: String },
   helpArea: { type: String },
   topCareerChallenge12Months: { type: String },
+  // Payment & Slot fields
+  paymentId: { type: String },
+  razorpayOrderId: { type: String },
+  razorpaySignature: { type: String },
+  paymentStatus: { type: String, default: 'Pending' },
+  bookedDate: { type: String },
+  bookedTimeSlot: { type: String },
+  // CRM assignment fields
+  assignedExecutiveId: { type: String },
+  assignedExecutiveEmail: { type: String },
+  assignedExecutiveName: { type: String },
+  managerId: { type: String },
+  managerEmail: { type: String },
   createdAt: { type: Date, default: Date.now }
 });
 

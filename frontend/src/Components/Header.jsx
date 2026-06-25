@@ -9,7 +9,7 @@ const topNav = [
   { label: "Agentic and GenAI", to: "/AgenticAndGenAI" },
   { label: "Alumni", to: "/Alumni" },
   { label: "Masterclass", to: "/MasterClass" },
-  { label: "Free Career Assessment", to: "/free-career-assessment" },
+  { label: "Career Assessment", to: "/career-assessment" },
 ];
 
 const Header = () => {
