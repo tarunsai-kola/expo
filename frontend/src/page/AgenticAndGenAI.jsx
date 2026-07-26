@@ -239,7 +239,7 @@ const AgenticAndGenAI = () => {
               <span className="absolute w-2 h-2 rounded-full bg-[#10b981] opacity-100" />
               <span className="absolute w-4 h-4 rounded-full bg-[#10b981]/40 animate-ping" />
             </div>
-            16-WEEK AGENTIC AI PROGRAM
+            24-WEEK AGENTIC AI PROGRAM
           </div>
 
           {/* Epic Metallic Typography */}
