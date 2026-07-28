@@ -26,7 +26,7 @@ import Mentorship from "./page/Mentorship";
 import DataScience from "./page/DataScience";
 import VLSI from "./page/VLSI";
 import DataAnalytics from "./page/DataAnalytics";
-import CyberSecurity from "./page/CyberSecurity";
+import CyberSecurity from "./page/Cybersecurity";
 import DigitalMarketing from "./page/DigitalMarketing";
 import AIML from "./page/AIML";
 import CloudComputing from "./page/CloudComputing";
