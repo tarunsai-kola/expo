@@ -87,6 +87,18 @@ const domainCareerData = {
       { title: "Product Engineer / Tech Lead", avg: "₹22–38 LPA", highest: "₹60 LPA", tags: ["Full Stack", "System Design", "AI"], growth: "Senior Track" },
     ]
   },
+  VLSI: {
+    heading: "Career Roles After This Program",
+    subtitle: "From digital design engineers to ASIC architects — here's where our VLSI graduates land.",
+    roles: [
+      { title: "RTL Design Engineer", avg: "₹8–15 LPA", highest: "₹30 LPA", tags: ["Verilog", "SystemVerilog", "Digital Logic"], growth: "High Demand" },
+      { title: "Verification Engineer", avg: "₹10–18 LPA", highest: "₹35 LPA", tags: ["UVM", "SystemVerilog", "Testbenches"], growth: "Booming" },
+      { title: "Physical Design Engineer", avg: "₹12–20 LPA", highest: "₹40 LPA", tags: ["Synthesis", "PnR", "STA"], growth: "High Demand" },
+      { title: "FPGA Design Engineer", avg: "₹8–16 LPA", highest: "₹32 LPA", tags: ["Xilinx", "VHDL", "FPGA flow"], growth: "Stable Demand" },
+      { title: "DFT Engineer", avg: "₹10–18 LPA", highest: "₹35 LPA", tags: ["ATPG", "Scan Insertion", "JTAG"], growth: "Growing Fast" },
+      { title: "ASIC Architect / Tech Lead", avg: "₹25–40 LPA", highest: "₹65 LPA", tags: ["SoC Design", "Architecture", "Lead"], growth: "Senior Track" },
+    ]
+  },
 };
 
 const growthColors = {

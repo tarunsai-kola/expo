@@ -248,7 +248,7 @@ router.post('/sendmailtomarketing', async (req, res) => {
       </div>
 
       <div style="text-align: center; margin: 35px 0;">
-          <a href="https://www.atorax.com/marketing/login" target="_blank" class="cta-button">Access Your Portal</a>
+          <a href="https://www.ΣxpoGraph.com/marketing/login" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
 
       <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>

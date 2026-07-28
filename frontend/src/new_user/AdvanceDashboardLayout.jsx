@@ -116,7 +116,7 @@ const Sidebar = ({ collapsed, setCollapsed, onLogout, mobileOpen, setMobileOpen 
 
             {(!collapsed || mobileOpen) && (
                 <div className="nd-sidebar-footer">
-                    <span className="nd-sidebar-footer-text">Atorax LMS</span>
+                    <span className="nd-sidebar-footer-text">ΣxpoGraph LMS</span>
                 </div>
             )}
         </aside>

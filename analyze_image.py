@@ -21,4 +21,4 @@ def find_grid_lines(image_path):
             print(f"Col {i}: {m}")
 
 if __name__ == "__main__":
-    find_grid_lines(r"C:\Users\tarun\OneDrive\Desktop\atorax\image.png")
+    find_grid_lines(r"C:\Users\tarun\OneDrive\Desktop\ΣxpoGraph\image.png")

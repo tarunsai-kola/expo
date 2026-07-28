@@ -30,7 +30,7 @@ import {
   Target
 } from "lucide-react";
 
-import posterImage from "../../../atorax/images/poster/mern.png";
+import posterImage from "../../../ΣxpoGraph/images/poster/mern.png";
 import Flashaidlogo from "../../assets/Flashaidlogo.jpg";
 import Certification from "./Components/Certification";
 import ClientsCarousel from "../../Components/our_alumni";
@@ -47,7 +47,7 @@ import AdvanceBanner from "./Components/AdvanceBanner";
 
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import mernBrochure from "../../../atorax/Mern Stack Web Development Advanced Program.pdf";
+import mernBrochure from "../../../ΣxpoGraph/Mern Stack Web Development Advanced Program.pdf";
 
 const heroStats = [
   { label: "Mentees Placed", value: "280+" },

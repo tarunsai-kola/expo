@@ -60,7 +60,7 @@ const EventRegister = () => {
                 <div className="navbar">
                     <div>
                         <Link to="/">
-                            <img src={logo} alt="Atorax Logo" />
+                            <img src={logo} alt="ΣxpoGraph Logo" />
                         </Link>
                     </div>
                     <div className="menu" style={{ display: 'flex' }}>

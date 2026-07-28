@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const testimonials = [
   {
     id: 1,
-    quote: "Atorax didn't just teach me to code; they taught me how to be an engineer. The curriculum is exactly what hiring managers at product companies look for. I got multiple offers before the program even ended.",
+    quote: "ΣxpoGraph didn't just teach me to code; they taught me how to be an engineer. The curriculum is exactly what hiring managers at product companies look for. I got multiple offers before the program even ended.",
     author: "Rohan S.",
     role: "SDE at TCS Digital",
     initial: "R"
@@ -67,7 +67,7 @@ const PremiumTestimonials = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              Over 10,000 students have accelerated their careers with Atorax. 
+              Over 10,000 students have accelerated their careers with ΣxpoGraph. 
               Our alumni network spans the globe's most innovative companies. 
               When you join, you're not just buying a course — you're securing a network.
             </motion.p>

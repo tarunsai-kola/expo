@@ -25,7 +25,7 @@ const FullStackDetail = () => {
   return (
     <div className="cd-page">
       <Helmet>
-        <title>{data.title} - Atorax</title>
+        <title>{data.title} - ΣxpoGraph</title>
         <meta name="description" content={data.subHeadline} />
       </Helmet>
 

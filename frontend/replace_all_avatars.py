@@ -1,7 +1,7 @@
 import os
 import re
 
-src_dir = r"c:\Users\tarun\OneDrive\Desktop\atorax\frontend\src"
+src_dir = r"c:\Users\tarun\OneDrive\Desktop\ΣxpoGraph\frontend\src"
 count = 27
 
 unsplash_files_mentors = [

@@ -29,7 +29,7 @@ import {
   Workflow
 } from "lucide-react";
 
-import posterImage from "../../../atorax/images/poster/promptengineering.png";
+import posterImage from "../../../ΣxpoGraph/images/poster/promptengineering.png";
 import Flashaidlogo from "../../assets/Flashaidlogo.jpg";
 import Certification from "./Components/Certification";
 import ClientsCarousel from "../../Components/our_alumni";
@@ -46,7 +46,7 @@ import AdvanceBanner from "./Components/AdvanceBanner";
 
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import peBrochure from "../../../atorax/Prompt engineering for generative AI Advanced Program.pdf";
+import peBrochure from "../../../ΣxpoGraph/Prompt engineering for generative AI Advanced Program.pdf";
 
 const heroStats = [
   { label: "Placement Rate", value: "94%" },

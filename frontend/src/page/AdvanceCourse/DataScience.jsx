@@ -45,7 +45,7 @@ import {
   PhoneCall
 } from "lucide-react";
 
-import posterImage from "../../../atorax/images/poster/datascience.png";
+import posterImage from "../../../ΣxpoGraph/images/poster/datascience.png";
 import Flashaidlogo from "../../assets/Flashaidlogo.jpg";
 import Certification from "./Components/Certification";
 import StoreSection from "./Components/StoreSection";
@@ -60,7 +60,7 @@ import AdvanceBanner from "./Components/AdvanceBanner";
 import ApplyForm from "./Components/ApplyForm";
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import dsBrochure from "../../../atorax/DataScienceAdvancedProgram.pdf";
+import dsBrochure from "../../../ΣxpoGraph/DataScienceAdvancedProgram.pdf";
 
 import CourseHeroBanner from "./Components/CourseHeroBanner";
 import ImageSlider from "./Components/ImageSlider";

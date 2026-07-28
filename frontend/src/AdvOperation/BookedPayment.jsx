@@ -1704,13 +1704,13 @@ const BookedAmount = () => {
                         <a
                           href={`https://web.whatsapp.com/send?phone=${item.whatsAppNumber
                             }&text=${encodeURIComponent(
-                              `Registration Confirmation - ${item.domain} Program at Atorax
+                              `Registration Confirmation - ${item.domain} Program at ΣxpoGraph
 
 Dear ${item.fullname},
 
-Greetings from Atorax!
+Greetings from ΣxpoGraph!
 
-I am ${item.operationName.charAt(0).toUpperCase() + item.operationName.slice(1)} from the Operations Department, and I am pleased to confirm your successful registration for the ${item.domain} program at Atorax.
+I am ${item.operationName.charAt(0).toUpperCase() + item.operationName.slice(1)} from the Operations Department, and I am pleased to confirm your successful registration for the ${item.domain} program at ΣxpoGraph.
 
 Please find the details of your Registration below:
 
@@ -1722,16 +1722,16 @@ Mode of Training: 100% Online (Virtual)
 Due Amount: ₹${item.programPrice - item.paidAmount}
 Payment Due Date: ${item.clearPaymentMonth}
 
-Thank you for choosing Atorax as your learning partner. We are committed to delivering a high-quality training experience led by seasoned industry professionals.
+Thank you for choosing ΣxpoGraph as your learning partner. We are committed to delivering a high-quality training experience led by seasoned industry professionals.
 
-If you have any questions or need further assistance, feel free to reach out to us at support@atorax.com or contact me directly.
+If you have any questions or need further assistance, feel free to reach out to us at support@ΣxpoGraph.com or contact me directly.
 
 We look forward to welcoming you to the program on 5th ${item.monthOpted}!
 
 Warm regards,
 ${item.operationName.charAt(0).toUpperCase() + item.operationName.slice(1)}
 Operations Department
-Team Atorax`
+Team ΣxpoGraph`
                             )}`}
                           target="_blank"
                           rel="noopener noreferrer"

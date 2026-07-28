@@ -4,17 +4,17 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 
 const LandingWhoIsThisFor = () => {
   const goodFit = [
-    "Software Engineers at 5–8 LPA ready to break into product companies at 15–30+ LPA.",
-    "Frontend developers transitioning into full-stack or backend architecture roles.",
-    "Individuals prepared to commit 12–15 focused hours per week for 6 months.",
-    "Developers who understand the basics but consistently fail system design interviews."
+    "Ambitious CS & Engineering students ready to build production-grade projects and master modern tech stacks.",
+    "Students looking to transition from basic college curricula into full-stack, AI, or advanced software engineering.",
+    "Individuals prepared to commit 12–15 focused hours per week to upskill alongside their coursework.",
+    "Learners who want honest feedback, live mentorship, and a structured path to crack top-tier technical rounds."
   ];
 
   const badFit = [
-    "Absolute beginners with zero programming experience.",
-    "People looking for a passive, pre-recorded video course to watch casually.",
-    "Those unwilling to receive harsh, line-by-line feedback on their code.",
-    "Candidates seeking a 'guaranteed job' without putting in the deep work."
+    "Students looking only for pre-recorded videos to watch passively without active participation.",
+    "Those who are not ready for regular assignments, deep coding sessions, and accountability.",
+    "Anyone seeking a 'guaranteed' outcome without putting in consistent effort.",
+    "Individuals not open to receiving direct feedback on their code, communication, and interview performance."
   ];
 
   return (
@@ -22,13 +22,13 @@ const LandingWhoIsThisFor = () => {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="text-center mb-16">
           <span className="inline-block text-[10px] font-bold tracking-[2.5px] uppercase text-[#111111] border border-gray-300 bg-white px-4 py-1.5 rounded-full mb-5">
-            Selective Admission
+            Selective Admissions
           </span>
           <h2 className="lp-font-outfit text-[#111111] font-extrabold text-4xl md:text-5xl mb-4 tracking-tight">
-            Who we accept — and who we don't.
+            Who this program is for — and who it is not.
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed font-light">
-            We intentionally keep cohorts at 40 seats and standards high. This is an intense career accelerator, not a casual online course.
+            We select a small number of committed engineering students for each batch to maintain depth, quality, and outcomes. This is a serious skill-building accelerator, not a casual watch-at-your-own-pace course.
           </p>
         </div>
 

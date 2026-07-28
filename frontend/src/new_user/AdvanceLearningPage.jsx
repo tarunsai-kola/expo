@@ -30,7 +30,7 @@ const AdvanceLearningPage = () => {
                     boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
                 }}
             >
-                <img src={logo} alt="Atorax" style={{ height: 36 }} />
+                <img src={logo} alt="ΣxpoGraph" style={{ height: 36 }} />
                 <span style={{ color: "#d1d5db", fontSize: 18 }}>|</span>
                 <button
                     onClick={() => navigate("/advancedashboard/training")}

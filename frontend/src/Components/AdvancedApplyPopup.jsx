@@ -5,7 +5,7 @@ import axios from "axios";
 import API from "../API";
 import toast from "react-hot-toast";
 import { FaUser, FaPhone, FaEnvelope, FaBriefcase, FaGraduationCap, FaBullseye, FaCheckCircle, FaChevronDown } from "react-icons/fa";
-import atoraxLogo from "../assets/logowhite.png";
+import ΣxpoGraphLogo from "../assets/LOGO3.png";
 import SubhraImg from "../assets/mentors/Subhra.jpg";
 import RudraImg from "../assets/mentors/rudra.jpg";
 import RohanImg from "../assets/alumni/alumni_1.png";
@@ -197,49 +197,52 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                 </button>
 
                 {/* Left Side: Professional Info Column */}
-                <div className="hidden md:flex md:w-[38%] bg-[#050d2f] p-10 flex-col justify-between relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl group-hover:bg-emerald-500/20 transition-all duration-700" />
+                {/* Left Side: Premium Modern Info Column */}
+                <div className="hidden md:flex md:w-[42%] bg-gradient-to-br from-gray-900 via-slate-900 to-black p-10 flex-col justify-between relative overflow-hidden group shadow-inner">
+                    <div className="absolute top-[-20%] left-[-10%] w-72 h-72 bg-[#0F7B53]/20 rounded-full blur-[80px] pointer-events-none group-hover:bg-[#0F7B53]/30 transition-all duration-700" />
+                    <div className="absolute bottom-[-10%] right-[-10%] w-64 h-64 bg-indigo-500/10 rounded-full blur-[60px] pointer-events-none" />
                     
                     <div className="relative z-10">
-                        <div className="mb-8 drop-shadow-2xl">
-                            <img src={atoraxLogo} alt="Atorax Logo" className="h-10 w-auto object-contain" />
+                        <div className="mb-10 drop-shadow-2xl bg-white/5 p-4 rounded-2xl inline-block border border-white/10 backdrop-blur-sm">
+                            <img src={ΣxpoGraphLogo} alt="ΣxpoGraph Logo" className="h-10 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
                         </div>
-                        <h2 className="text-3xl font-extrabold text-white leading-tight mb-4">
-                            Your Path to <span className="text-emerald-500 underline decoration-emerald-500/30 underline-offset-4">Advanced</span> Success.
+                        <h2 className="text-3xl md:text-4xl font-black text-white leading-[1.1] mb-5 tracking-tight">
+                            Accelerate <br/>Your Tech <br/>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0F7B53] to-emerald-400">Career.</span>
                         </h2>
-                        <p className="text-slate-400 text-sm leading-relaxed mb-10">
-                            Join our elite upskilling programs designed for modern tech leaders.
+                        <p className="text-gray-300 text-sm leading-relaxed mb-10 font-medium border-l-2 border-[#0F7B53] pl-4">
+                            Join the elite upskilling ecosystem designed exclusively for modern tech professionals.
                         </p>
 
-                        <div className="space-y-8">
+                        <div className="space-y-4">
                             {[
-                                { icon: <FaCheckCircle />, title: "Premium Curriculum", desc: "Designed by industry veterans" },
-                                { icon: <FaCheckCircle />, title: "AI-First Approach", desc: "Modern tech stack integration" },
-                                { icon: <FaCheckCircle />, title: "Guaranteed Referrals", desc: "Network of 500+ partners" }
+                                { icon: <FaCheckCircle />, title: "Premium Curriculum", desc: "Crafted by Top 1% Engineers" },
+                                { icon: <FaCheckCircle />, title: "AI-First Approach", desc: "Build with GenAI & Modern Stacks" },
+                                { icon: <FaCheckCircle />, title: "Elite Network", desc: "Direct referrals to 500+ partners" }
                             ].map((item, i) => (
-                                <div key={i} className="flex gap-4">
-                                    <div className="text-emerald-500 mt-1">{item.icon}</div>
+                                <div key={i} className="flex gap-4 p-3 rounded-xl bg-white/[0.03] border border-white/[0.05] hover:bg-white/[0.06] transition-colors">
+                                    <div className="text-[#0F7B53] mt-0.5 text-lg">{item.icon}</div>
                                     <div>
-                                        <p className="text-white font-bold text-sm tracking-wide">{item.title}</p>
-                                        <p className="text-slate-400 text-[11px] leading-relaxed mt-0.5">{item.desc}</p>
+                                        <p className="text-gray-100 font-bold text-sm tracking-wide">{item.title}</p>
+                                        <p className="text-gray-400 text-[11px] leading-relaxed mt-1">{item.desc}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    <div className="relative z-10 pt-10 border-t border-white/10">
+                    <div className="relative z-10 pt-8 mt-6 border-t border-white/10">
                         <div className="flex -space-x-3 mb-4">
                             {[SubhraImg, RudraImg, RohanImg, RajaImg, PrabhleenImg].map((img, i) => (
-                                <div key={i} className="w-8 h-8 rounded-full border-2 border-[#050d2f] bg-slate-800 overflow-hidden shadow-xl">
+                                <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800 overflow-hidden shadow-lg transform hover:-translate-y-1 transition-transform">
                                     <img src={img} alt="alumni" className="w-full h-full object-cover object-top" />
                                 </div>
                             ))}
-                            <div className="w-8 h-8 rounded-full border-2 border-[#050d2f] bg-emerald-600 flex items-center justify-center text-[10px] font-bold text-white shadow-xl">
+                            <div className="w-10 h-10 rounded-full border-2 border-slate-900 bg-[#0F7B53] flex items-center justify-center text-[11px] font-bold text-white shadow-lg z-10">
                                 +5k
                             </div>
                         </div>
-                        <p className="text-slate-400 text-[10px] font-medium leading-relaxed">Join thousands of successful alumni working at top tech giants globaly.</p>
+                        <p className="text-gray-400 text-[11px] font-medium leading-relaxed">Join 5000+ alumni working at top tech giants globally.</p>
                     </div>
                 </div>
 
@@ -442,7 +445,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                                 className="mt-1 h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-600 cursor-pointer"
                             />
                             <label htmlFor="authorize_popup" className="text-[10px] md:text-[11px] text-slate-500 leading-relaxed cursor-pointer select-none">
-                                I authorise <span className="font-bold">Atorax</span> & its representatives to contact me with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC
+                                I authorise <span className="font-bold">ΣxpoGraph</span> & its representatives to contact me with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC
                             </label>
                         </div>
 

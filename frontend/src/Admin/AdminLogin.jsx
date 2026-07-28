@@ -100,7 +100,7 @@ const AdminLogIn = () => {
             <ShieldCheck size={40} className="text-indigo-600" />
           </div>
           <h1 className="text-3xl font-black text-white tracking-tight mb-2">Admin Portal</h1>
-          <p className="text-slate-300 font-medium text-sm">Secure access for Atorax administrators</p>
+          <p className="text-slate-300 font-medium text-sm">Secure access for ΣxpoGraph administrators</p>
         </div>
 
         {/* Glassmorphic Form Card */}
@@ -121,7 +121,7 @@ const AdminLogIn = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={isOtpSent}
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-700 font-medium placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white transition-all sm:text-sm disabled:bg-slate-100 disabled:text-slate-500"
-                  placeholder="admin@atorax.in"
+                  placeholder="admin@ΣxpoGraph.in"
                 />
               </div>
             </div>
@@ -185,7 +185,7 @@ const AdminLogIn = () => {
 
             <div className="text-center flex items-center justify-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest pt-2">
               <ShieldAlert size={14} className="text-slate-400" />
-              Protected by Atorax Gateway
+              Protected by ΣxpoGraph Gateway
             </div>
 
           </div>

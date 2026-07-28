@@ -147,7 +147,7 @@ const AdvisorForm = () => {
               className="lg:w-1/2 md:w-1/2 relative text-black rounded-lg"
             >
               <h2 className="text-center font-bold text-[#f15b29] my-2">
-                Atorax Solutions
+                ΣxpoGraph Solutions
               </h2>
               <ul className=" text-lg space-y-2 px-2">
                 <li>

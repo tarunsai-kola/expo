@@ -14,42 +14,42 @@ const features = [
   {
     Icon: MonitorPlay,
     title: "100% Live Interactive Classes",
-    sub: "Learn directly from research-oriented IIIT Hyderabad faculty. Interactive sessions with concept-to-application focus.",
+    sub: "Learn from top industry experts. Hands-on sessions moving from theory to practical application.",
   },
   {
     Icon: CalendarDays,
-    title: "16-Week Intensive Career Program",
-    sub: "Follow a structured, week-by-week roadmap. Master everything from core fundamentals to advanced industry-standard tools.",
+    title: "Intensive Core Tech Programs",
+    sub: "Follow a proven engineering roadmap. Master essential tools like Verilog, Python, AWS, and ROS.",
   },
   {
     Icon: BarChart3,
-    title: "Real Industry Projects & Case Studies",
-    sub: "Build a job-ready portfolio. Work on actual business datasets from retail, finance, and healthcare sectors.",
+    title: "Industry-Grade Projects & Capstones",
+    sub: "Build a standout hardware and software portfolio. Work on actual chip design and AI projects.",
   },
   {
     Icon: FileSearch,
-    title: "Premium Career Support Ecosystem",
-    sub: "Get noticed by top recruiters. We optimize your professional profiles and conduct technical mock interviews.",
+    title: "Dedicated Career Readiness Support",
+    sub: "Stand out to top tech recruiters. We optimize your resume and conduct intense mock interviews.",
   },
   {
     Icon: Building2,
-    title: "100% Placement Assistance*",
-    sub: "Fast-track your job search. Get direct access to 500+ hiring partners actively looking for talent.",
+    title: "Active Placement Assistance*",
+    sub: "Accelerate your core engineering job search. Connect with hiring partners actively seeking tech talent.",
   },
   {
     Icon: BadgeCheck,
-    title: "Multiple Industry Certifications",
-    sub: "Validate your expertise. Earn industry-recognized credentials that demonstrate your proficiency to global employers.",
+    title: "Verified Industry Certifications",
+    sub: "Prove your VLSI, Embedded, and AI expertise. Earn credentials respected by global tech companies.",
   },
   {
     Icon: UserCheck,
-    title: "Expert Mentorship from Industry Leaders",
-    sub: "Get industry-specific guidance. Learn directly from professionals currently working as Lead Experts and Senior Architects.",
+    title: "Expert Guidance from Tech Leads",
+    sub: "Get direct mentorship in VLSI, IoT, and AI. Learn from senior engineers in the industry.",
   },
   {
     Icon: TrendingUp,
-    title: "Built for Serious Career Growth",
-    sub: "Targeted at career success. Every module is engineered to bridge the gap between your current role and your target career.",
+    title: "Engineered for Core Tech Careers",
+    sub: "Built for real outcomes. Bridge the gap from engineering student to industry professional.",
   },
 ];
 

@@ -378,7 +378,7 @@ const ApplyForm = ({ courseValue = "this program", isPremium = false }) => {
                 className="mt-1 h-4 w-4 rounded border-gray-300 text-[#f15b29] focus:ring-[#f15b29] cursor-pointer"
               />
               <label htmlFor="authorize_form" className="text-[13px] text-gray-500 leading-relaxed cursor-pointer select-none">
-                I authorise <span className="font-bold text-gray-700">Atorax</span> & its representatives to contact me with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC
+                I authorise <span className="font-bold text-gray-700">ΣxpoGraph</span> & its representatives to contact me with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC
               </label>
             </div>
 

@@ -3,7 +3,7 @@
 const LmsFooter = () => {
   return (
     <div id='lmsFooter'>
-      <h6>© 2026 All Rights Reserved. Powered by Atorax Solutions.</h6>
+      <h6>© 2026 All Rights Reserved. Powered by ΣxpoGraph Solutions.</h6>
       {/* <Tawk/> */}
     </div>
   )

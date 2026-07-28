@@ -7,12 +7,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Advanced Course Posters
-import mernPoster from "../../atorax/images/poster/mern.png";
-import dsPoster from "../../atorax/images/poster/datascience.png";
-import daPoster from "../../atorax/images/poster/dataanalytics.png";
-import pmPoster from "../../atorax/images/poster/productmanagement.png";
-import dmPoster from "../../atorax/images/poster/digitalmarketing.png";
-import pePoster from "../../atorax/images/poster/promptengineering.png";
+import mernPoster from "../../ΣxpoGraph/images/poster/mern.png";
+import dsPoster from "../../ΣxpoGraph/images/poster/datascience.png";
+import daPoster from "../../ΣxpoGraph/images/poster/dataanalytics.png";
+import pmPoster from "../../ΣxpoGraph/images/poster/productmanagement.png";
+import dmPoster from "../../ΣxpoGraph/images/poster/digitalmarketing.png";
+import pePoster from "../../ΣxpoGraph/images/poster/promptengineering.png";
 
 // Fallback images from assets if needed
 import ibPoster from "../assets/Advanced Course Images/Investment banking/INB.png";

@@ -50,7 +50,7 @@ import AdvanceBanner from "./Components/AdvanceBanner";
 
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import uiuxBrochure from "../../../atorax/UI  UX-min.pdf";
+import uiuxBrochure from "../../../ΣxpoGraph/UI  UX-min.pdf";
 
 const heroStats = [
   { label: "Duration", value: "24 Weeks" },

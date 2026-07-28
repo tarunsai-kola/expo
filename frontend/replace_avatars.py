@@ -1,6 +1,6 @@
 import re
 
-file_path = r"c:\Users\tarun\OneDrive\Desktop\atorax\frontend\src\Components\LandingCaseStudies.jsx"
+file_path = r"c:\Users\tarun\OneDrive\Desktop\ΣxpoGraph\frontend\src\Components\LandingCaseStudies.jsx"
 with open(file_path, "r", encoding="utf-8") as f:
     content = f.read()
 

@@ -12,10 +12,10 @@ export const androidAppData = {
   enrolled: "15,000+ Mentees Trained",
   rating: 4.85,
   pitch: "Transform your passion into a successful career in tech with mentor-led training, internship support, and real project execution.",
-  providerNote: "We are now an accredited partner under Atorax.",
-  contactInfo: ["www.atorax.com", "support@atorax.com"],
+  providerNote: "We are now an accredited partner under ΣxpoGraph.",
+  contactInfo: ["www.ΣxpoGraph.com", "support@ΣxpoGraph.com"],
   aboutTitle: "About Us",
-  aboutDescription: "Atorax is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow's world.",
+  aboutDescription: "ΣxpoGraph is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow's world.",
   whyTitle: "Why Android App Development?",
   whyPoints: [
     "Android powers over 70% of global smartphones, ensuring a massive user base.",
@@ -173,8 +173,8 @@ export const androidAppData = {
   studentReviews: [
     {
       name: "Paidi Venkata",
-      text: "Certificate of Training Completion from Atorax Solutions in the field of Android App Development. Incredible hands-on learning experience with expert mentors.",
-      detail: "#atorax #android #app #development #androidstudio"
+      text: "Certificate of Training Completion from ΣxpoGraph Solutions in the field of Android App Development. Incredible hands-on learning experience with expert mentors.",
+      detail: "#ΣxpoGraph #android #app #development #androidstudio"
     },
     {
       name: "Ramshad K",
@@ -183,12 +183,12 @@ export const androidAppData = {
     },
     {
       name: "Sahad K",
-      text: "Got placement at Wipro through Atorax support team. I am really grateful that I got to learn from excellent mentors. Support from my counsellor was really helpful.",
-      detail: "All thanks to Bhoomika mam and the entire Atorax team."
+      text: "Got placement at Wipro through ΣxpoGraph support team. I am really grateful that I got to learn from excellent mentors. Support from my counsellor was really helpful.",
+      detail: "All thanks to Bhoomika mam and the entire ΣxpoGraph team."
     },
     {
       name: "Aman Nema",
-      text: "Atorax's training program was fantastic. The course covered essential Android technologies, practical projects, and expert guidance from mentors.",
+      text: "ΣxpoGraph's training program was fantastic. The course covered essential Android technologies, practical projects, and expert guidance from mentors.",
       detail: "Highly recommended for beginners and aspiring Android developers."
     }
   ],

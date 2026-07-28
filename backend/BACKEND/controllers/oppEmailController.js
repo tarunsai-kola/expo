@@ -23,7 +23,7 @@ const oppsendEmail = async ({ email, subject, message }) => {
     from: `"Operations Team" <${process.env.SMTP_MAIL2}>`, // Force the correct sender
     sender: process.env.SMTP_MAIL2, // Ensure the sender is set
     to: email,
-    cc: "help@atorax.com",
+    cc: "help@ΣxpoGraph.com",
     subject: subject,
     html: message,
     priority: "high",

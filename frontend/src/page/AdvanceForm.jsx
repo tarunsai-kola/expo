@@ -11,10 +11,10 @@ import PrabhleenImg from '../assets/alumni/alumni_2.png';
 const PARTNERS = ['Google', 'Microsoft', 'Amazon', 'Meta', 'Netflix', 'Uber', 'Airbnb'];
 
 const COMPARISON = [
-  { feature: 'Curriculum', traditional: 'Theoretical, outdated syllabi', atorax: 'Built backwards from current JD requirements' },
-  { feature: 'Mentorship', traditional: 'Group Q&A with junior TAs', atorax: '1:1 guidance from active Top 1% Industry Leaders' },
-  { feature: 'Experience', traditional: 'Capstone "toy" projects', atorax: 'Real Corporate Internship with live evaluation' },
-  { feature: 'Placement', traditional: 'Access to a generic job portal', atorax: 'Guaranteed interviews until you secure an offer' }
+  { feature: 'Curriculum', traditional: 'Theoretical, outdated syllabi', ΣxpoGraph: 'Built backwards from current JD requirements' },
+  { feature: 'Mentorship', traditional: 'Group Q&A with junior TAs', ΣxpoGraph: '1:1 guidance from active Top 1% Industry Leaders' },
+  { feature: 'Experience', traditional: 'Capstone "toy" projects', ΣxpoGraph: 'Real Corporate Internship with live evaluation' },
+  { feature: 'Placement', traditional: 'Access to a generic job portal', ΣxpoGraph: 'Guaranteed interviews until you secure an offer' }
 ];
 
 const PHASES = [
@@ -134,7 +134,7 @@ const HeroSection = ({ onShowModal }) => {
                 </div>
                 <div className="adv-salary-jump">
                   <div className="adv-salary-col">
-                    <span>Before Atorax</span>
+                    <span>Before ΣxpoGraph</span>
                     <strong>{p.before}</strong>
                   </div>
                   <div className="adv-salary-arrow">➔</div>
@@ -188,7 +188,7 @@ const ComparisonSection = () => (
           <thead>
             <tr>
               <th>The Standard Model</th>
-              <th className="adv-comp-highlight">The Atorax Architecture</th>
+              <th className="adv-comp-highlight">The ΣxpoGraph Architecture</th>
             </tr>
           </thead>
           <tbody>
@@ -198,7 +198,7 @@ const ComparisonSection = () => (
                   <span className="adv-cross">×</span> {row.traditional}
                 </td>
                 <td className="adv-comp-krut">
-                  <span className="adv-check">✓</span> {row.atorax}
+                  <span className="adv-check">✓</span> {row.ΣxpoGraph}
                 </td>
               </tr>
             ))}
@@ -476,7 +476,7 @@ const EnrollmentForm = () => {
       params.append('importanceReason', formData.importanceReason);
       params.append('connectTime', formData.connectTime);
       params.append('paidAgreement', formData.paidAgreement ? 'Yes' : 'No');
-      params.append('source', 'Atorax Advance Form');
+      params.append('source', 'ΣxpoGraph Advance Form');
 
       await fetch(googleFormUrl, { 
         method: 'POST', 

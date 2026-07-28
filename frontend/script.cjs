@@ -9,7 +9,7 @@ const files = [
   'SoftwareDeveloper.jsx'
 ];
 files.forEach(f => {
-  const path = 'c:/Users/tarun/OneDrive/Desktop/atorax/frontend/src/page/' + f;
+  const path = 'c:/Users/tarun/OneDrive/Desktop/ΣxpoGraph/frontend/src/page/' + f;
   if (fs.existsSync(path)) {
     let content = fs.readFileSync(path, 'utf8');
     if (!content.includes('ROI on Course')) {

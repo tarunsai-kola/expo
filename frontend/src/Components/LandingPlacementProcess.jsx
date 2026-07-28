@@ -82,45 +82,45 @@ const LandingPlacementProcess = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
               <div>
-                <h4 className="text-3xl font-black text-white mb-10 tracking-tight">What we commit to</h4>
+                <h4 className="text-3xl font-black text-white mb-10 tracking-tight">What learners can expect</h4>
                 <ul className="space-y-6">
                   <li className="flex gap-4 text-gray-300 text-[15px] font-medium leading-relaxed">
-                    <span className="text-[#FF0055] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(255,0,85,0.8)]">✕</span>
-                    <span>We do <strong className="text-white">not</strong> sit in the interview for you. You must put in the 12–15 hrs/week.</span>
-                  </li>
-                  <li className="flex gap-4 text-gray-300 text-[15px] font-medium leading-relaxed">
-                    <span className="text-[#FF0055] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(255,0,85,0.8)]">✕</span>
-                    <span>We do <strong className="text-white">not</strong> guarantee jobs to students who skip capstone projects.</span>
+                    <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
+                    <span>Practical learning built around real skills, guided assignments, and project work.</span>
                   </li>
                   <li className="flex gap-4 text-gray-300 text-[15px] font-medium leading-relaxed">
                     <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
-                    <span>We <strong className="text-white">do</strong> guarantee interview calls at top product companies for eligible graduates.</span>
+                    <span>Regular mentorship and feedback to help students improve with clarity.</span>
                   </li>
                   <li className="flex gap-4 text-gray-300 text-[15px] font-medium leading-relaxed">
                     <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
-                    <span>We <strong className="text-white">do</strong> provide unlimited mock interviews until you feel confident.</span>
+                    <span>Career support through resume building, mock interviews, and interview preparation.</span>
+                  </li>
+                  <li className="flex gap-4 text-gray-300 text-[15px] font-medium leading-relaxed">
+                    <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
+                    <span>A structured journey designed to help learners become industry-ready with confidence.</span>
                   </li>
                 </ul>
               </div>
 
               <div className="border-t md:border-t-0 md:border-l border-white/10 pt-10 md:pt-0 md:pl-16 flex flex-col justify-center">
-                <h4 className="text-3xl font-black text-white mb-10 tracking-tight">Audited Placement Stats</h4>
+                <h4 className="text-3xl font-black text-white mb-10 tracking-tight">Built for career readiness</h4>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-12">
                   <div>
-                    <div className="text-4xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 mb-3">82%</div>
-                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest">Placed within 90 days</div>
+                    <div className="text-3xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 mb-3">15+</div>
+                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest leading-relaxed">Industry-focused programs.</div>
                   </div>
                   <div>
-                    <div className="text-4xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00FFA3] to-emerald-300 mb-3">24L</div>
-                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest">Median salary (2–5 yrs exp.)</div>
+                    <div className="text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00FFA3] to-emerald-300 mb-3">Projects</div>
+                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest leading-relaxed">Hands-on work that builds portfolios and practical confidence.</div>
                   </div>
                   <div>
-                    <div className="text-4xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 mb-3">350%</div>
-                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest">Average salary hike</div>
+                    <div className="text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 mb-3">Mentorship</div>
+                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest leading-relaxed">Live guidance from industry professionals.</div>
                   </div>
                   <div>
-                    <div className="text-4xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00FFA3] to-emerald-300 mb-3">500+</div>
-                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest">Hiring partners</div>
+                    <div className="text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00FFA3] to-emerald-300 mb-3 leading-tight lg:leading-none pt-1">Career<br/>Support</div>
+                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest leading-relaxed mt-3 lg:mt-4">Resume, placement, and interview-readiness support.</div>
                   </div>
                 </div>
               </div>

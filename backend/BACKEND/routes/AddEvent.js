@@ -664,13 +664,13 @@ Mode: ${event.mode || 'Online'}
 Location: Online
 ${event.shortDescription ? `\nAbout: ${event.shortDescription}` : ''}
 
-Event Link: https://www.atorax.com/events
+Event Link: https://www.ΣxpoGraph.com/events
 
 Important: Please make sure you're prepared and join on time!
 
-Atorax Solutions
+ΣxpoGraph Solutions
 This is an automated reminder.
-© ${currentYear} Atorax. All rights reserved.
+© ${currentYear} ΣxpoGraph. All rights reserved.
         `;
 
         await sendEventReminderEmail({

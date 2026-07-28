@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import API from '../API';
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEnvelope, FaLock, FaKey, FaArrowLeft } from 'react-icons/fa';
-import atoraxLogo from "../assets/LOGO3.png";
+import ΣxpoGraphLogo from "../assets/LOGO3.png";
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -89,7 +89,7 @@ const ForgotPassword = () => {
                 {/* Logo Header */}
                 <div className="flex flex-col items-center mb-8">
                     <Link to="/" className="inline-block p-3 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md mb-6 hover:bg-white/10 transition-colors">
-                        <img src={atoraxLogo} alt="Atorax Logo" className="h-10 w-auto object-contain" />
+                        <img src={ΣxpoGraphLogo} alt="ΣxpoGraph Logo" className="h-10 w-auto object-contain" />
                     </Link>
                     <h2 className="text-3xl font-bold text-white tracking-tight mb-2">Reset Password</h2>
                     <p className="text-gray-400 text-sm">

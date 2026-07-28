@@ -10,7 +10,7 @@ import {
   Users, Star, PlayCircle, Download, X, Plus, Minus,
   Globe, Award, Video, Zap, BookOpen, BrainCircuit
 } from 'lucide-react';
-import img from "../assets/atorax_certificate.png";
+import img from "../assets/ΣxpoGraph_certificate.png";
 
 const MasterClass = () => {
   const navigate = useNavigate();
@@ -156,8 +156,8 @@ const MasterClass = () => {
   return (
     <div className="bg-[#05050A] text-zinc-300 font-sans min-h-screen selection:bg-blue-500/30">
       <Helmet>
-        <title>Atorax MasterClass | Upskill in Tech</title>
-        <meta name="description" content="Join Atorax MasterClass to learn top tech skills from industry leaders." />
+        <title>ΣxpoGraph MasterClass | Upskill in Tech</title>
+        <meta name="description" content="Join ΣxpoGraph MasterClass to learn top tech skills from industry leaders." />
       </Helmet>
       <Toaster position="top-center" />
 
@@ -180,7 +180,7 @@ const MasterClass = () => {
             </h1>
             
             <p className="text-xl text-zinc-400 leading-relaxed mb-10 max-w-2xl mx-auto font-light">
-              Join Atorax MasterClass to learn directly from industry engineers. Free, interactive, and career-focused sessions in AI, Data Science, and Full Stack.
+              Join ΣxpoGraph MasterClass to learn directly from industry engineers. Free, interactive, and career-focused sessions in AI, Data Science, and Full Stack.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -292,7 +292,7 @@ const MasterClass = () => {
         {/* Why Choose Us */}
         <section id="why-join">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-black text-white mb-4">Why Choose Atorax</h2>
+            <h2 className="text-4xl font-black text-white mb-4">Why Choose ΣxpoGraph</h2>
             <p className="text-lg text-zinc-400 max-w-2xl mx-auto">We focus on real outcomes, not just theory.</p>
           </div>
           

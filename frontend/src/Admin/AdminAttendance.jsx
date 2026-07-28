@@ -560,7 +560,7 @@ const AdminAttendance = () => {
               </div>
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email Address</label>
-                <input type="email" placeholder="john@atorax.com" value={newMember.email} onChange={e => setNewMember({...newMember, email: e.target.value})} required className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500" />
+                <input type="email" placeholder="john@ΣxpoGraph.com" value={newMember.email} onChange={e => setNewMember({...newMember, email: e.target.value})} required className="w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500" />
               </div>
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-1.5">Designation / Role</label>

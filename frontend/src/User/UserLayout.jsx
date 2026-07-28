@@ -57,7 +57,7 @@ const UserLayout = () => {
             <span className="material-symbols-outlined">menu</span>
           </button>
           <div className="flex items-center gap-2">
-            <img src={logo} alt="Atorax" className="h-8" />
+            <img src={logo} alt="ΣxpoGraph" className="h-8" />
           </div>
         </div>
         <div className="flex items-center gap-4 sm:gap-8">

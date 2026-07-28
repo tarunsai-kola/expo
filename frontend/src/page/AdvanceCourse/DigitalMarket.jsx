@@ -34,7 +34,7 @@ import {
   Smartphone
 } from "lucide-react";
 
-import posterImage from "../../../atorax/images/poster/digitalmarketing.png";
+import posterImage from "../../../ΣxpoGraph/images/poster/digitalmarketing.png";
 import Flashaidlogo from "../../assets/Flashaidlogo.jpg";
 import Certification from "./Components/Certification";
 import ClientsCarousel from "../../Components/our_alumni";
@@ -51,7 +51,7 @@ import AdvanceBanner from "./Components/AdvanceBanner";
 
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import dmBrochure from "../../../atorax/Digital Marketing Advanced Program.pdf";
+import dmBrochure from "../../../ΣxpoGraph/Digital Marketing Advanced Program.pdf";
 const heroStats = [
   { label: "Placement Rate", value: "93%" },
   { label: "Hiring Partners", value: "500+" },
@@ -283,7 +283,7 @@ const DigitalMarket = () => {
                  </div>
               </div>
               <div className="p-card" style={{padding:'32px', maxWidth:'520px'}}>
-                 <div style={{marginBottom:'24px'}}><h3 style={{fontSize:'20px', fontWeight:800, marginBottom:'4px'}}>Request a Callback</h3><p style={{fontSize:'13px', color:'var(--dm-text-dim)'}}>Connect with the ATORAX team today.</p></div>
+                 <div style={{marginBottom:'24px'}}><h3 style={{fontSize:'20px', fontWeight:800, marginBottom:'4px'}}>Request a Callback</h3><p style={{fontSize:'13px', color:'var(--dm-text-dim)'}}>Connect with the ΣXPOGRAPH team today.</p></div>
                  <ApplyForm courseValue="Digital Marketing" isPremium={true} />
               </div>
            </div>

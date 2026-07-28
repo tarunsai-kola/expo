@@ -76,7 +76,7 @@ const EventLogin = () => {
                 <div className="navbar">
                     <div>
                         <Link to="/">
-                            <img src={logo} alt="Atorax Logo" />
+                            <img src={logo} alt="ΣxpoGraph Logo" />
                         </Link>
                     </div>
                     <div className="menu" style={{ display: 'flex' }}>
@@ -178,7 +178,7 @@ const EventLogin = () => {
 
                         <div className="mt-8 pt-6 border-t border-gray-200">
                             <p className="text-center text-gray-600">
-                                New to Atorax Events?{" "}
+                                New to ΣxpoGraph Events?{" "}
                                 <Link to="/EventRegister" className="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
                                     Create an account
                                 </Link>

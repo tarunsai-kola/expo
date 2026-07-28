@@ -52,12 +52,12 @@ import agentAiHero from "../assets/agent_ai_hero.png";
 import AdvancedApplyPopup from "../Components/AdvancedApplyPopup";
 
 // New Landing Page Components
-import LandingWhyAtorax from "../Components/LandingWhyAtorax";
+import LandingWhyΣxpoGraph from "../Components/LandingWhyΣxpoGraph";
 import LandingWhoIsThisFor from "../Components/LandingWhoIsThisFor";
 import LandingCurriculum from "../Components/LandingCurriculum";
 import LandingMentors from "../Components/LandingMentors";
 import LandingPlacementProcess from "../Components/LandingPlacementProcess";
-import LandingCaseStudies from "../Components/LandingCaseStudies";
+
 import LandingPricing from "../Components/LandingPricing";
 import LandingAdmissionsFlow from "../Components/LandingAdmissionsFlow";
 import LandingFAQ from "../Components/LandingFAQ";
@@ -274,7 +274,7 @@ const cohortSlides = [
 ];
 
 const testimonials = [
-  { id: 1, quote: "Atorax didn't just teach me to code; they taught me how to be an engineer. The curriculum is exactly what hiring managers look for. I got multiple offers before the program even ended.", author: "Rohan S.", role: "SDE at TCS Digital", initial: "RS", color: "from-indigo-400 to-purple-400" },
+  { id: 1, quote: "ΣxpoGraph didn't just teach me to code; they taught me how to be an engineer. The curriculum is exactly what hiring managers look for. I got multiple offers before the program even ended.", author: "Rohan S.", role: "SDE at TCS Digital", initial: "RS", color: "from-indigo-400 to-purple-400" },
   { id: 2, quote: "The mentorship is unmatched. My mentor was a Senior Engineer at Microsoft and he completely overhauled the way I approach System Design. Worth every penny.", author: "Priya M.", role: "Backend Developer at Razorpay", initial: "PM", color: "from-emerald-400 to-teal-400" },
   { id: 3, quote: "Transitioning from a non-CS background was terrifying, but the structured path and 1:1 support gave me confidence. Six months later, I'm working my dream job.", author: "Karan D.", role: "Data Analyst at Fractal", initial: "KD", color: "from-cyan-400 to-blue-400" },
 ];
@@ -422,7 +422,7 @@ const HomePage = () => {
   return (
     <div className="lp-bg min-h-screen selection:bg-[#0F7B53]/20">
       <Helmet>
-        <title>Atorax | Premium Advanced Tech Programs & Elite Placements</title>
+        <title>ΣxpoGraph | Premium Advanced Tech Programs & Elite Placements</title>
         <meta name="description" content="Accelerate your technology career with industry-led advanced software engineering, AI, and data science programs backed by 1:1 expert mentorship." />
       </Helmet>
 
@@ -495,29 +495,7 @@ const HomePage = () => {
               className="flex flex-col items-center lg:items-end w-full preserve-3d"
             >
               <div className="relative w-full max-w-[410px] preserve-3d">
-                {/* Professional Boy Behind Card */}
-                <div
-                  className="hidden md:block absolute left-1/2 -translate-x-1/2 w-[220px] md:w-[260px] pointer-events-none"
-                  style={{ top: "-180px", zIndex: -1 }}
-                >
-                  <img src={professionalBoyBoard} alt="Give a chance" className="w-full h-auto drop-shadow-2xl" />
-                  
-                  {/* Floating text beside */}
-                  <div className="absolute top-[38%] left-[75%] md:left-[80%] w-[250px] perspective-[1000px] z-10 h-[40px]">
-                    <AnimatePresence mode="wait">
-                      <motion.div 
-                        key={bubbleIndex}
-                        initial={{ opacity: 0, rotateX: -90, y: 10 }}
-                        animate={{ opacity: 1, rotateX: 0, y: 0 }}
-                        exit={{ opacity: 0, rotateX: 90, y: -10 }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
-                        className="absolute inset-0 w-max bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl rounded-bl-sm shadow-[0_10px_30px_rgba(0,0,0,0.08)] border border-white/50 text-[13px] font-extrabold text-[#0F7B53] flex items-center gap-2 origin-center"
-                      >
-                        {bubbleTexts[bubbleIndex]} <Sparkles size={14} className="text-[#0F7B53] shrink-0" />
-                      </motion.div>
-                    </AnimatePresence>
-                  </div>
-                </div>
+
 
                 <motion.div 
                   className="w-full glass-panel-3d rounded-[32px] p-8 relative group dashboard-card-3d bg-white/90"
@@ -534,11 +512,11 @@ const HomePage = () => {
                 <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#0F7B53]/10 rounded-full blur-2xl pointer-events-none" style={{ transform: "translateZ(-20px)" }} />
 
                 <h3 className="text-[#111111] font-extrabold text-lg mb-6 flex items-center gap-2" style={{ transform: "translateZ(30px)" }}>
-                  <Sparkles className="text-[#0F7B53]" size={16} /> Verified Platform Outputs
+                  <Sparkles className="text-[#0F7B53]" size={16} /> Engineering Excellence
                 </h3>
 
                 <div className="flex flex-col gap-4 preserve-3d" style={{ transform: "translateZ(40px)" }}>
-                  {/* Placements */}
+                  {/* Hands-on Projects */}
                   <motion.div 
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -547,15 +525,15 @@ const HomePage = () => {
                     className="premium-stat-card flex items-center gap-4 rounded-2xl p-4 transition-all"
                   >
                     <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0F7B53]/10 to-[#0F7B53]/5 flex items-center justify-center border border-[#0F7B53]/20 text-[#0F7B53] premium-stat-icon-box">
-                      <Briefcase size={18} />
+                      <Code2 size={18} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Verified Placements</p>
-                      <p className="text-white text-xl font-black leading-none">1100+</p>
+                      <p className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Hands-on Projects</p>
+                      <p className="text-white text-xl font-black leading-none">50+ Built</p>
                     </div>
                   </motion.div>
 
-                  {/* Salary Hike */}
+                  {/* Mentorship */}
                   <motion.div 
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -564,15 +542,15 @@ const HomePage = () => {
                     className="premium-stat-card flex items-center gap-4 rounded-2xl p-4 transition-all"
                   >
                     <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0A5A3D]/10 to-[#0A5A3D]/5 flex items-center justify-center border border-[#0A5A3D]/20 text-[#0A5A3D] premium-stat-icon-box">
-                      <TrendingUp size={18} />
+                      <Users size={18} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Avg. Salary Increase</p>
-                      <p className="text-white text-xl font-black leading-none">Upto 350%</p>
+                      <p className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Expert Mentors</p>
+                      <p className="text-white text-xl font-black leading-none">1:1 Guidance</p>
                     </div>
                   </motion.div>
 
-                  {/* ROI */}
+                  {/* Tech Stack */}
                   <motion.div 
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -581,17 +559,17 @@ const HomePage = () => {
                     className="premium-stat-card flex items-center gap-4 rounded-2xl p-4 transition-all"
                   >
                     <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#209F70]/10 to-[#209F70]/5 flex items-center justify-center border border-[#209F70]/20 text-[#209F70] premium-stat-icon-box">
-                      <Landmark size={18} />
+                      <BrainCircuit size={18} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Estimated Program ROI</p>
-                      <p className="text-white text-xl font-black leading-none">10X to 20X</p>
+                      <p className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Latest Tech Stack</p>
+                      <p className="text-white text-xl font-black leading-none">GenAI & Cloud</p>
                     </div>
                   </motion.div>
                 </div>
 
                 <div className="mt-5 pt-4.5 border-t border-gray-100 text-center text-gray-500 text-xs flex justify-center items-center gap-1.5 relative z-10" style={{ transform: "translateZ(20px)" }}>
-                  <Award size={13} className="text-[#0F7B53]" /> Endorsed by top 500+ corporate hiring layers
+                  <Award size={13} className="text-[#0F7B53]" /> Master the skills top tech giants demand
                 </div>
               </motion.div>
               </div>
@@ -663,21 +641,21 @@ const HomePage = () => {
       {/* ─── NEW: Qualification Filter ─── */}
       <LandingWhoIsThisFor />
 
-      {/* ─── Why Atorax (New Comparison Section) ─── */}
-      <LandingWhyAtorax />
+      {/* ─── Why ΣxpoGraph (New Comparison Section) ─── */}
+      <LandingWhyΣxpoGraph />
 
       {/* ─── Bento Edge Section ─── */}
       <section style={{ padding: "30px 0 110px", background: "#FFFFFF" }} id="edge">
         <div style={{ width: "min(92%, 1250px)", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "56px" }}>
             <span style={{ display: "inline-block", fontSize: "11px", fontWeight: 700, letterSpacing: "2.5px", textTransform: "uppercase", color: "#0F7B53", background: "rgba(15,123,83,0.08)", padding: "6px 16px", borderRadius: "99px", marginBottom: "20px" }}>
-              The Atorax Edge
+              The ΣxpoGraph Edge
             </span>
             <h2 className="lp-font-outfit text-[#111111] font-extrabold leading-tight" style={{ fontSize: "clamp(30px, 4.2vw, 50px)", maxWidth: "780px", margin: "0 auto 16px" }}>
               Elite mentorship, production depth,<br className="hidden md:block" /> and outcomes that actually matter.
             </h2>
             <p style={{ fontSize: "clamp(15px, 1.3vw, 17px)", color: "#6B7280", lineHeight: 1.7, maxWidth: "600px", margin: "0 auto", fontWeight: 400 }}>
-              Built for ambitious engineers who want more than beginner tutorials — Atorax delivers real production depth, senior-level mentorship, and a hiring-focused system designed for high-growth tech careers.
+              Built for ambitious engineers who want more than beginner tutorials — ΣxpoGraph delivers real production depth, senior-level mentorship, and a hiring-focused system designed for high-growth tech careers.
             </p>
           </div>
 
@@ -800,115 +778,50 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ─── NEW SECTION: Interactive Cohort Pedagogy Slideshow ─── */}
-      <section style={{ padding: "110px 0", background: "#FFFFFF", borderTop: "1px solid rgba(0,0,0,0.05)" }}>
-        <div style={{ width: "min(92%, 1250px)", margin: "0 auto" }}>
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
-            <div>
-              <span className="inline-block bg-[#0F7B53]/10 text-[#0F7B53] font-extrabold text-[11px] uppercase tracking-[2px] px-5 py-2 rounded-full mb-5">
-                Cohort Progression
-              </span>
-              <h2 className="lp-font-outfit text-[#111111] font-extrabold tracking-tight leading-tight" style={{ fontSize: "clamp(30px, 4.5vw, 48px)" }}>
-                The Atorax Execution Path
-              </h2>
-              <p className="text-gray-500 text-base mt-2 font-light">
-                An active, milestone-driven execution framework to secure your dream role.
-              </p>
-            </div>
 
-            {/* Subtle Navigation Buttons */}
-            <div className="flex gap-3">
-              <button onClick={handlePrevSlide} className="slide-control-btn bg-white hover:bg-[#F8FAF8]" aria-label="Previous Slide">
-                <ChevronLeft size={20} />
-              </button>
-              <button onClick={handleNextSlide} className="slide-control-btn bg-white hover:bg-[#F8FAF8]" aria-label="Next Slide">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-          </div>
-
-          {/* Frosted Glass Slide Viewer */}
-          <div className="bento-dark-gradient rounded-[32px] p-8 md:p-14 shadow-2xl relative overflow-hidden min-h-[380px] flex flex-col justify-between border border-white/10">
-            <div className="absolute top-0 right-0 p-10 bg-[#0F7B53]/[0.05] pointer-events-none" />
-
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeSlide}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.4 }}
-                className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-10 items-center relative z-10"
-              >
-                <div>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-11 h-11 rounded-xl bg-white/10 border border-white/20 shadow-sm flex items-center justify-center text-white">
-                      {cohortSlides[activeSlide].icon}
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-0.5">Timeline Sequence</span>
-                      <span className="text-xs font-bold text-white bg-white/10 px-3 py-1 rounded-full border border-white/20">{cohortSlides[activeSlide].duration}</span>
-                    </div>
-                  </div>
-
-                  <h3 className="text-2xl md:text-3.5xl font-extrabold text-white mb-5">
-                    <span className="text-[#209F70] mr-3">{cohortSlides[activeSlide].step}.</span>
-                    {cohortSlides[activeSlide].phase}
-                  </h3>
-
-                  <p className="text-gray-300 text-[16px] leading-relaxed mb-6 font-light">
-                    {cohortSlides[activeSlide].detail}
-                  </p>
-                </div>
-
-                <div className="bg-white/5 border border-white/10 shadow-sm rounded-2xl p-6 lg:p-8 backdrop-blur-md">
-                  <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3.5">Milestone Outcome</h4>
-                  <p className="text-white text-sm md:text-base font-semibold leading-relaxed">
-                    {cohortSlides[activeSlide].outcome}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Slide Indicators */}
-            <div className="flex gap-2 mt-10 border-t border-white/10 pt-6 relative z-10">
-              {cohortSlides.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveSlide(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 border-none cursor-pointer ${
-                    i === activeSlide ? "w-8 bg-[#209F70]" : "w-3 bg-white/20 hover:bg-white/40"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ─── Flagship Programs Slider (New Slide Visual Carousel) ─── */}
-      <section style={{ padding: "110px 0", background: "#F8FAF8", overflow: "hidden" }} id="flagship-programs">
-        <div style={{ width: "min(92%, 1250px)", margin: "0 auto", textAlign: "center", marginBottom: "56px" }}>
-          <span className="inline-block bg-white border border-gray-200 shadow-sm text-[#0F7B53] font-extrabold text-[11px] uppercase tracking-[2px] px-5 py-2 rounded-full mb-5">
+      <section className="py-24 lg:py-32 bg-[#020408] border-y border-white/5 relative overflow-hidden" id="flagship-programs">
+        {/* Subtle Background Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#10b981]/10 blur-[150px] rounded-[100%] pointer-events-none opacity-50"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay pointer-events-none"></div>
+
+        <div className="max-w-[1250px] mx-auto px-6 text-center mb-16 relative z-10">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-2 bg-white/5 border border-white/10 shadow-[0_0_15px_rgba(16,185,129,0.15)] text-[#10b981] font-black text-[11px] uppercase tracking-[3px] px-5 py-2 rounded-full mb-6 backdrop-blur-md"
+          >
             Flagship Specializations
-          </span>
-          <h2 className="lp-font-outfit text-[#111111] font-extrabold tracking-tight leading-tight text-glow" style={{ fontSize: "clamp(30px, 4.5vw, 48px)" }}>
-            Specialized Career Paths
-          </h2>
-          <p className="text-gray-500 text-base mt-2 font-light max-w-xl mx-auto">
-            Acquire elite system design and AI capabilities through industry-certified program tracks.
-          </p>
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="lp-font-outfit text-white font-black tracking-tight leading-tight text-glow mb-6" style={{ fontSize: "clamp(36px, 4.5vw, 52px)" }}
+          >
+            Specialized <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#3b82f6]">Career Paths</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-400 text-lg font-light max-w-2xl mx-auto"
+          >
+            Acquire elite system design and AI capabilities through industry-certified program tracks designed for the modern tech landscape.
+          </motion.p>
         </div>
 
         {/* Center-Peek Slider Canvas */}
-        <div style={{ overflow: "hidden", width: "100%" }}>
+        <div className="overflow-hidden w-full relative z-10">
           <div className="program-slider-canvas select-none scene-3d">
-            <div className="py-4 overflow-visible">
+            <div className="py-8 overflow-visible">
               <div 
                 className="program-slider-track items-center preserve-3d"
                 style={{
                   transform: `translateX(calc(50vw - (var(--slide-width) / 2) - (${currentProgramIndex} * (var(--slide-width) + var(--slide-gap)))))`,
-                  width: "max-content"
+                  width: "max-content",
+                  transition: "transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)"
                 }}
               >
               {programSlides.map((slide, idx) => {
@@ -917,80 +830,83 @@ const HomePage = () => {
                 
                 let transformStyle = "rotateY(0deg) translateZ(0px) scale(1)";
                 if (!isActive) {
-                  transformStyle = isPrev ? "rotateY(15deg) translateZ(-120px) scale(0.9)" : "rotateY(-15deg) translateZ(-120px) scale(0.9)";
+                  transformStyle = isPrev ? "rotateY(15deg) translateZ(-120px) scale(0.85)" : "rotateY(-15deg) translateZ(-120px) scale(0.85)";
                 }
 
                 return (
                   <div
                     key={slide.id}
-                    className={`program-slide-card rounded-[32px] p-6 md:p-12 overflow-hidden bg-gradient-to-r ${slide.gradient} border border-white/10 ${
-                      isActive ? "opacity-100 shadow-[0_30px_60px_rgba(0,0,0,0.6)] z-10" : "opacity-30 pointer-events-none z-0"
+                    className={`program-slide-card rounded-[40px] p-8 md:p-14 overflow-hidden border ${
+                      isActive ? "bg-[#0a0a12]/90 border-white/20 opacity-100 shadow-[0_30px_80px_rgba(0,0,0,0.8)] z-10 backdrop-blur-2xl" : "bg-black/40 border-white/5 opacity-40 pointer-events-none z-0 backdrop-blur-md"
                     }`}
-                    style={{ transform: transformStyle }}
+                    style={{ transform: transformStyle, transition: "all 0.8s cubic-bezier(0.25, 1, 0.5, 1)" }}
                   >
-                    <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_0.65fr] gap-8 lg:gap-12 items-center preserve-3d">
+                    {/* Glowing Accent Ring */}
+                    {isActive && <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} opacity-10 blur-3xl pointer-events-none`}></div>}
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-16 items-center preserve-3d relative z-10">
                       {/* Left Side Program Details */}
                       <div>
-                        <div className="inline-block bg-white/10 border border-white/10 text-white text-[9px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-6">
+                        <div className="inline-block bg-white/5 border border-white/10 text-[#10b981] text-[10px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-xl mb-6 shadow-lg">
                           {slide.eyebrow}
                         </div>
-                        <h3 className="lp-font-outfit text-white font-extrabold leading-tight tracking-tight mb-4" style={{ fontSize: "clamp(23px, 3.2vw, 36px)" }}>
+                        <h3 className="lp-font-outfit text-white font-black leading-tight tracking-tight mb-6" style={{ fontSize: "clamp(28px, 3.5vw, 42px)" }}>
                           {slide.title}
                         </h3>
-                        <p className="text-zinc-200 text-sm md:text-[15px] leading-relaxed mb-8 font-light max-w-xl">
+                        <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 font-light max-w-xl">
                           {slide.desc}
                         </p>
                         
                         <button
                           onClick={() => navigate(slide.link)}
-                          className="px-7 h-[48px] bg-white text-zinc-950 font-extrabold rounded-xl hover:bg-zinc-100 transition-all flex items-center justify-center gap-2 text-sm shadow-lg hover:-translate-y-0.5"
+                          className="px-8 h-[54px] bg-white text-black font-black rounded-2xl hover:bg-[#10b981] hover:text-white hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 text-sm shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(16,185,129,0.4)]"
                         >
-                          {slide.buttonText}
+                          {slide.buttonText} <ChevronRight size={16} strokeWidth={3} />
                         </button>
                       </div>
 
-                      {/* Right Side Visual Cards Stack (Fidelity Mock & Accurate Brand Logos) */}
-                      <div className="relative h-[220px] flex items-center justify-center">
-                        <div className="relative w-full max-w-[320px] h-[180px]">
-                          {/* Card 1: Bottom / Microsoft (Blurred offset, peeks at top) */}
-                          <div className="absolute top-[0px] left-1/2 transform -translate-x-1/2 w-[88%] bg-[#12131a]/85 border border-white/5 rounded-2xl p-3 shadow-xl opacity-30 blur-[0.6px] z-0 select-none">
+                      {/* Right Side Visual Cards Stack */}
+                      <div className="relative h-[260px] flex items-center justify-center w-full">
+                        <div className="relative w-full max-w-[340px] h-[200px]">
+                          {/* Card 1: Bottom (Blurred offset) */}
+                          <div className="absolute top-[0px] left-1/2 transform -translate-x-1/2 w-[84%] bg-black/60 border border-white/5 rounded-[24px] p-4 shadow-2xl opacity-40 blur-[1px] z-0 select-none backdrop-blur-md">
                             <div className="flex justify-between items-center">
                               {renderCompanyLogo(slide.visualCards[2].logo)}
-                              <div className="flex items-center gap-1 select-none">
-                                <Clock size={9} className="text-zinc-600" />
-                                <span className="text-[9px] text-zinc-650 tracking-wide font-medium">{slide.visualCards[2].detail}</span>
+                              <div className="flex items-center gap-1.5 select-none bg-white/5 px-2 py-1 rounded-md">
+                                <Clock size={10} className="text-gray-500" />
+                                <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wide">{slide.visualCards[2].detail}</span>
                               </div>
                             </div>
                           </div>
 
-                          {/* Card 2: Middle / Meta (Semi-opaque offset, peeks in middle) */}
-                          <div className="absolute top-[26px] left-1/2 transform -translate-x-1/2 w-[94%] bg-[#0d0e12]/95 border border-white/10 rounded-2xl p-3.5 shadow-2xl opacity-70 blur-[0.3px] z-10 select-none">
+                          {/* Card 2: Middle (Semi-opaque offset) */}
+                          <div className="absolute top-[32px] left-1/2 transform -translate-x-1/2 w-[92%] bg-[#0a0a12]/80 border border-white/10 rounded-[24px] p-4 shadow-[0_15px_40px_rgba(0,0,0,0.5)] opacity-80 blur-[0.3px] z-10 select-none backdrop-blur-xl">
                             <div className="flex justify-between items-center">
                               {renderCompanyLogo(slide.visualCards[1].logo)}
-                              <div className="flex items-center gap-1 select-none">
-                                <Clock size={9} className="text-zinc-550" />
-                                <span className="text-[9px] text-zinc-500 tracking-wide font-medium">{slide.visualCards[1].detail}</span>
+                              <div className="flex items-center gap-1.5 select-none bg-white/5 px-2 py-1 rounded-md">
+                                <Clock size={10} className="text-gray-400" />
+                                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wide">{slide.visualCards[1].detail}</span>
                               </div>
                             </div>
                           </div>
 
-                          {/* Card 3: Top / Google (Fully sharp card in front, positioned at bottom) */}
-                          <div className="absolute top-[56px] left-1/2 transform -translate-x-1/2 w-[100%] bg-[#08090d] border border-white/20 rounded-2xl p-5 shadow-2xl z-20">
-                            <div className="flex justify-between items-center border-b border-white/10 pb-2.5 mb-3.5">
+                          {/* Card 3: Top (Fully sharp card in front) */}
+                          <div className="absolute top-[64px] left-1/2 transform -translate-x-1/2 w-[100%] bg-gradient-to-br from-[#12131a] to-[#05050A] border border-white/20 rounded-[24px] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.8)] z-20 backdrop-blur-2xl">
+                            <div className="flex justify-between items-center border-b border-white/10 pb-3 mb-4">
                               {renderCompanyLogo(slide.visualCards[0].logo)}
-                              <div className="flex items-center gap-1 select-none">
-                                <Clock size={10} className="text-zinc-550" />
-                                <span className="text-[9px] text-zinc-400 font-bold bg-white/5 px-2 py-0.5 rounded border border-white/5 tracking-wide">{slide.visualCards[0].detail}</span>
+                              <div className="flex items-center gap-1.5 select-none bg-white/10 px-2.5 py-1 rounded-md border border-white/5">
+                                <Clock size={11} className="text-[#10b981]" />
+                                <span className="text-[10px] text-[#10b981] font-black uppercase tracking-widest">{slide.visualCards[0].detail}</span>
                               </div>
                             </div>
                             
-                            <p className="text-white text-xs font-black tracking-wide mb-4 leading-tight">{slide.visualCards[0].role}</p>
+                            <p className="text-white text-sm font-black tracking-wide mb-5 leading-tight">{slide.visualCards[0].role}</p>
                             
                             <button
                               onClick={() => navigate(slide.link)}
-                              className="w-full py-2 bg-[#12131a] hover:bg-[#1a1c26] border border-white/10 text-white font-extrabold text-[10px] rounded-lg tracking-wider transition-all select-none"
+                              className="w-full py-3 bg-white/5 hover:bg-[#10b981] border border-white/10 hover:border-[#10b981] text-white font-black text-xs rounded-xl tracking-[0.2em] uppercase transition-all duration-300 shadow-lg select-none flex items-center justify-center gap-2"
                             >
-                              {slide.visualCards[0].action}
+                              {slide.visualCards[0].action} <ArrowRight size={14} />
                             </button>
                           </div>
                         </div>
@@ -999,30 +915,38 @@ const HomePage = () => {
                   </div>
                 );
               })}
+              </div>
             </div>
           </div>
-        </div>
 
           {/* Unified Navigation Arrow & Pagination Row */}
-          <div className="flex items-center justify-center gap-4 mt-8 select-none">
-            <button onClick={handlePrevProgram} className="slide-control-btn w-9 h-9 bg-white shadow-sm" aria-label="Previous Program">
-              <ChevronLeft size={16} />
+          <div className="flex items-center justify-center gap-6 mt-12 select-none relative z-20">
+            <button 
+              onClick={handlePrevProgram} 
+              className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/30 hover:scale-110 transition-all shadow-lg backdrop-blur-md" 
+              aria-label="Previous Program"
+            >
+              <ChevronLeft size={20} strokeWidth={2.5} />
             </button>
             
-            <div className="flex gap-2">
+            <div className="flex gap-3 items-center bg-black/40 px-4 py-3 rounded-full border border-white/5 backdrop-blur-xl">
               {programSlides.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrentProgramIndex(i)}
-                  className={`h-2 rounded-full transition-all duration-300 border-none cursor-pointer ${
-                    i === currentProgramIndex ? "w-6 bg-[#0F7B53]" : "w-2 bg-gray-200 hover:bg-gray-300"
+                  className={`h-2.5 rounded-full transition-all duration-500 border-none cursor-pointer ${
+                    i === currentProgramIndex ? "w-8 bg-[#10b981] shadow-[0_0_15px_rgba(16,185,129,0.5)]" : "w-2.5 bg-white/20 hover:bg-white/40"
                   }`}
                 />
               ))}
             </div>
 
-            <button onClick={handleNextProgram} className="slide-control-btn w-9 h-9 bg-white shadow-sm" aria-label="Next Program">
-              <ChevronRight size={16} />
+            <button 
+              onClick={handleNextProgram} 
+              className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/30 hover:scale-110 transition-all shadow-lg backdrop-blur-md" 
+              aria-label="Next Program"
+            >
+              <ChevronRight size={20} strokeWidth={2.5} />
             </button>
           </div>
         </div>
@@ -1038,7 +962,7 @@ const HomePage = () => {
       <LandingPlacementProcess />
 
       {/* ─── NEW: Learner Case Studies ─── */}
-      <LandingCaseStudies />
+
 
       {/* ─── NEW SECTION: Outcome Powerhouse (Your Recipe for a Rockstar Career) ─── */}
       <section style={{ padding: "110px 0", background: "#FFFFFF", borderTop: "1px solid rgba(0,0,0,0.05)" }} id="rockstar-recipe">
@@ -1160,7 +1084,7 @@ const HomePage = () => {
                     </div>
                     <div className="flex justify-between items-center mt-2.5">
                       <span className="text-[9px] font-bold text-[#1565c0]">15:30 - 16:30</span>
-                      <span className="text-[8px] font-bold text-[#1976d2]">Hosted by Atorax</span>
+                      <span className="text-[8px] font-bold text-[#1976d2]">Hosted by ΣxpoGraph</span>
                     </div>
                   </div>
                 </div>
@@ -1287,84 +1211,7 @@ const HomePage = () => {
 
 
 
-      {/* ─── Testimonials Section ─── */}
-      <section className="relative overflow-hidden py-32 bg-[#020202] border-t border-white/5">
-        
-        {/* Ambient Dark Mode Glows */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-purple-500/10 via-blue-500/5 to-transparent rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#00FFA3]/10 to-transparent rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
 
-        <div className="lp-trust-grid relative z-10" style={{ width: "min(92%, 1250px)", margin: "0 auto" }}>
-          <div>
-            <div className="inline-flex items-center justify-center relative mb-6">
-              <div className="absolute inset-0 bg-[#00FFA3]/20 blur-lg rounded-full animate-pulse" />
-              <span className="relative inline-flex items-center gap-2 text-[11px] font-black tracking-[0.2em] uppercase text-[#00FFA3] border border-[#00FFA3]/30 bg-[#0a0a0a] px-6 py-2 rounded-full shadow-[0_0_20px_rgba(0,255,163,0.15)]">
-                Proven Outcomes
-              </span>
-            </div>
-            
-            <h2 className="lp-font-outfit text-white font-extrabold tracking-tight leading-tight mb-6" style={{ fontSize: "clamp(30px, 5vw, 50px)" }}>
-              Don't just take <br className="hidden md:block" /> 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-600">our word for it.</span>
-            </h2>
-            <p style={{ fontSize: "clamp(16px, 1.4vw, 18px)", lineHeight: 1.7 }} className="text-gray-400 font-light mb-8 max-w-lg">
-              Over 10,000 students have repositioned themselves into elite technical positions under our structured system. Joining Atorax means inheriting an unmatched global network.
-            </p>
-
-            <div className="flex gap-3 mt-10">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveTestimonial(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 border-none cursor-pointer ${
-                    i === activeTestimonial ? "w-10 bg-[#00FFA3] shadow-[0_0_15px_rgba(0,255,163,0.5)]" : "w-4 bg-white/10 hover:bg-white/20"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div style={{ position: "relative" }}>
-            <div className="group bg-white/[0.02] rounded-[2rem] p-8 md:p-12 shadow-[0_8px_40px_rgba(0,0,0,0.5)] relative overflow-hidden border border-white/5 hover:border-white/10 hover:bg-white/[0.03] transition-all duration-500 backdrop-blur-sm">
-              
-              {/* Noise Texture */}
-              <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
-
-              {/* Physical Edge Light */}
-              <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-              <div className="absolute top-0 right-0 p-8 text-white/[0.02] pointer-events-none z-0 transition-transform duration-700 group-hover:scale-110">
-                <Quote size={180} />
-              </div>
-
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTestimonial}
-                  initial={{ opacity: 0, x: 15 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -15 }}
-                  transition={{ duration: 0.4 }}
-                  className="relative z-10 flex flex-col h-full"
-                >
-                  <p className="text-gray-300 text-lg md:text-[20px] leading-relaxed italic mb-10 font-light">
-                    "{testimonials[activeTestimonial].quote}"
-                  </p>
-
-                  <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/10">
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-tr ${testimonials[activeTestimonial].color} flex items-center justify-center font-bold text-white text-lg shadow-lg shrink-0 border border-white/10`}>
-                      {testimonials[activeTestimonial].initial}
-                    </div>
-                    <div>
-                      <h4 className="text-white text-sm font-extrabold">{testimonials[activeTestimonial].author}</h4>
-                      <p className="text-[#00FFA3] text-[11px] font-bold tracking-wider uppercase mt-1">{testimonials[activeTestimonial].role}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ─── Immersive Conversion CTA ─── */}
       <LandingCTA />

@@ -1,7 +1,7 @@
-const COMPANY_NAME = "Atorax";
-const COMPANY_WEBSITE = "www.atorax.com";
-const COMPANY_SUPPORT_EMAIL = "support@atorax.com";
-const LOGO_URL = "https://placehold.co/400x120/0B0F19/FFFFFF?text=ATORAX&font=Montserrat"; // Premium placeholder logo
+const COMPANY_NAME = "ΣxpoGraph";
+const COMPANY_WEBSITE = "www.ΣxpoGraph.com";
+const COMPANY_SUPPORT_EMAIL = "support@ΣxpoGraph.com";
+const LOGO_URL = "https://placehold.co/400x120/0B0F19/FFFFFF?text=ΣXPOGRAPH&font=Montserrat"; // Premium placeholder logo
 
 // Reusable SVG icons for emails (replacing emojis)
 const SVGS = {
@@ -15,7 +15,7 @@ const SVGS = {
 };
 
 /**
- * Wraps email content inside a premium, professional Atorax template.
+ * Wraps email content inside a premium, professional ΣxpoGraph template.
  * @param {Object} options
  * @param {string} options.title - The main heading inside the email
  * @param {string} options.content - The HTML content to place in the body

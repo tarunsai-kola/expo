@@ -202,7 +202,7 @@ const CreateHR = () => {
                     onChange={handleChange}
                     type="email"
                     name="email"
-                    placeholder="hr@atorax.in"
+                    placeholder="hr@ΣxpoGraph.in"
                     required
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-700 font-medium placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white transition-all text-sm"
                   />

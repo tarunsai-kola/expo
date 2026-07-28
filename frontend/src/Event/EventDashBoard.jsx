@@ -53,7 +53,7 @@ const EventDashBoard = () => {
             <div className="flex items-center">
               <img
                 src={logo}
-                alt="Atorax"
+                alt="ΣxpoGraph"
                 className="h-10 cursor-pointer"
                 onClick={() => navigate("/events")}
               />
@@ -149,7 +149,7 @@ const EventDashBoard = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-600">
-              © 2026 Atorax Events. All Rights Reserved.
+              © 2026 ΣxpoGraph Events. All Rights Reserved.
             </p>
             <div className="flex items-center gap-3">
               {/* Info Button */}
@@ -180,7 +180,7 @@ const EventDashBoard = () => {
           <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             {/* Modal Header */}
             <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-4 rounded-t-2xl flex items-center justify-between">
-              <h2 className="text-2xl font-bold">🏆 Atorax Coins Rewards</h2>
+              <h2 className="text-2xl font-bold">🏆 ΣxpoGraph Coins Rewards</h2>
               <button
                 onClick={() => setInformation(false)}
                 className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/20 transition-colors"
@@ -194,7 +194,7 @@ const EventDashBoard = () => {
               {/* Introduction */}
               <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
                 <p className="text-gray-800">
-                  <strong className="text-blue-700">Collect 5000 Atorax Coins</strong> to unlock exclusive offers and rewards!
+                  <strong className="text-blue-700">Collect 5000 ΣxpoGraph Coins</strong> to unlock exclusive offers and rewards!
                 </p>
               </div>
 
@@ -208,7 +208,7 @@ const EventDashBoard = () => {
                 </h3>
                 <div className="space-y-3">
                   <div className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 hover:shadow-md transition-all">
-                    <h4 className="font-semibold text-gray-900 mb-1">Atorax Self-Learning Program</h4>
+                    <h4 className="font-semibold text-gray-900 mb-1">ΣxpoGraph Self-Learning Program</h4>
                     <p className="text-sm text-gray-600">Choose any domain and gain access to our comprehensive self-learning program.</p>
                   </div>
                   <div className="border border-gray-200 rounded-lg p-4 hover:border-blue-300 hover:shadow-md transition-all">
@@ -245,14 +245,14 @@ const EventDashBoard = () => {
               {/* Contact Section */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
                 <p className="font-semibold text-gray-900 mb-2">Ready to redeem your coins?</p>
-                <p className="text-gray-600 mb-3">Contact us to convert your Atorax Coins into any of the offers above.</p>
+                <p className="text-gray-600 mb-3">Contact us to convert your ΣxpoGraph Coins into any of the offers above.</p>
                 <div className="flex items-center space-x-2 text-blue-600">
                   <i className="fa fa-envelope"></i>
                   <a
-                    href="mailto:support@atorax.com"
+                    href="mailto:support@ΣxpoGraph.com"
                     className="font-semibold hover:underline"
                   >
-                    support@atorax.com
+                    support@ΣxpoGraph.com
                   </a>
                 </div>
               </div>

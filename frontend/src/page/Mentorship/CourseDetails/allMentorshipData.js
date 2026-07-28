@@ -27,10 +27,10 @@ export const allMentorshipData = {
     enrolled: '15,000+ Mentees Trained',
     rating: 4.85,
     pitch: 'Transform Your Passion into A Successful Career In Tech',
-    providerNote: 'We are now an accredited partner under Atorax.',
-    contactInfo: ['www.atorax.com', 'support@atorax.com'],
+    providerNote: 'We are now an accredited partner under ΣxpoGraph.',
+    contactInfo: ['www.ΣxpoGraph.com', 'support@ΣxpoGraph.com'],
     aboutTitle: 'About Us',
-    aboutDescription: 'Atorax is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
+    aboutDescription: 'ΣxpoGraph is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
     whyTitle: 'Why Artificial Intelligence?',
     whyPoints: [
       'Powers intelligent automation in industries like healthcare, finance, manufacturing, and more',
@@ -123,7 +123,7 @@ export const allMentorshipData = {
     ],
     studentReviews: [
       { name: 'Ramshad K', text: "I have gained a really hands on experience which was delivered by Akash sir. Very supportive and endless worthy experience.", detail: 'Highly recommended.' },
-      { name: 'Sahad K', text: "Got placement at Wipro through Atorax support team. Grateful to mentors and counsellor support.", detail: 'Thanks to the Atorax team.' },
+      { name: 'Sahad K', text: "Got placement at Wipro through ΣxpoGraph support team. Grateful to mentors and counsellor support.", detail: 'Thanks to the ΣxpoGraph team.' },
       { name: 'Pranali Shinde', text: "Thrilled to share my enriching experience from the AI internship — incredible opportunity to deepen knowledge and skills.", detail: 'Valuable mentorship.' },
       { name: 'Sunil Kumar', text: "Outstanding experience in Data Science program; learned a lot of industrial things and practical skills.", detail: 'Strong recommendation.' }
     ],
@@ -164,10 +164,10 @@ export const allMentorshipData = {
     enrolled: '15,000+ Mentees Trained',
     rating: 4.85,
     pitch: 'Transform Your Passion into A Successful Career In Tech',
-    providerNote: 'We are now an accredited partner under Atorax.',
-    contactInfo: ['www.atorax.com', 'support@atorax.com'],
+    providerNote: 'We are now an accredited partner under ΣxpoGraph.',
+    contactInfo: ['www.ΣxpoGraph.com', 'support@ΣxpoGraph.com'],
     aboutTitle: 'About Us',
-    aboutDescription: 'Atorax is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
+    aboutDescription: 'ΣxpoGraph is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
     whyTitle: 'Why Machine Learning?',
     whyPoints: [
       'Automates decision-making based on data patterns',
@@ -275,9 +275,9 @@ export const allMentorshipData = {
     ],
     studentReviews: [
       { name: 'Ramshad K', text: 'I have gained really hands on experience with ML which was delivered excellently. Akash sir was very supportive and an endless worthy experience.', detail: 'Perfect for anyone looking to master Machine Learning.' },
-      { name: 'Tejas Kolekar', text: 'Thrilled to share my enriching experience from the ML internship with Atorax. This 3-month program was an incredible opportunity to deepen knowledge and skills in ML.', detail: 'Great mentorship and real-world projects.' },
-      { name: 'Pranali Shinde', text: 'Excited to share that I\'ve completed a Data Science course from Atorax! Amazing journey diving into data visualization, EDA, and machine learning.', detail: 'Gained valuable skills applicable to real-world projects.' },
-      { name: 'Sunil Kumar', text: 'Outstanding experience in ML program at Atorax; learned a lot of new industrial things and practical skills.', detail: 'Strong recommendation for ML enthusiasts.' }
+      { name: 'Tejas Kolekar', text: 'Thrilled to share my enriching experience from the ML internship with ΣxpoGraph. This 3-month program was an incredible opportunity to deepen knowledge and skills in ML.', detail: 'Great mentorship and real-world projects.' },
+      { name: 'Pranali Shinde', text: 'Excited to share that I\'ve completed a Data Science course from ΣxpoGraph! Amazing journey diving into data visualization, EDA, and machine learning.', detail: 'Gained valuable skills applicable to real-world projects.' },
+      { name: 'Sunil Kumar', text: 'Outstanding experience in ML program at ΣxpoGraph; learned a lot of new industrial things and practical skills.', detail: 'Strong recommendation for ML enthusiasts.' }
     ],
     certifications: [
       'Training Completion Certificate validating acquired Machine Learning skills',
@@ -317,10 +317,10 @@ export const allMentorshipData = {
     enrolled: '15,000+ Mentees Trained',
     rating: 4.85,
     pitch: 'Transform Your Passion into A Successful Career In Tech',
-    providerNote: 'We are now an accredited partner under Atorax.',
-    contactInfo: ['www.atorax.com', 'support@atorax.com'],
+    providerNote: 'We are now an accredited partner under ΣxpoGraph.',
+    contactInfo: ['www.ΣxpoGraph.com', 'support@ΣxpoGraph.com'],
     aboutTitle: 'About Us',
-    aboutDescription: 'Atorax is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
+    aboutDescription: 'ΣxpoGraph is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
     whyTitle: 'Why Cyber Security?',
     whyPoints: [
       'Protects organizations from cyber threats, data breaches, and financial loss',
@@ -430,7 +430,7 @@ export const allMentorshipData = {
     studentReviews: [
       { name: 'Ramshad K', text: 'I have gained a really hands on experience with security tools and techniques. The mentorship was supportive and the experience was valuable.', detail: 'Highly recommended for cyber security beginners.' },
       { name: 'Rajendra Prasad', text: 'I researched the certificate and found it genuine and verified. The training and real-world projects were excellent.', detail: 'Perfect for quality training and practical learning.' },
-      { name: 'Sahad K', text: 'I realised Atorax solutions is the best company ever for training and internship provider. I learned a lot of new industrial things.', detail: 'Strong support from mentors and counsellors.' },
+      { name: 'Sahad K', text: 'I realised ΣxpoGraph solutions is the best company ever for training and internship provider. I learned a lot of new industrial things.', detail: 'Strong support from mentors and counsellors.' },
       { name: 'Sunil Kumar', text: 'My experience was outstanding. The program gave me practical exposure and helped build confidence for real cyber security work.', detail: 'Very useful for career growth.' }
     ],
     certifications: [
@@ -471,10 +471,10 @@ export const allMentorshipData = {
     enrolled: '15,000+ Mentees Trained',
     rating: 4.85,
     pitch: 'Transform Your Passion into A Successful Career In Tech',
-    providerNote: 'We are now an accredited partner under Atorax.',
-    contactInfo: ['www.atorax.com', 'support@atorax.com'],
+    providerNote: 'We are now an accredited partner under ΣxpoGraph.',
+    contactInfo: ['www.ΣxpoGraph.com', 'support@ΣxpoGraph.com'],
     aboutTitle: 'About Us',
-    aboutDescription: 'Atorax is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
+    aboutDescription: 'ΣxpoGraph is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
     whyTitle: 'Why Data Science?',
     whyPoints: [
       'Data analysts turn raw data into actionable insights, helping businesses make smarter decisions.',
@@ -583,10 +583,10 @@ export const allMentorshipData = {
     ],
     studentReviews: [
       { name: 'Ramshad K', text: 'I have gained a really hands on experience with graphic design which was delivered by Akash sir was very supportive and endless worthy experience so far.', detail: 'Great for practical learning.' },
-      { name: 'Rajendra Prasad', text: 'I researched and found the correct certificate on Linkedin and scan that and found it 100% genuine and verified successfully. Atorax company is perfect with quality training and real world projects.', detail: 'Strong recommendation.' },
-      { name: 'Sahad K', text: 'I got placement at Wipro through atorax support team. I am really grateful that I got to learn from Al Mentor Ashish sir and support from my counsellor was really helpful.', detail: 'Excellent mentor support.' },
-      { name: 'Sunil Kumar', text: 'I have enrolled for Data Science program at Atorax solutions and my experience is outstanding. Perfect for quality training and real world projects.', detail: 'Highly valuable experience.' },
-      { name: 'Shubham Rai', text: 'Atorax Group is truly doing a remarkable job by creating learning spaces that are not only informative but also inspiring.', detail: 'Great for career growth.' },
+      { name: 'Rajendra Prasad', text: 'I researched and found the correct certificate on Linkedin and scan that and found it 100% genuine and verified successfully. ΣxpoGraph company is perfect with quality training and real world projects.', detail: 'Strong recommendation.' },
+      { name: 'Sahad K', text: 'I got placement at Wipro through ΣxpoGraph support team. I am really grateful that I got to learn from Al Mentor Ashish sir and support from my counsellor was really helpful.', detail: 'Excellent mentor support.' },
+      { name: 'Sunil Kumar', text: 'I have enrolled for Data Science program at ΣxpoGraph solutions and my experience is outstanding. Perfect for quality training and real world projects.', detail: 'Highly valuable experience.' },
+      { name: 'Shubham Rai', text: 'ΣxpoGraph Group is truly doing a remarkable job by creating learning spaces that are not only informative but also inspiring.', detail: 'Great for career growth.' },
       { name: 'Pranali Shinde', text: 'It was an amazing journey diving into data visualization, exploratory data analysis, SQL, and machine learning. Valuable skills for real-world projects.', detail: 'Very enriching experience.' }
     ],
     certifications: [
@@ -627,10 +627,10 @@ export const allMentorshipData = {
     enrolled: '15,000+ Mentees Trained',
     rating: 4.85,
     pitch: 'Transform Your Passion into A Successful Career In Tech',
-    providerNote: 'We are now an accredited partner under Atorax.',
-    contactInfo: ['www.atorax.com', 'support@atorax.com'],
+    providerNote: 'We are now an accredited partner under ΣxpoGraph.',
+    contactInfo: ['www.ΣxpoGraph.com', 'support@ΣxpoGraph.com'],
     aboutTitle: 'About Us',
-    aboutDescription: 'Atorax is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
+    aboutDescription: 'ΣxpoGraph is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
     whyTitle: 'Why Data Analytics?',
     whyPoints: [
       'Data analysts turn raw data into actionable insights, helping businesses make smarter decisions.',
@@ -734,9 +734,9 @@ export const allMentorshipData = {
     studentReviews: [
       { name: 'Ramshad K', text: 'I have gained a really hands on experience with data analytics which was delivered by Akash sir. Very supportive and endless worthy experience so far.', detail: 'Great for practical learning.' },
       { name: 'Rajendra Prasad', text: 'I researched and found the correct certificate on Linkedin and scan that and found it 100% genuine and verified successfully.', detail: 'Strong recommendation.' },
-      { name: 'Sahad K', text: 'I realised Atorax solutions is the best company ever for training and internship provider. I learned a lot of new industrial things.', detail: 'Excellent mentor support.' },
-      { name: 'Sunil Kumar', text: 'I have enrolled for Data Science program at Atorax solutions and my experience is outstanding. Perfect for quality training and real world projects.', detail: 'Highly valuable experience.' },
-      { name: 'Shubham Rai', text: 'Atorax Group is truly doing a remarkable job by creating learning spaces that are not only informative but also inspiring.', detail: 'Great for career growth.' },
+      { name: 'Sahad K', text: 'I realised ΣxpoGraph solutions is the best company ever for training and internship provider. I learned a lot of new industrial things.', detail: 'Excellent mentor support.' },
+      { name: 'Sunil Kumar', text: 'I have enrolled for Data Science program at ΣxpoGraph solutions and my experience is outstanding. Perfect for quality training and real world projects.', detail: 'Highly valuable experience.' },
+      { name: 'Shubham Rai', text: 'ΣxpoGraph Group is truly doing a remarkable job by creating learning spaces that are not only informative but also inspiring.', detail: 'Great for career growth.' },
       { name: 'Pranali Shinde', text: 'Amazing journey diving into data visualization, exploratory data analysis, SQL, and machine learning. Valuable skills for real-world projects.', detail: 'Very enriching experience.' }
     ],
     certifications: [
@@ -777,10 +777,10 @@ export const allMentorshipData = {
     enrolled: '15,000+ Mentees Trained',
     rating: 4.85,
     pitch: 'Transform Your Passion into A Successful Career In Tech',
-    providerNote: 'We are now an accredited partner under Atorax.',
-    contactInfo: ['www.atorax.com', 'support@atorax.com'],
+    providerNote: 'We are now an accredited partner under ΣxpoGraph.',
+    contactInfo: ['www.ΣxpoGraph.com', 'support@ΣxpoGraph.com'],
     aboutTitle: 'About Us',
-    aboutDescription: 'Atorax is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
+    aboutDescription: 'ΣxpoGraph is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
     whyTitle: 'Why UI/UX Design?',
     whyPoints: [
       'Enhances user experience and satisfaction, directly impacting product success.',
@@ -890,10 +890,10 @@ export const allMentorshipData = {
     studentReviews: [
       { name: 'Ramshad K', text: 'I have gained a really hands on experience with UI/UX design which was delivered by Akash sir. Very supportive and endless worthy experience so far.', detail: 'Great for practical learning.' },
       { name: 'Rajendra Prasad', text: 'I researched and found the correct certificate on Linkedin and scanned that and found it 100% genuine and verified successfully.', detail: 'Strong recommendation.' },
-      { name: 'Sahad K', text: 'I realised Atorax solutions is the best company ever for training and internship provider. I learned a lot of new industrial things.', detail: 'Excellent mentor support.' },
-      { name: 'Sunil Kumar', text: 'I have enrolled for UI/UX Design program at Atorax solutions and my experience is outstanding. Perfect for quality training and real world projects.', detail: 'Highly valuable experience.' },
-      { name: 'Shubham Rai', text: 'Atorax Group is truly doing a remarkable job by creating learning spaces that are not only informative but also inspiring.', detail: 'Great for career growth.' },
-      { name: 'Tejas Kolekar', text: 'Atoraxs UI/UX Design program was a fantastic learning experience. The course covered essential design tools like Figma, Adobe XD, and UX principles, providing a strong foundation for building user-centered products.', detail: 'Highly recommended.' }
+      { name: 'Sahad K', text: 'I realised ΣxpoGraph solutions is the best company ever for training and internship provider. I learned a lot of new industrial things.', detail: 'Excellent mentor support.' },
+      { name: 'Sunil Kumar', text: 'I have enrolled for UI/UX Design program at ΣxpoGraph solutions and my experience is outstanding. Perfect for quality training and real world projects.', detail: 'Highly valuable experience.' },
+      { name: 'Shubham Rai', text: 'ΣxpoGraph Group is truly doing a remarkable job by creating learning spaces that are not only informative but also inspiring.', detail: 'Great for career growth.' },
+      { name: 'Tejas Kolekar', text: 'ΣxpoGraphs UI/UX Design program was a fantastic learning experience. The course covered essential design tools like Figma, Adobe XD, and UX principles, providing a strong foundation for building user-centered products.', detail: 'Highly recommended.' }
     ],
     certifications: [
       'Training Completion Certificate validating the skills you acquired',
@@ -933,10 +933,10 @@ export const allMentorshipData = {
     enrolled: '15,000+ Mentees Trained',
     rating: 4.85,
     pitch: 'Transform Your Passion into A Successful Career In Tech',
-    providerNote: 'We are now an accredited partner under Atorax.',
-    contactInfo: ['www.atorax.com', 'support@atorax.com'],
+    providerNote: 'We are now an accredited partner under ΣxpoGraph.',
+    contactInfo: ['www.ΣxpoGraph.com', 'support@ΣxpoGraph.com'],
     aboutTitle: 'About Us',
-    aboutDescription: 'Atorax is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
+    aboutDescription: 'ΣxpoGraph is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow\'s world.',
     whyTitle: 'Why DevOps?',
     whyPoints: [
       'Enables CI/CD for faster and reliable software delivery.',
@@ -1046,9 +1046,9 @@ export const allMentorshipData = {
     studentReviews: [
       { name: 'Ramshad K', text: 'I have gained a really hands on experience with DevOps which was delivered by Aashish sir. Very supportive and endless worthy experience so far.', detail: 'Great for practical learning.' },
       { name: 'Rajendra Prasad', text: 'I researched and found the correct certificate on Linkedin and scanned that and found it 100% genuine and verified successfully.', detail: 'Strong recommendation.' },
-      { name: 'Sahad K', text: 'I realised Atorax solutions is the best company ever for training and internship provider. I learned a lot of new industrial things.', detail: 'Excellent mentor support.' },
-      { name: 'Sunil Kumar', text: 'I got placement at Wipro through atorax support team. I am really grateful that I got to learn from mentor Aashish sir and support from my counsellor was really helpful.', detail: 'Highly valuable experience.' },
-      { name: 'Shubham Rai', text: 'Atorax Group is truly doing a remarkable job by creating learning spaces that are not only informative but also inspiring.', detail: 'Great for career growth.' }
+      { name: 'Sahad K', text: 'I realised ΣxpoGraph solutions is the best company ever for training and internship provider. I learned a lot of new industrial things.', detail: 'Excellent mentor support.' },
+      { name: 'Sunil Kumar', text: 'I got placement at Wipro through ΣxpoGraph support team. I am really grateful that I got to learn from mentor Aashish sir and support from my counsellor was really helpful.', detail: 'Highly valuable experience.' },
+      { name: 'Shubham Rai', text: 'ΣxpoGraph Group is truly doing a remarkable job by creating learning spaces that are not only informative but also inspiring.', detail: 'Great for career growth.' }
     ],
     certifications: [
       'Training Completion Certificate validating the skills you acquired',

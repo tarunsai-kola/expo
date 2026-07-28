@@ -118,7 +118,7 @@ const ProfilePage = () => {
                                 )}
                             </div>
 
-                            <h2 className="text-2xl font-extrabold text-gray-900 tracking-tight">{p.name || "Atorax Student"}</h2>
+                            <h2 className="text-2xl font-extrabold text-gray-900 tracking-tight">{p.name || "ΣxpoGraph Student"}</h2>
                             {p.location && (
                                 <p className="text-gray-500 text-sm font-medium flex items-center gap-1 mt-1.5 bg-gray-50 px-3 py-1 rounded-full border border-gray-100">
                                     <span className="material-symbols-outlined text-[14px] text-gray-400">location_on</span>

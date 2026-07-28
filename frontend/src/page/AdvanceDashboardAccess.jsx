@@ -38,7 +38,7 @@ const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, dom
               Thank you for registering!
             </h3>
             <h3 className="mb-4 text-emerald-400 font-bold">
-              Welcome to Atorax Advance Program
+              Welcome to ΣxpoGraph Advance Program
             </h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Your advance program dashboard access form has been submitted successfully.
@@ -47,7 +47,7 @@ const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, dom
               <p className="text-sm text-gray-300 mb-4">
                 <strong className="text-white block mb-1">Next Steps:</strong> Please contact your assigned operations executive:<br />
                 <span className="text-blue-400 font-semibold block mt-2">Bhumika HK</span>
-                <span>bhumika@atorax.org</span>
+                <span>bhumika@ΣxpoGraph.org</span>
               </p>
               <a
                 href={whatsappLink}

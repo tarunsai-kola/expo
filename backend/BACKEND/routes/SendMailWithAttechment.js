@@ -14,15 +14,15 @@
 //       </div>
 //       <div style="padding: 20px;">
 //         <p style="font-size: 16px; color: #333;">Dear ${fullname},</p>
-//         <p style="font-size: 14px; color: #555;">We at Atorax are happy to inform you that based on your application and subsequent interview, you have secured the role of ${domain} Intern with us. This email is to be considered as a formal offer for the mentioned role.</p>
+//         <p style="font-size: 14px; color: #555;">We at ΣxpoGraph are happy to inform you that based on your application and subsequent interview, you have secured the role of ${domain} Intern with us. This email is to be considered as a formal offer for the mentioned role.</p>
 //         <p style="font-size: 14px; color: #555;">Kindly find attached an offer letter with the particulars of your employment. We are extremely happy to offer you this role and look forward to having you on board with us. The date of commencement of your employment is 5th of ${monthOpted}.</p>
-//         <p style="font-size: 14px; color: #555;">For any further information, please do not hesitate to contact us via this mail ID <a href="mailto:support@atorax.com" style="color: #0066cc;">support@atorax.com</a></p>
+//         <p style="font-size: 14px; color: #555;">For any further information, please do not hesitate to contact us via this mail ID <a href="mailto:support@ΣxpoGraph.com" style="color: #0066cc;">support@ΣxpoGraph.com</a></p>
 //         <p style="font-size: 14px; color: #555;">Wishing you all the best on your new journey.</p>
 //         <p style="font-size: 14px; color: #333;">Best regards,</p>
-//         <p style="font-size: 14px; color: #333;">Team Atorax</p>
+//         <p style="font-size: 14px; color: #333;">Team ΣxpoGraph</p>
 //       </div>
 //       <div style="text-align: center; font-size: 12px; color: #888; padding: 10px 0; border-top: 1px solid #ddd;">
-//         <p>&copy; 2024 Atorax. All Rights Reserved.</p>
+//         <p>&copy; 2024 ΣxpoGraph. All Rights Reserved.</p>
 //       </div>
 //     </div>
 //   `;
@@ -44,7 +44,7 @@
 //       const mailOptions = {
 //         from: process.env.SMTP_MAIL,
 //         to: email,
-//         cc: "help@atorax.com",
+//         cc: "help@ΣxpoGraph.com",
 //         subject: `Offer Letter - ${domain} Intern`,
 //         html: emailMessage,
 //         priority: "high",
@@ -151,7 +151,7 @@ router.post("/sendedOfferLetterMail", (req, res) => {
       const mailOptions = {
         from: process.env.SMTP_MAIL,
         to: email,
-        // cc: "help@atorax.com",
+        // cc: "help@ΣxpoGraph.com",
         subject: `Offer Letter - ${domain} Intern`,
         html: emailMessage,
         priority: "high",

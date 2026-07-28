@@ -7,28 +7,28 @@ const LandingFAQ = () => {
 
   const faqs = [
     {
-      question: "Is this program suitable for working professionals?",
-      answer: "Yes. The program is designed for working professionals who can commit 12–15 hours per week. Live sessions are held on weekends, with weekday sessions available for Q&A and code reviews. All recordings are provided within 24 hours."
+      question: "Who is this program for?",
+      answer: "This program is built for students, graduates, and aspiring professionals who want practical skills, real project experience, and career-focused learning."
     },
     {
-      question: "Do you guarantee job placement?",
-      answer: "We guarantee interview calls at top product companies for graduates who complete all assignments, capstone projects, and mock interviews. We set clear expectations: we do not sit in the interview for you, but we make sure you are overprepared when you get there."
+      question: "Is this suitable for working professionals?",
+      answer: "Yes. With weekend live classes, recorded sessions, and structured learning support, the program can fit around a working schedule."
     },
     {
-      question: "Is this beginner-friendly?",
-      answer: "This is not a 'learn to code from scratch' program. You should have at least a working knowledge of one programming language and basic data structures. We take you from a junior or mid-level developer to a production-ready engineer."
+      question: "How are the classes conducted?",
+      answer: "Learning is delivered through live sessions, LMS access, assignments, assessments, and guided project work in online, offline, or hybrid formats."
     },
     {
-      question: "What is the exact time commitment per week?",
-      answer: "Plan for 12–15 hours per week: 4–6 hours of live classes, 4–6 hours of project work, and 2–3 hours of code review and doubt-clearing sessions. This is a serious professional program, not a casual side hobby."
+      question: "What kind of projects and practice are included?",
+      answer: "You will work on practical assignments, mini projects, capstone work, and portfolio-building activities designed around real tools and workflows."
     },
     {
-      question: "What EMI options are available?",
-      answer: "We offer zero-cost EMI through multiple banking partners, starting at approximately ₹5,999 per month over 12 months. Scholarship reductions of up to 30% are available based on your profile and need-based criteria. Speak to our admissions team for exact terms."
+      question: "Is mentorship and career support part of the program?",
+      answer: "Yes. Mentor guidance, resume support, mock interviews, and interview preparation are part of ΣxpoGraph’s career-readiness approach."
     },
     {
-      question: "What is the refund policy?",
-      answer: "Our courses are crafted with care and commitment. Therefore, we do not offer refunds."
+      question: "Will I receive a certificate after completion?",
+      answer: "Yes. Learners receive course completion certificates, with additional recognition for projects or internships where applicable."
     }
   ];
 

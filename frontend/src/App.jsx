@@ -24,28 +24,34 @@ import EventLogin from "./page/EventLogin";
 import ScrollToTop from "./Components/ScrollToTop";
 import Mentorship from "./page/Mentorship";
 import DataScience from "./page/DataScience";
+import VLSI from "./page/VLSI";
 import DataAnalytics from "./page/DataAnalytics";
-import Cybersecurity from "./page/Cybersecurity";
+import CyberSecurity from "./page/CyberSecurity";
 import DigitalMarketing from "./page/DigitalMarketing";
+import AIML from "./page/AIML";
+import CloudComputing from "./page/CloudComputing";
+import IoTRobotics from "./page/IoTRobotics";
+import DevOps from "./page/DevOps";
+import EmbeddedSystems from "./page/EmbeddedSystems";
+import AutoCAD from "./page/AutoCAD";
+import GraphicDesign from "./page/GraphicDesign";
+import FullStackWeb from "./page/FullStackWeb";
 
 import SmoothScroll from "./SmoothScroll";
-import MasterClass from "./page/MasterClass";
-import MasterClassDetails from "./page/MasterClassDetails";
 import GenerativeAI from "./page/AdvanceCourse/GenerativeAI";
 import DashboardAccessForm from "./page/DashboardAccessForm";
 import AdvanceDashboardAccess from "./page/AdvanceDashboardAccess";
-import Alumni from "./page/Alumni";
-import FreeCareerAssessment from "./page/FreeCareerAssessment";
-import AdminCareerAssessment from "./Admin/AdminCareerAssessment";
+
 import Attendance from "./page/Attendance";
 import AdvanceApplyPage from "./page/AdvanceApplyPage";
 import AdvanceForm from "./page/AdvanceForm";
-import AgenticAndGenAI from "./page/AgenticAndGenAI";
+
 import SoftwareDeveloper from "./page/SoftwareDeveloper";
 import AIFullStack from "./page/AIFullStack";
 import Blog from "./page/Blog";
 // Admin
 import AdminHeader from "./Admin/AdminHeader";
+import AdminCareerAssessment from "./Admin/AdminCareerAssessment";
 import AddCourse from "./Admin/AddCourse";
 import AddAdvCourse from "./Admin/AddAdvCourse";
 import AddModule from "./Admin/AddModule";
@@ -229,7 +235,7 @@ const queryClient = new QueryClient();
 // 🛡️ 1. GLOBAL AUTH STORE & STORAGE PROXY (Zero-Latency Tab Isolation)
 // This ensures that credentials are available INSTANTLY before React even starts.
 if (typeof window !== "undefined") {
-  window.AtoraxAuth = window.AtoraxAuth || {};
+  window.ΣxpoGraphAuth = window.ΣxpoGraphAuth || {};
   
   // A. Immediate URL Capture (First Frame)
   const urlParams = new URLSearchParams(window.location.search);
@@ -244,10 +250,10 @@ if (typeof window !== "undefined") {
       role: urlParams.get("impRole"),
       type: impType
     };
-    window.AtoraxAuth[impType] = data.token;
-    if (data.id) window.AtoraxAuth[impType.replace("Token", "Id")] = data.id;
-    if (data.name) window.AtoraxAuth[impType.replace("Token", "Name")] = data.name;
-    if (data.role) window.AtoraxAuth["designation"] = data.role;
+    window.ΣxpoGraphAuth[impType] = data.token;
+    if (data.id) window.ΣxpoGraphAuth[impType.replace("Token", "Id")] = data.id;
+    if (data.name) window.ΣxpoGraphAuth[impType.replace("Token", "Name")] = data.name;
+    if (data.role) window.ΣxpoGraphAuth["designation"] = data.role;
 
     // Persist to Session for future reloads in this tab
     sessionStorage.setItem(impType, data.token);
@@ -261,8 +267,8 @@ if (typeof window !== "undefined") {
     const now = new Date().getTime().toString();
     sessionStorage.setItem("sessionStartTime", now);
     sessionStorage.setItem("advTeamSessionStartTime", now);
-    window.AtoraxAuth["sessionStartTime"] = now;
-    window.AtoraxAuth["advTeamSessionStartTime"] = now;
+    window.ΣxpoGraphAuth["sessionStartTime"] = now;
+    window.ΣxpoGraphAuth["advTeamSessionStartTime"] = now;
   }
 
   // B. Safe Storage Proxy
@@ -271,7 +277,7 @@ if (typeof window !== "undefined") {
   const originalGetItem = localStorage.getItem;
   localStorage.getItem = function(key) {
     // 1. Try Global Store
-    if (window.AtoraxAuth[key]) return window.AtoraxAuth[key];
+    if (window.ΣxpoGraphAuth[key]) return window.ΣxpoGraphAuth[key];
     // 2. Try Session Store
     const sessionVal = sessionStorage.getItem(key);
     if (sessionVal !== null) return sessionVal;
@@ -285,7 +291,7 @@ if (typeof window !== "undefined") {
     const isIsolated = !!(sessionStorage.getItem("bdaToken") || sessionStorage.getItem("advTeamToken") || sessionStorage.getItem("operationToken"));
     if (isIsolated) {
       sessionStorage.setItem(key, value);
-      window.AtoraxAuth[key] = value;
+      window.ΣxpoGraphAuth[key] = value;
     } else {
       originalSetItem.call(localStorage, key, value);
     }
@@ -426,7 +432,7 @@ const AppContent = () => {
 
   useEffect(() => {
     // Auto-popup logic
-    const allowedPaths = ["/", "/advance", "/advancecourses", "/events", "/masterclass", "/alumni", "/career-assessment"];
+    const allowedPaths = ["/", "/advance", "/advancecourses", "/events", "/vlsi"];
     const currentPath = location.pathname.toLowerCase().replace(/\/$/, "");
     const isAllowed = allowedPaths.includes(currentPath || "/");
 
@@ -453,7 +459,7 @@ const AppContent = () => {
   const noFooterPaths = ["/operationdashboard", "/bookedpayment", "/fullpayment", "/defaultpayment", "/operationrevenuesheet", "/advoperationdashboard", "/advfullpayment", "/advbookedpayment", "/advdefaultpayment", "/advoperationrevenuesheet", "/advteam/home", "/advteam/onboarding", "/advteam/revenue", "/advteam/booked", "/advteam/fullpaid", "/advteam/default", "/advteam/record", "/advteam/lead-management", "/advteam/team-login", "/advteam/adduser", "/advteam/my-leads", "/advteam/leads-book", "/advteam/leaderboard", "/home", "/fullpaid", "/default", "/booked", "/onboarding", "/adduser", "/teamdetail", "/bdarevenuesheet", "/reference", "/companyleads", "/addteam", "/assigntarget", "/leaderboard"];
   const placementcoodinatorHeaderPaths = ["/pcdashboard", "/jobpost"];
   const userheaderPaths = ["/profile", "/resume-builder"];
-  const headerPaths = ["/", "/login", "/loginwithotp", "/forgotpassword", "/contactus", "/aboutus", "/career", "/collabration", "/advancecourses", "/terms", "/privacy", "/refundpolicy", "/feestructure", "/advance", "/advance-apply", "/mentorship", "/datascience", "/dataanalytics", "/digitalmarket", "/mernstack", "/investmentbanking", "/productmanagement", "/automationtesting", "/promptengineering", "/generativeai", "/operationlogin", "/advoperationlogin", "/teamlogin", "/adminlogin", "/managerlogin", "/loginadmin", "/pclogin", "/advteamlogin", "/dashboardaccessform", "/advancedashboardaccess", "/masterclass", "/alumni", "/verify", "/marketing/login", "/interviewer-login", "/interviewerlogin", "/hrlogin", "/advanceform", "/agenticandgenai", "/softwaredeveloper", "/career-assessment", "/blog"];
+  const headerPaths = ["/", "/login", "/loginwithotp", "/forgotpassword", "/contactus", "/aboutus", "/career", "/collabration", "/advancecourses", "/terms", "/privacy", "/refundpolicy", "/feestructure", "/advance", "/advance-apply", "/mentorship", "/datascience", "/vlsi", "/dataanalytics", "/digitalmarket", "/mernstack", "/investmentbanking", "/productmanagement", "/automationtesting", "/promptengineering", "/generativeai", "/operationlogin", "/advoperationlogin", "/teamlogin", "/adminlogin", "/managerlogin", "/loginadmin", "/pclogin", "/advteamlogin", "/dashboardaccessform", "/advancedashboardaccess", "/verify", "/marketing/login", "/interviewer-login", "/interviewerlogin", "/hrlogin", "/advanceform", "/agenticandgenai", "/softwaredeveloper", "/blog", "/aiml", "/cybersecurity", "/cloudcomputing", "/iotrobotics", "/devops", "/embeddedsystems", "/autocad", "/graphicdesign", "/fullstackweb"];
 
   return (
     <div>
@@ -482,7 +488,6 @@ const AppContent = () => {
       ) : null}
 
       <Routes>
-        <Route path="*" element={<PageNotFound />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/LoginWithOtp" element={<LoginWithOtp />} />
@@ -500,7 +505,7 @@ const AppContent = () => {
         <Route path="/EventRegister" element={<EventRegister />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/Advance" element={<Advance />} />
-        <Route path="/AgenticAndGenAI" element={<AgenticAndGenAI />} />
+
         <Route path="/SoftwareDeveloper" element={<SoftwareDeveloper />} />
         <Route path="/AIFullStack" element={<AIFullStack />} />
         <Route path="/advance-apply" element={<AdvanceApplyPage />} />
@@ -508,9 +513,18 @@ const AppContent = () => {
         <Route path="/Mentorship" element={<Navigate to="/Advance" replace />} />
         <Route path="/mentorship/:courseSlug" element={<Navigate to="/Advance" replace />} />
         <Route path="/DataScience" element={<DataScience />} />
+        <Route path="/VLSI" element={<VLSI />} />
         <Route path="/DataAnalytics" element={<DataAnalytics />} />
-        <Route path="/Cybersecurity" element={<Cybersecurity />} />
+        <Route path="/CyberSecurity" element={<CyberSecurity />} />
         <Route path="/DigitalMarketing" element={<DigitalMarketing />} />
+        <Route path="/AIML" element={<AIML />} />
+        <Route path="/CloudComputing" element={<CloudComputing />} />
+        <Route path="/IoTRobotics" element={<IoTRobotics />} />
+        <Route path="/DevOps" element={<DevOps />} />
+        <Route path="/EmbeddedSystems" element={<EmbeddedSystems />} />
+        <Route path="/AutoCAD" element={<AutoCAD />} />
+        <Route path="/GraphicDesign" element={<GraphicDesign />} />
+        <Route path="/FullStackWeb" element={<FullStackWeb />} />
         <Route path="/MernStack" element={<Navigate to="/Advance" replace />} />
         <Route path="/UIUX" element={<Navigate to="/Advance" replace />} />
         <Route path="/UIUXDesign" element={<Navigate to="/Advance" replace />} />
@@ -522,11 +536,8 @@ const AppContent = () => {
         <Route path="/GenerativeAI" element={<Navigate to="/Advance" replace />} />
         <Route path="/DashboardAccessForm" element={<DashboardAccessForm />} />
         <Route path="/AdvanceDashboardAccess" element={<AdvanceDashboardAccess />} />
-        <Route path="/MasterClass" element={<MasterClass />} />
-        <Route path="/MasterClass/:id" element={<MasterClassDetails />} />
-        <Route path="/Alumni" element={<Alumni />} />
-        <Route path="/career-assessment" element={<FreeCareerAssessment />} />
-        <Route path="/Verify" element={<Verified />} />
+
+
         <Route path="/attendance" element={<Attendance />} />
 
         {/* Admin Panel Start */}
@@ -722,6 +733,7 @@ const AppContent = () => {
         {/* Advanced dashboard video player — standalone, no old sidebar */}
         <Route path="/advancedashboard/learning" element={<AdvanceLearningPage />} />
 
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
 
       {/* Global Footers - Exclude attendance and clean dashboards */}

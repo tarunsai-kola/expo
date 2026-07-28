@@ -47,6 +47,6 @@ def cut_image(input_path, output_dir, num_pieces=50):
     print(f"Successfully cut image into {count-1} pieces and saved to {output_dir}")
 
 if __name__ == "__main__":
-    input_path = r"C:\Users\tarun\OneDrive\Desktop\atorax\image.png"
-    output_dir = r"C:\Users\tarun\OneDrive\Desktop\atorax\frontend\newimages"
+    input_path = r"C:\Users\tarun\OneDrive\Desktop\ΣxpoGraph\image.png"
+    output_dir = r"C:\Users\tarun\OneDrive\Desktop\ΣxpoGraph\frontend\newimages"
     cut_image(input_path, output_dir, 50)

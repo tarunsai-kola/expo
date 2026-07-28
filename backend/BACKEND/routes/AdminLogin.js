@@ -174,7 +174,7 @@ router.post('/sendmailtooperation', async (req, res) => {
       </div>
 
       <div style="text-align: center; margin: 35px 0;">
-          <a href="https://www.atorax.com/operationLogin" target="_blank" class="cta-button">Access Your Portal</a>
+          <a href="https://www.ΣxpoGraph.com/operationLogin" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
 
       <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>
@@ -226,7 +226,7 @@ router.post('/sendmailtobda', async (req, res) => {
       </div>
 
       <div style="text-align: center; margin: 35px 0;">
-          <a href="https://www.atorax.com/teamlogin" target="_blank" class="cta-button">Access Your Portal</a>
+          <a href="https://www.ΣxpoGraph.com/teamlogin" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
 
       <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>
@@ -279,7 +279,7 @@ router.post('/sendmailtoadvteam', async (req, res) => {
       </div>
 
       <div style="text-align: center; margin: 35px 0;">
-          <a href="https://www.atorax.com/advteamlogin" target="_blank" class="cta-button">Access Your Portal</a>
+          <a href="https://www.ΣxpoGraph.com/advteamlogin" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
 
       <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>
@@ -332,7 +332,7 @@ router.post('/sendmailtohr', async (req, res) => {
       </div>
 
       <div style="text-align: center; margin: 35px 0;">
-          <a href="https://www.atorax.com/hrlogin" target="_blank" class="cta-button">Access Your Portal</a>
+          <a href="https://www.ΣxpoGraph.com/hrlogin" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
 
       <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>
@@ -383,7 +383,7 @@ router.post("/sendmailtoplacementcoordinator", async (req, res) => {
       </div>
 
       <div style="text-align: center; margin: 35px 0;">
-          <a href="https://www.atorax.com/pclogin" target="_blank" class="cta-button">Access Your Portal</a>
+          <a href="https://www.ΣxpoGraph.com/pclogin" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
 
       <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>

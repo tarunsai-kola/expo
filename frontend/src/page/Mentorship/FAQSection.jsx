@@ -6,7 +6,7 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      q: "What makes Atorax Mentorship different?",
+      q: "What makes ΣxpoGraph Mentorship different?",
       a: "Unlike traditional courses, we focus on 1:1 mentorship and live sessions with industry practitioners. You build real products, not just toy examples, and get direct internship support through our partner network."
     },
     {

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import advance from "../../../../atorax/images/advance.jpg";
-import daad1 from "../../../../atorax/images/daad1.jpg";
-import daad2 from "../../../../atorax/images/daad2.jpg";
-import dmad1 from "../../../../atorax/images/dmad1.jpg";
-import dmad2 from "../../../../atorax/images/dmad2.jpg";
-import dsad1 from "../../../../atorax/images/dsad1.jpg";
-import dsad2 from "../../../../atorax/images/dsad2.jpg";
-import ibad1 from "../../../../atorax/images/ibad1.jpg";
-import ibad2 from "../../../../atorax/images/ibad2.jpg";
-import msad1 from "../../../../atorax/images/msad1.jpg";
-import pead1 from "../../../../atorax/images/pead1.jpg";
-import pead2 from "../../../../atorax/images/pead2.jpg";
-import pmad1 from "../../../../atorax/images/pmad1.jpg";
-import pmad2 from "../../../../atorax/images/pmad2.jpg";
-import publicspeech from "../../../../atorax/images/publicspeech.jpg";
+import advance from "../../../../ΣxpoGraph/images/advance.jpg";
+import daad1 from "../../../../ΣxpoGraph/images/daad1.jpg";
+import daad2 from "../../../../ΣxpoGraph/images/daad2.jpg";
+import dmad1 from "../../../../ΣxpoGraph/images/dmad1.jpg";
+import dmad2 from "../../../../ΣxpoGraph/images/dmad2.jpg";
+import dsad1 from "../../../../ΣxpoGraph/images/dsad1.jpg";
+import dsad2 from "../../../../ΣxpoGraph/images/dsad2.jpg";
+import ibad1 from "../../../../ΣxpoGraph/images/ibad1.jpg";
+import ibad2 from "../../../../ΣxpoGraph/images/ibad2.jpg";
+import msad1 from "../../../../ΣxpoGraph/images/msad1.jpg";
+import pead1 from "../../../../ΣxpoGraph/images/pead1.jpg";
+import pead2 from "../../../../ΣxpoGraph/images/pead2.jpg";
+import pmad1 from "../../../../ΣxpoGraph/images/pmad1.jpg";
+import pmad2 from "../../../../ΣxpoGraph/images/pmad2.jpg";
+import publicspeech from "../../../../ΣxpoGraph/images/publicspeech.jpg";
 
 const images = [
   advance,

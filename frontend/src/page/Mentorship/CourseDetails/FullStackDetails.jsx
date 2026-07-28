@@ -282,7 +282,7 @@ const FullStackDetails = () => {
                 ))}
              </div>
              <p className="credibility-note">
-                * Career outcomes depend on your project execution, portfolio strength, communication, and interview readiness. Atorax supports this journey through mentor guidance and internship access.
+                * Career outcomes depend on your project execution, portfolio strength, communication, and interview readiness. ΣxpoGraph supports this journey through mentor guidance and internship access.
              </p>
           </div>
         </div>
@@ -292,7 +292,7 @@ const FullStackDetails = () => {
       <section className="cd-dual-section">
         <div className="cd-section__inner cd-dual-grid">
           <div className="cd-experience">
-             <h2 className="cd-section__title">The Atorax <span>Experience</span></h2>
+             <h2 className="cd-section__title">The ΣxpoGraph <span>Experience</span></h2>
              <div className="cd-exp-list">
                 <div className="cd-exp-item">
                    <div className="icon"><FaChalkboardTeacher /></div>
@@ -435,7 +435,7 @@ const FullStackDetails = () => {
       <section className="cd-final-cta">
          <div className="cd-final-cta__content">
             <h2>Ready to start your Full Stack Journey?</h2>
-            <p>Join {data.enrolled} who are already transforming their careers with Atorax.</p>
+            <p>Join {data.enrolled} who are already transforming their careers with ΣxpoGraph.</p>
             <div className="actions">
                <button className="cd-btn-primary" onClick={() => setShowForm(true)}>Enroll Now</button>
                <button className="cd-btn-outline" onClick={() => setShowForm(true)}>Talk to Advisor</button>

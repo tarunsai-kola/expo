@@ -10,7 +10,7 @@ async function insertAdmin() {
     });
     console.log("Connected to MongoDB.");
 
-    const email = "it@atorax.in";
+    const email = "it@ΣxpoGraph.in";
     const existing = await AdminMail.findOne({ email });
 
     if (existing) {

@@ -152,7 +152,7 @@ const Profile = () => {
                   {/* {user.phone} */}
                 </h2>
                 <h2 className="text-xl font-semibold">
-                  <span className="font-bold">Atorax Coins: </span>
+                  <span className="font-bold">ΣxpoGraph Coins: </span>
                   {user.totalCoins}
                 </h2>
               </div>
@@ -175,35 +175,35 @@ const Profile = () => {
             <div className=" flex justify-center gap-6">
               <a
                 target="_blank"
-                href="https://www.facebook.com/people/Atorax-Solutions/61563953173071/"
+                href="https://www.facebook.com/people/ΣxpoGraph-Solutions/61563953173071/"
                 className="text-blue-500 text-4xl hover:text-blue-700"
               >
                 <span className="fa fa-facebook"></span>
               </a>
               <a
                 target="_blank"
-                href="https://www.youtube.com/@AtoraxSolutions"
+                href="https://www.youtube.com/@ΣxpoGraphSolutions"
                 className="text-red-800 text-4xl hover:text-red-900"
               >
                 <span className="fa fa-youtube"></span>
               </a>
               <a
                 target="_blank"
-                href="https://www.instagram.com/atorax"
+                href="https://www.instagram.com/ΣxpoGraph"
                 className="text-pink-500 text-4xl hover:text-pink-700"
               >
                 <span className="fa fa-instagram"></span>
               </a>
               <a
                 target="_blank"
-                href="https://www.linkedin.com/company/atorax/"
+                href="https://www.linkedin.com/company/ΣxpoGraph/"
                 className="text-blue-700 text-4xl hover:text-blue-900"
               >
                 <span className="fa fa-linkedin"></span>
               </a>
               <a
                 target="_blank"
-                href="https://github.com/Atorax/"
+                href="https://github.com/ΣxpoGraph/"
                 className="text-black text-4xl"
               >
                 <span className="fa fa-github"></span>

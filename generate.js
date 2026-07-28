@@ -427,7 +427,7 @@ function replaceContent(template, config) {
   output = output.replace(/export default function SoftwareDeveloper/g, "export default function " + config.name);
   
   // 2. Rename Helmet title
-  output = output.replace(/<title>Software Developer \| Atorax<\/title>/g, "<title>" + config.title + " | Atorax</title>");
+  output = output.replace(/<title>Software Developer \| ΣxpoGraph<\/title>/g, "<title>" + config.title + " | ΣxpoGraph</title>");
   
   // 3. Rename Hero Main Title
   output = output.replace(/Full Stack AI Software<br \/>Developer/g, config.title.replace('&', '&amp;'));

@@ -23,4 +23,4 @@ def analyze_grid(image_path):
     print("Col diffs:", np.diff([0] + col_peaks.tolist() + [img.shape[1]]))
 
 if __name__ == "__main__":
-    analyze_grid(r"C:\Users\tarun\OneDrive\Desktop\atorax\image.png")
+    analyze_grid(r"C:\Users\tarun\OneDrive\Desktop\ΣxpoGraph\image.png")

@@ -5,11 +5,8 @@ import AdvancedApplyPopup from "./AdvancedApplyPopup";
 
 const topNav = [
   { label: "All Programs", to: "/Advance" },
-  { label: "Software Development", to: "/SoftwareDeveloper" },
-  { label: "Agentic and GenAI", to: "/AgenticAndGenAI" },
-  { label: "Alumni", to: "/Alumni" },
-  { label: "Masterclass", to: "/MasterClass" },
-  { label: "Career Assessment", to: "/career-assessment" },
+  { label: "Blog", to: "/blog" },
+  // { label: "Agentic and GenAI", to: "/AgenticAndGenAI" },
 ];
 
 const Header = () => {
@@ -218,8 +215,8 @@ const Header = () => {
       <header className={`atx-header${scrolled ? " scrolled" : ""}`}>
         <div ref={menuRef} className="atx-header-inner">
           <Link to="/" className="atx-logo" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-            <img src={logo3} alt="Atorax logo" />
-            <span style={{ color: '#ffffff', fontSize: '18px', fontWeight: '800', letterSpacing: '1.5px' }}>ATORAX</span>
+            <img src={logo3} alt="ΣxpoGraph logo" />
+            <span style={{ color: '#ffffff', fontSize: '18px', fontWeight: '800', letterSpacing: '1.5px' }}>ΣXPOGRAPH</span>
           </Link>
 
           <nav className="atx-nav">

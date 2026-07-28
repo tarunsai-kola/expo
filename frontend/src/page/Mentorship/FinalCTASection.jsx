@@ -6,7 +6,7 @@ const FinalCTASection = ({ onOpenForm }) => {
     <section className="km-final-cta" data-aos="zoom-in">
       <div className="km-final-cta__content">
         <h2 className="km-final-cta__title">Ready to Transform Your Professional Path?</h2>
-        <p className="km-final-cta__sub">Join 10,000+ students already accelerating their careers with Atorax. Don't let your dream career wait any longer.</p>
+        <p className="km-final-cta__sub">Join 10,000+ students already accelerating their careers with ΣxpoGraph. Don't let your dream career wait any longer.</p>
         
         <div className="km-final-cta__actions">
           <button className="km-btn-primary km-btn-primary--large" onClick={onOpenForm}>

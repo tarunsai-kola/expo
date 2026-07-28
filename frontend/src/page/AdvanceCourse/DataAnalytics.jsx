@@ -35,7 +35,7 @@ import {
   FileText
 } from "lucide-react";
 
-import posterImage from "../../../atorax/images/poster/dataanalytics.png";
+import posterImage from "../../../ΣxpoGraph/images/poster/dataanalytics.png";
 import Flashaidlogo from "../../assets/Flashaidlogo.jpg";
 import Certification from "./Components/Certification";
 import ClientsCarousel from "../../Components/our_alumni";
@@ -52,7 +52,7 @@ import AdvanceBanner from "./Components/AdvanceBanner";
 
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import daBrochure from "../../../atorax/Data Analytics Advanced program.pdf";
+import daBrochure from "../../../ΣxpoGraph/Data Analytics Advanced program.pdf";
 
 const heroStats = [
   { label: "Duration", value: "24 Weeks" },

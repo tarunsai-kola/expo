@@ -19,60 +19,44 @@ import CountdownTimer from "./AdvanceCourse/Components/CountdownTimer";
 
 const programs = [
   { 
-    id: "ds-genai", 
-    icon: <BrainCircuit size={28}/>, 
-    name: "Data Science & GenAI", 
-    positioning: "Master predictive modeling and architect LLM-powered applications.", 
-    dur: "16 Weeks", 
-    idealFor: "Analysts & engineers scaling into AI.", 
-    tools: ["Python", "PyTorch", "LangChain"], 
-    link: "/DataScience", 
-    cat: "AI & Data", 
+    id: "vlsi", 
+    icon: <Cpu size={28}/>, 
+    name: "VLSI Design", 
+    positioning: "Master semiconductor design, verification, and hardware modeling.", 
+    dur: "20 Weeks", 
+    idealFor: "ECE/EE students entering chip design.", 
+    tools: ["Verilog", "SystemVerilog", "EDA"], 
+    link: "/VLSI", 
+    cat: "Core Engineering", 
     accent: "bg-indigo-500",
     shadow: "shadow-indigo-500/20",
     gradient: "from-indigo-500 to-violet-600",
-    bgImage: "/program-bg/ds-genai.png"
+    bgImage: "/program-bg/vlsi.png"
   },
   { 
-    id: "da-ai", 
-    icon: <LineChart size={28}/>, 
-    name: "Data Analytics & AI", 
-    positioning: "Combine traditional BI with AI-driven analytics and insights.", 
-    dur: "16 Weeks", 
-    idealFor: "Professionals driving data decisions.", 
-    tools: ["SQL", "PowerBI", "AI Analytics"], 
-    link: "/DataAnalytics", 
+    id: "ai-ml", 
+    icon: <BrainCircuit size={28}/>, 
+    name: "AI & Machine Learning", 
+    positioning: "Build predictive models and intelligent automation systems.", 
+    dur: "15 Weeks", 
+    idealFor: "CS students scaling into AI.", 
+    tools: ["Python", "TensorFlow", "Scikit"], 
+    link: "/AIML", 
     cat: "AI & Data", 
-    accent: "bg-cyan-500",
-    shadow: "shadow-cyan-500/20",
-    gradient: "from-cyan-400 to-blue-600",
-    bgImage: "/program-bg/da-ai.png"
-  },
-  { 
-    id: "ai-fsd", 
-    icon: <Code2 size={28}/>, 
-    name: "AI-Powered Full Stack", 
-    positioning: "Build secure MERN applications augmented with AI integrations.", 
-    dur: "16 Weeks", 
-    idealFor: "Aspiring software engineers.", 
-    tools: ["React", "Node.js", "OpenAI APIs"], 
-    link: "/AIFullStack", 
-    cat: "Engineering", 
     accent: "bg-emerald-500",
     shadow: "shadow-emerald-500/20",
     gradient: "from-emerald-400 to-teal-600",
-    bgImage: "/program-bg/ai-fsd.png"
+    bgImage: "/program-bg/ai-ml.png"
   },
-
   { 
     id: "cyber", 
     icon: <ShieldCheck size={28}/>, 
-    name: "Cybersecurity", 
-    positioning: "Defend modern digital systems with ethical hacking and security architecture.", 
-    dur: "16 Weeks", 
-    idealFor: "IT pros shifting to security.", 
-    tools: ["Pen-testing", "Cloud Sec", "CompTIA"], 
-    link: "/Cybersecurity", 
+    name: "Cyber Security", 
+    positioning: "Defend systems with ethical hacking and security architecture.", 
+    dur: "27 Weeks", 
+    idealFor: "Students aspiring for SecOps.", 
+    tools: ["Pen-testing", "Network Sec", "Crypto"], 
+    link: "/CyberSecurity", 
     cat: "Engineering", 
     accent: "bg-rose-500",
     shadow: "shadow-rose-500/20",
@@ -80,19 +64,124 @@ const programs = [
     bgImage: "/program-bg/cyber.png"
   },
   { 
-    id: "dm-ai", 
-    icon: <Megaphone size={28}/>, 
-    name: "Digital Marketing & AI", 
-    positioning: "Execute high-ROI campaigns using AI-generated content and analytics.", 
-    dur: "16 Weeks", 
-    idealFor: "Marketers scaling growth.", 
-    tools: ["Meta Ads", "SEO", "AI Content"], 
-    link: "/DigitalMarketing", 
-    cat: "Business & Growth", 
+    id: "cloud", 
+    icon: <Server size={28}/>, 
+    name: "Cloud Computing", 
+    positioning: "Architect and deploy scalable infrastructure on AWS and Azure.", 
+    dur: "25 Weeks", 
+    idealFor: "Future cloud architects.", 
+    tools: ["AWS", "Azure", "Docker"], 
+    link: "/CloudComputing", 
+    cat: "Engineering", 
+    accent: "bg-cyan-500",
+    shadow: "shadow-cyan-500/20",
+    gradient: "from-cyan-400 to-blue-600",
+    bgImage: "/program-bg/cloud.png"
+  },
+  { 
+    id: "iot", 
+    icon: <MonitorPlay size={28}/>, 
+    name: "IoT & Robotics", 
+    positioning: "Connect hardware with software for smart automation systems.", 
+    dur: "18 Weeks", 
+    idealFor: "Electronics and CS students.", 
+    tools: ["Arduino", "Raspberry Pi", "Sensors"], 
+    link: "/IoTRobotics", 
+    cat: "Core Engineering", 
     accent: "bg-amber-500",
     shadow: "shadow-amber-500/20",
     gradient: "from-amber-400 to-orange-600",
-    bgImage: "/program-bg/dm-ai.png"
+    bgImage: "/program-bg/iot.png"
+  },
+  { 
+    id: "devops", 
+    icon: <Workflow size={28}/>, 
+    name: "DevOps", 
+    positioning: "Automate deployment pipelines and manage scalable cloud operations.", 
+    dur: "26 Weeks", 
+    idealFor: "Engineers focusing on CI/CD.", 
+    tools: ["Kubernetes", "Jenkins", "Terraform"], 
+    link: "/DevOps", 
+    cat: "Engineering", 
+    accent: "bg-fuchsia-500",
+    shadow: "shadow-fuchsia-500/20",
+    gradient: "from-fuchsia-500 to-purple-600",
+    bgImage: "/program-bg/devops.png"
+  },
+  { 
+    id: "data-analytics", 
+    icon: <LineChart size={28}/>, 
+    name: "Data Analytics", 
+    positioning: "Extract actionable business insights using modern data tools.", 
+    dur: "16 Weeks", 
+    idealFor: "Students targeting data roles.", 
+    tools: ["SQL", "PowerBI", "Excel"], 
+    link: "/DataAnalytics", 
+    cat: "AI & Data", 
+    accent: "bg-blue-500",
+    shadow: "shadow-blue-500/20",
+    gradient: "from-blue-400 to-blue-700",
+    bgImage: "/program-bg/da-ai.png"
+  },
+  { 
+    id: "embedded", 
+    icon: <Cpu size={28}/>, 
+    name: "Embedded Systems", 
+    positioning: "Design firmware and micro-controller architectures.", 
+    dur: "19 Weeks", 
+    idealFor: "ECE/EE core engineering students.", 
+    tools: ["C/C++", "Microcontrollers", "RTOS"], 
+    link: "/EmbeddedSystems", 
+    cat: "Core Engineering", 
+    accent: "bg-teal-500",
+    shadow: "shadow-teal-500/20",
+    gradient: "from-teal-400 to-emerald-600",
+    bgImage: "/program-bg/embedded.png"
+  },
+  { 
+    id: "autocad", 
+    icon: <Target size={28}/>, 
+    name: "AutoCAD", 
+    positioning: "Draft and model 2D/3D designs for engineering applications.", 
+    dur: "22 Weeks", 
+    idealFor: "Mechanical & Civil students.", 
+    tools: ["AutoCAD 2D", "AutoCAD 3D", "Drafting"], 
+    link: "/AutoCAD", 
+    cat: "Design", 
+    accent: "bg-orange-500",
+    shadow: "shadow-orange-500/20",
+    gradient: "from-orange-400 to-red-500",
+    bgImage: "/program-bg/autocad.png"
+  },
+  { 
+    id: "graphic-design", 
+    icon: <CheckCircle2 size={28}/>, 
+    name: "Graphic Design", 
+    positioning: "Create stunning visuals, branding, and digital media assets.", 
+    dur: "23 Weeks", 
+    idealFor: "Creative students and designers.", 
+    tools: ["Photoshop", "Illustrator", "Figma"], 
+    link: "/GraphicDesign", 
+    cat: "Design", 
+    accent: "bg-pink-500",
+    shadow: "shadow-pink-500/20",
+    gradient: "from-pink-400 to-rose-600",
+    bgImage: "/program-bg/graphic.png"
+  },
+  { 
+    id: "mern", 
+    icon: <Code2 size={28}/>, 
+    name: "Full Stack Web (MERN)", 
+    positioning: "Build secure, scalable full-stack web applications.", 
+    dur: "24 Weeks", 
+    idealFor: "Aspiring software developers.", 
+    tools: ["React", "Node.js", "MongoDB"], 
+    link: "/FullStackWeb", 
+    cat: "Engineering", 
+    accent: "bg-green-500",
+    shadow: "shadow-green-500/20",
+    gradient: "from-green-400 to-emerald-600",
+    bgImage: "/program-bg/ai-fsd.png"
   }
 ];
 
@@ -315,7 +404,7 @@ const Advance = () => {
   return (
     <div className="bg-zinc-950 text-zinc-300 font-['Plus_Jakarta_Sans'] min-h-screen selection:bg-indigo-500/30">
       <Helmet>
-        <title>Ultra-Premium Advanced Programs | Atorax</title>
+        <title>Ultra-Premium Advanced Programs | ΣxpoGraph</title>
         <meta name="description" content="Explore ultra-premium advanced programs in software, data, product, and marketing." />
       </Helmet>
 
@@ -560,7 +649,7 @@ const Advance = () => {
                viewport={{ once: true }}
                className="mb-20 text-center max-w-3xl mx-auto"
             >
-               <h2 className="k-title text-4xl md:text-5xl font-bold text-white mb-6">The Atorax Edge</h2>
+               <h2 className="k-title text-4xl md:text-5xl font-bold text-white mb-6">The ΣxpoGraph Edge</h2>
                <p className="text-zinc-400 text-lg">We engineer our programs like high-performance tech products: structured, scalable, and relentlessly focused on outputs.</p>
             </motion.div>
             
@@ -768,63 +857,80 @@ const Advance = () => {
       </section>
 
       {/* 6. TESTIMONIALS / TRANSITIONS */}
-      <section className="py-16 lg:py-32 bg-zinc-950 border-t border-white/5 relative overflow-hidden">
+      <section className="py-20 lg:py-32 bg-[#020408] border-t border-white/5 relative overflow-hidden">
+         {/* Subtle background glow */}
+         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#eab308]/5 blur-[120px] rounded-full pointer-events-none"></div>
+         
          <div className="max-w-[1400px] mx-auto px-6 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-20">
-               <h2 className="k-title text-4xl md:text-5xl font-bold text-white mb-6">Demonstrated Transitions</h2>
-               <p className="text-zinc-400 text-lg">Professionals repositioning into high-growth, technically demanding roles.</p>
+               <h2 className="text-4xl md:text-5xl font-black text-white mb-6 ag-font-outfit tracking-tight">Demonstrated Transitions</h2>
+               <p className="text-gray-400 text-lg md:text-xl font-light">Professionals repositioning into high-growth, technically demanding roles.</p>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+               {/* Main Featured Testimonial */}
                <motion.div 
-                 whileHover={{ y: -5 }} 
-                 className="lg:col-span-2 glass-panel rounded-[32px] p-10 md:p-14 flex flex-col justify-between relative overflow-hidden border-white/10"
+                 whileHover={{ y: -8 }} 
+                 transition={{ duration: 0.4 }}
+                 className="lg:col-span-2 bg-gradient-to-br from-white/[0.03] to-transparent border border-white/10 rounded-[32px] p-10 md:p-14 flex flex-col justify-between relative overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl group"
                >
-                  <div className="absolute top-0 right-0 p-8 text-white/5"><Star size={180}/></div>
+                  <div className="absolute top-[-10%] right-[-5%] p-8 text-white/[0.02] transform group-hover:scale-110 transition-transform duration-700 pointer-events-none">
+                    <Star size={240} className="drop-shadow-2xl"/>
+                  </div>
                   <div className="relative z-10 flex-grow">
-                     <div className="flex gap-1 mb-8 text-amber-400">
-                        <Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/><Star size={16} fill="currentColor"/>
+                     <div className="flex gap-1.5 mb-8 text-[#eab308]">
+                        <Star size={18} fill="currentColor"/><Star size={18} fill="currentColor"/><Star size={18} fill="currentColor"/><Star size={18} fill="currentColor"/><Star size={18} fill="currentColor"/>
                      </div>
-                     <h3 className="text-2xl md:text-3xl font-outfit font-medium text-white leading-relaxed mb-12">
-                        “The structured curriculum and intense feedback loop on my casework helped me formulate strategy the exact way tech hiring managers expect. It was a complete professional reset.”
+                     <h3 className="text-2xl md:text-3xl font-outfit font-medium text-white leading-relaxed mb-12 relative">
+                        <span className="absolute -left-6 -top-4 text-6xl text-white/10 font-serif leading-none">"</span>
+                        The structured curriculum and intense feedback loop on my casework helped me formulate strategy the exact way tech hiring managers expect. It was a complete professional reset.
                      </h3>
                   </div>
-                  <div className="relative z-10 flex items-center justify-between border-t border-white/10 pt-8 mt-auto">
+                  <div className="relative z-10 flex items-center justify-between border-t border-white/10 pt-8 mt-auto group-hover:border-white/20 transition-colors">
                      <div className="flex items-center gap-5">
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-zinc-800 to-zinc-700 flex items-center justify-center font-bold text-white font-outfit text-xl shadow-lg border border-white/10">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#eab308] to-[#ca8a04] flex items-center justify-center font-black text-black font-outfit text-xl shadow-[0_0_20px_rgba(234,179,8,0.3)]">
                            AS
                         </div>
                         <div>
-                           <p className="font-bold text-white text-lg">Ananya Sharma</p>
-                           <p className="text-sm font-medium text-indigo-400">Data Analyst → Product Manager</p>
+                           <p className="font-black text-white text-xl tracking-wide">Ananya Sharma</p>
+                           <p className="text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-200 uppercase tracking-widest mt-1">Data Analyst <ArrowRight size={12} className="inline mx-1 text-[#eab308]" /> Product Manager</p>
                         </div>
                      </div>
                   </div>
                </motion.div>
                
+               {/* Side Testimonials */}
                <div className="flex flex-col gap-8">
-                  <motion.div whileHover={{ y: -5 }} className="glass-panel rounded-[32px] p-8 flex-1 flex flex-col justify-between border-white/10">
-                     <p className="text-zinc-300 text-[15px] leading-relaxed mb-8 font-light">
-                        “Watching logic scale into deployed APIs under mentor guidance gave me the architectural confidence to pursue senior backend roles.”
+                  <motion.div 
+                     whileHover={{ y: -8 }} 
+                     transition={{ duration: 0.4 }}
+                     className="bg-gradient-to-br from-white/[0.03] to-transparent border border-white/10 rounded-[32px] p-8 flex-1 flex flex-col justify-between shadow-xl hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)] backdrop-blur-md group"
+                  >
+                     <p className="text-gray-300 text-[16px] leading-relaxed mb-8 font-light italic relative">
+                        "Watching logic scale into deployed APIs under mentor guidance gave me the architectural confidence to pursue senior backend roles."
                      </p>
-                     <div className="border-t border-white/10 pt-6 flex items-center gap-4 mt-auto">
-                        <div className="w-12 h-12 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-bold">RG</div>
+                     <div className="border-t border-white/10 pt-6 flex items-center gap-4 mt-auto group-hover:border-white/20 transition-colors">
+                        <div className="w-12 h-12 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30 flex items-center justify-center text-sm font-black shadow-[0_0_15px_rgba(59,130,246,0.15)]">RG</div>
                         <div>
-                           <p className="font-bold text-white text-sm">Rohan Gupta</p>
-                           <p className="text-xs text-zinc-500">Software Engineer</p>
+                           <p className="font-bold text-white text-base tracking-wide">Rohan Gupta</p>
+                           <p className="text-[11px] font-bold text-blue-400 uppercase tracking-widest mt-0.5">Software Engineer</p>
                         </div>
                      </div>
                   </motion.div>
                   
-                  <motion.div whileHover={{ y: -5 }} className="glass-panel rounded-[32px] p-8 flex-1 flex flex-col justify-between border-white/10">
-                     <p className="text-zinc-300 text-[15px] leading-relaxed mb-8 font-light">
-                        “Running live ad-sets and performing advanced analytics audits completely redefined my workflow.”
+                  <motion.div 
+                     whileHover={{ y: -8 }} 
+                     transition={{ duration: 0.4 }}
+                     className="bg-gradient-to-br from-white/[0.03] to-transparent border border-white/10 rounded-[32px] p-8 flex-1 flex flex-col justify-between shadow-xl hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)] backdrop-blur-md group"
+                  >
+                     <p className="text-gray-300 text-[16px] leading-relaxed mb-8 font-light italic relative">
+                        "Running live ad-sets and performing advanced analytics audits completely redefined my workflow."
                      </p>
-                     <div className="border-t border-white/10 pt-6 flex items-center gap-4 mt-auto">
-                        <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm font-bold">SV</div>
+                     <div className="border-t border-white/10 pt-6 flex items-center gap-4 mt-auto group-hover:border-white/20 transition-colors">
+                        <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center text-sm font-black shadow-[0_0_15px_rgba(16,185,129,0.15)]">SV</div>
                         <div>
-                           <p className="font-bold text-white text-sm">Sanya Verma</p>
-                           <p className="text-xs text-zinc-500">Growth Lead</p>
+                           <p className="font-bold text-white text-base tracking-wide">Sanya Verma</p>
+                           <p className="text-[11px] font-bold text-emerald-400 uppercase tracking-widest mt-0.5">Growth Lead</p>
                         </div>
                      </div>
                   </motion.div>
@@ -841,7 +947,7 @@ const Advance = () => {
                   <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-3 block">Network</span>
                   <h3 className="k-title text-3xl font-bold text-white mb-4">Industry Recognition</h3>
                   <p className="text-zinc-400 leading-relaxed font-light">
-                     Graduates from Atorax advanced cohorts earn interviews across high-growth product teams and global enterprises.
+                     Graduates from ΣxpoGraph advanced cohorts earn interviews across high-growth product teams and global enterprises.
                   </p>
                </div>
                

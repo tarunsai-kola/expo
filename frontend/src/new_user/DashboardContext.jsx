@@ -8,7 +8,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 /* ─── localStorage progress helper ─── */
 export const getWatchedFromStorage = (enrollmentId, sessionObj, dbWatchedSessions = []) => {
     try {
-        const key = `atorax_progress_${enrollmentId}`;
+        const key = `ΣxpoGraph_progress_${enrollmentId}`;
         const raw = localStorage.getItem(key);
         const localWatched = raw ? JSON.parse(raw) : [];
         const combined = new Set([...localWatched, ...(dbWatchedSessions || [])]);

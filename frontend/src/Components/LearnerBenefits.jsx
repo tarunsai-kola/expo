@@ -36,7 +36,7 @@ const benefitData = [
     ],
     points: [
       "Resume Building & Mock Interview Prep",
-      "Exclusive access to Atorax Job Portal",
+      "Exclusive access to ΣxpoGraph Job Portal",
       "500+ Hiring Partners across the globe"
     ]
   }

@@ -148,7 +148,7 @@ router.post("/operationsendotp", async (req, res) => {
       </div>
       <p style="font-size: 13px; color: #64748b;">If you didn't request this OTP, please ignore this email or contact our IT team immediately.</p>
       <div style="text-align: center; margin: 30px 0;">
-          <a href="https://www.atorax.com/OperationLogin" target="_blank" style="background-color: #4f46e5; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block;">Login Here</a>
+          <a href="https://www.ΣxpoGraph.com/OperationLogin" target="_blank" style="background-color: #4f46e5; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block;">Login Here</a>
       </div>
     `;
     const emailMessage = buildPremiumEmail({ title: 'Team Login OTP', content });
@@ -221,7 +221,7 @@ router.post("/send-email", async (req, res) => {
     clearPaymentMonth,
     monthOpted,
   } = req.body;
-  const defaultPassword = "Atorax@123";
+  const defaultPassword = "ΣxpoGraph@123";
   const content = `
       <p style="font-size: 16px; color: #0f172a; font-weight: 600; text-transform: capitalize;">Dear ${fullname},</p>
       <p>Thank you for joining us at <strong>${COMPANY_NAME}</strong>! Here are your program details:</p>
@@ -244,7 +244,7 @@ router.post("/send-email", async (req, res) => {
       </div>
 
       <div style="text-align: center; margin: 30px 0;">
-          <a href="https://www.atorax.com/login" target="_blank" class="cta-button">Access Your Dashboard</a>
+          <a href="https://www.ΣxpoGraph.com/login" target="_blank" class="cta-button">Access Your Dashboard</a>
       </div>
 
       <div class="highlight-box" style="background: #fefce8; border-left-color: #eab308; margin-top: 25px;">
@@ -356,7 +356,7 @@ router.post("/sendedOnboardingMail", async (req, res) => {
     
     <div class="highlight-box" style="margin: 25px 0;">
       <p style="margin: 0; ">
-        ${SVGS.info} <span style="margin-left: 5px;">To ensure a seamless start, we kindly request you to log into our LMS by visiting <a href="https://www.atorax.com">atorax.com</a> and selecting "Login". Doing this promptly will help prevent any delays. Training sessions will be available on the start date.</span>
+        ${SVGS.info} <span style="margin-left: 5px;">To ensure a seamless start, we kindly request you to log into our LMS by visiting <a href="https://www.ΣxpoGraph.com">ΣxpoGraph.com</a> and selecting "Login". Doing this promptly will help prevent any delays. Training sessions will be available on the start date.</span>
       </p>
     </div>
 
