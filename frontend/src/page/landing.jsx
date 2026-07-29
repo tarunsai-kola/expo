@@ -442,14 +442,6 @@ const HomePage = () => {
               transition={{ duration: 0.9, ease: "easeOut" }}
               className="preserve-3d"
             >
-              {/* Premium Subtle Glass Badge */}
-              <div className="mb-6 inline-flex items-center gap-3 px-5 py-2.5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase border border-gray-200 glass-panel-3d text-gray-600 shadow-sm" style={{ transform: "translateZ(30px)" }}>
-                <div className="relative flex items-center justify-center w-1.5 h-1.5 shrink-0">
-                  <span className="absolute w-1.5 h-1.5 rounded-full bg-[#0F7B53]" />
-                  <span className="absolute w-3 h-3 rounded-full bg-[#0F7B53]/40 animate-ping" />
-                </div>
-                The Flagship Career Platform
-              </div>
 
               {/* Epic Subtle Metallic Title */}
               <h1 className="lp-font-outfit text-[#111111] font-extrabold leading-[1.05] tracking-tight mb-8" style={{ fontSize: "clamp(46px, 5.8vw, 80px)", transform: "translateZ(50px)" }}>
