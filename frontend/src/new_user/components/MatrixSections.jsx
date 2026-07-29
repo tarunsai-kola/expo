@@ -2,13 +2,13 @@ import React from "react";
 
 const STATUS_COLORS = {
     'Not Started': { badge: 'nd-tag-gray', text: '#999' },
-    'In Progress': { badge: 'nd-tag-yellow', text: '#f0a500' },
+    'In Progress': { badge: 'nd-tag-yellow', text: '#8b5cf6' },
     'Completed': { badge: 'nd-tag-green', text: '#22c55e' },
 };
 
 const ELIGIBILITY_COLORS = {
     'Not Eligible': { color: '#ef4444', bg: 'rgba(239,68,68,0.1)' },
-    'In Progress': { color: '#f0a500', bg: 'rgba(240,165,0,0.1)' },
+    'In Progress': { color: '#8b5cf6', bg: 'rgba(240,165,0,0.1)' },
     'Eligible for Internship': { color: '#22c55e', bg: 'rgba(34,197,94,0.1)' },
 };
 

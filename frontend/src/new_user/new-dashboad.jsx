@@ -592,7 +592,7 @@ const PerformanceSection = ({ enrollment }) => {
 
     const metrics = [
         { label: "Training Sessions", value: trainingPct, icon: "menu_book", color: "#6366f1" },
-        { label: "Assignment Score", value: 78, icon: "assignment", color: "#f15b29" },
+        { label: "Assignment Score", value: 78, icon: "assignment", color: "#8b5cf6" },
         { label: "Mock Interview", value: 65, icon: "record_voice_over", color: "#06b6d4" },
         { label: "Practical Tasks", value: 72, icon: "build", color: "#10b981" },
         { label: "Placement Readiness", value: Math.round((placementChecklist.filter(c => c.done).length / placementChecklist.length) * 100), icon: "rocket_launch", color: "#f59e0b" },
@@ -790,7 +790,7 @@ const CalendarSection = ({ enrollment }) => {
             icon: "menu_book",
             label: "Training Phase",
             date: "Ongoing",
-            color: "#f15b29", done: false, current: true
+            color: "#8b5cf6", done: false, current: true
         },
         {
             icon: "assignment",

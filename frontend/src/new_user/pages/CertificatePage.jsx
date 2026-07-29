@@ -139,7 +139,7 @@ const CertificatePage = () => {
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Header */}
-                        <div className="bg-gradient-to-r from-[#f15b29] to-orange-500 px-6 py-4 flex items-center justify-between">
+                        <div className="bg-gradient-to-r from-[#8b5cf6] to-orange-500 px-6 py-4 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 flex items-center justify-center">
                                     <span className="material-symbols-outlined text-white text-2xl">verified</span>
@@ -163,7 +163,7 @@ const CertificatePage = () => {
                                 <button
                                     onClick={() => setShowTraining(false)}
                                     className={`px-5 py-1.5 rounded-full text-sm flex items-center gap-1.5 font-semibold transition-all duration-300 ${!showTraining
-                                        ? 'bg-white text-[#f15b29] shadow-sm'
+                                        ? 'bg-white text-[#8b5cf6] shadow-sm'
                                         : 'text-gray-500 hover:text-gray-700'
                                         }`}
                                 >
@@ -172,7 +172,7 @@ const CertificatePage = () => {
                                 <button
                                     onClick={() => setShowTraining(true)}
                                     className={`px-5 py-1.5 rounded-full text-sm flex items-center gap-1.5 font-semibold transition-all duration-300 ${showTraining
-                                        ? 'bg-white text-[#f15b29] shadow-sm'
+                                        ? 'bg-white text-[#8b5cf6] shadow-sm'
                                         : 'text-gray-500 hover:text-gray-700'
                                         }`}
                                 >
@@ -198,11 +198,11 @@ const CertificatePage = () => {
                                 {/* Left side - Info */}
                                 <div className="flex items-center gap-4 text-sm text-gray-600">
                                     <div className="flex items-center gap-2">
-                                        <span className="material-symbols-outlined text-[#f15b29] text-lg">business</span>
+                                        <span className="material-symbols-outlined text-[#8b5cf6] text-lg">business</span>
                                         <span>Issued by <strong className="text-gray-900">ΣXPOGRAPH</strong></span>
                                     </div>
                                     <a
-                                        className="text-[#f15b29] hover:text-orange-700 flex items-center gap-1 font-medium transition-colors"
+                                        className="text-[#8b5cf6] hover:text-orange-700 flex items-center gap-1 font-medium transition-colors"
                                         href={showTraining ? getTrainingCertUrl() : selectedCertificate.rawUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -224,7 +224,7 @@ const CertificatePage = () => {
                                         {showTraining ? 'Add Training to LinkedIn' : 'Add Internship to LinkedIn'}
                                     </button>
                                     <button
-                                        className="bg-[#f15b29] hover:bg-orange-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-bold transition-colors shadow-sm text-sm"
+                                        className="bg-[#8b5cf6] hover:bg-orange-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 font-bold transition-colors shadow-sm text-sm"
                                         onClick={() => {
                                             if (showTraining) {
                                                 const trainingUrl = getTrainingCertUrl();
@@ -304,7 +304,7 @@ const CertificatePage = () => {
                                                         setShowTraining(false);
                                                         setSelectedCertificate(cert);
                                                     }}
-                                                    className="inline-flex items-center justify-end gap-1.5 text-[#f15b29] font-bold hover:text-orange-700 transition-colors bg-transparent border-none cursor-pointer"
+                                                    className="inline-flex items-center justify-end gap-1.5 text-[#8b5cf6] font-bold hover:text-orange-700 transition-colors bg-transparent border-none cursor-pointer"
                                                 >
                                                     View <span className="material-symbols-outlined text-[18px]">open_in_new</span>
                                                 </button>
@@ -320,7 +320,7 @@ const CertificatePage = () => {
                                 <tr>
                                     <td colSpan="4" className="p-12 text-center text-gray-500">
                                         <div className="flex flex-col items-center gap-4 max-w-sm mx-auto">
-                                            <div className="w-16 h-16 rounded-full bg-orange-50 flex items-center justify-center text-[#f15b29] mb-2">
+                                            <div className="w-16 h-16 rounded-full bg-orange-50 flex items-center justify-center text-[#8b5cf6] mb-2">
                                                 <span className="material-symbols-outlined text-4xl">workspace_premium</span>
                                             </div>
                                             <div>
@@ -330,7 +330,7 @@ const CertificatePage = () => {
                                                 </p>
                                                 <button
                                                     onClick={handleApplyCertificate}
-                                                    className="bg-[#f15b29] hover:bg-orange-600 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition-colors flex items-center gap-2 mx-auto"
+                                                    className="bg-[#8b5cf6] hover:bg-orange-600 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition-colors flex items-center gap-2 mx-auto"
                                                 >
                                                     <span className="material-symbols-outlined text-[20px]">add_circle</span>
                                                     Apply for Certificate

@@ -431,20 +431,6 @@ const AppContent = () => {
   }, [location.pathname, navigate]);
 
   useEffect(() => {
-    // Auto-popup logic
-    const allowedPaths = ["/", "/advance", "/advancecourses", "/events", "/vlsi"];
-    const currentPath = location.pathname.toLowerCase().replace(/\/$/, "");
-    const isAllowed = allowedPaths.includes(currentPath || "/");
-
-    if (isAllowed) {
-      const timer = setTimeout(() => setShowAutoPopup(true), 5000);
-      return () => clearTimeout(timer);
-    } else {
-      setShowAutoPopup(false);
-    }
-  }, [location.pathname]);
-
-  useEffect(() => {
     ReactPixel.pageView();
   }, [location]);
 

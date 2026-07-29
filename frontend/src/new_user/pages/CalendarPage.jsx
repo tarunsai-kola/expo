@@ -17,7 +17,7 @@ const CalendarPage = () => {
         },
         {
             icon: "menu_book", label: "Training Phase",
-            date: "Ongoing", color: "#f15b29", done: false, current: true,
+            date: "Ongoing", color: "#8b5cf6", done: false, current: true,
         },
         {
             icon: "assignment", label: "Practicals Submission",

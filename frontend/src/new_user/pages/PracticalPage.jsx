@@ -158,11 +158,11 @@ const WeekAccordion = React.memo(({ wn, wp, isActive, isDone, weekData, setActiv
                 onClick={() => setActiveWeek(isActive ? null : wn)}
             >
                 <div className="flex items-center gap-4">
-                    <div className={`w-10 h-10 shrink-0 rounded-full flex items-center justify-center font-bold ${isDone ? 'bg-green-100 text-green-600' : isActive ? 'bg-[#f15b29] text-white' : 'bg-gray-100 text-gray-500'}`}>
+                    <div className={`w-10 h-10 shrink-0 rounded-full flex items-center justify-center font-bold ${isDone ? 'bg-green-100 text-green-600' : isActive ? 'bg-[#8b5cf6] text-white' : 'bg-gray-100 text-gray-500'}`}>
                         {isDone ? <span className="material-symbols-outlined text-lg">check</span> : wn}
                     </div>
                     <div className="text-left">
-                        <p className={`font-bold ${isActive ? 'text-[#f15b29]' : 'text-gray-900'}`}>Week {wn}</p>
+                        <p className={`font-bold ${isActive ? 'text-[#8b5cf6]' : 'text-gray-900'}`}>Week {wn}</p>
                         <p className="text-xs mt-1 flex gap-1">
                             {[0, 1, 2, 3, 4].map((d) => {
                                 const val = (progress || {})[`w${wn}d${d}`];
@@ -174,7 +174,7 @@ const WeekAccordion = React.memo(({ wn, wp, isActive, isDone, weekData, setActiv
                         </p>
                     </div>
                 </div>
-                <span className={`material-symbols-outlined transition-transform ${isActive ? "text-[#f15b29] rotate-180" : "text-gray-400"}`}>
+                <span className={`material-symbols-outlined transition-transform ${isActive ? "text-[#8b5cf6] rotate-180" : "text-gray-400"}`}>
                     expand_more
                 </span>
             </button>
@@ -184,7 +184,7 @@ const WeekAccordion = React.memo(({ wn, wp, isActive, isDone, weekData, setActiv
                     {weekData ? (
                         <>
                             <div className="nd-phase-label" style={{ marginBottom: "16px" }}>
-                                <span className="material-symbols-outlined" style={{ fontSize: 16, color: "#f15b29" }}>flag</span>
+                                <span className="material-symbols-outlined" style={{ fontSize: 16, color: "#8b5cf6" }}>flag</span>
                                 Phase: {weekData.phase}
                             </div>
 

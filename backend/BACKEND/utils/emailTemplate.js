@@ -1,7 +1,7 @@
 const COMPANY_NAME = "ΣxpoGraph";
 const COMPANY_WEBSITE = "www.ΣxpoGraph.com";
 const COMPANY_SUPPORT_EMAIL = "support@ΣxpoGraph.com";
-const LOGO_URL = "https://placehold.co/400x120/0B0F19/FFFFFF?text=ΣXPOGRAPH&font=Montserrat"; // Premium placeholder logo
+const LOGO_URL = "https://ΣxpoGraph.in/posters/image.png"; // Premium placeholder logo
 
 // Reusable SVG icons for emails (replacing emojis)
 const SVGS = {
@@ -63,7 +63,7 @@ const buildPremiumEmail = ({ title, content }) => {
             background-color: #0B0F19;
             padding: 40px 30px;
             text-align: center;
-            border-bottom: 4px solid #6366f1;
+            border-bottom: 4px solid #8b5cf6;
         }
 
         .header img {
@@ -102,7 +102,7 @@ const buildPremiumEmail = ({ title, content }) => {
             overflow-wrap: break-word;
             word-wrap: break-word;
             background: #f1f5f9;
-            border-left: 4px solid #6366f1;
+            border-left: 4px solid #8b5cf6;
             padding: 20px;
             margin: 25px 0;
             border-radius: 0 8px 8px 0;
@@ -136,7 +136,7 @@ const buildPremiumEmail = ({ title, content }) => {
 
         .cta-button {
             display: inline-block;
-            background: #6366f1;
+            background: #8b5cf6;
             color: #ffffff !important;
             padding: 16px 36px;
             text-decoration: none;
@@ -173,7 +173,7 @@ const buildPremiumEmail = ({ title, content }) => {
         }
         
         .footer-links a {
-            color: #6366f1;
+            color: #8b5cf6;
             text-decoration: none;
             margin: 0 10px;
             font-size: 13px;

@@ -41,7 +41,7 @@ const AdvanceLearningPage = () => {
                         background: "none",
                         border: "none",
                         cursor: "pointer",
-                        color: "#f15b29",
+                        color: "#8b5cf6",
                         fontWeight: 600,
                         fontSize: 14,
                         padding: "4px 0",
