@@ -28,17 +28,7 @@ const ContactUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzK2IzfOrP43zo2ffORev5hfW3PGlkC76X-9aj63m-lAtmpCJrZpIO8bRzxzA1g8HsSSA/exec",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams(formData).toString(),
-          mode: "no-cors",
-        }
-      );
+      // Google Apps Script fetch removed
       toast.success("Form submitted successfully!");
       setFormData({
         fname: "",

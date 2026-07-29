@@ -456,8 +456,7 @@ const EnrollmentForm = () => {
     }
 
     setIsSubmitting(true);
-    const googleFormUrl = "https://script.google.com/macros/s/AKfycbyelYSHt540sEM5pBOaffU8ineKo5q5nNAg4MxlMr3wYICEl7Xi_YylqnHpE8ORpDkC/exec";
-
+    
     try {
       const params = new URLSearchParams();
       params.append('fullName', formData.fullName);
@@ -478,12 +477,7 @@ const EnrollmentForm = () => {
       params.append('paidAgreement', formData.paidAgreement ? 'Yes' : 'No');
       params.append('source', 'ΣxpoGraph Advance Form');
 
-      await fetch(googleFormUrl, { 
-        method: 'POST', 
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString() 
-      });
+      // Google Apps Script fetch removed
 
       // 2. Submit to Backend Database (AdvFormLead collection)
       try {

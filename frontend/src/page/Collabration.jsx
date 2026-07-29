@@ -56,17 +56,7 @@ const Collabration = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxFKcggnJ4SuwZjZSqFWjnMYacMtpnNsQ7eLQH-HsshB_NKwYMnZO4Ah1LErZhx7VDqLA/exec",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams(formData).toString(),
-          mode: "no-cors",
-        }
-      );
+      // Google Apps Script fetch removed
       toast.success("Form submitted successfully!");
       setFormData({
         fullName: "",
