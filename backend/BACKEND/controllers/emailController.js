@@ -2,70 +2,25 @@
 require("dotenv").config();
 const nodemailer = require("nodemailer");
 
-// Default transporter for OTP and general emails (noreply@krutanic.com)
+// Resend transporter for all emails
 let transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: false,
+  host: "smtp.resend.com",
+  port: 465,
+  secure: true,
   auth: {
-    user: process.env.SMTP_MAIL,
-    pass: process.env.SMTP_PASSWORD,
+    user: "resend",
+    pass: process.env.RESEND_API_KEY,
   },
-  tls: {
-    rejectUnauthorized: false,
-  },
-  pool: true,
 });
 
-// Dedicated transporter for Dikshannt OTP flow (new-project micro admin)
-let dikshanntOtpTransporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: false,
-  auth: {
-    user: process.env.DIKSHANNT_SMTP || process.env.SMTP_MAIL,
-    pass: process.env.DIKSHANNT_PASSWORD || process.env.SMTP_PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
-  pool: true,
-});
+let dikshanntOtpTransporter = transporter;
+let operationsTransporter = transporter;
+let eventsTransporter = transporter;
 
-// Separate transporter for payment reminders (operations@krutanic.com)
-let operationsTransporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: false,
-  auth: {
-    user: process.env.SMTP_OFFFERMAIL, // operations@krutanic.com
-    pass: process.env.SMTP_OFFERPASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
-  pool: true,
-});
-
-// Separate transporter for event reminders (events@krutanic.com)
-let eventsTransporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: process.env.SMTP_PORT,
-  secure: false,
-  auth: {
-    user: process.env.EVENTS_MAIL, // events@krutanic.com
-    pass: process.env.EVENTS_MAIL_PASSWORD,
-  },
-  tls: {
-    rejectUnauthorized: false,
-  },
-  pool: true,
-});
-
-// General email function (for OTP, etc.) - uses noreply@krutanic.com
+// General email function (for OTP, etc.) - uses RESEND_FROM_EMAIL
 const sendEmail = async ({ email, subject, message, bcc }) => {
   const mailOptions = {
-    from: process.env.SMTP_MAIL,
+    from: process.env.RESEND_FROM_EMAIL,
     to: email,
     cc: "help@ΣxpoGraph.com",
     bcc: bcc,
@@ -89,7 +44,7 @@ const sendEmail = async ({ email, subject, message, bcc }) => {
 
 // OTP sender for new-project admin login
 const sendDikshanntOtpEmail = async ({ email, subject, message, bcc }) => {
-  const fromEmail = process.env.DIKSHANNT_SMTP || process.env.SMTP_MAIL;
+  const fromEmail = process.env.RESEND_FROM_EMAIL;
   const adminBcc = process.env.DIKSHANNT_ADMIN_MAIL;
 
   const mailOptions = {
@@ -114,10 +69,10 @@ const sendDikshanntOtpEmail = async ({ email, subject, message, bcc }) => {
   });
 };
 
-// Payment reminder email function - uses operations@krutanic.com
+// Payment reminder email function - uses RESEND_FROM_EMAIL
 const sendPaymentReminderEmail = async ({ email, subject, message, bcc }) => {
   const mailOptions = {
-    from: process.env.SMTP_OFFFERMAIL, // operations@krutanic.com
+    from: process.env.RESEND_FROM_EMAIL,
     to: email,
     bcc: bcc,
     subject: subject,
@@ -138,10 +93,10 @@ const sendPaymentReminderEmail = async ({ email, subject, message, bcc }) => {
   });
 };
 
-// Event reminder email function - uses events@krutanic.com
+// Event reminder email function - uses RESEND_FROM_EMAIL
 const sendEventReminderEmail = async ({ email, subject, message, bcc, textVersion }) => {
   const mailOptions = {
-    from: `Krutanic Events <${process.env.EVENTS_MAIL}>`, // events@krutanic.com with display name
+    from: `Krutanic Events <${process.env.RESEND_FROM_EMAIL}>`,
     to: email,
     cc: "help@ΣxpoGraph.com",
     bcc: bcc,

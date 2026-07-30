@@ -128,17 +128,13 @@ router.post("/sendedOfferLetterMail", (req, res) => {
 
     try {
       const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: process.env.SMTP_PORT,
-        secure: false,
+        host: "smtp.resend.com",
+        port: 465,
+        secure: true,
         auth: {
-          user: process.env.SMTP_MAIL,
-          pass: process.env.SMTP_PASSWORD,
+          user: "resend",
+          pass: process.env.RESEND_API_KEY,
         },
-        tls: {
-          rejectUnauthorized: false,
-        },
-        pool: true,
       });
 
       const attachment = {
@@ -149,7 +145,7 @@ router.post("/sendedOfferLetterMail", (req, res) => {
 
 
       const mailOptions = {
-        from: process.env.SMTP_MAIL,
+        from: process.env.RESEND_FROM_EMAIL,
         to: email,
         // cc: "help@ΣxpoGraph.com",
         subject: `Offer Letter - ${domain} Intern`,

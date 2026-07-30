@@ -1,36 +1,20 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT) || 587,
-    secure: false,
+    host: "smtp.resend.com",
+    port: 465,
+    secure: true,
     auth: {
-        user: process.env.DIKSHANNT_SMTP || process.env.SMTP_MAIL || process.env.EMAIL_USER,
-        pass: process.env.DIKSHANNT_PASSWORD || process.env.SMTP_PASSWORD || process.env.EMAIL_PASS,
-    },
-    tls: {
-        rejectUnauthorized: false,
-    },
-    pool: true,
+        user: "resend",
+        pass: process.env.RESEND_API_KEY,
+    }
 });
 
-const admissionsTransporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT) || 587,
-    secure: false,
-    auth: {
-        user: process.env.ADMISSIONS_MAIL,
-        pass: process.env.ADMISSIONS_PASSWORD,
-    },
-    tls: {
-        rejectUnauthorized: false,
-    },
-    pool: true,
-});
+const admissionsTransporter = transporter;
 
-const admissionsSender = process.env.ADMISSIONS_MAIL;
+const admissionsSender = process.env.RESEND_FROM_EMAIL;
 
-const senderEmail = process.env.DIKSHANNT_SMTP || process.env.SMTP_MAIL || process.env.EMAIL_USER;
+const senderEmail = process.env.RESEND_FROM_EMAIL;
 const adminBcc = process.env.DIKSHANNT_ADMIN_MAIL;
 
 const resolveLoginUrl = () => {

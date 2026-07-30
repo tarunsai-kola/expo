@@ -127,21 +127,17 @@ router.post("/college/students/:id/send-credentials", async (req, res) => {
         `;
 
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: process.env.SMTP_PORT,
-            secure: false,
+            host: "smtp.resend.com",
+            port: 465,
+            secure: true,
             auth: {
-                user: process.env.DIKSHANNT_SMTP || process.env.SMTP_MAIL,
-                pass: process.env.DIKSHANNT_PASSWORD || process.env.SMTP_PASSWORD,
+                user: "resend",
+                pass: process.env.RESEND_API_KEY,
             },
-            tls: {
-                rejectUnauthorized: false,
-            },
-            pool: true,
         });
 
         const mailOptions = {
-            from: process.env.DIKSHANNT_SMTP || process.env.SMTP_MAIL,
+            from: process.env.RESEND_FROM_EMAIL,
             to: student.email,
             bcc: process.env.DIKSHANNT_ADMIN_MAIL,
             subject: "Your Login Credentials for Dikshannt",

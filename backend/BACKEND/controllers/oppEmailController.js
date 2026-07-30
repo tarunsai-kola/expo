@@ -4,24 +4,20 @@ const nodemailer = require("nodemailer");
 
 // Transporter 2
 let transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST2,
-  port: process.env.SMTP_PORT2,
-  secure: false,
+  host: "smtp.resend.com",
+  port: 465,
+  secure: true,
   auth: {
-    user: process.env.SMTP_MAIL2,  // Make sure this is correct
-    pass: process.env.SMTP_PASSWORD2,  // Ensure this is the right password
+    user: "resend",
+    pass: process.env.RESEND_API_KEY,
   },
-  tls: {
-    rejectUnauthorized: false,
-  },
-  pool: true,
 });
 
 // Function to send email via Transporter 
 const oppsendEmail = async ({ email, subject, message }) => {
   const mailOptions = {
-    from: `"Operations Team" <${process.env.SMTP_MAIL2}>`, // Force the correct sender
-    sender: process.env.SMTP_MAIL2, // Ensure the sender is set
+    from: `"Operations Team" <${process.env.RESEND_FROM_EMAIL}>`, // Force the correct sender
+    sender: process.env.RESEND_FROM_EMAIL, // Ensure the sender is set
     to: email,
     cc: "help@ΣxpoGraph.com",
     subject: subject,
