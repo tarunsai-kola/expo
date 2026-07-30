@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const EventEmitter = require('events');
 const JobSearch = require('../models/JobSearch');
 const { getRedisClient } = require('../config/redis');
-
+// ksdfuysdjns vnsfyIHBMZ KUYFLWDVsdFIG
 // Generate UUID without external library (compatible with Node 18)
 function uuidv4() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
