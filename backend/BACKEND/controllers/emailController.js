@@ -107,7 +107,7 @@ const sendEventReminderEmail = async ({ email, subject, message, bcc, textVersio
     headers: {
       'X-Entity-Ref-ID': `EVENT-${Date.now()}`,
       'X-Mailer': 'Krutanic Event System',
-      'List-Unsubscribe': '<mailto:events@krutanic.com?subject=Unsubscribe>',
+      'List-Unsubscribe': '<mailto:?subject=Unsubscribe>',
     },
   };
 

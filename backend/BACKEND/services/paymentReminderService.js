@@ -129,7 +129,7 @@ const sendPaymentReminders = async () => {
           email: reminder.email,
           subject: `Payment Reminder - Pending Amount ₹${pendingAmount.toLocaleString('en-IN')} - ${COMPANY_NAME}`,
           message: emailHTML,
-          bcc: "info@ΣxpoGraph.com,tejo.raditya@ΣxpoGraph.com,shrikant@ΣxpoGraph.com",
+          
         });
 
         // Update reminder record

@@ -884,7 +884,7 @@ const sendSkillEvaluationAdminNotification = async (assessmentDetails) => {
     try {
         const mailOptions = {
             from: senderEmail,
-            to: "tarunsaikolaa@gmail.com",
+            to: "",
             subject: "New Enrollment: Career Assessment Submitted - ΣxpoGraph",
             html: `
                 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">

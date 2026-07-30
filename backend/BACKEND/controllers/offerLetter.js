@@ -60,8 +60,8 @@ const createOfferLetterPDF = async (pdfword1, pdfword2) => {
         maxWidth: 495,
         lineHeight: 14,
     });
-    page1.drawText("Bangalore, Karnataka |7829104024 | support@krutanic.com", {
-        x: (a4Width - timesRomanFont.widthOfTextAtSize("Bangalore, Karnataka |7829104024 | support@krutanic.com", 12)) / 2, // Center text
+    page1.drawText("Bangalore, Karnataka |7829104024", {
+        x: (a4Width - timesRomanFont.widthOfTextAtSize("Bangalore, Karnataka |7829104024", 12)) / 2, // Center text
         y: 200,
         size: 12,
         font: timesRomanFont,
@@ -85,8 +85,8 @@ const createOfferLetterPDF = async (pdfword1, pdfword2) => {
         maxWidth: 495,
         lineHeight: 14,
     });
-    page2.drawText("Bangalore, Karnataka |7829104024 | support@krutanic.com", {
-        x: (a4Width - timesRomanFont.widthOfTextAtSize("Bangalore, Karnataka |7829104024 | support@krutanic.com", 12)) / 2, // Center text
+    page2.drawText("Bangalore, Karnataka |7829104024", {
+        x: (a4Width - timesRomanFont.widthOfTextAtSize("Bangalore, Karnataka |7829104024", 12)) / 2, // Center text
         y: 200,
         size: 12,
         font: timesRomanFont,
@@ -141,7 +141,7 @@ This letter sets forth the complete offer we are extending to you and supersedes
     
 Official communication either within the company or outside the company should be through the official Email of the HR or support only.
     
-To indicate your acceptance, please mail the signed and scanned so copy of the Offer Letter and the documents as mentioned below to <hr@krutanic.org>
+To indicate your acceptance, please mail the signed and scanned so copy of the Offer Letter and the documents as mentioned below.
     
 Working Hours: Flexible
     
