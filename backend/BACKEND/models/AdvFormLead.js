@@ -17,7 +17,7 @@ const AdvFormLeadSchema = new mongoose.Schema({
     importanceReason: { type: String },
     connectTime: { type: String },
     paidAgreement: { type: String },
-    source: { type: String, default: "Krutanic Advance Form" },
+    source: { type: String, default: "Expograph Advance Form" },
     isAddedToCRM: { type: Boolean, default: false },
     created_at: { type: Date, default: Date.now }
 });

@@ -96,7 +96,7 @@ const sendPaymentReminderEmail = async ({ email, subject, message, bcc }) => {
 // Event reminder email function - uses RESEND_FROM_EMAIL
 const sendEventReminderEmail = async ({ email, subject, message, bcc, textVersion }) => {
   const mailOptions = {
-    from: `Krutanic Events <${process.env.RESEND_FROM_EMAIL}>`,
+    from: `Expograph Events <${process.env.RESEND_FROM_EMAIL}>`,
     to: email,
     cc: "help@ΣxpoGraph.com",
     bcc: bcc,
@@ -106,7 +106,7 @@ const sendEventReminderEmail = async ({ email, subject, message, bcc, textVersio
     priority: "normal",
     headers: {
       'X-Entity-Ref-ID': `EVENT-${Date.now()}`,
-      'X-Mailer': 'Krutanic Event System',
+      'X-Mailer': 'Expograph Event System',
       'List-Unsubscribe': '<mailto:?subject=Unsubscribe>',
     },
   };

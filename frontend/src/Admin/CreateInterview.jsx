@@ -93,7 +93,7 @@ const CreateInterview = () => {
                 <div className="mb-10">
                     <h1 className="text-4xl font-black text-slate-900 tracking-tight m-0 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 flex items-center gap-3">
                         <CalendarCheck className="text-blue-600" size={36} />
-                        Create Mock Interview
+                        Create meeting
                     </h1>
                     <p className="text-base font-medium text-slate-500 mt-2 m-0 flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>

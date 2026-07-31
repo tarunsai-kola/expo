@@ -16,6 +16,7 @@ const sidebarItems = [
     { id: "exercise", path: "/advancedashboard/exercise", emoji: "🏋️", icon: "fitness_center", label: "Exercise" },
     { id: "placement", path: "/advancedashboard/placement", emoji: "🚀", icon: "rocket_launch", label: "Placement" },
     { id: "resume-builder", path: "/advancedashboard/resume-builder", emoji: "📄", icon: "edit_document", label: "Resume Builder" },
+    { id: "meeting", path: "/advancedashboard/meeting", emoji: "🤝", icon: "groups", label: "Meeting" },
     { id: "profile", path: "/advancedashboard/profile", emoji: "🧑", icon: "account_circle", label: "Profile" },
     { id: "payments", path: "/advancedashboard/payments", emoji: "💳", icon: "payments", label: "Payments" },
 ];
@@ -137,7 +138,7 @@ const sectionTitles = {
     payments: "Payments",
     jobs: "Browse Jobs",
     "my-job": "Job Search",
-    "mock-interview": "Mock Interview",
+    "meeting": "Meeting",
     "resume-ats": "Resume ATS",
     "resume-builder": "Resume Builder",
 };

@@ -178,9 +178,9 @@ const PlacementPage = () => {
                     <span className="material-symbols-outlined">work_history</span>
                     Browse Jobs
                 </button>
-                <button className="nd-placement-action-btn nd-action-secondary" onClick={() => navigate("/advancedashboard/mock-interview")}>
+                <button className="nd-placement-action-btn nd-action-secondary" onClick={() => navigate("/advancedashboard/meeting")}>
                     <span className="material-symbols-outlined">record_voice_over</span>
-                    Mock Interview
+                    Meeting
                 </button>
                 <button className="nd-placement-action-btn nd-action-tertiary" onClick={() => navigate("/advancedashboard/resume-ats")}>
                     <span className="material-symbols-outlined">document_scanner</span>

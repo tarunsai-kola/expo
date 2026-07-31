@@ -23,7 +23,7 @@ router.post("/microcourses/login", async (req, res) => {
         // Create JWT
         const token = jwt.sign(
             { userId: user._id, email: user.email, role: "student" },
-            process.env.JWT_SECRET || "KRUTANIC_SECRET",
+            process.env.JWT_SECRET || "EXPOGRAPH_SECRET",
             { expiresIn: "7d" }
         );
 
@@ -46,7 +46,7 @@ router.get("/microcourses/me", async (req, res) => {
         const token = req.headers.authorization?.split(" ")[1];
         if (!token) return res.status(401).json({ message: "Unauthorized" });
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || "KRUTANIC_SECRET");
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || "EXPOGRAPH_SECRET");
         const user = await MicroUser.findById(decoded.userId).select("-password");
         
         res.status(200).json(user);
@@ -62,7 +62,7 @@ router.post("/microcourses/track-session", async (req, res) => {
         const token = req.headers.authorization?.split(" ")[1];
         if (!token) return res.status(401).json({ message: "Unauthorized" });
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || "KRUTANIC_SECRET");
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || "EXPOGRAPH_SECRET");
         const user = await MicroUser.findById(decoded.userId);
         
         if (!user.courseProgress) user.courseProgress = new Map();
@@ -88,7 +88,7 @@ router.get("/microcourses/my-project/:courseId", async (req, res) => {
         const token = req.headers.authorization?.split(" ")[1];
         if (!token) return res.status(401).json({ message: "Unauthorized" });
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || "KRUTANIC_SECRET");
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || "EXPOGRAPH_SECRET");
         const studentId = decoded.userId;
         const courseId = req.params.courseId;
 
@@ -110,7 +110,7 @@ router.post("/microcourses/submit-diary", async (req, res) => {
         const token = req.headers.authorization?.split(" ")[1];
         if (!token) return res.status(401).json({ message: "Unauthorized" });
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET || "KRUTANIC_SECRET");
+        const decoded = jwt.verify(token, process.env.JWT_SECRET || "EXPOGRAPH_SECRET");
         const studentId = decoded.userId;
 
         const project = await MicroProject.findById(projectId);

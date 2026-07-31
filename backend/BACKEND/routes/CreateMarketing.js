@@ -257,7 +257,7 @@ router.post('/sendmailtomarketing', async (req, res) => {
   try {
     await sendEmail({
       email,
-      subject: 'Welcome to Krutanic - Marketing Team Login',
+      subject: 'Welcome to Expograph - Marketing Team Login',
       message: emailMessage,
     });
     res.status(200).json({ message: 'Email sent successfully!' });

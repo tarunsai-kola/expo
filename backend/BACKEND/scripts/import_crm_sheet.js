@@ -1,9 +1,9 @@
 /**
- * 🚀 Krutanic Meta Ads Sync Script (Automated Version)
+ * 🚀 Expograph Meta Ads Sync Script (Automated Version)
  * ---------------------------------------
  */
 
-const API_URL = "https://krutanic-main.vercel.app/api/adv-leads/add-adv-lead"; 
+const API_URL = "https://expograph-main.vercel.app/api/adv-leads/add-adv-lead"; 
 
 /**
  * 1. AUTOMATIC TRIGGER: This runs every time a form is submitted.

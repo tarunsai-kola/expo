@@ -17,7 +17,7 @@
 //   },
 //   password: {
 //     type: String,
-//    default: 'Krutanic@123',
+//    default: 'Expograph@123',
 //   },
 //   status: {
 //     type: String,

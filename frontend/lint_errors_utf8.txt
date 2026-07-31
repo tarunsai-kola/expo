@@ -1,5 +1,5 @@
 ﻿
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AcceptedApplication.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AcceptedApplication.jsx
    88:9   error  'handleToggleComponent' is assigned a value but never used      no-unused-vars
   130:26  error  'error' is defined but never used                               no-unused-vars
   258:16  error  'error' is defined but never used                               no-unused-vars
@@ -34,7 +34,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AcceptedAppli
   325:23  error  'user.isLoadingComponent' is missing in props validation        react/prop-types
   335:50  error  'user._id' is missing in props validation                       react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AddAdvCourse.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AddAdvCourse.jsx
     1:8   error  'React' is defined but never used                                no-unused-vars
    33:15  error  'response' is assigned a value but never used                    no-unused-vars
    39:15  error  'response' is assigned a value but never used                    no-unused-vars
@@ -42,26 +42,26 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AddAdvCourse.
   168:53  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
   168:78  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AddAdvModule.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AddAdvModule.jsx
     2:8   error  'React' is defined but never used                                no-unused-vars
   211:60  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
   211:74  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AddCourse.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AddCourse.jsx
    1:10  error  'React' is defined but never used              no-unused-vars
   35:15  error  'response' is assigned a value but never used  no-unused-vars
   41:15  error  'response' is assigned a value but never used  no-unused-vars
   71:14  error  'response' is defined but never used           no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AddEvent.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AddEvent.jsx
     1:8  error    'React' is defined but never used                                                                              no-unused-vars
   227:6  warning  React Hook useEffect has a missing dependency: 'fetchEvent'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AddModule.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AddModule.jsx
    2:8  error    'React' is defined but never used                                                                                no-unused-vars
   45:6  warning  React Hook useEffect has a missing dependency: 'fetchCourses'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdminAnalytics.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdminAnalytics.jsx
     1:8   error    'React' is defined but never used                                                                                                       no-unused-vars
     6:5   error    'Cell' is defined but never used                                                                                                        no-unused-vars
     6:11  error    'PieChart' is defined but never used                                                                                                    no-unused-vars
@@ -83,7 +83,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdminAnalytic
   231:34  error    'payload.length' is missing in props validation                                                                                         react/prop-types
   235:26  error    'payload.map' is missing in props validation                                                                                            react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdminAttendance.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdminAttendance.jsx
     1:8   error  'React' is defined but never used                    no-unused-vars
    13:3   error  'History' is defined but never used                  no-unused-vars
    17:3   error  'Mail' is defined but never used                     no-unused-vars
@@ -99,32 +99,32 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdminAttendan
   228:9   error  'toggleHalfDay' is assigned a value but never used   no-unused-vars
   242:14  error  'err' is defined but never used                      no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdminDashboard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdminDashboard.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdminHeader.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdminHeader.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdminLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdminLogin.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
    3:10  error  'Link' is defined but never used   no-unused-vars
   75:14  error  'err' is defined but never used    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdminMarketingLeads.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdminMarketingLeads.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdminProjectPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdminProjectPage.jsx
     1:8   error  'React' is defined but never used  no-unused-vars
   170:18  error  'error' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdminReports.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdminReports.jsx
    1:8   error  'React' is defined but never used             no-unused-vars
    1:27  error  'useEffect' is defined but never used         no-unused-vars
    4:8   error  'StatCard' is defined but never used          no-unused-vars
   13:12  error  'loading' is assigned a value but never used  no-unused-vars
   31:18  error  'error' is defined but never used             no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvAdminDashboard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdvAdminDashboard.jsx
    1:8   error  'React' is defined but never used                     no-unused-vars
    6:5   error  'LineChart' is defined but never used                 no-unused-vars
    6:16  error  'Line' is defined but never used                      no-unused-vars
@@ -134,17 +134,17 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvAdminDashb
   55:18  error  'error' is defined but never used                     no-unused-vars
   66:18  error  'error' is defined but never used                     no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvBooked.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdvBooked.jsx
   23:10  error  'remainingAmount' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvCRMSetup.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdvCRMSetup.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
   25:18  error  'err' is defined but never used    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvExercisePage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdvExercisePage.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvLeadManagement.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdvLeadManagement.jsx
    74:18  error    'err' is defined but never used                                                                                no-unused-vars
    93:18  error    'err' is defined but never used                                                                                no-unused-vars
   107:18  error    'err' is defined but never used                                                                                no-unused-vars
@@ -153,13 +153,13 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvLeadManage
   138:18  error    'err' is defined but never used                                                                                no-unused-vars
   157:18  error    'err' is defined but never used                                                                                no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvOnBoardingDetails.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdvOnBoardingDetails.jsx
   14:10  error  'selectedAdvOperation' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvProjectPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdvProjectPage.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvTeamDetail.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AdvTeamDetail.jsx
     1:8   error    'React' is defined but never used                                                                                no-unused-vars
    17:9   error    'currentMonth' is assigned a value but never used                                                                no-unused-vars
   133:6   warning  React Hook useEffect has a missing dependency: 'fetchAllData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
@@ -169,41 +169,41 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AdvTeamDetail
   288:9   error    'getTeamRevenueForMonth' is assigned a value but never used                                                      no-unused-vars
   288:35  error    'month' is defined but never used                                                                                no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AgentActivity.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AgentActivity.jsx
    1:8   error    'React' is defined but never used                                                                                 no-unused-vars
   14:8   warning  React Hook useEffect has a missing dependency: 'fetchActivity'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   20:18  error    'error' is defined but never used                                                                                 no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AgentsManagement.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AgentsManagement.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
   21:18  error  'error' is defined but never used  no-unused-vars
   33:18  error  'error' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AllTeamDetail.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AllTeamDetail.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\AlumniData.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\AlumniData.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
   19:16  error  'err' is defined but never used    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\BookedList.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\BookedList.jsx
     8:10  error  'filteredStudents' is assigned a value but never used  no-unused-vars
   230:14  error  'error' is defined but never used                      no-unused-vars
   391:17  error  Missing "key" prop for element in iterator             react/jsx-key
   406:17  error  Missing "key" prop for element in iterator             react/jsx-key
   415:17  error  Missing "key" prop for element in iterator             react/jsx-key
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\BulkImport.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\BulkImport.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\Components\AgentTable.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\Components\AgentTable.jsx
    1:8   error  'React' is defined but never used                no-unused-vars
    3:23  error  'agents' is missing in props validation          react/prop-types
    3:31  error  'onDeactivate' is missing in props validation    react/prop-types
    3:45  error  'onViewActivity' is missing in props validation  react/prop-types
   35:29  error  'agents.map' is missing in props validation      react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\Components\LeadTimeline.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\Components\LeadTimeline.jsx
    1:8    error    'React' is defined but never used                                                                       no-unused-vars
    4:25   error    'leadId' is missing in props validation                                                                 react/prop-types
    7:17   error    'process' is not defined                                                                                no-undef
@@ -212,7 +212,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\Components\Le
   35:99   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                         react/no-unescaped-entities
   35:112  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                         react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\Components\NotificationList.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\Components\NotificationList.jsx
    1:8   error    'React' is defined but never used                                                                                      no-unused-vars
    4:29  error    'userId' is missing in props validation                                                                                react/prop-types
    6:17  error    'process' is not defined                                                                                               no-undef
@@ -220,58 +220,58 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\Components\No
   21:18  error    'err' is defined but never used                                                                                        no-unused-vars
   32:8   warning  React Hook useEffect has a missing dependency: 'fetchNotifications'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\Components\StatCard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\Components\StatCard.jsx
   1:8   error  'React' is defined but never used       no-unused-vars
   3:21  error  'title' is missing in props validation  react/prop-types
   3:28  error  'value' is missing in props validation  react/prop-types
   3:35  error  'icon' is missing in props validation   react/prop-types
   3:41  error  'color' is missing in props validation  react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreateAdvOperation.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\CreateAdvOperation.jsx
     2:8   error  'React' is defined but never used              no-unused-vars
    35:15  error  'response' is assigned a value but never used  no-unused-vars
    41:15  error  'response' is assigned a value but never used  no-unused-vars
   195:37  error  'field' is defined but never used              no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreateAdvTeam.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\CreateAdvTeam.jsx
     1:8   error  'React' is defined but never used  no-unused-vars
   205:14  error  'error' is defined but never used  no-unused-vars
   228:16  error  'error' is defined but never used  no-unused-vars
   299:16  error  'error' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreateBDA.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\CreateBDA.jsx
     1:8   error  'React' is defined but never used  no-unused-vars
   197:14  error  'error' is defined but never used  no-unused-vars
   220:16  error  'error' is defined but never used  no-unused-vars
   290:16  error  'error' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreateHR.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\CreateHR.jsx
     1:8   error  'React' is defined but never used  no-unused-vars
    90:16  error  'error' is defined but never used  no-unused-vars
   118:14  error  'error' is defined but never used  no-unused-vars
   134:16  error  'error' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreateInterview.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\CreateInterview.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
   74:18  error  'error' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreateInterviewer.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\CreateInterviewer.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreateManager.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\CreateManager.jsx
     2:8   error  'React' is defined but never used              no-unused-vars
    32:15  error  'response' is assigned a value but never used  no-unused-vars
    38:15  error  'response' is assigned a value but never used  no-unused-vars
   151:14  error  'error' is defined but never used              no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreateMarketingTeam.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\CreateMarketingTeam.jsx
     1:8   error  'React' is defined but never used              no-unused-vars
     6:10  error  'loading' is assigned a value but never used   no-unused-vars
    71:15  error  'response' is assigned a value but never used  no-unused-vars
    77:15  error  'response' is assigned a value but never used  no-unused-vars
   181:14  error  'error' is defined but never used              no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreateOperation.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\CreateOperation.jsx
     2:8   error  'React' is defined but never used                  no-unused-vars
    33:15  error  'response' is assigned a value but never used      no-unused-vars
    39:15  error  'response' is assigned a value but never used      no-unused-vars
@@ -280,38 +280,38 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreateOperati
   215:14  error  'error' is defined but never used                  no-unused-vars
   250:37  error  'field' is defined but never used                  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\CreatePlacementCoordinator.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\CreatePlacementCoordinator.jsx
    1:8   error  'React' is defined but never used              no-unused-vars
   32:15  error  'response' is assigned a value but never used  no-unused-vars
   38:15  error  'response' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\DefaultList.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\DefaultList.jsx
     7:10  error  'filteredStudents' is assigned a value but never used  no-unused-vars
   100:15  error  'response' is assigned a value but never used          no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\EventRegistration.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\EventRegistration.jsx
   2:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\FullPaidList.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\FullPaidList.jsx
   7:10  error  'filteredStudents' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\HalfPayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\HalfPayment.jsx
   7:10  error  'filteredStudents' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\InactiveBda.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\InactiveBda.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
   65:16  error  'error' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\LeadAssignments.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\LeadAssignments.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
   22:18  error  'error' is defined but never used  no-unused-vars
   32:18  error  'error' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\LoginAdmin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\LoginAdmin.jsx
   2:8  error  'axios' is defined but never used  no-unused-vars
   4:8  error  'API' is defined but never used    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\ManagerDashboard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\ManagerDashboard.jsx
    1:8   error    'React' is defined but never used                                                                                no-unused-vars
   17:11  error    'designation' is assigned a value but never used                                                                 no-unused-vars
   29:18  error    'err' is defined but never used                                                                                  no-unused-vars
@@ -319,35 +319,35 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\ManagerDashbo
   58:8   warning  React Hook useEffect has a missing dependency: 'fetchMyLeads'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   70:18  error    'err' is defined but never used                                                                                  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\MasterClasses.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\MasterClasses.jsx
     2:8   error  'React' is defined but never used                                no-unused-vars
    47:15  error  'response' is assigned a value but never used                    no-unused-vars
    50:15  error  'response' is assigned a value but never used                    no-unused-vars
   122:13  error  'response' is assigned a value but never used                    no-unused-vars
   233:30  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\MentorQueries.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\MentorQueries.jsx
     2:8   error  'React' is defined but never used                        no-unused-vars
    42:15  error  Empty block statement                                    no-empty
   126:43  error  'index' is defined but never used                        no-unused-vars
   195:29  error  Missing "key" prop for element in iterator               react/jsx-key
   232:15  error  Unknown property 'class' found, use 'className' instead  react/no-unknown-property
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\OnBoardingDetails.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\OnBoardingDetails.jsx
   106:10  error  'selectedOperation' is assigned a value but never used  no-unused-vars
   272:35  error  Missing "key" prop for element in iterator              react/jsx-key
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\PendingApplication.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\PendingApplication.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\ReferAndEarnResponse.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\ReferAndEarnResponse.jsx
    1:8   error  'React' is defined but never used                                no-unused-vars
   19:16  error  'err' is defined but never used                                  no-unused-vars
   46:27  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
   47:27  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
   48:27  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\RevenueSheet.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\RevenueSheet.jsx
    1:8   error    'React' is defined but never used                                                                                     no-unused-vars
    1:38  error    'useRef' is defined but never used                                                                                    no-unused-vars
   26:10  error    'selectedLead' is assigned a value but never used                                                                     no-unused-vars
@@ -355,15 +355,15 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\RevenueSheet.
   89:6   warning  React Hook useEffect has a missing dependency: 'fetchMonthlyStats'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   98:6   warning  React Hook useEffect has a missing dependency: 'fetchDailyData'. Either include it or remove the dependency array     react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\Target.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\Target.jsx
     1:8   error  'React' is defined but never used              no-unused-vars
   270:13  error  'response' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\TeamsManagement.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\TeamsManagement.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
   18:18  error  'error' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\advadminrevenue.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Admin\advadminrevenue.jsx
    1:8   error    'React' is defined but never used                                                                                     no-unused-vars
    1:38  error    'useRef' is defined but never used                                                                                    no-unused-vars
   26:10  error    'selectedLead' is assigned a value but never used                                                                     no-unused-vars
@@ -371,7 +371,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Admin\advadminreven
   89:6   warning  React Hook useEffect has a missing dependency: 'fetchMonthlyStats'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   98:6   warning  React Hook useEffect has a missing dependency: 'fetchDailyData'. Either include it or remove the dependency array     react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\AdvBookedPayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\AdvBookedPayment.jsx
    77:13  error    'response' is assigned a value but never used                                                                       no-unused-vars
   162:14  error    'error' is defined but never used                                                                                   no-unused-vars
   194:10  error    'remarks' is assigned a value but never used                                                                        no-unused-vars
@@ -383,7 +383,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\AdvBoo
   419:16  error    'error' is defined but never used                                                                                   no-unused-vars
   517:14  error    'error' is defined but never used                                                                                   no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\AdvDefaultPayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\AdvDefaultPayment.jsx
     2:8   error    'React' is defined but never used                                                                                             no-unused-vars
    31:6   warning  React Hook useEffect has a missing dependency: 'fetchAdvEnrolls'. Either include it or remove the dependency array            react-hooks/exhaustive-deps
    43:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
@@ -393,7 +393,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\AdvDef
   124:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
   127:3   error    React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\AdvFullPayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\AdvFullPayment.jsx
     2:8   error    'React' is defined but never used                                                                                             no-unused-vars
    33:6   warning  React Hook useEffect has a missing dependency: 'fetchAdvEnrolls'. Either include it or remove the dependency array            react-hooks/exhaustive-deps
    47:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
@@ -403,10 +403,10 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\AdvFul
   128:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
   131:3   error    React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\AdvOperationRevenueSheet.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\AdvOperationRevenueSheet.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\BookedPayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\BookedPayment.jsx
     92:13  error    'response' is assigned a value but never used                                                                       no-unused-vars
    248:10  error    'remarks' is assigned a value but never used                                                                        no-unused-vars
    282:16  error    'error' is defined but never used                                                                                   no-unused-vars
@@ -419,7 +419,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\Booked
   1409:36  error    Irregular whitespace not allowed                                                                                    no-irregular-whitespace
   1409:43  error    Irregular whitespace not allowed                                                                                    no-irregular-whitespace
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\DefaultPayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\DefaultPayment.jsx
     2:8   error    'React' is defined but never used                                                                                             no-unused-vars
    33:6   warning  React Hook useEffect has a missing dependency: 'fetchNewStudent'. Either include it or remove the dependency array            react-hooks/exhaustive-deps
    47:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
@@ -429,7 +429,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\Defaul
   171:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
   174:3   error    React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\FullPayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\FullPayment.jsx
     2:8   error    'React' is defined but never used                                                                                             no-unused-vars
    34:6   warning  React Hook useEffect has a missing dependency: 'fetchNewStudent'. Either include it or remove the dependency array            react-hooks/exhaustive-deps
    46:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
@@ -439,13 +439,13 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\FullPa
   168:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
   171:3   error    React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\OperationAgainLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\OperationAgainLogin.jsx
    1:8   error  'React' is defined but never used              no-unused-vars
    5:8   error  'API' is defined but never used                no-unused-vars
    6:8   error  'axios' is defined but never used              no-unused-vars
   12:11  error  'navigate' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\OperationDashboard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\OperationDashboard.jsx
     1:8   error    'React' is defined but never used                                                                                                          no-unused-vars
     4:10  error    'Pie' is defined but never used                                                                                                            no-unused-vars
    28:10  error    'newStudent' is assigned a value but never used                                                                                            no-unused-vars
@@ -453,26 +453,26 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\Operat
    74:6   warning  React Hook useEffect has missing dependencies: 'fetchNewStudent' and 'fetchOperation'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
   106:9   error    'bookedRevenue' is assigned a value but never used                                                                                         no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\OperationHeader.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\OperationHeader.jsx
    1:8   error    'React' is defined but never used                                                                                no-unused-vars
   22:14  error    'err' is defined but never used                                                                                  no-unused-vars
   29:9   error    'toggleVisibility' is assigned a value but never used                                                            no-unused-vars
   63:6   warning  React Hook useEffect has a missing dependency: 'checkSession'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\OperationLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\OperationLogin.jsx
   1:8   error  'React' is defined but never used  no-unused-vars
   2:10  error  'Link' is defined but never used   no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvOperation\OperationRevenueSheets.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvOperation\OperationRevenueSheets.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvAddUser.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvAddUser.jsx
    1:8   error    'React' is defined but never used                                                                                        no-unused-vars
   47:6   warning  React Hook useEffect has a missing dependency: 'getTransactionIdList'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   73:13  error    'response' is assigned a value but never used                                                                            no-unused-vars
   79:14  error    'error' is defined but never used                                                                                        no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvLeadManagement.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvLeadManagement.jsx
    92:18   error    'err' is defined but never used                                                                                                                                      no-unused-vars
   105:18   error    'err' is defined but never used                                                                                                                                      no-unused-vars
   120:18   error    'err' is defined but never used                                                                                                                                      no-unused-vars
@@ -487,22 +487,22 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvLeadMana
   931:126  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                      react/no-unescaped-entities
   931:139  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                      react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvLeadsBook.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvLeadsBook.jsx
   637:13  error  Parsing error: Expected corresponding JSX closing tag for <div>
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamBooked.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvTeamBooked.jsx
    2:8  error    'React' is defined but never used                                                                                          no-unused-vars
   34:6  warning  React Hook useEffect has a missing dependency: 'fetchBookedEnrollments'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamDefault.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvTeamDefault.jsx
    2:8  error    'React' is defined but never used                                                                                           no-unused-vars
   34:6  warning  React Hook useEffect has a missing dependency: 'fetchDefaultEnrollments'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamFullPaid.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvTeamFullPaid.jsx
    2:8  error    'React' is defined but never used                                                                                            no-unused-vars
   34:6  warning  React Hook useEffect has a missing dependency: 'fetchFullPaidEnrollments'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamHeader.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvTeamHeader.jsx
     1:8   error    'React' is defined but never used                                                                                                               no-unused-vars
    12:9   error    'advTeamName' is assigned a value but never used                                                                                                no-unused-vars
    15:10  error    'notifications' is assigned a value but never used                                                                                              no-unused-vars
@@ -513,7 +513,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamHead
   101:14  error    'err' is defined but never used                                                                                                                 no-unused-vars
   111:6   warning  React Hook useEffect has missing dependencies: 'fetchAdvTeamData' and 'fetchNotifications'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamHome.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvTeamHome.jsx
    2:8   error    'React' is defined but never used                                                                                                                                         no-unused-vars
    8:10  error    'advTeamMember' is assigned a value but never used                                                                                                                        no-unused-vars
    9:10  error    'leads' is assigned a value but never used                                                                                                                                no-unused-vars
@@ -528,10 +528,10 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamHome
   95:63  error    'borderColor' is missing in props validation                                                                                                                              react/prop-types
   95:76  error    'isHuge' is missing in props validation                                                                                                                                   react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvTeamLogin.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamMyLeads.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvTeamMyLeads.jsx
     1:8   error    'React' is defined but never used                                                                                    no-unused-vars
    66:18  error    'err' is defined but never used                                                                                      no-unused-vars
    78:18  error    'err' is defined but never used                                                                                      no-unused-vars
@@ -539,26 +539,26 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamMyLe
   122:8   warning  React Hook useEffect has a missing dependency: 'fetchMyLeads'. Either include it or remove the dependency array      react-hooks/exhaustive-deps
   490:47  error    'sc' is assigned a value but never used                                                                              no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamOnBoarding.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvTeamOnBoarding.jsx
    77:6   warning  React Hook useEffect has a missing dependency: 'fetchAdvEnrollments'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   152:14  error    'error' is defined but never used                                                                                       no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamRecord.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvTeamRecord.jsx
    1:8   error    'React' is defined but never used                                                                                    no-unused-vars
   33:11  error    'userName' is assigned a value but never used                                                                        no-unused-vars
   75:8   warning  React Hook useEffect has a missing dependency: 'fetchUserProfile'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   81:8   warning  React Hook useEffect has a missing dependency: 'fetchRecords'. Either include it or remove the dependency array      react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\AdvTeam\AdvTeamRevenue.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\AdvTeam\AdvTeamRevenue.jsx
    1:8  error    'React' is defined but never used                                                                                       no-unused-vars
   31:6  warning  React Hook useEffect has a missing dependency: 'fetchAdvEnrollments'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\App.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\App.jsx
     1:8  error  'React' is defined but never used           no-unused-vars
   185:8  error  'MarketingLeads' is defined but never used  no-unused-vars
   211:8  error  'Exercise' is defined but never used        no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\AddTeam.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\AddTeam.jsx
     1:8   error    'React' is defined but never used                                                                                no-unused-vars
     9:10  error    'bdaData' is assigned a value but never used                                                                     no-unused-vars
    26:14  error    'err' is defined but never used                                                                                  no-unused-vars
@@ -567,24 +567,24 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\AddTeam.jsx
    67:15  error    'response' is assigned a value but never used                                                                    no-unused-vars
   168:14  error    'error' is defined but never used                                                                                no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\AddUser.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\AddUser.jsx
    1:8   error    'React' is defined but never used                                                                                        no-unused-vars
   45:6   warning  React Hook useEffect has a missing dependency: 'getTransactionIdList'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   71:13  error    'response' is assigned a value but never used                                                                            no-unused-vars
   77:14  error    'error' is defined but never used                                                                                        no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\AssignTarget.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\AssignTarget.jsx
    1:8   error    'React' is defined but never used                                                                         no-unused-vars
   25:16  error    'err' is defined but never used                                                                           no-unused-vars
   31:6   warning  React Hook useEffect has a missing dependency: 'bdaId'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\BDAAgainLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\BDAAgainLogin.jsx
    1:8   error  'React' is defined but never used              no-unused-vars
    4:8   error  'API' is defined but never used                no-unused-vars
    5:8   error  'axios' is defined but never used              no-unused-vars
   10:11  error  'navigate' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\BDAHeader.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\BDAHeader.jsx
    1:8   error    'React' is defined but never used                                                                                no-unused-vars
   13:9   error    'BdaName' is assigned a value but never used                                                                     no-unused-vars
   17:9   error    'toggleVisibility' is assigned a value but never used                                                            no-unused-vars
@@ -592,67 +592,67 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\BDAHeader.jsx
   88:14  error    'err' is defined but never used                                                                                  no-unused-vars
   95:6   warning  React Hook useEffect has a missing dependency: 'fetchBdaData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\BDARevenueSheet.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\BDARevenueSheet.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\Booked.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\Booked.jsx
   35:6   warning  React Hook useEffect has a missing dependency: 'fetchNewStudent'. Either include it or remove the dependency array           react-hooks/exhaustive-deps
   76:45  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
   77:31  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\CompanyLeads.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\CompanyLeads.jsx
     2:8   error    'React' is defined but never used                                                                              no-unused-vars
    25:23  error    'setCurrentPage' is assigned a value but never used                                                            no-unused-vars
    39:6   warning  React Hook useEffect has a missing dependency: 'getQueries'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
    54:9   error    'totalPages' is assigned a value but never used                                                                no-unused-vars
   103:43  error    'index' is defined but never used                                                                              no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\Default.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\Default.jsx
   36:6   warning  React Hook useEffect has a missing dependency: 'fetchNewStudent'. Either include it or remove the dependency array           react-hooks/exhaustive-deps
   77:45  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
   78:31  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\FullPaid.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\FullPaid.jsx
   34:6   warning  React Hook useEffect has a missing dependency: 'fetchNewStudent'. Either include it or remove the dependency array           react-hooks/exhaustive-deps
   75:45  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
   76:31  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\GrowthBarChart.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\GrowthBarChart.jsx
    1:8   error  'React' is defined but never used          no-unused-vars
   14:27  error  'data' is missing in props validation      react/prop-types
   15:26  error  'data.map' is missing in props validation  react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\Home.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\Home.jsx
    2:8  error    'React' is defined but never used                                                                                                    no-unused-vars
   59:6  warning  React Hook useEffect has missing dependencies: 'fetchBda' and 'fetchNewStudent'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
   65:9  error    'bookedRevenue' is assigned a value but never used                                                                                   no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\LeaderBoard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\LeaderBoard.jsx
   7:24  error  'setSelectedTeam' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\OnBoarding.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\OnBoarding.jsx
    45:9   error  'handleAddNewCandidate' is assigned a value but never used  no-unused-vars
   121:14  error  'error' is defined but never used                           no-unused-vars
   225:17  error  Missing "key" prop for element in iterator                  react/jsx-key
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\Reference.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\Reference.jsx
    2:8   error  'React' is defined but never used                  no-unused-vars
   29:10  error  'referRemarks' is assigned a value but never used  no-unused-vars
   49:16  error  'error' is defined but never used                  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\TeamDetail.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\TeamDetail.jsx
     1:8   error    'React' is defined but never used                                                                         no-unused-vars
    50:16  error    'err' is defined but never used                                                                           no-unused-vars
    56:6   warning  React Hook useEffect has a missing dependency: 'bdaId'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   106:14  error    'error' is defined but never used                                                                         no-unused-vars
   109:5   error    'fetchBda' is not defined                                                                                 no-undef
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\BDA\TeamLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\BDA\TeamLogin.jsx
    2:8   error  'React' is defined but never used              no-unused-vars
    4:24  error  'Link' is defined but never used               no-unused-vars
   12:9   error  'errorRef' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\AdvancedApplyPopup.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\AdvancedApplyPopup.jsx
     1:8   error  'React' is defined but never used                                no-unused-vars
     7:31  error  'onClose' is missing in props validation                         react/prop-types
    88:18  error  'error' is defined but never used                                no-unused-vars
@@ -661,10 +661,10 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Advanced
   284:66  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
   285:82  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Alumni.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\Alumni.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Feedback.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\Feedback.jsx
     1:8   error  'React' is defined but never used      no-unused-vars
    60:11  error  Unknown property 'behavior' found      react/no-unknown-property
    62:11  error  Unknown property 'scrollamount' found  react/no-unknown-property
@@ -673,7 +673,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Feedback
   108:11  error  Unknown property 'behavior' found      react/no-unknown-property
   110:11  error  Unknown property 'scrollamount' found  react/no-unknown-property
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Footer.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\Footer.jsx
     1:8    error  'React' is defined but never used                                no-unused-vars
   389:167  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
   389:182  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
@@ -683,11 +683,11 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Footer.j
   419:33   error  Irregular whitespace not allowed                                 no-irregular-whitespace
   419:40   error  Irregular whitespace not allowed                                 no-irregular-whitespace
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Getintouch.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\Getintouch.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
   27:70  error  Irregular whitespace not allowed   no-irregular-whitespace
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Header.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\Header.jsx
    1:8   error  'React' is defined but never used                        no-unused-vars
    4:8   error  'accenture' is defined but never used                    no-unused-vars
    5:8   error  'mca' is defined but never used                          no-unused-vars
@@ -696,29 +696,29 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Header.j
   12:10  error  'isAutopopupVisible' is assigned a value but never used  no-unused-vars
   34:9   error  'autoPopup' is assigned a value but never used           no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\HomePopup.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\HomePopup.jsx
    1:8   error  'React' is defined but never used                                no-unused-vars
    4:22  error  'onClose' is missing in props validation                         react/prop-types
   27:94  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
   44:20  error  Unknown property 'jsx' found                                     react/no-unknown-property
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\MargueeDemo.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\MargueeDemo.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\MentorShipMentors.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\MentorShipMentors.jsx
    1:8   error  'React' is defined but never used           no-unused-vars
   89:13  error  Missing "key" prop for element in iterator  react/jsx-key
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\ShuffleHero.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\ShuffleHero.jsx
    50:138  error    Irregular whitespace not allowed                                                                                   no-irregular-whitespace
    50:172  error    Irregular whitespace not allowed                                                                                   no-irregular-whitespace
   143:6    warning  React Hook useEffect has a missing dependency: 'shuffleSquares'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Verified.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\Verified.jsx
   1:8   error  'React' is defined but never used      no-unused-vars
   1:27  error  'useEffect' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\VerticalAccordion.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\VerticalAccordion.jsx
   36:18  error  'open' is missing in props validation         react/prop-types
   36:24  error  'setOpen' is missing in props validation      react/prop-types
   36:33  error  'id' is missing in props validation           react/prop-types
@@ -727,23 +727,23 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Vertical
   36:50  error  'imgSrc' is missing in props validation       react/prop-types
   36:58  error  'description' is missing in props validation  react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\Wave_single.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\Wave_single.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\advancecourses.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\advancecourses.jsx
    1:8  error  'React' is defined but never used                   no-unused-vars
   83:9  error  'toggleSection' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\our_alumni.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\our_alumni.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\our_partner.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\our_partner.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\popularcourse.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\popularcourse.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\testimonial.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\testimonial.jsx
     1:8    error  'React' is defined but never used                                no-unused-vars
    35:20   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
    35:336  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
@@ -770,17 +770,17 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\testimon
   116:297  error  Irregular whitespace not allowed                                 no-irregular-whitespace
   116:303  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Components\wave_full.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Components\wave_full.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Event\EventDashBoard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Event\EventDashBoard.jsx
    1:8   error  'React' is defined but never used                                                                                                                                                                                                                no-unused-vars
   10:39  error  React Hook "useState" is called in function "hBoard" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"     react-hooks/rules-of-hooks
   11:41  error  React Hook "useState" is called in function "hBoard" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"     react-hooks/rules-of-hooks
   12:47  error  React Hook "useState" is called in function "hBoard" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"     react-hooks/rules-of-hooks
   13:20  error  React Hook "useNavigate" is called in function "hBoard" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use"  react-hooks/rules-of-hooks
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Event\Events.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Event\Events.jsx
     2:8   error  'React' is defined but never used                         no-unused-vars
    17:9   error  'userName' is assigned a value but never used             no-unused-vars
    95:13  error  'response' is assigned a value but never used             no-unused-vars
@@ -794,7 +794,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Event\Events.jsx
   189:9   error  'filteredLeaderboard' is assigned a value but never used  no-unused-vars
   301:14  error  Unknown property 'jsx' found                              react/no-unknown-property
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Event\Playground.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Event\Playground.jsx
     2:8   error    'React' is defined but never used                                                                                                          no-unused-vars
   149:6   warning  React Hook useEffect has missing dependencies: 'fetchApplied' and 'fetchAppliedUsers'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
   162:6   warning  React Hook useEffect has a missing dependency: 'nextQuestion'. Either include it or remove the dependency array                            react-hooks/exhaustive-deps
@@ -802,11 +802,11 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Event\Playground.js
   392:27  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                            react/no-unescaped-entities
   392:38  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                            react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Event\Profile.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Event\Profile.jsx
    2:8  error    'React' is defined but never used                                                                                                     no-unused-vars
   82:6  warning  React Hook useEffect has missing dependencies: 'fetchEventUsers' and 'userEmail'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\HR\HRAttendance.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\HR\HRAttendance.jsx
     1:8   error  'React' is defined but never used                       no-unused-vars
    15:3   error  'UserCheck' is defined but never used                   no-unused-vars
    16:3   error  'ArrowRight' is defined but never used                  no-unused-vars
@@ -822,21 +822,21 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\HR\HRAttendance.jsx
   216:14  error  'err' is defined but never used                         no-unused-vars
   237:14  error  'err' is defined but never used                         no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\HR\HRHeader.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\HR\HRHeader.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\HR\HRLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\HR\HRLogin.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Interviewer\InterviewerDashboard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Interviewer\InterviewerDashboard.jsx
    1:8   error    'React' is defined but never used                                                                                                    no-unused-vars
   20:8   warning  React Hook useEffect has missing dependencies: 'fetchInterviews' and 'navigate'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
   65:18  error    'error' is defined but never used                                                                                                    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Interviewer\InterviewerLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Interviewer\InterviewerLogin.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Marketing\MarketingAddExecutive.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Marketing\MarketingAddExecutive.jsx
     1:8   error    'React' is defined but never used                                                                                  no-unused-vars
    34:14  error    'err' is defined but never used                                                                                    no-unused-vars
    53:6   warning  React Hook useEffect has a missing dependency: 'fetchUserData'. Either include it or remove the dependency array   react-hooks/exhaustive-deps
@@ -846,31 +846,31 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Marketing\Marketing
   109:9   error    'handleDelete' is assigned a value but never used                                                                  no-unused-vars
   165:14  error    'error' is defined but never used                                                                                  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Marketing\MarketingDashboard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Marketing\MarketingDashboard.jsx
    1:8   error    'React' is defined but never used                                                                                 no-unused-vars
   19:14  error    'err' is defined but never used                                                                                   no-unused-vars
   26:6   warning  React Hook useEffect has a missing dependency: 'fetchLeadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Marketing\MarketingHeader.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Marketing\MarketingHeader.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
   54:14  error  'err' is defined but never used    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Marketing\MarketingLeads.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Marketing\MarketingLeads.jsx
    1:8   error    'React' is defined but never used                                                                                                             no-unused-vars
   17:14  error    'err' is defined but never used                                                                                                               no-unused-vars
   29:14  error    'err' is defined but never used                                                                                                               no-unused-vars
   70:6   warning  React Hook useEffect has missing dependencies: 'fetchExecutive' and 'fetchMarketingData'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Marketing\MarketingLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Marketing\MarketingLogin.jsx
   1:8   error  'React' is defined but never used  no-unused-vars
   2:10  error  'Link' is defined but never used   no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Marketing\MarketingPrePayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Marketing\MarketingPrePayment.jsx
    1:8   error    'React' is defined but never used                                                                                 no-unused-vars
   16:14  error    'err' is defined but never used                                                                                   no-unused-vars
   23:6   warning  React Hook useEffect has a missing dependency: 'fetchLeadData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\BookedPayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Operation\BookedPayment.jsx
     81:13  error    'response' is assigned a value but never used                                                                       no-unused-vars
    165:14  error    'error' is defined but never used                                                                                   no-unused-vars
    198:10  error    'remarks' is assigned a value but never used                                                                        no-unused-vars
@@ -886,7 +886,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\BookedPay
   1142:36  error    Irregular whitespace not allowed                                                                                    no-irregular-whitespace
   1142:43  error    Irregular whitespace not allowed                                                                                    no-irregular-whitespace
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\DefaultPayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Operation\DefaultPayment.jsx
     2:8   error    'React' is defined but never used                                                                                             no-unused-vars
    33:6   warning  React Hook useEffect has a missing dependency: 'fetchNewStudent'. Either include it or remove the dependency array            react-hooks/exhaustive-deps
    47:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
@@ -896,7 +896,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\DefaultPa
   171:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
   174:3   error    React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\FullPayment.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Operation\FullPayment.jsx
     2:8   error    'React' is defined but never used                                                                                             no-unused-vars
    34:6   warning  React Hook useEffect has a missing dependency: 'fetchNewStudent'. Either include it or remove the dependency array            react-hooks/exhaustive-deps
    46:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
@@ -906,13 +906,13 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\FullPayme
   168:41  error    React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render   react-hooks/rules-of-hooks
   171:3   error    React Hook "useEffect" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\OperationAgainLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Operation\OperationAgainLogin.jsx
    1:8   error  'React' is defined but never used              no-unused-vars
    5:8   error  'API' is defined but never used                no-unused-vars
    6:8   error  'axios' is defined but never used              no-unused-vars
   12:11  error  'navigate' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\OperationDashboard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Operation\OperationDashboard.jsx
     1:8   error    'React' is defined but never used                                                                                                          no-unused-vars
     4:10  error    'Pie' is defined but never used                                                                                                            no-unused-vars
    28:10  error    'newStudent' is assigned a value but never used                                                                                            no-unused-vars
@@ -920,39 +920,39 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\Operation
    74:6   warning  React Hook useEffect has missing dependencies: 'fetchNewStudent' and 'fetchOperation'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
   106:9   error    'bookedRevenue' is assigned a value but never used                                                                                         no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\OperationHeader.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Operation\OperationHeader.jsx
    1:8   error    'React' is defined but never used                                                                                no-unused-vars
   22:14  error    'err' is defined but never used                                                                                  no-unused-vars
   29:9   error    'toggleVisibility' is assigned a value but never used                                                            no-unused-vars
   63:6   warning  React Hook useEffect has a missing dependency: 'checkSession'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\OperationLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Operation\OperationLogin.jsx
   1:8   error  'React' is defined but never used  no-unused-vars
   2:10  error  'Link' is defined but never used   no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\Operation\OperationRevenueSheets.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\Operation\OperationRevenueSheets.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\PageNotFound.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\PageNotFound.jsx
   16:51  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\PlacementCoordinator.jsx\JobPost.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\PlacementCoordinator.jsx\JobPost.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\PlacementCoordinator.jsx\PCDashboard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\PlacementCoordinator.jsx\PCDashboard.jsx
    1:8   error  'React' is defined but never used                           no-unused-vars
   12:12  error  'recentApplications' is assigned a value but never used     no-unused-vars
   12:32  error  'setRecentApplications' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\PlacementCoordinator.jsx\PCHeader.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\PlacementCoordinator.jsx\PCHeader.jsx
    1:8   error  'React' is defined but never used                      no-unused-vars
    1:27  error  'useEffect' is defined but never used                  no-unused-vars
   12:11  error  'toggleVisibility' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\PlacementCoordinator.jsx\PClogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\PlacementCoordinator.jsx\PClogin.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\AIMockInterview.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\AIMockInterview.jsx
     1:8   error    'React' is defined but never used                                                                                                                no-unused-vars
     4:13  error    'tf' is defined but never used                                                                                                                   no-unused-vars
    14:12  error    'interviewStarted' is assigned a value but never used                                                                                            no-unused-vars
@@ -967,46 +967,46 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\AIMockIntervie
   183:11  error    'handleNextStep' is assigned a value but never used                                                                                              no-unused-vars
   251:8   warning  React Hook useEffect has missing dependencies: 'detectFace', 'stopVideo', and 'videoStream'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\AdvanceLearning.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\AdvanceLearning.jsx
     1:8   error    'React' is defined but never used                                                                               no-unused-vars
     2:10  error    'Link' is defined but never used                                                                                no-unused-vars
     3:8   error    'toast' is defined but never used                                                                               no-unused-vars
   125:8   warning  React Hook useEffect has a missing dependency: 'sessionKeys'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\Excercise.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\Excercise.jsx
     1:8   error    'React' is defined but never used                                                                              no-unused-vars
    20:10  error    'error' is assigned a value but never used                                                                     no-unused-vars
   116:6   warning  React Hook useEffect has a missing dependency: 'submitTest'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\ExercisePage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\ExercisePage.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\JobBoard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\JobBoard.jsx
     2:8   error    'React' is defined but never used                                                                                     no-unused-vars
    94:13  error    'response' is assigned a value but never used                                                                         no-unused-vars
   111:6   warning  React Hook useEffect has a missing dependency: 'checkResumeStatus'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   301:16  error    Unknown property 'jsx' found                                                                                          react/no-unknown-property
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\JobBoardPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\JobBoardPage.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\MockInterview.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\MockInterview.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\MockInterviewPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\MockInterviewPage.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\MyJob.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\MyJob.jsx
    1:8   error  'React' is defined but never used                          no-unused-vars
   20:10  error  'pagination' is assigned a value but never used            no-unused-vars
   28:31  error  'page' is assigned a value but never used                  no-unused-vars
   52:21  error  'total' is assigned a value but never used                 no-unused-vars
   81:9   error  'handlePlatformToggle' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\MyJobPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\MyJobPage.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\NewDashboard.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\NewDashboard.jsx
     2:8   error    'React' is defined but never used                                                                                                                                                      no-unused-vars
     7:8   error    'logo' is defined but never used                                                                                                                                                       no-unused-vars
    18:10  error    'userData' is assigned a value but never used                                                                                                                                          no-unused-vars
@@ -1018,7 +1018,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\NewDashboard.j
   202:9   error    'handleRestrictedClick' is assigned a value but never used                                                                                                                             no-unused-vars
   217:6   warning  React Hook useEffect has missing dependencies: 'fetchComponentsAccess', 'fetchUserData', 'fetchenrollData', and 'fethCertificate'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\NewEnrolledCourses.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\NewEnrolledCourses.jsx
    2:8   error    'React' is defined but never used                                                                                                         no-unused-vars
    3:10  error    'Link' is defined but never used                                                                                                          no-unused-vars
   11:9   error    'isAdvance' is assigned a value but never used                                                                                            no-unused-vars
@@ -1029,14 +1029,14 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\NewEnrolledCou
   83:9   error    'handleLogout' is assigned a value but never used                                                                                         no-unused-vars
   96:6   warning  React Hook useEffect has missing dependencies: 'fetchEnrollData' and 'fetchUserData'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\NewLearning.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\NewLearning.jsx
     1:8   error    'React' is defined but never used                                                                               no-unused-vars
    23:11  error    Empty block statement                                                                                           no-empty
    31:9   error    'navigate' is assigned a value but never used                                                                   no-unused-vars
   155:9   error    'handleSelectChange' is assigned a value but never used                                                         no-unused-vars
   175:6   warning  React Hook useEffect has a missing dependency: 'sessionKeys'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\ResumeATS.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\ResumeATS.jsx
    22:6   warning  React Hook useEffect has a missing dependency: 'fetchUserData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
    31:14  error    'err' is defined but never used                                                                                   no-unused-vars
    78:14  error    'err' is defined but never used                                                                                   no-unused-vars
@@ -1048,37 +1048,37 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\ResumeATS.jsx
   127:23  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                   react/no-unescaped-entities
   127:38  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                   react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\ResumeATSPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\ResumeATSPage.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\Setting.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\Setting.jsx
    2:10  error  'Link' is defined but never used                   no-unused-vars
    6:8   error  'logo' is defined but never used                   no-unused-vars
   30:13  error  'response' is assigned a value but never used      no-unused-vars
   44:9   error  'handleLogout' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\Tawk.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\Tawk.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\UserHeader.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\UserHeader.jsx
    2:8   error  'React' is defined but never used                 no-unused-vars
   15:23  error  'onNavigate' is missing in props validation       react/prop-types
   15:35  error  'resetNavigation' is missing in props validation  react/prop-types
   39:14  error  'err' is defined but never used                   no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\UserLayout.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\UserLayout.jsx
    1:8   error  'React' is defined but never used              no-unused-vars
    2:24  error  'useLocation' is defined but never used        no-unused-vars
   14:9   error  'navigate' is assigned a value but never used  no-unused-vars
   29:16  error  'err' is defined but never used                no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\User\UserSidebar.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\User\UserSidebar.jsx
     1:8   error    'React' is defined but never used                                                                                                               no-unused-vars
     7:24  error    'isSidebarOpen' is missing in props validation                                                                                                  react/prop-types
     7:39  error    'setIsSidebarOpen' is missing in props validation                                                                                               react/prop-types
   137:6   warning  React Hook useEffect has missing dependencies: 'fetchComponentsAccess' and 'fetchUserData'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\AdvanceDashboardLayout.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\AdvanceDashboardLayout.jsx
    1:8   error  'React' is defined but never used               no-unused-vars
   25:20  error  'collapsed' is missing in props validation      react/prop-types
   25:31  error  'setCollapsed' is missing in props validation   react/prop-types
@@ -1086,21 +1086,21 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\AdvanceDas
   25:55  error  'mobileOpen' is missing in props validation     react/prop-types
   25:67  error  'setMobileOpen' is missing in props validation  react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\AdvanceLearningPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\AdvanceLearningPage.jsx
   8:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\DashboardContext.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\DashboardContext.jsx
     1:8   error    'React' is defined but never used                                                                                               no-unused-vars
     9:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
    64:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
    75:37  error    'children' is missing in props validation                                                                                       react/prop-types
   159:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\components\AttendanceStreak.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\components\AttendanceStreak.jsx
   1:8   error  'React' is defined but never used        no-unused-vars
   6:29  error  'userId' is missing in props validation  react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\components\MatrixSections.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\components\MatrixSections.jsx
     1:8   error  'React' is defined but never used                         no-unused-vars
     9:7   error  'ELIGIBILITY_COLORS' is assigned a value but never used   no-unused-vars
    22:43  error  'assignmentMatrix' is missing in props validation         react/prop-types
@@ -1110,7 +1110,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\components
    95:67  error  'loading' is missing in props validation                  react/prop-types
   111:9   error  'completedWeeks' is assigned a value but never used       no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\new-dashboad.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\new-dashboad.jsx
      1:8    error    'React' is defined but never used                                                                            no-unused-vars
     38:20   error    'collapsed' is missing in props validation                                                                   react/prop-types
     38:31   error    'setCollapsed' is missing in props validation                                                                react/prop-types
@@ -1241,28 +1241,28 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\new-dashbo
   1117:71   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                              react/no-unescaped-entities
   1117:78   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                              react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\CalendarPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\pages\CalendarPage.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\CertificatePage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\pages\CertificatePage.jsx
     1:8   error    'React' is defined but never used                                                                                    no-unused-vars
    62:8   warning  React Hook useEffect has a missing dependency: 'fetchCertificate'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   104:19  error    'response' is assigned a value but never used                                                                        no-unused-vars
   343:62  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                      react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\InternshipPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\pages\InternshipPage.jsx
    1:8   error  'React' is defined but never used  no-unused-vars
   40:22  error  'error' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\OverviewPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\pages\OverviewPage.jsx
    1:8   error  'React' is defined but never used                                no-unused-vars
   49:11  error  'readinessScore' is assigned a value but never used              no-unused-vars
   60:29  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\PaymentsPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\pages\PaymentsPage.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\PlacementPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\pages\PlacementPage.jsx
     1:8    error  'React' is defined but never used                 no-unused-vars
    80:20   error  Component definition is missing display name      react/display-name
    80:28   error  'guide' is missing in props validation            react/prop-types
@@ -1272,7 +1272,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\Plac
   128:28   error  'guide.steps' is missing in props validation      react/prop-types
   128:34   error  'guide.steps.map' is missing in props validation  react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\PracticalPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\pages\PracticalPage.jsx
    19:25  error  'project' is missing in props validation                         react/prop-types
    19:34  error  'onConfirm' is missing in props validation                       react/prop-types
    19:45  error  'onCancel' is missing in props validation                        react/prop-types
@@ -1301,7 +1301,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\Prac
   192:49  error  'weekData.tasks.map' is missing in props validation              react/prop-types
   396:89  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\ProfilePage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\pages\ProfilePage.jsx
    1:8   error  'React' is defined but never used            no-unused-vars
    9:16  error  'text' is missing in props validation        react/prop-types
    9:22  error  'colorClass' is missing in props validation  react/prop-types
@@ -1311,7 +1311,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\Prof
   21:31  error  'title' is missing in props validation       react/prop-types
   30:23  error  'navigate' is missing in props validation    react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\ResumeBuilderPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\pages\ResumeBuilderPage.jsx
     1:8    error  'React' is defined but never used                        no-unused-vars
    82:18   error  'label' is missing in props validation                   react/prop-types
    82:25   error  'value' is missing in props validation                   react/prop-types
@@ -1402,12 +1402,12 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\Resu
   351:32   error  'data.extra.map' is missing in props validation          react/prop-types
   357:17   error  'data.personal.name' is missing in props validation      react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\new_user\pages\TrainingPage.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\new_user\pages\TrainingPage.jsx
   1:8   error  'React' is defined but never used      no-unused-vars
   1:17  error  'useState' is defined but never used   no-unused-vars
   1:27  error  'useEffect' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AboutUs.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AboutUs.jsx
     2:8    error  'Slider' is defined but never used                               no-unused-vars
    16:8    error  'gallery3' is defined but never used                             no-unused-vars
    22:8    error  'gallery9' is defined but never used                             no-unused-vars
@@ -1416,7 +1416,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AboutUs.jsx
    45:9    error  'settings' is assigned a value but never used                    no-unused-vars
   109:425  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AcceptedApplication.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AcceptedApplication.jsx
     2:8   error    'React' is defined but never used                                                                              no-unused-vars
     8:19  error    'isOpen' is missing in props validation                                                                        react/prop-types
     8:27  error    'onClose' is missing in props validation                                                                       react/prop-types
@@ -1430,7 +1430,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AcceptedApplic
   325:14  error    'error' is defined but never used                                                                              no-unused-vars
   500:17  error    Missing "key" prop for element in iterator                                                                     react/jsx-key
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Advance.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Advance.jsx
     2:8    error  'React' is defined but never used                                no-unused-vars
   235:14   error  'error' is defined but never used                                no-unused-vars
   251:14   error  'error' is defined but never used                                no-unused-vars
@@ -1446,7 +1446,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Advance.jsx
   957:46   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
   957:66   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\AutomationTesting.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\AutomationTesting.jsx
      1:8   error  'React' is defined but never used                                no-unused-vars
    397:18  error  'error' is defined but never used                                no-unused-vars
    413:18  error  'error' is defined but never used                                no-unused-vars
@@ -1466,7 +1466,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   1096:59  error  Irregular whitespace not allowed                                 no-irregular-whitespace
   1096:64  error  Irregular whitespace not allowed                                 no-irregular-whitespace
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\Components\AdvisorForm.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\Components\AdvisorForm.jsx
     1:8   error  'React' is defined but never used                                no-unused-vars
     8:8   error  'bgImage' is defined but never used                              no-unused-vars
    45:18  error  'error' is defined but never used                                no-unused-vars
@@ -1477,7 +1477,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   317:56  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
   318:72  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\Components\ApplyForm.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\Components\ApplyForm.jsx
     1:8   error  'React' is defined but never used                                no-unused-vars
    70:27  error  'courseValue' is not defined                                     no-undef
    73:50  error  'courseValue' is not defined                                     no-undef
@@ -1487,7 +1487,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   288:52  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
   289:68  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\Components\ApplyNowButton.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\Components\ApplyNowButton.jsx
     1:8   error  'React' is defined but never used                                no-unused-vars
     8:27  error  'courseValue' is missing in props validation                     react/prop-types
    45:18  error  'error' is defined but never used                                no-unused-vars
@@ -1496,24 +1496,24 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   289:54  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
   290:70  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\Components\BenefitsofLearning.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\Components\BenefitsofLearning.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\Components\Certification.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\Components\Certification.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\Components\Skills.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\Components\Skills.jsx
     1:8   error  'React' is defined but never used           no-unused-vars
   329:22  error  'index' is defined but never used           no-unused-vars
   332:15  error  Missing "key" prop for element in iterator  react/jsx-key
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\Components\StoreSection.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\Components\StoreSection.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\DataAnalytics.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\DataAnalytics.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\DataScience.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\DataScience.jsx
      1:8   error  'React' is defined but never used                                no-unused-vars
    486:18  error  'error' is defined but never used                                no-unused-vars
    502:18  error  'error' is defined but never used                                no-unused-vars
@@ -1525,7 +1525,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   1057:33  error  'e' is defined but never used                                    no-unused-vars
   1064:33  error  'e' is defined but never used                                    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\DigitalMarket.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\DigitalMarket.jsx
      1:8   error  'React' is defined but never used                                no-unused-vars
     16:8   error  'curriculumimage' is defined but never used                      no-unused-vars
    464:33  error  'actionType' is defined but never used                           no-unused-vars
@@ -1539,7 +1539,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   1108:33  error  'e' is defined but never used                                    no-unused-vars
   1115:33  error  'e' is defined but never used                                    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\Investmentbanking.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\Investmentbanking.jsx
      1:8   error  'React' is defined but never used                                no-unused-vars
     16:8   error  'curriculumimage' is defined but never used                      no-unused-vars
    472:18  error  'error' is defined but never used                                no-unused-vars
@@ -1552,7 +1552,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   1096:48  error  'e' is defined but never used                                    no-unused-vars
   1103:48  error  'e' is defined but never used                                    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\MernStack.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\MernStack.jsx
      1:8   error  'React' is defined but never used                                no-unused-vars
     16:8   error  'curriculumimage' is defined but never used                      no-unused-vars
    475:18  error  'error' is defined but never used                                no-unused-vars
@@ -1565,7 +1565,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   1081:58  error  'e' is defined but never used                                    no-unused-vars
   1088:58  error  'e' is defined but never used                                    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\Performancemarket.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\Performancemarket.jsx
      1:8   error  'React' is defined but never used                                no-unused-vars
     17:8   error  'curriculumimage' is defined but never used                      no-unused-vars
    484:18  error  'error' is defined but never used                                no-unused-vars
@@ -1578,7 +1578,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   1100:60  error  'e' is defined but never used                                    no-unused-vars
   1107:60  error  'e' is defined but never used                                    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\ProductManagement.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\ProductManagement.jsx
      1:8   error  'React' is defined but never used                                no-unused-vars
     18:8   error  'curriculumimage' is defined but never used                      no-unused-vars
    469:18  error  'error' is defined but never used                                no-unused-vars
@@ -1590,7 +1590,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   1076:59  error  'e' is defined but never used                                    no-unused-vars
   1083:59  error  'e' is defined but never used                                    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\PromptEngineering.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourse\PromptEngineering.jsx
      1:8   error  'React' is defined but never used                                no-unused-vars
    403:18  error  'error' is defined but never used                                no-unused-vars
    419:18  error  'error' is defined but never used                                no-unused-vars
@@ -1602,7 +1602,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourse\
   1012:33  error  'e' is defined but never used                                    no-unused-vars
   1019:33  error  'e' is defined but never used                                    no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourses.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceCourses.jsx
     1:8   error  'React' is defined but never used                     no-unused-vars
    57:10  error  'currentSlide' is assigned a value but never used     no-unused-vars
    57:24  error  'setCurrentSlide' is assigned a value but never used  no-unused-vars
@@ -1611,7 +1611,7 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceCourses
   818:70  error  Irregular whitespace not allowed                      no-irregular-whitespace
   837:26  error  'suryansh' is not defined                             no-undef
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceDashboardAccess.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\AdvanceDashboardAccess.jsx
     2:8   error    'React' is defined but never used                                                                              no-unused-vars
     9:19  error    'isOpen' is missing in props validation                                                                        react/prop-types
     9:27  error    'onClose' is missing in props validation                                                                       react/prop-types
@@ -1624,14 +1624,14 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\AdvanceDashboa
     9:86  error    'monthOpted' is missing in props validation                                                                    react/prop-types
   162:6   warning  React Hook useEffect has a missing dependency: 'monthNames'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Alumni.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Alumni.jsx
   104:14  error  'error' is defined but never used             no-unused-vars
   109:23  error  'field' is missing in props validation        react/prop-types
   109:30  error  'placeholder' is missing in props validation  react/prop-types
   109:43  error  'options' is missing in props validation      react/prop-types
   127:20  error  'options.map' is missing in props validation  react/prop-types
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Attendance.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Attendance.jsx
     1:8    error    'React' is defined but never used                                                                                                                   no-unused-vars
    22:3    error    'Zap' is defined but never used                                                                                                                     no-unused-vars
    23:3    error    'Filter' is defined but never used                                                                                                                  no-unused-vars
@@ -1659,12 +1659,12 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Attendance.jsx
   486:132  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                     react/no-unescaped-entities
   486:141  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                     react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Career.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Career.jsx
     1:8   error    'React' is defined but never used                                                                                no-unused-vars
    94:6   warning  React Hook useEffect has a missing dependency: 'handleScroll'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   110:35  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Collabration.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Collabration.jsx
     1:8   error  'React' is defined but never used                                no-unused-vars
    59:13  error  'response' is assigned a value but never used                    no-unused-vars
   165:43  error  Irregular whitespace not allowed                                 no-irregular-whitespace
@@ -1686,13 +1686,13 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Collabration.j
   427:21  error  Irregular whitespace not allowed                                 no-irregular-whitespace
   479:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\ContactUs.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\ContactUs.jsx
     1:8   error  'React' is defined but never used                                      no-unused-vars
    18:20  error  'setFeedback' is assigned a value but never used                       no-unused-vars
    31:13  error  'response' is assigned a value but never used                          no-unused-vars
   249:15  error  Unknown property 'referrerpolicy' found, use 'referrerPolicy' instead  react/no-unknown-property
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\DashboardAccessForm.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\DashboardAccessForm.jsx
     2:8   error    'React' is defined but never used                                                                              no-unused-vars
     8:19  error    'isOpen' is missing in props validation                                                                        react/prop-types
     8:27  error    'onClose' is missing in props validation                                                                       react/prop-types
@@ -1707,30 +1707,30 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\DashboardAcces
   180:6   warning  React Hook useEffect has a missing dependency: 'monthNames'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
   487:17  error    Missing "key" prop for element in iterator                                                                     react/jsx-key
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\EventDetails.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\EventDetails.jsx
     1:8   error  'React' is defined but never used  no-unused-vars
   111:18  error  'Footer' is not defined            react/jsx-no-undef
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\EventLogin.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\EventLogin.jsx
    1:8   error  'React' is defined but never used          no-unused-vars
   19:11  error  'from' is assigned a value but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\EventRegister.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\EventRegister.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\FeeStructure.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\FeeStructure.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\ForgotPassword.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\ForgotPassword.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Login.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Login.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\LoginWithOtp.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\LoginWithOtp.jsx
   2:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\MasterClass.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\MasterClass.jsx
     2:8   error  'React' is defined but never used                                no-unused-vars
    14:8   error  'imgmentor' is defined but never used                            no-unused-vars
    15:8   error  'imgadvance' is defined but never used                           no-unused-vars
@@ -1743,18 +1743,18 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\MasterClass.js
   480:58  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
   500:15  error  Missing "key" prop for element in iterator                       react/jsx-key
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Mentorship.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Mentorship.jsx
    2:8   error  'React' is defined but never used                                no-unused-vars
   80:63  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\MentorshipForm.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\MentorshipForm.jsx
     2:8   error  'React' is defined but never used         no-unused-vars
     7:27  error  'isPopup' is missing in props validation  react/prop-types
     7:36  error  'onClose' is missing in props validation  react/prop-types
    86:14  error  'error' is defined but never used         no-unused-vars
   102:14  error  'error' is defined but never used         no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Mentorship\CourseMentor.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Mentorship\CourseMentor.jsx
     1:8   error  'React' is defined but never used                   no-unused-vars
    26:10  error  'RiCustomerService2Fill' is defined but never used  no-unused-vars
    56:23  error  Unexpected empty object pattern                     no-empty-pattern
@@ -1764,16 +1764,16 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Mentorship\Cou
   432:14  error  'error' is defined but never used                   no-unused-vars
   448:14  error  'error' is defined but never used                   no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Mentorship\EnrollMentor.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Mentorship\EnrollMentor.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Mentorship\FAQMentor.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Mentorship\FAQMentor.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\Mentorship\PopularCourse.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\Mentorship\PopularCourse.jsx
   1:8  error  'React' is defined but never used  no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\ReferAndEarn.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\ReferAndEarn.jsx
     2:8   error  'React' is defined but never used                                no-unused-vars
    27:12  error  'response' is assigned a value but never used                    no-unused-vars
    28:14  error  'response' is defined but never used                             no-unused-vars
@@ -1781,13 +1781,13 @@ C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\ReferAndEarn.j
   298:17  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
   300:62  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\TalentHunt.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\TalentHunt.jsx
     9:8   error  'logo' is defined but never used                    no-unused-vars
    64:9   error  'handleJoinNow' is assigned a value but never used  no-unused-vars
    64:26  error  'eventId' is defined but never used                 no-unused-vars
   307:56  error  'index' is defined but never used                   no-unused-vars
 
-C:\Users\tarun\OneDrive\Desktop\Krutanic-main-1\FRONTEND\src\page\landing.jsx
+C:\Users\tarun\OneDrive\Desktop\Expograph-main-1\FRONTEND\src\page\landing.jsx
     1:8    error  'React' is defined but never used                                no-unused-vars
   156:38   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
   156:87   error  Irregular whitespace not allowed                                 no-irregular-whitespace

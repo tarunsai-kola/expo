@@ -711,7 +711,7 @@ const AppContent = () => {
           <Route path="calendar" element={<CalendarPage />} />
           <Route path="jobs" element={<JobBoardPage />} />
           <Route path="my-job" element={<MyJobPage />} />
-          <Route path="mock-interview" element={<MockInterviewPage />} />
+          <Route path="meeting" element={<MockInterviewPage />} />
           <Route path="resume-ats" element={<ResumeATSPage />} />
           <Route path="exercise" element={<ExercisePage />} />
           <Route path="resume-builder" element={<ResumeBuilderPage />} />

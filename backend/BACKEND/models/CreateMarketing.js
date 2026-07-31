@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const CreateMarketing = new mongoose.Schema({
     fullname: { type: String, unique: true , },
     email: { type: String, unique: true , lowercase: true },
-    password: { type: String, default : "KrutanicM@123" },
+    password: { type: String, default : "ExpographM@123" },
     team: { type: String},
     designation: { type: String},
     otp: { type: String },
