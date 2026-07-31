@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const uri = "mongodb+srv://kundrapubhargav_db_user:bu3fc0KHUzYZxhSU@expograph.vp49glf.mongodb.net/test?retryWrites=true&w=majority";
+require('dotenv').config();
+const uri = process.env.DB_NAME;
 
 mongoose.connect(uri, {
   serverSelectionTimeoutMS: 5000
