@@ -33,10 +33,10 @@ const AddAdvCourse = () => {
     };
     try {
       if (editingCourseId) {
-        await axios.put(`${API}/editadvcourse/${editingCourseId}`, newCourse);
+        await axios.put(`${API}/editadvcourse/${editingCourseId}`, newCourse, { withCredentials: true });
         alert("Advance course updated successfully!");
       } else {
-        await axios.post(`${API}/createadvcourse`, newCourse);
+        await axios.post(`${API}/createadvcourse`, newCourse, { withCredentials: true });
         alert("Advance course created successfully!");
       }
       fetchCourses();
@@ -68,7 +68,7 @@ const AddAdvCourse = () => {
       const isConfirmed = window.confirm("Are you sure you want to delete this advance course?");
       if (isConfirmed) {
         axios
-          .delete(`${API}/deleteadvcourse/${_id}`)
+          .delete(`${API}/deleteadvcourse/${_id}`, { withCredentials: true })
           .then(() => {
             setCourses((prevCourses) =>
               prevCourses.filter((course) => course._id !== _id)

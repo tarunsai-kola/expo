@@ -36,7 +36,7 @@ router.get("/getadvcourses", async (req, res) => {
       // ✅ CACHE: Courses list (titles only, 5 min TTL)
       courses = await cachedQuery(
         'advcourses:titles',
-        () => CreateAdvCourse.find({}, '_id title show').sort({ _id: -1 }).lean(),
+        () => CreateAdvCourse.find({}, '_id title description show').sort({ _id: -1 }).lean(),
         300,  // 5 minutes TTL
         'static'
       );
