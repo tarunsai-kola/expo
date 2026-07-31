@@ -105,18 +105,16 @@ app.use(bodyParser.json({ verify: captureRawBody }));
 app.use(express.json({ verify: captureRawBody }));
 app.use(cookieParser());
 
-// ✅ Ensure DB connection for all requests in Vercel
-if (process.env.NODE_ENV === "production") {
-  app.use(async (req, res, next) => {
-    try {
-      await connectDB();
-      next();
-    } catch (err) {
-      console.error("DB Connection Error in middleware:", err.message);
-      res.status(500).json({ error: "Database connection failed", details: err.message });
-    }
-  });
-}
+// ✅ Ensure DB connection for all requests (Serverless & Local)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error("DB Connection Error in middleware:", err.message);
+    res.status(500).json({ error: "Database connection failed", details: err.message });
+  }
+});
 
 // ✅ Attendance (Cumulative Timer) - Priority Registration
 const AttendanceRoute = require("./routes/Attendance");
