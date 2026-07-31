@@ -197,12 +197,18 @@ const AdvanceDashboardAccess = () => {
     setCompanyName("");
     setRole("");
     setBatchTiming("");
+    setIsSubmitting(false);
+    setIsEmailVerified(false);
+    setIsVerifyingEmail(false);
+    setEmailCheckComplete(false);
     navigate("/advancedashboardaccess");
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const [isVerifyingEmail, setIsVerifyingEmail] = useState(false);
+  const [emailCheckComplete, setEmailCheckComplete] = useState(false);
 
   const getInstallmentDates = () => {
     if (paymentPlan !== "Installments" || !numberOfInstallments) return [];
@@ -293,10 +299,12 @@ const AdvanceDashboardAccess = () => {
   const handleEmailChange = async (e) => {
     const enteredEmail = e.target.value.trim();
     setEmail(enteredEmail);
-    setIsEmailVerified(false); 
+    setIsEmailVerified(false);
+    setEmailCheckComplete(false);
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (emailRegex.test(enteredEmail)) {
+      setIsVerifyingEmail(true);
       try {
         const response = await axios.post(`${API}/verify-transaction-email`, { email: enteredEmail });
         if (response.data.success) {
@@ -308,10 +316,15 @@ const AdvanceDashboardAccess = () => {
         setCounselor("");
         setLead("");
         setIsEmailVerified(false);
+      } finally {
+        setIsVerifyingEmail(false);
+        setEmailCheckComplete(true);
       }
     } else {
       setCounselor("");
       setLead("");
+      setIsVerifyingEmail(false);
+      setEmailCheckComplete(false);
     }
   };
 
@@ -360,14 +373,21 @@ const AdvanceDashboardAccess = () => {
                   onChange={handleEmailChange}
                   className={`w-full bg-black/40 border rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:ring-1 transition-all text-sm ${
                     email && isEmailVerified ? 'border-emerald-500/50 focus:border-emerald-500 focus:ring-emerald-500' : 
-                    email && !isEmailVerified ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500' : 
+                    email && emailCheckComplete && !isEmailVerified ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500' : 
                     'border-white/10 focus:border-blue-500 focus:ring-blue-500'
                   }`}
                 />
                 {email && (
                   <div className="absolute right-3 top-[34px]">
-                    {isEmailVerified ? <FaCheck className="text-emerald-500" /> : <div className="w-4 h-4 border-2 border-red-500/30 border-t-red-500 rounded-full animate-spin"></div>}
+                    {isVerifyingEmail ? (
+                      <div className="w-4 h-4 border-2 border-blue-500/30 border-t-blue-500 rounded-full animate-spin"></div>
+                    ) : emailCheckComplete ? (
+                      isEmailVerified ? <FaCheck className="text-emerald-500" /> : <FaTimes className="text-red-500" />
+                    ) : null}
                   </div>
+                )}
+                {emailCheckComplete && !isEmailVerified && !isVerifyingEmail && (
+                  <p className="text-red-500 text-[10px] mt-1 absolute -bottom-5">Email not found. Use your registered email.</p>
                 )}
               </div>
 
