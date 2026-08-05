@@ -7,7 +7,7 @@ import AdvancedApplyPopup from "./Components/AdvancedApplyPopup";
 import HomePage from "./page/landing";
 import ContactUs from "./page/ContactUs";
 import AboutUs from "./page/AboutUs";
-import Masterclass from "./page/Masterclass";
+import Masterclass from "./page/MasterClass";
 import AdminWorkshop from "./Admin/AdminWorkshop";
 import ManageMasterclasses from "./Admin/ManageMasterclasses";
 import Terms from "./page/Terms";
