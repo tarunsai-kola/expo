@@ -23,6 +23,14 @@ const interviewerSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        subjects: [{
+            type: String,
+        }],
+        assignedCourseId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "CreateCourse",
+            default: null,
+        },
         bookings: [
             {
                 type: mongoose.Schema.Types.ObjectId,

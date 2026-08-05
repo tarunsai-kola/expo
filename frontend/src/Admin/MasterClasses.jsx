@@ -4,7 +4,7 @@ import API from "../API";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
 import toast, { Toaster } from "react-hot-toast";
-import { GraduationCap, Plus, X, Edit2, Trash2, Download, Users, FileText, CheckCircle2, AlertCircle, CalendarDays, Link as LinkIcon, Image as ImageIcon, Clock, MapPin, Tag, Globe, Award, Target, Star, Briefcase } from "lucide-react";
+import { GraduationCap, Plus, X, Edit2, Trash2, Download, Users, FileText, CheckCircle2, AlertCircle, CalendarDays, Link as LinkIcon, Image as ImageIcon, Clock, MapPin, Tag, Globe, Award, Target, Star, Briefcase, LayoutTemplate } from "lucide-react";
 
 const MasterClasses = () => {
   const [isFormVisible, setisFormVisible] = useState(false);

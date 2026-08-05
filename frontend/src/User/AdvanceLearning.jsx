@@ -121,8 +121,9 @@ const AdvanceLearning = () => {
             const initialKey = sessionKeys[initialIndex];
             setSelectedSession({ key: initialKey, ...sessions[initialKey] });
             setCurrentSessionIndex(initialIndex);
+            markWatched(initialKey);
         }
-    }, [sessions, startIndex]);
+    }, [sessions, startIndex, enrollmentId]);
 
     if (!sessions || !selectedSession) {
         if (fetchLoading) {
@@ -169,43 +170,21 @@ const AdvanceLearning = () => {
 
                 {/* Video Player Section */}
                 <div className="w-full aspect-video bg-black rounded-2xl overflow-hidden shadow-lg relative group mb-8">
-                    {isPlaying && selectedSession.description ? (
-                        <iframe
-                            src={`https://drive.google.com/file/d/${selectedSession.description}/preview`}
-                            allow="autoplay"
-                            allowFullScreen
-                            className="w-full h-full"
-                        ></iframe>
-                    ) : (
+                    {selectedSession.description ? (
                         <>
-                            <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-orange-500 to-red-500 z-10">
-                                {thumbnail ? (
-                                    <img src={thumbnail} alt="Course Thumbnail" className="w-full h-full object-cover" />
-                                ) : (
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <img src={playerlogo} alt="Course" className="max-w-[200px] opacity-50" />
-                                    </div>
-                                )}
-                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300"></div>
-                            </div>
-                            <div className="absolute inset-0 z-20 flex items-center justify-center">
-                                <button
-                                    onClick={() => { setIsPlaying(true); markWatched(selectedSession.key); }}
-                                    className="size-20 md:size-24 bg-primary/90 rounded-full flex items-center justify-center text-white shadow-2xl backdrop-blur-sm group-hover:scale-110 transition-transform duration-300 cursor-pointer"
-                                >
-                                    <span className="material-symbols-outlined text-[48px] md:text-[56px]">play_arrow</span>
-                                </button>
-                            </div>
-                            <div className="absolute bottom-0 left-0 w-full p-6 z-30 bg-gradient-to-t from-black/80 to-transparent">
-                                <div className="text-white">
-                                    <p className="text-sm font-medium opacity-90 mb-1">
-                                        {currentSessionIndex < totalSessions - 1
-                                            ? `Up Next: ${sessions[sessionKeys[currentSessionIndex + 1]]?.title}`
-                                            : "This is the last session"}
-                                    </p>
-                                </div>
-                            </div>
+                            <iframe
+                                src={`https://drive.google.com/file/d/${selectedSession.description}/preview`}
+                                allow="autoplay"
+                                allowFullScreen
+                                className="w-full h-full"
+                            ></iframe>
+                            {/* Overlay to hide the Google Drive pop-out button in the top right corner */}
+                            <div className="absolute top-0 right-0 w-[60px] h-[60px] bg-black z-10 pointer-events-auto cursor-default"></div>
                         </>
+                    ) : (
+                        <div className="absolute inset-0 flex items-center justify-center bg-gray-900">
+                            <p className="text-gray-400 font-medium">Video not available</p>
+                        </div>
                     )}
                 </div>
 

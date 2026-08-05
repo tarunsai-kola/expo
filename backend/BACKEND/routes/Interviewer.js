@@ -4,11 +4,13 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const Interviewer = require("../models/Interviewer");
 const Interview = require("../models/Interview");
+const CreateCourse = require("../models/CreateCourse");
+const CreateAdvCourse = require("../models/CreateAdvCourse");
 
 // Create Interviewer (Admin only)
 router.post("/create-interviewer", async (req, res) => {
     try {
-        const { fullname, email, phone, password } = req.body;
+        const { fullname, email, phone, password, subjects, assignedCourseId } = req.body;
 
         // Check if interviewer exists
         const existingInterviewer = await Interviewer.findOne({ email });
@@ -21,6 +23,8 @@ router.post("/create-interviewer", async (req, res) => {
             email,
             phone,
             password, // Store plain text
+            subjects: subjects || [],
+            assignedCourseId: assignedCourseId || null,
         });
 
         await newInterviewer.save();
@@ -57,6 +61,7 @@ router.post("/interviewer-login", async (req, res) => {
                 id: interviewer._id,
                 fullname: interviewer.fullname,
                 email: interviewer.email,
+                assignedCourseId: interviewer.assignedCourseId,
             },
         });
     } catch (error) {
@@ -82,8 +87,25 @@ router.get("/interviewer-dashboard/:id", async (req, res) => {
 // Get All Interviewers (Admin)
 router.get("/all", async (req, res) => {
     try {
-        const interviewers = await Interviewer.find({}); // Fetch all fields
-        res.status(200).json(interviewers);
+        const interviewers = await Interviewer.find({});
+        const results = [];
+        for (const interviewer of interviewers) {
+            let courseObj = null;
+            if (interviewer.assignedCourseId) {
+                let course = await CreateCourse.findById(interviewer.assignedCourseId);
+                if (!course) {
+                    course = await CreateAdvCourse.findById(interviewer.assignedCourseId);
+                }
+                if (course) {
+                    courseObj = { _id: course._id, title: course.title };
+                }
+            }
+            results.push({
+                ...interviewer.toObject(),
+                assignedCourseId: courseObj
+            });
+        }
+        res.status(200).json(results);
     } catch (error) {
         res.status(500).json({ message: "Server error", error: error.message });
     }
@@ -100,6 +122,21 @@ router.delete("/delete-interviewer/:id", async (req, res) => {
         }
 
         res.status(200).json({ message: "Interviewer deleted successfully" });
+    } catch (error) {
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+});
+
+// Update Interviewer
+router.put("/update-interviewer/:id", async (req, res) => {
+    try {
+        const { fullname, email, phone, password, subjects, assignedCourseId } = req.body;
+        const updated = await Interviewer.findByIdAndUpdate(
+            req.params.id,
+            { fullname, email, phone, password, subjects: subjects || [], assignedCourseId: assignedCourseId || null },
+            { new: true }
+        );
+        res.status(200).json({ message: "Interviewer updated", interviewer: updated });
     } catch (error) {
         res.status(500).json({ message: "Server error", error: error.message });
     }

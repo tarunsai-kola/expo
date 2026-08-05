@@ -34,15 +34,18 @@ const interviewSchema = new mongoose.Schema(
             type: Boolean,
             default: true,
         },
-        slots: [
-            {
-                time: { type: String, required: true },
-                isBooked: { type: Boolean, default: false },
-                studentId: { type: mongoose.Schema.Types.ObjectId, ref: "User", default: null },
-                studentName: { type: String, default: null },
-                meetingLink: { type: String, default: null },
-            },
-        ],
+        meetLink: {
+            type: String,
+            default: null,
+        },
+        maxParticipants: {
+            type: Number,
+            default: 0, // 0 = unlimited
+        },
+        description: {
+            type: String,
+            default: "",
+        }
     },
     { timestamps: true }
 );

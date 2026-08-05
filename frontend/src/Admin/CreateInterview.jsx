@@ -13,7 +13,9 @@ const CreateInterview = () => {
         date: "",
         startTime: "",
         endTime: "",
-        mode: "Online"
+        mode: "Online",
+        maxParticipants: 0,
+        description: ""
     });
 
     const [interviews, setInterviews] = useState([]);
@@ -58,7 +60,9 @@ const CreateInterview = () => {
                     date: "",
                     startTime: "",
                     endTime: "",
-                    mode: "Online"
+                    mode: "Online",
+                    maxParticipants: 0,
+                    description: ""
                 });
                 fetchInterviews(); // Refresh list
             }
@@ -93,11 +97,11 @@ const CreateInterview = () => {
                 <div className="mb-10">
                     <h1 className="text-4xl font-black text-slate-900 tracking-tight m-0 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 flex items-center gap-3">
                         <CalendarCheck className="text-blue-600" size={36} />
-                        Create meeting
+                        Create Mentor Meeting
                     </h1>
                     <p className="text-base font-medium text-slate-500 mt-2 m-0 flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                        Schedule and manage mock interviews with assigned interviewers
+                        Schedule and manage mentor sessions with assigned mentors
                     </p>
                 </div>
 
@@ -110,12 +114,12 @@ const CreateInterview = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div className="space-y-2">
                                 <label className="flex items-center gap-2 text-slate-700 text-sm font-bold uppercase tracking-wider mb-2">
-                                    <Layers size={16} className="text-blue-500" /> Interview Name <span className="text-rose-500">*</span>
+                                    <Layers size={16} className="text-blue-500" /> Session Title <span className="text-rose-500">*</span>
                                 </label>
                                 <input
                                     type="text"
                                     name="interviewName"
-                                    placeholder="e.g., Mock Interview A"
+                                    placeholder="e.g., Q&A Session"
                                     value={formData.interviewName}
                                     onChange={handleChange}
                                     className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all placeholder:text-slate-400"
@@ -126,7 +130,7 @@ const CreateInterview = () => {
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between mb-2">
                                     <label className="flex items-center gap-2 text-slate-700 text-sm font-bold uppercase tracking-wider">
-                                        <User size={16} className="text-blue-500" /> Assign Interviewer <span className="text-rose-500">*</span>
+                                        <User size={16} className="text-blue-500" /> Assign Mentor <span className="text-rose-500">*</span>
                                     </label>
                                     <Link to="/CreateInterviewer" className="text-xs font-bold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-2 py-1 rounded-md transition-colors flex items-center gap-1">
                                         <Plus size={12} /> New
@@ -140,7 +144,7 @@ const CreateInterview = () => {
                                         className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all appearance-none cursor-pointer"
                                         required
                                     >
-                                        <option value="" className="text-slate-400">-- Select Interviewer --</option>
+                                        <option value="" className="text-slate-400">-- Select Mentor --</option>
                                         {interviewers.map((int) => (
                                             <option key={int._id} value={int._id} className="text-slate-900">{int.fullname}</option>
                                         ))}
@@ -242,7 +246,7 @@ const CreateInterview = () => {
                                 className="w-full md:w-auto bg-blue-600 text-white font-bold py-3.5 px-10 rounded-xl hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2"
                             >
                                 <CalendarDays size={18} />
-                                Schedule Interview
+                                Schedule Session
                             </button>
                         </div>
                     </form>
@@ -252,7 +256,7 @@ const CreateInterview = () => {
                 <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative">
                     <div className="flex justify-between items-center p-6 border-b border-slate-100 bg-white z-10 relative">
                         <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2 m-0">
-                            Scheduled Interviews
+                            Scheduled Sessions
                             <span className="bg-blue-100 text-blue-700 text-xs py-1 px-2 rounded-lg ml-2">{interviews.length} Total</span>
                         </h3>
                         <button 
@@ -268,7 +272,7 @@ const CreateInterview = () => {
                             <thead className="bg-slate-50 border-b border-slate-200">
                                 <tr>
                                     <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Name</th>
-                                    <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Interviewer</th>
+                                    <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Mentor</th>
                                     <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest">Date & Time</th>
                                     <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest text-center">Mode</th>
                                     <th className="px-6 py-4 text-xs font-black text-slate-400 uppercase tracking-widest text-center">Status</th>
@@ -281,8 +285,8 @@ const CreateInterview = () => {
                                         <td colSpan="6" className="px-6 py-16 text-center">
                                             <div className="flex flex-col items-center justify-center text-slate-400">
                                                 <CalendarDays size={48} className="mb-4 text-slate-300" strokeWidth={1} />
-                                                <p className="text-lg font-bold text-slate-600 mb-1">No Interviews Scheduled</p>
-                                                <p className="text-sm">Create an interview schedule above to see it here.</p>
+                                                <p className="text-lg font-bold text-slate-600 mb-1">No Sessions Scheduled</p>
+                                                <p className="text-sm">Create a session schedule above to see it here.</p>
                                             </div>
                                         </td>
                                     </tr>

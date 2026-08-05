@@ -45,6 +45,8 @@ const AdminHeader = () => {
     { to: "/Admin/Reports", icon: FileSpreadsheet, text: "System Reports" },
     
     { category: "Course Management" },
+    { to: "/ManageMasterclasses", icon: List, text: "Manage Masterclasses" },
+    { to: "/AdminWorkshop", icon: Users, text: "Workshop Responses" },
     { to: "/AddAdvCourse", icon: PlusCircle, text: "Create Course" },
     { to: "/AddAdvModule", icon: List, text: "Course List" },
     { to: "/AdvExercisePage", icon: Code, text: "Exercise Builder" },
@@ -68,7 +70,7 @@ const AdminHeader = () => {
     
     { category: "Special Programs" },
     { to: "/AdvProjectPage", icon: CheckCircle, text: "Project Mgmt" },
-    { to: "/CreateInterview", icon: CalendarPlus, text: "Create Mock Interview" },
+    { to: "/CreateInterview", icon: CalendarPlus, text: "Create Mentor Meeting" },
     { to: "/MasterClasses", icon: GraduationCap, text: "Master Class" },
     { to: "/admin-career-assessment", icon: UserCheck, text: "Career Assessments" },
     { to: "/Admin/Attendance", icon: CalendarDays, text: "Attendance" },

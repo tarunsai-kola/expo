@@ -20,7 +20,7 @@ const InterviewerLogin = () => {
                 localStorage.setItem("interviewerName", res.data.interviewer.fullname);
 
                 setTimeout(() => {
-                    navigate("/InterviewerDashboard");
+                    navigate("/MentorDashboard");
                 }, 1500);
             }
         } catch (error) {
@@ -32,7 +32,7 @@ const InterviewerLogin = () => {
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <Toaster position="top-center" />
             <div className="bg-white p-8 rounded shadow-md w-full max-w-sm">
-                <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Interviewer Login</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Mentor Login</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label className="block text-gray-700 font-medium mb-1">Email</label>

@@ -5,6 +5,7 @@ import AdvancedApplyPopup from "./AdvancedApplyPopup";
 
 const topNav = [
   { label: "All Programs", to: "/Advance" },
+  { label: "Masterclass", to: "/masterclass" },
   { label: "Blog", to: "/blog" },
   // { label: "Agentic and GenAI", to: "/AgenticAndGenAI" },
 ];

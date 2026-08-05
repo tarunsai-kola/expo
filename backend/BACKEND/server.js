@@ -18,6 +18,7 @@ const createbda = require("./routes/CreateBDA");
 const createadvteam = require("./routes/CreateAdvTeam");
 const createhr = require("./routes/CreateHR");
 const Mentorship = require("./routes/Mentorship");
+const workshopRoutes = require("./routes/Workshop");
 const Advance = require("./routes/Advance");
 const NewStudentEnroll = require("./routes/NewStudentEnroll");
 const AdvEnroll = require("./routes/AdvEnroll");
@@ -139,6 +140,10 @@ app.use("/", createhr);
 app.use("/", Mentorship);
 //advance
 app.use("/", Advance);
+
+// Workshop Registration
+app.use("/api/workshop", workshopRoutes);
+
 //create new student enroll
 app.use("/", NewStudentEnroll);
 //create advance enroll
