@@ -72,12 +72,12 @@ const LandingPlacementProcess = () => {
         {/* Boundary Setting & Proof Box - Hacker Aesthetic */}
         <div className="relative group max-w-[1100px] mx-auto">
           {/* Cyber glow behind the whole box */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#00FFA3]/40 via-blue-500/40 to-[#00FFA3]/40 rounded-[2rem] opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#DBEAFE]/80 via-blue-200/80 to-[#DBEAFE]/80 rounded-[2rem] opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
           
-          <div className="bg-[#0a0a0a] border border-[#E2E8F0] rounded-[32px] p-8 md:p-14 shadow-2xl relative z-10 overflow-hidden">
+          <div className="bg-white border border-[#E2E8F0] rounded-[32px] p-8 md:p-14 shadow-xl relative z-10 overflow-hidden">
             {/* Cyber Grid Overlay */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-              style={{ backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)', backgroundSize: '30px 30px' }} 
+              style={{ backgroundImage: 'linear-gradient(black 1px, transparent 1px), linear-gradient(90deg, black 1px, transparent 1px)', backgroundSize: '30px 30px' }} 
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
@@ -85,19 +85,19 @@ const LandingPlacementProcess = () => {
                 <h4 className="text-3xl font-black text-[#0F172A] mb-10 tracking-tight">What learners can expect</h4>
                 <ul className="space-y-6">
                   <li className="flex gap-4 text-[#475569] text-[15px] font-medium leading-relaxed">
-                    <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
+                    <span className="text-[#2563EB] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-sm">✓</span>
                     <span>Practical learning built around real skills, guided assignments, and project work.</span>
                   </li>
                   <li className="flex gap-4 text-[#475569] text-[15px] font-medium leading-relaxed">
-                    <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
+                    <span className="text-[#2563EB] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-sm">✓</span>
                     <span>Regular mentorship and feedback to help students improve with clarity.</span>
                   </li>
                   <li className="flex gap-4 text-[#475569] text-[15px] font-medium leading-relaxed">
-                    <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
+                    <span className="text-[#2563EB] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-sm">✓</span>
                     <span>Career support through resume building, mock interviews, and interview preparation.</span>
                   </li>
                   <li className="flex gap-4 text-[#475569] text-[15px] font-medium leading-relaxed">
-                    <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
+                    <span className="text-[#2563EB] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-sm">✓</span>
                     <span>A structured journey designed to help learners become industry-ready with confidence.</span>
                   </li>
                 </ul>
@@ -107,20 +107,20 @@ const LandingPlacementProcess = () => {
                 <h4 className="text-3xl font-black text-[#0F172A] mb-10 tracking-tight">Built for career readiness</h4>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-12">
                   <div>
-                    <div className="text-3xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 mb-3">15+</div>
-                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest leading-relaxed">Industry-focused programs.</div>
+                    <div className="text-3xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#0F172A] to-[#475569] mb-3">15+</div>
+                    <div className="text-[10px] font-black text-[#2563EB] uppercase tracking-widest leading-relaxed">Industry-focused programs.</div>
                   </div>
                   <div>
-                    <div className="text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00FFA3] to-emerald-300 mb-3">Projects</div>
-                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest leading-relaxed">Hands-on work that builds portfolios and practical confidence.</div>
+                    <div className="text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] mb-3">Projects</div>
+                    <div className="text-[10px] font-black text-[#2563EB] uppercase tracking-widest leading-relaxed">Hands-on work that builds portfolios and practical confidence.</div>
                   </div>
                   <div>
-                    <div className="text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 mb-3">Mentorship</div>
-                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest leading-relaxed">Live guidance from industry professionals.</div>
+                    <div className="text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#0F172A] to-[#475569] mb-3">Mentorship</div>
+                    <div className="text-[10px] font-black text-[#2563EB] uppercase tracking-widest leading-relaxed">Live guidance from industry professionals.</div>
                   </div>
                   <div>
-                    <div className="text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#00FFA3] to-emerald-300 mb-3 leading-tight lg:leading-none pt-1">Career<br/>Support</div>
-                    <div className="text-[10px] font-black text-[#00FFA3] uppercase tracking-widest leading-relaxed mt-3 lg:mt-4">Resume, placement, and interview-readiness support.</div>
+                    <div className="text-3xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] mb-3 leading-tight lg:leading-none pt-1">Career<br/>Support</div>
+                    <div className="text-[10px] font-black text-[#2563EB] uppercase tracking-widest leading-relaxed mt-3 lg:mt-4">Resume, placement, and interview-readiness support.</div>
                   </div>
                 </div>
               </div>

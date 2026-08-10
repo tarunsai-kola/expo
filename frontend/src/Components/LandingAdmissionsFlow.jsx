@@ -37,23 +37,23 @@ const LandingAdmissionsFlow = () => {
   ];
 
   return (
-    <section className="py-32 bg-[#050505] border-t border-[#E2E8F0] relative overflow-hidden">
+    <section className="py-32 bg-white border-t border-[#E2E8F0] relative overflow-hidden">
       
       {/* Cinematic TV Noise Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.025] pointer-events-none mix-blend-screen z-0" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`, backgroundRepeat: 'repeat' }} />
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-multiply z-0" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`, backgroundRepeat: 'repeat' }} />
 
       {/* Background ambient light */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-white/[0.04] to-transparent blur-3xl pointer-events-none z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-[#DBEAFE]/40 to-transparent blur-3xl pointer-events-none z-0" />
 
       <div className="max-w-[1200px] mx-auto px-6 relative z-10">
         <div className="text-center mb-28">
           <div className="inline-flex items-center justify-center relative">
-            <div className="absolute inset-0 bg-white/20 blur-md rounded-full opacity-0 hover:opacity-100 transition-opacity duration-500" />
-            <span className="relative inline-block text-[11px] font-black tracking-[0.2em] uppercase text-[#475569] border border-[#E2E8F0] bg-white px-5 py-2 rounded-full mb-6 backdrop-blur-sm shadow-[0_0_20px_rgba(255,255,255,0.03)] hover:border-[#2563EB] transition-all duration-300">
+            <div className="absolute inset-0 bg-blue-100/50 blur-md rounded-full opacity-0 hover:opacity-100 transition-opacity duration-500" />
+            <span className="relative inline-block text-[11px] font-black tracking-[0.2em] uppercase text-[#2563EB] border border-[#E2E8F0] bg-white px-5 py-2 rounded-full mb-6 backdrop-blur-sm shadow-sm hover:border-[#2563EB] transition-all duration-300">
               Admissions Process
             </span>
           </div>
-          <h2 className="lp-font-outfit text-[#0F172A] font-extrabold text-4xl md:text-6xl mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+          <h2 className="lp-font-outfit text-[#0F172A] font-extrabold text-4xl md:text-6xl mb-6 tracking-tight drop-shadow-sm">
             What happens after you apply.
           </h2>
           <p className="text-[#64748B] text-[18px] max-w-2xl mx-auto leading-relaxed font-medium">
@@ -64,8 +64,8 @@ const LandingAdmissionsFlow = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 relative">
           
           {/* Glowing Connecting Line */}
-          <div className="hidden md:block absolute top-[60px] left-[18%] right-[18%] h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
-          <div className="hidden md:block absolute top-[60px] left-[18%] right-[18%] h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none blur-sm" />
+          <div className="hidden md:block absolute top-[60px] left-[18%] right-[18%] h-[1px] bg-gradient-to-r from-transparent via-[#E2E8F0] to-transparent pointer-events-none" />
+          <div className="hidden md:block absolute top-[60px] left-[18%] right-[18%] h-[1px] bg-gradient-to-r from-transparent via-[#DBEAFE]/80 to-transparent pointer-events-none blur-sm" />
 
           {steps.map((step, idx) => (
             <motion.div
@@ -80,10 +80,10 @@ const LandingAdmissionsFlow = () => {
               <div className={`absolute -inset-1 bg-gradient-to-br ${step.glowColor} rounded-[2.5rem] opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700`} />
               
               {/* Inner Card */}
-              <div className="relative h-full bg-[#080808]/80 backdrop-blur-3xl border border-[#E2E8F0] rounded-[2.5rem] p-10 overflow-hidden flex flex-col items-center text-center transform group-hover:-translate-y-2 group-hover:border-[#E2E8F0] transition-all duration-500 shadow-2xl group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <div className="relative h-full bg-[#F8FAFC] backdrop-blur-3xl border border-[#E2E8F0] rounded-[2.5rem] p-10 overflow-hidden flex flex-col items-center text-center transform group-hover:-translate-y-2 group-hover:border-[#2563EB]/50 transition-all duration-500 shadow-sm group-hover:shadow-xl">
                 
                 {/* Inner Top Lighting Beam */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[1px] bg-gradient-to-r from-transparent via-blue-300/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 
                 {/* Huge Background Number */}
                 <div className={`absolute -bottom-10 -right-4 text-[150px] font-black italic opacity-[0.03] group-hover:opacity-10 text-transparent bg-clip-text bg-gradient-to-br ${step.numberColor} transition-all duration-700 pointer-events-none select-none leading-none`}>

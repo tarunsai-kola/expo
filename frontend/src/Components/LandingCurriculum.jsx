@@ -90,15 +90,15 @@ const LandingCurriculum = () => {
                 onClick={() => setActivePhase(idx)}
                 className={`shrink-0 lg:w-full text-left px-5 py-4 lg:py-5 rounded-xl border transition-all duration-300 flex items-center justify-between group ${
                   activePhase === idx
-                    ? "bg-[#1A8352] border-[#1A8352] shadow-[0_0_20px_rgba(26,131,82,0.3)]"
-                    : "bg-[#1A1A1A] border-[#E2E8F0] hover:border-[#E2E8F0] hover:bg-[#222]"
+                    ? "bg-[#2563EB] border-[#2563EB] shadow-md"
+                    : "bg-white border-[#E2E8F0] hover:border-[#2563EB] hover:bg-[#EFF6FF]"
                 }`}
               >
                 <div>
-                  <div className={`text-[10px] font-bold uppercase tracking-wider mb-1 ${activePhase === idx ? "text-[#0F172A]/80" : "text-[#64748B]"}`}>
+                  <div className={`text-[10px] font-bold uppercase tracking-wider mb-1 ${activePhase === idx ? "text-white/80" : "text-[#64748B]"}`}>
                     {phase.duration}
                   </div>
-                  <div className={`font-bold text-[15px] tracking-wide ${activePhase === idx ? "text-[#0F172A]" : "text-gray-200"}`}>
+                  <div className={`font-bold text-[15px] tracking-wide ${activePhase === idx ? "text-white" : "text-[#0F172A]"}`}>
                     {phase.title.toUpperCase()}
                   </div>
                 </div>
@@ -107,11 +107,11 @@ const LandingCurriculum = () => {
           </div>
 
           {/* Right Panel */}
-          <div className="w-full lg:w-[70%] bg-[#1A1A1A] border border-[#E2E8F0] rounded-2xl flex flex-col overflow-hidden">
+          <div className="w-full lg:w-[70%] bg-white border border-[#E2E8F0] rounded-2xl flex flex-col overflow-hidden shadow-sm">
             {/* Header */}
-            <div className="h-16 border-b border-[#E2E8F0] flex items-center px-8 justify-between bg-[#1A1A1A]">
+            <div className="h-16 border-b border-[#E2E8F0] flex items-center px-8 justify-between bg-white">
               <div className="flex items-center gap-2">
-                <span className="text-[#0F172A]/90 font-bold text-lg tracking-wide uppercase">Phase {activePhase + 1} <span className="text-[#1A8352] ml-1">({curriculum[activePhase].duration})</span></span>
+                <span className="text-[#0F172A]/90 font-bold text-lg tracking-wide uppercase">Phase {activePhase + 1} <span className="text-[#2563EB] ml-1">({curriculum[activePhase].duration})</span></span>
               </div>
             </div>
 
@@ -131,11 +131,11 @@ const LandingCurriculum = () => {
                     <div className="flex flex-col md:flex-row">
                       {/* Left: Domain */}
                       <div className="md:w-[35%] flex flex-col">
-                        <div className="p-4 bg-[#1A8352] text-[10px] font-bold tracking-widest text-[#0F172A] uppercase border-b border-[#E2E8F0]">
+                        <div className="p-4 bg-[#EFF6FF] text-[10px] font-bold tracking-widest text-[#2563EB] uppercase border-b border-[#E2E8F0]">
                           Domain
                         </div>
-                        <div className="p-5 bg-[#1A1A1A] flex items-start md:items-center flex-1 border-b md:border-b-0 md:border-r border-[#E2E8F0]">
-                          <span className="text-gray-200 font-semibold text-sm leading-snug">{curriculum[activePhase].title}</span>
+                        <div className="p-5 bg-white flex items-start md:items-center flex-1 border-b md:border-b-0 md:border-r border-[#E2E8F0]">
+                          <span className="text-[#0F172A] font-semibold text-sm leading-snug">{curriculum[activePhase].title}</span>
                         </div>
                       </div>
                       {/* Right: Key Outcomes */}
@@ -146,7 +146,7 @@ const LandingCurriculum = () => {
                         <div className="p-5 bg-white flex flex-col gap-3">
                           {curriculum[activePhase].outcomes.map((outcome, idx) => (
                             <div key={idx} className="flex items-start gap-3">
-                              <div className="w-1.5 h-1.5 rounded-full bg-[#1A8352] mt-1.5 flex-shrink-0 shadow-[0_0_8px_rgba(26,131,82,0.8)]" />
+                              <div className="w-1.5 h-1.5 rounded-full bg-[#2563EB] mt-1.5 flex-shrink-0 shadow-sm" />
                               <p className="text-[#475569] text-[13px] font-medium leading-relaxed">{outcome}</p>
                             </div>
                           ))}
@@ -156,8 +156,8 @@ const LandingCurriculum = () => {
                   </div>
 
                   {curriculum[activePhase].capstone && (
-                    <div className="mb-6 p-5 border border-[#1A8352]/20 bg-[#1A8352]/10 rounded-xl">
-                      <div className="text-[10px] font-bold text-[#209F70] uppercase tracking-wider mb-2">
+                    <div className="mb-6 p-5 border border-[#DBEAFE] bg-[#EFF6FF] rounded-xl">
+                      <div className="text-[10px] font-bold text-[#2563EB] uppercase tracking-wider mb-2">
                         Capstone Project
                       </div>
                       <div className="font-bold text-[#0F172A] text-[15px] mb-1">{curriculum[activePhase].capstone.name}</div>
@@ -178,7 +178,7 @@ const LandingCurriculum = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ delay: i * 0.04 }}
-                            className="px-3 py-1.5 bg-[#1A1A1A] border border-[#E2E8F0] text-[#475569] rounded-full text-[11px] font-bold tracking-wide"
+                            className="px-3 py-1.5 bg-white border border-[#E2E8F0] text-[#0F172A] rounded-full text-[11px] font-bold tracking-wide shadow-sm"
                           >
                             {tool}
                           </motion.span>

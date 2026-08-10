@@ -65,20 +65,20 @@ const LandingMentors = () => {
               transition={{ delay: idx * 0.15, duration: 0.6, ease: "easeOut" }}
               className="group relative flex flex-col"
             >
-              {/* Extreme Neon Glow on Hover */}
-              <div className="absolute -inset-0.5 bg-gradient-to-br from-[#00FFA3]/60 to-blue-500/60 rounded-[32px] opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
+              {/* Soft Blue Glow on Hover */}
+              <div className="absolute -inset-0.5 bg-gradient-to-br from-[#DBEAFE]/80 to-blue-200/80 rounded-[32px] opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
               
-              <div className="relative h-full bg-[#0a0a0a] border border-[#E2E8F0] group-hover:border-[#00FFA3]/50 shadow-2xl rounded-[32px] p-8 transition-all duration-500 flex flex-col transform group-hover:-translate-y-2 z-10 overflow-hidden">
+              <div className="relative h-full bg-white border border-[#E2E8F0] group-hover:border-[#2563EB]/50 shadow-md group-hover:shadow-xl rounded-[32px] p-8 transition-all duration-500 flex flex-col transform group-hover:-translate-y-2 z-10 overflow-hidden">
                 
                 {/* Cyber Grid Overlay */}
                 <div className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none" 
-                  style={{ backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)', backgroundSize: '20px 20px' }} 
+                  style={{ backgroundImage: 'linear-gradient(black 1px, transparent 1px), linear-gradient(90deg, black 1px, transparent 1px)', backgroundSize: '20px 20px' }} 
                 />
 
                 <div className="flex justify-between items-start mb-8 relative z-10">
                   <div className="relative">
                     {/* Gen Z Grayscale to Color Avatar */}
-                    <div className="w-24 h-24 rounded-full p-1 bg-gradient-to-br from-white/10 to-white/5 group-hover:from-[#00FFA3] group-hover:to-blue-500 transition-all duration-500">
+                    <div className="w-24 h-24 rounded-full p-1 bg-gradient-to-br from-[#E2E8F0] to-[#E2E8F0] group-hover:from-[#2563EB] group-hover:to-[#1D4ED8] transition-all duration-500">
                       <div className="w-full h-full rounded-full overflow-hidden bg-[#111]">
                         <img
                           src={mentor.image}
@@ -87,22 +87,22 @@ const LandingMentors = () => {
                         />
                       </div>
                     </div>
-                    {/* Neon Floating Badge */}
-                    <div className="absolute -bottom-2 -right-2 bg-[#00FFA3] rounded-full p-1.5 shadow-[0_0_15px_rgba(0,255,163,0.5)] transform scale-90 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                      <BadgeCheck size={18} className="text-black" />
+                    {/* Floating Badge */}
+                    <div className="absolute -bottom-2 -right-2 bg-[#2563EB] rounded-full p-1.5 shadow-sm transform scale-90 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                      <BadgeCheck size={18} className="text-white" />
                     </div>
                   </div>
                   
                   <a
                     href="#"
-                    className="w-10 h-10 rounded-full border border-[#E2E8F0] bg-white flex items-center justify-center text-[#0F172A]/50 hover:text-black hover:bg-[#00FFA3] hover:border-[#00FFA3] hover:shadow-[0_0_20px_rgba(0,255,163,0.4)] transition-all duration-300 backdrop-blur-md"
+                    className="w-10 h-10 rounded-full border border-[#E2E8F0] bg-white flex items-center justify-center text-[#64748B] hover:text-white hover:bg-[#2563EB] hover:border-[#2563EB] hover:shadow-md transition-all duration-300 backdrop-blur-md"
                   >
                     <Linkedin size={16} />
                   </a>
                 </div>
 
                 <div className="mb-6 relative z-10">
-                  <h3 className="text-3xl font-black text-[#0F172A] mb-1 tracking-tight group-hover:text-[#00FFA3] transition-colors">{mentor.name}</h3>
+                  <h3 className="text-3xl font-black text-[#0F172A] mb-1 tracking-tight group-hover:text-[#2563EB] transition-colors">{mentor.name}</h3>
                   <p className="text-[16px] font-bold text-[#475569]">{mentor.role}</p>
                   <p className="text-[11px] font-black text-[#0F172A]/40 uppercase tracking-[0.2em] mt-2">{mentor.company}</p>
                 </div>
@@ -111,7 +111,7 @@ const LandingMentors = () => {
                   {mentor.expertise.map((skill, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1.5 bg-[#00FFA3]/10 border border-[#00FFA3]/20 text-[#00FFA3] text-[10px] font-black uppercase tracking-widest rounded-full shadow-[inset_0_0_10px_rgba(0,255,163,0.05)]"
+                      className="px-3 py-1.5 bg-[#EFF6FF] border border-[#2563EB]/20 text-[#2563EB] text-[10px] font-black uppercase tracking-widest rounded-full"
                     >
                       {skill}
                     </span>
@@ -119,9 +119,9 @@ const LandingMentors = () => {
                 </div>
 
                 <div className="mt-auto relative z-10">
-                  <div className="bg-white border border-[#E2E8F0] border-l-2 border-l-[#00FFA3] rounded-xl p-5 relative transition-all duration-500 group-hover:bg-[#F8FAFC] group-hover:border-[#E2E8F0] group-hover:border-l-[#00FFA3] group-hover:shadow-[0_0_15px_rgba(0,255,163,0.1)]">
+                  <div className="bg-white border border-[#E2E8F0] border-l-2 border-l-[#2563EB] rounded-xl p-5 relative transition-all duration-500 group-hover:bg-[#F8FAFC] group-hover:border-[#E2E8F0] group-hover:border-l-[#2563EB] group-hover:shadow-sm">
                     <p className="text-[#475569] text-[14px] font-medium leading-relaxed">
-                      <span className="text-[#00FFA3] font-serif text-xl mr-1 italic">"</span>
+                      <span className="text-[#2563EB] font-serif text-xl mr-1 italic">"</span>
                       {mentor.quote}
                     </p>
                   </div>
