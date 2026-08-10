@@ -248,7 +248,7 @@ router.post('/sendmailtomarketing', async (req, res) => {
       </div>
 
       <div style="text-align: center; margin: 35px 0;">
-          <a href="https://www.ΣxpoGraph.com/marketing/login" target="_blank" class="cta-button">Access Your Portal</a>
+          <a href="https://www.Aiiens Campus.com/marketing/login" target="_blank" class="cta-button">Access Your Portal</a>
       </div>
 
       <p>If you need further assistance with your account setup, feel free to reach out to the IT support team.</p>
@@ -257,7 +257,7 @@ router.post('/sendmailtomarketing', async (req, res) => {
   try {
     await sendEmail({
       email,
-      subject: 'Welcome to Expograph - Marketing Team Login',
+      subject: 'Welcome to Aiiens Campus - Marketing Team Login',
       message: emailMessage,
     });
     res.status(200).json({ message: 'Email sent successfully!' });

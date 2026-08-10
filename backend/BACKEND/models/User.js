@@ -17,7 +17,7 @@
 //   },
 //   password: {
 //     type: String,
-//    default: 'Expograph@123',
+//    default: 'Aiiens Campus@123',
 //   },
 //   status: {
 //     type: String,
@@ -57,7 +57,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    default: 'ΣxpoGraph@123',
+    default: 'Aiiens Campus@123',
   },
   status: {
     type: String,

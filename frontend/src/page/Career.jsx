@@ -93,7 +93,7 @@ const Career = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
   
-  const words = "ΣxpoGraph is your gateway to mastering industry-leading skills. As a premier course provider, we are dedicated to offering high-quality, in-demand programs designed to empower individuals and help them excel in their careers. With a strong focus on delivering real-world skills.".split(" "); // Split the text into words
+  const words = "Aiiens Campus is your gateway to mastering industry-leading skills. As a premier course provider, we are dedicated to offering high-quality, in-demand programs designed to empower individuals and help them excel in their careers. With a strong focus on delivering real-world skills.".split(" "); // Split the text into words
 
   return (
     <div id="career" className="bg-black text-white min-h-screen">

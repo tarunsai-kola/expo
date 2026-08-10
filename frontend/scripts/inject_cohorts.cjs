@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = 'c:/Users/tarun/OneDrive/Desktop/Expograph-main-1/FRONTEND/src/page/AdvanceCourse';
+const dir = 'c:/Users/tarun/OneDrive/Desktop/Aiiens Campus-main-1/FRONTEND/src/page/AdvanceCourse';
 const files = fs.readdirSync(dir).filter(f => f.endsWith('.jsx'));
 
 files.forEach(f => {

@@ -52,7 +52,7 @@ import agentAiHero from "../assets/agent_ai_hero.png";
 import AdvancedApplyPopup from "../Components/AdvancedApplyPopup";
 
 // New Landing Page Components
-import LandingWhyΣxpoGraph from "../Components/LandingWhyΣxpoGraph";
+import LandingWhyAiiensCampus from "../Components/LandingWhyAiiensCampus";
 import LandingWhoIsThisFor from "../Components/LandingWhoIsThisFor";
 import LandingCurriculum from "../Components/LandingCurriculum";
 import LandingMentors from "../Components/LandingMentors";
@@ -229,7 +229,7 @@ const cohortSlides = [
     duration: "Weeks 1–4",
     detail: "Master core software engineering principles in Java or Python. Dive deep into clean OOP logic, algorithmic complexity, concurrency frameworks, and technical problem-solving patterns.",
     outcome: "Write highly optimized, readable, and benchmarked core code foundations.",
-    icon: <Cpu size={24} className="text-indigo-400" />
+    icon: <Cpu size={24} className="text-[#2563EB]" />
   },
   {
     step: "02",
@@ -237,7 +237,7 @@ const cohortSlides = [
     duration: "Weeks 5–8",
     detail: "Learn data storage optimization. Design structured database schemas, write advanced optimized SQL queries, configure transaction isolation, and learn NoSQL databases like MongoDB.",
     outcome: "Architect low-latency, scalable database layers that handle complex relational models.",
-    icon: <Database size={24} className="text-cyan-400" />
+    icon: <Database size={24} className="text-[#2563EB]" />
   },
   {
     step: "03",
@@ -274,19 +274,19 @@ const cohortSlides = [
 ];
 
 const testimonials = [
-  { id: 1, quote: "ΣxpoGraph didn't just teach me to code; they taught me how to be an engineer. The curriculum is exactly what hiring managers look for. I got multiple offers before the program even ended.", author: "Rohan S.", role: "SDE at TCS Digital", initial: "RS", color: "from-indigo-400 to-purple-400" },
+  { id: 1, quote: "Aiiens Campus didn't just teach me to code; they taught me how to be an engineer. The curriculum is exactly what hiring managers look for. I got multiple offers before the program even ended.", author: "Rohan S.", role: "SDE at TCS Digital", initial: "RS", color: "from-indigo-400 to-purple-400" },
   { id: 2, quote: "The mentorship is unmatched. My mentor was a Senior Engineer at Microsoft and he completely overhauled the way I approach System Design. Worth every penny.", author: "Priya M.", role: "Backend Developer at Razorpay", initial: "PM", color: "from-emerald-400 to-teal-400" },
   { id: 3, quote: "Transitioning from a non-CS background was terrifying, but the structured path and 1:1 support gave me confidence. Six months later, I'm working my dream job.", author: "Karan D.", role: "Data Analyst at Fractal", initial: "KD", color: "from-cyan-400 to-blue-400" },
 ];
 
 const HeroBackground = () => {
   return (
-    <div className="absolute inset-0 z-0 bg-[#F8FAF8] overflow-hidden">
-      {/* Light elegant mesh gradient */}
-      <div className="absolute top-[-10%] right-[-5%] w-[50vw] h-[50vw] rounded-full bg-[#E7F5EE] blur-[120px] opacity-80" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-[#E7F5EE] blur-[120px] opacity-80" />
+    <div className="absolute inset-0 z-0 bg-[#F8FAFC] overflow-hidden">
+      {/* Deep space elegant mesh gradient */}
+      <div className="absolute top-[-10%] right-[-5%] w-[50vw] h-[50vw] rounded-full bg-[#EFF6FF] blur-[120px] opacity-80" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-[#EFF6FF] blur-[120px] opacity-80" />
       {/* Subtle dot pattern overlay */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMCwgMCwgMCwgMC4wMikiLz48L3N2Zz4=')] z-10"></div>
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNSkiLz48L3N2Zz4=')] z-10"></div>
     </div>
   );
 };
@@ -420,9 +420,9 @@ const HomePage = () => {
   };
 
   return (
-    <div className="lp-bg min-h-screen selection:bg-[#0F7B53]/20">
+    <div className="lp-bg min-h-screen selection:bg-[#2563EB]/20">
       <Helmet>
-        <title>ΣxpoGraph | Premium Advanced Tech Programs & Elite Placements</title>
+        <title>Aiiens Campus | Premium Advanced Tech Programs & Elite Placements</title>
         <meta name="description" content="Accelerate your technology career with industry-led advanced software engineering, AI, and data science programs backed by 1:1 expert mentorship." />
       </Helmet>
 
@@ -444,25 +444,25 @@ const HomePage = () => {
             >
 
               {/* Epic Subtle Metallic Title */}
-              <h1 className="lp-font-outfit text-[#111111] font-extrabold leading-[1.05] tracking-tight mb-8" style={{ fontSize: "clamp(46px, 5.8vw, 80px)", transform: "translateZ(50px)" }}>
+              <h1 className="lp-font-outfit text-[#0F172A] font-extrabold leading-[1.05] tracking-tight mb-8 text-glow" style={{ fontSize: "clamp(46px, 5.8vw, 80px)", transform: "translateZ(50px)" }}>
                 Where ambitious <br className="hidden md:block"/>
                 students become <br className="hidden md:block"/>
-                <span className="subtle-gradient-green">
+                <span className="subtle-gradient-text">
                   hireable tech leaders.
                 </span>
               </h1>
 
-              <p style={{ fontSize: "clamp(16px, 1.4vw, 19px)", color: "#4B5563", lineHeight: 1.6, maxWidth: "580px", marginBottom: "44px", transform: "translateZ(20px)" }} className="font-light">
+              <p style={{ fontSize: "clamp(16px, 1.4vw, 19px)", color: "#475569", lineHeight: 1.6, maxWidth: "580px", marginBottom: "44px", transform: "translateZ(20px)" }} className="font-light">
                 Accelerate your technical trajectory. We offer rigorous curriculums, 1:1 senior engineering mentorship, and pathways to 500+ top tech partners.
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap gap-4 items-center mb-10" style={{ transform: "translateZ(40px)" }}>
                 {/* Elevated Primary Button */}
-                <div className="relative group rounded-full p-[1.5px] overflow-visible shadow-[0_10px_20px_rgba(15,123,83,0.15)] hover:shadow-[0_20px_40px_rgba(15,123,83,0.25)] transition-all transform hover:-translate-y-1">
+                <div className="relative group rounded-full p-[1.5px] overflow-visible shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
                   <button
                     onClick={() => navigate("/Advance")}
-                    className="relative px-8 h-[50px] text-sm font-bold tracking-wide rounded-full bg-[#0F7B53] text-white hover:bg-[#0A5A3D] transition-colors flex items-center justify-center gap-2.5 shadow-inner"
+                    className="relative px-8 h-[50px] text-sm font-bold tracking-wide rounded-full bg-[#2563EB] text-white hover:bg-[#1D4ED8] transition-colors flex items-center justify-center gap-2.5 shadow-inner"
                   >
                     Explore Advanced Programs <ArrowRight size={15} />
                   </button>
@@ -471,7 +471,7 @@ const HomePage = () => {
                 {/* Frost Outline Button */}
                 <button
                   onClick={() => setShowPopup(true)}
-                  className="px-8 h-[50px] text-sm font-bold tracking-wide rounded-full border border-gray-300 glass-panel-3d text-[#111111] hover:bg-white hover:border-gray-400 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1"
+                  className="px-8 h-[50px] text-sm font-bold tracking-wide rounded-full border border-[#2563EB] bg-white text-[#2563EB] hover:bg-[#EFF6FF] hover:border-[#1D4ED8] hover:text-[#1D4ED8] transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1"
                 >
                   Schedule Consultation
                 </button>
@@ -490,7 +490,7 @@ const HomePage = () => {
 
 
                 <motion.div 
-                  className="w-full glass-panel-3d rounded-[32px] p-8 relative group dashboard-card-3d bg-white/90"
+                  className="w-full glass-panel-3d rounded-[32px] p-8 relative group dashboard-card-3d bg-white"
                   onMouseMove={heroTilt.handleMouseMove}
                   onMouseLeave={heroTilt.handleMouseLeave}
                   style={{ 
@@ -500,11 +500,11 @@ const HomePage = () => {
                     transformPerspective: 1200
                   }}
                 >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#E7F5EE]/40 to-transparent z-0 pointer-events-none rounded-[32px]" />
-                <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#0F7B53]/10 rounded-full blur-2xl pointer-events-none" style={{ transform: "translateZ(-20px)" }} />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#DBEAFE]/30 to-transparent z-0 pointer-events-none rounded-[32px]" />
+                <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#DBEAFE] rounded-full blur-2xl pointer-events-none" style={{ transform: "translateZ(-20px)" }} />
 
-                <h3 className="text-[#111111] font-extrabold text-lg mb-6 flex items-center gap-2" style={{ transform: "translateZ(30px)" }}>
-                  <Sparkles className="text-[#0F7B53]" size={16} /> Engineering Excellence
+                <h3 className="text-[#0F172A] font-extrabold text-lg mb-6 flex items-center gap-2" style={{ transform: "translateZ(30px)" }}>
+                  <Sparkles className="text-[#2563EB]" size={16} /> Engineering Excellence
                 </h3>
 
                 <div className="flex flex-col gap-4 preserve-3d" style={{ transform: "translateZ(40px)" }}>
@@ -516,12 +516,12 @@ const HomePage = () => {
                     whileHover={{ y: -4, scale: 1.01, z: 10 }}
                     className="premium-stat-card flex items-center gap-4 rounded-2xl p-4 transition-all"
                   >
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0F7B53]/10 to-[#0F7B53]/5 flex items-center justify-center border border-[#0F7B53]/20 text-[#0F7B53] premium-stat-icon-box">
+                    <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#0F7B53]/10 to-[#0F7B53]/5 flex items-center justify-center border border-[#0F7B53]/20 text-[#2563EB] premium-stat-icon-box">
                       <Code2 size={18} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Hands-on Projects</p>
-                      <p className="text-white text-xl font-black leading-none">50+ Built</p>
+                      <p className="text-[#64748B] text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Hands-on Projects</p>
+                      <p className="text-[#0F172A] text-xl font-black leading-none">50+ Built</p>
                     </div>
                   </motion.div>
 
@@ -537,8 +537,8 @@ const HomePage = () => {
                       <Users size={18} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Expert Mentors</p>
-                      <p className="text-white text-xl font-black leading-none">1:1 Guidance</p>
+                      <p className="text-[#64748B] text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Expert Mentors</p>
+                      <p className="text-[#0F172A] text-xl font-black leading-none">1:1 Guidance</p>
                     </div>
                   </motion.div>
 
@@ -554,14 +554,14 @@ const HomePage = () => {
                       <BrainCircuit size={18} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Latest Tech Stack</p>
-                      <p className="text-white text-xl font-black leading-none">GenAI & Cloud</p>
+                      <p className="text-[#64748B] text-[9px] font-bold uppercase tracking-[0.15em] mb-1">Latest Tech Stack</p>
+                      <p className="text-[#0F172A] text-xl font-black leading-none">GenAI & Cloud</p>
                     </div>
                   </motion.div>
                 </div>
 
-                <div className="mt-5 pt-4.5 border-t border-gray-100 text-center text-gray-500 text-xs flex justify-center items-center gap-1.5 relative z-10" style={{ transform: "translateZ(20px)" }}>
-                  <Award size={13} className="text-[#0F7B53]" /> Master the skills top tech giants demand
+                <div className="mt-5 pt-4.5 border-t border-gray-100 text-center text-[#64748B] text-xs flex justify-center items-center gap-1.5 relative z-10" style={{ transform: "translateZ(20px)" }}>
+                  <Award size={13} className="text-[#2563EB]" /> Master the skills top tech giants demand
                 </div>
               </motion.div>
               </div>
@@ -572,7 +572,7 @@ const HomePage = () => {
 
       {/* ─── Premium Placement Partners Section ─── */}
       {/* ─── Premium Placement Partners Section ─── */}
-      <section className="relative py-8 overflow-hidden bg-[#020202] border-y border-white/5">
+      <section className="relative py-8 overflow-hidden bg-[#F8FAFC] border-y border-[#E2E8F0]">
         {/* Background Gradients & Glows */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[300px] bg-gradient-to-r from-[#00FFA3]/10 via-blue-500/10 to-purple-500/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
         
@@ -594,7 +594,7 @@ const HomePage = () => {
               {[...companies, ...companies, ...companies].map((c, i) => (
                 <div 
                   key={`reel1-${i}`} 
-                  className="group/logo flex-shrink-0 flex items-center justify-center w-[140px] h-[55px] bg-white rounded-xl shadow-lg border border-white/10 cursor-pointer hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,163,0.3)] transition-all duration-300"
+                  className="group/logo flex-shrink-0 flex items-center justify-center w-[140px] h-[55px] bg-white rounded-xl shadow-lg border border-[#E2E8F0] cursor-pointer hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,163,0.3)] transition-all duration-300"
                 >
                   <img 
                     src={c.logo} 
@@ -614,7 +614,7 @@ const HomePage = () => {
               {[...companies, ...companies, ...companies].reverse().map((c, i) => (
                 <div 
                   key={`reel2-${i}`} 
-                  className="group/logo flex-shrink-0 flex items-center justify-center w-[140px] h-[55px] bg-white rounded-xl shadow-lg border border-white/10 cursor-pointer hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,163,0.3)] transition-all duration-300"
+                  className="group/logo flex-shrink-0 flex items-center justify-center w-[140px] h-[55px] bg-white rounded-xl shadow-lg border border-[#E2E8F0] cursor-pointer hover:scale-105 hover:shadow-[0_0_20px_rgba(0,255,163,0.3)] transition-all duration-300"
                 >
                   <img 
                     src={c.logo} 
@@ -633,21 +633,21 @@ const HomePage = () => {
       {/* ─── NEW: Qualification Filter ─── */}
       <LandingWhoIsThisFor />
 
-      {/* ─── Why ΣxpoGraph (New Comparison Section) ─── */}
-      <LandingWhyΣxpoGraph />
+      {/* ─── Why Aiiens Campus (New Comparison Section) ─── */}
+      <LandingWhyAiiensCampus />
 
       {/* ─── Bento Edge Section ─── */}
-      <section style={{ padding: "30px 0 110px", background: "#FFFFFF" }} id="edge">
+      <section style={{ padding: "30px 0 110px", background: "transparent" }} id="edge">
         <div style={{ width: "min(92%, 1250px)", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "56px" }}>
-            <span style={{ display: "inline-block", fontSize: "11px", fontWeight: 700, letterSpacing: "2.5px", textTransform: "uppercase", color: "#0F7B53", background: "rgba(15,123,83,0.08)", padding: "6px 16px", borderRadius: "99px", marginBottom: "20px" }}>
-              The ΣxpoGraph Edge
+            <span style={{ display: "inline-block", fontSize: "11px", fontWeight: 700, letterSpacing: "2.5px", textTransform: "uppercase", color: "#22d3ee", background: "rgba(6,182,212,0.1)", border: "1px solid rgba(6,182,212,0.2)", padding: "6px 16px", borderRadius: "99px", marginBottom: "20px" }}>
+              The Aiiens Campus Edge
             </span>
-            <h2 className="lp-font-outfit text-[#111111] font-extrabold leading-tight" style={{ fontSize: "clamp(30px, 4.2vw, 50px)", maxWidth: "780px", margin: "0 auto 16px" }}>
+            <h2 className="lp-font-outfit text-[#0F172A] font-extrabold leading-tight" style={{ fontSize: "clamp(30px, 4.2vw, 50px)", maxWidth: "780px", margin: "0 auto 16px" }}>
               Elite mentorship, production depth,<br className="hidden md:block" /> and outcomes that actually matter.
             </h2>
-            <p style={{ fontSize: "clamp(15px, 1.3vw, 17px)", color: "#6B7280", lineHeight: 1.7, maxWidth: "600px", margin: "0 auto", fontWeight: 400 }}>
-              Built for ambitious engineers who want more than beginner tutorials — ΣxpoGraph delivers real production depth, senior-level mentorship, and a hiring-focused system designed for high-growth tech careers.
+            <p style={{ fontSize: "clamp(15px, 1.3vw, 17px)", color: "#475569", lineHeight: 1.7, maxWidth: "600px", margin: "0 auto", fontWeight: 400 }}>
+              Built for ambitious engineers who want more than beginner tutorials — Aiiens Campus delivers real production depth, senior-level mentorship, and a hiring-focused system designed for high-growth tech careers.
             </p>
           </div>
 
@@ -672,16 +672,16 @@ const HomePage = () => {
                     {/* API Gateway */}
                     <div className="flex justify-center relative">
                        <div className="flex flex-col items-center gap-2">
-                          <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.05)]">
-                             <Server size={22} className="text-white/60" />
+                          <div className="w-14 h-14 rounded-2xl bg-white border border-[#E2E8F0] flex items-center justify-center backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                             <Server size={22} className="text-[#0F172A]/60" />
                           </div>
-                          <span className="text-[8px] text-white/40 font-mono tracking-widest uppercase">Load Balancer</span>
+                          <span className="text-[8px] text-[#0F172A]/40 font-mono tracking-widest uppercase">Load Balancer</span>
                        </div>
                     </div>
                     
                     {/* Connecting lines */}
                     <div className="w-px h-6 bg-gradient-to-b from-white/20 to-transparent relative">
-                       <div className="absolute top-full left-1/2 -translate-x-1/2 w-[220px] h-px bg-white/10" />
+                       <div className="absolute top-full left-1/2 -translate-x-1/2 w-[220px] h-px bg-[#F8FAFC]" />
                     </div>
 
                     <div className="flex gap-[70px] w-full justify-center">
@@ -689,31 +689,31 @@ const HomePage = () => {
                        {[1, 2, 3].map((i) => (
                          <div key={i} className="flex flex-col items-center gap-2 relative">
                             <div className="absolute -top-6 left-1/2 w-px h-6 bg-gradient-to-t from-white/10 to-transparent" />
-                            <div className="w-12 h-12 rounded-xl bg-[#209F70]/10 border border-[#209F70]/20 flex items-center justify-center backdrop-blur-md shadow-[0_0_15px_rgba(32,159,112,0.15)]">
-                               <Cpu size={18} className="text-[#209F70]" />
+                            <div className="w-12 h-12 rounded-xl bg-[#DBEAFE] border border-indigo-500/20 flex items-center justify-center backdrop-blur-md shadow-sm">
+                               <Cpu size={18} className="text-[#2563EB]" />
                             </div>
-                            <span className="text-[7px] text-[#209F70]/60 font-mono tracking-wider uppercase">Worker {i}</span>
+                            <span className="text-[7px] text-indigo-300/60 font-mono tracking-wider uppercase">Worker {i}</span>
                          </div>
                        ))}
                     </div>
                  </div>
               </div>
 
-              <div className="absolute top-10 right-10 p-4.5 rounded-2xl bg-white/10 border border-white/10 shadow-sm text-white transform transition-transform duration-700 group-hover:translate-z-20 group-hover:-translate-y-2">
+              <div className="absolute top-10 right-10 p-4.5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-sm text-[#0F172A] transform transition-transform duration-700 group-hover:translate-z-20 group-hover:-translate-y-2">
                 <Server size={34} strokeWidth={1.5} />
               </div>
 
               <div className="relative z-10 max-w-xl preserve-3d" style={{ transform: "translateZ(30px)" }}>
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/10 rounded-full border border-white/20 text-[9px] font-bold uppercase tracking-widest text-white mb-6 shadow-sm">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#F8FAFC] rounded-full border border-[#E2E8F0] text-[9px] font-bold uppercase tracking-widest text-[#0F172A] mb-6 shadow-sm">
                   <Cpu size={11} /> Infrastructure
                 </div>
-                <h3 className="lp-font-outfit text-2xl md:text-3xl font-extrabold text-white mb-4">Master Complex Enterprise Architectures.</h3>
-                <p className="text-gray-300 text-[15px] leading-relaxed mb-6 font-light">
+                <h3 className="lp-font-outfit text-2xl md:text-3xl font-extrabold text-[#0F172A] mb-4">Master Complex Enterprise Architectures.</h3>
+                <p className="text-[#475569] text-[15px] leading-relaxed mb-6 font-light">
                   No toy databases. Learn to configure clean distributed backend endpoints, optimize SQL indexing, implement container clusters, and manage scalable cloud server workflows.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["System Design", "Cloud Native", "Kubernetes", "Generative AI"].map((tag, i) => (
-                    <span key={i} className="px-3.5 py-1.5 rounded-xl bg-white/10 border border-white/20 shadow-sm text-xs font-semibold text-white">{tag}</span>
+                    <span key={i} className="px-3.5 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] shadow-sm text-xs font-semibold text-[#0F172A]">{tag}</span>
                   ))}
                 </div>
               </div>
@@ -732,12 +732,12 @@ const HomePage = () => {
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#0A5A3D]/[0.15] to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-[32px]" />
-              <div className="w-12 h-12 rounded-2xl bg-white/10 text-white flex items-center justify-center border border-white/20 mb-8 transform transition-transform group-hover:translate-z-20 group-hover:scale-110 shadow-inner">
+              <div className="w-12 h-12 rounded-2xl bg-[#F8FAFC] text-[#0F172A] flex items-center justify-center border border-[#E2E8F0] mb-8 transform transition-transform group-hover:translate-z-20 group-hover:scale-110 shadow-inner">
                 <Laptop size={22} strokeWidth={1.5} />
               </div>
               <div className="preserve-3d" style={{ transform: "translateZ(20px)" }}>
-                <h4 className="text-lg font-bold text-white mb-2.5">Live Mentorship</h4>
-                <p className="text-gray-300 text-sm leading-relaxed font-light">
+                <h4 className="text-lg font-bold text-[#0F172A] mb-2.5">Live Mentorship</h4>
+                <p className="text-[#475569] text-sm leading-relaxed font-light">
                   Architectural progress audits and weekly casework feedback loops led by active industry practitioners.
                 </p>
               </div>
@@ -756,12 +756,12 @@ const HomePage = () => {
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#209F70]/[0.15] to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-[32px]" />
-              <div className="w-12 h-12 rounded-2xl bg-white/10 text-white flex items-center justify-center border border-white/20 mb-8 transform transition-transform group-hover:translate-z-20 group-hover:scale-110 shadow-inner">
+              <div className="w-12 h-12 rounded-2xl bg-[#F8FAFC] text-[#0F172A] flex items-center justify-center border border-[#E2E8F0] mb-8 transform transition-transform group-hover:translate-z-20 group-hover:scale-110 shadow-inner">
                 <Users size={22} strokeWidth={1.5} />
               </div>
               <div className="preserve-3d" style={{ transform: "translateZ(20px)" }}>
-                <h4 className="text-lg font-bold text-white mb-2.5">Platform Placements</h4>
-                <p className="text-gray-300 text-sm leading-relaxed font-light">
+                <h4 className="text-lg font-bold text-[#0F172A] mb-2.5">Platform Placements</h4>
+                <p className="text-[#475569] text-sm leading-relaxed font-light">
                   Unlock priority referral pipelines to corporate staffing networks across our verified corporate network.
                 </p>
               </div>
@@ -773,16 +773,16 @@ const HomePage = () => {
 
 
       {/* ─── Flagship Programs Slider (New Slide Visual Carousel) ─── */}
-      <section className="py-24 lg:py-32 bg-[#020408] border-y border-white/5 relative overflow-hidden" id="flagship-programs">
+      <section className="py-24 lg:py-32 bg-transparent relative overflow-hidden" id="flagship-programs">
         {/* Subtle Background Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#10b981]/10 blur-[150px] rounded-[100%] pointer-events-none opacity-50"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#DBEAFE] blur-[150px] rounded-[100%] pointer-events-none opacity-50"></div>
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay pointer-events-none"></div>
 
         <div className="max-w-[1250px] mx-auto px-6 text-center mb-16 relative z-10">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-white/5 border border-white/10 shadow-[0_0_15px_rgba(16,185,129,0.15)] text-[#10b981] font-black text-[11px] uppercase tracking-[3px] px-5 py-2 rounded-full mb-6 backdrop-blur-md"
+            className="inline-flex items-center gap-2 bg-white border border-[#E2E8F0] shadow-[0_0_15px_rgba(16,185,129,0.15)] text-[#2563EB] font-black text-[11px] uppercase tracking-[3px] px-5 py-2 rounded-full mb-6 backdrop-blur-md"
           >
             Flagship Specializations
           </motion.span>
@@ -790,7 +790,7 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="lp-font-outfit text-white font-black tracking-tight leading-tight text-glow mb-6" style={{ fontSize: "clamp(36px, 4.5vw, 52px)" }}
+            className="lp-font-outfit text-[#0F172A] font-black tracking-tight leading-tight text-glow mb-6" style={{ fontSize: "clamp(36px, 4.5vw, 52px)" }}
           >
             Specialized <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#3b82f6]">Career Paths</span>
           </motion.h2>
@@ -798,7 +798,7 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 text-lg font-light max-w-2xl mx-auto"
+            className="text-[#64748B] text-lg font-light max-w-2xl mx-auto"
           >
             Acquire elite system design and AI capabilities through industry-certified program tracks designed for the modern tech landscape.
           </motion.p>
@@ -829,29 +829,29 @@ const HomePage = () => {
                   <div
                     key={slide.id}
                     className={`program-slide-card rounded-[40px] p-8 md:p-14 overflow-hidden border ${
-                      isActive ? "bg-[#0a0a12]/90 border-white/20 opacity-100 shadow-[0_30px_80px_rgba(0,0,0,0.8)] z-10 backdrop-blur-2xl" : "bg-black/40 border-white/5 opacity-40 pointer-events-none z-0 backdrop-blur-md"
+                      isActive ? "bg-white border-[#E2E8F0] opacity-100 shadow-[0_20px_40px_rgba(37,99,235,0.08)] z-10 backdrop-blur-2xl" : "bg-[#F8FAFC]/60 border-[#E2E8F0] opacity-40 pointer-events-none z-0 backdrop-blur-md"
                     }`}
                     style={{ transform: transformStyle, transition: "all 0.8s cubic-bezier(0.25, 1, 0.5, 1)" }}
                   >
                     {/* Glowing Accent Ring */}
-                    {isActive && <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} opacity-10 blur-3xl pointer-events-none`}></div>}
+                    {isActive && <div className={`absolute inset-0 bg-gradient-to-r from-[#DBEAFE] to-[#EFF6FF] opacity-40 blur-3xl pointer-events-none`}></div>}
                     
                     <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-16 items-center preserve-3d relative z-10">
                       {/* Left Side Program Details */}
                       <div>
-                        <div className="inline-block bg-white/5 border border-white/10 text-[#10b981] text-[10px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-xl mb-6 shadow-lg">
+                        <div className="inline-block bg-white border border-[#E2E8F0] text-[#2563EB] text-[10px] font-black uppercase tracking-[0.2em] px-4 py-2 rounded-xl mb-6 shadow-lg">
                           {slide.eyebrow}
                         </div>
-                        <h3 className="lp-font-outfit text-white font-black leading-tight tracking-tight mb-6" style={{ fontSize: "clamp(28px, 3.5vw, 42px)" }}>
+                        <h3 className="lp-font-outfit text-[#0F172A] font-black leading-tight tracking-tight mb-6" style={{ fontSize: "clamp(28px, 3.5vw, 42px)" }}>
                           {slide.title}
                         </h3>
-                        <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-10 font-light max-w-xl">
+                        <p className="text-[#64748B] text-base md:text-lg leading-relaxed mb-10 font-light max-w-xl">
                           {slide.desc}
                         </p>
                         
                         <button
                           onClick={() => navigate(slide.link)}
-                          className="px-8 h-[54px] bg-white text-black font-black rounded-2xl hover:bg-[#10b981] hover:text-white hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 text-sm shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(16,185,129,0.4)]"
+                          className="px-8 h-[54px] bg-[#2563EB] text-white font-black rounded-2xl hover:bg-[#1D4ED8] hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 text-sm shadow-md hover:shadow-lg"
                         >
                           {slide.buttonText} <ChevronRight size={16} strokeWidth={3} />
                         </button>
@@ -861,42 +861,42 @@ const HomePage = () => {
                       <div className="relative h-[260px] flex items-center justify-center w-full">
                         <div className="relative w-full max-w-[340px] h-[200px]">
                           {/* Card 1: Bottom (Blurred offset) */}
-                          <div className="absolute top-[0px] left-1/2 transform -translate-x-1/2 w-[84%] bg-black/60 border border-white/5 rounded-[24px] p-4 shadow-2xl opacity-40 blur-[1px] z-0 select-none backdrop-blur-md">
+                          <div className="absolute top-[0px] left-1/2 transform -translate-x-1/2 w-[84%] bg-[#F8FAFC]/60 border border-[#E2E8F0] rounded-[24px] p-4 shadow-2xl opacity-40 blur-[1px] z-0 select-none backdrop-blur-md">
                             <div className="flex justify-between items-center">
                               {renderCompanyLogo(slide.visualCards[2].logo)}
-                              <div className="flex items-center gap-1.5 select-none bg-white/5 px-2 py-1 rounded-md">
-                                <Clock size={10} className="text-gray-500" />
-                                <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wide">{slide.visualCards[2].detail}</span>
+                              <div className="flex items-center gap-1.5 select-none bg-white px-2 py-1 rounded-md">
+                                <Clock size={10} className="text-[#64748B]" />
+                                <span className="text-[10px] text-[#64748B] font-bold uppercase tracking-wide">{slide.visualCards[2].detail}</span>
                               </div>
                             </div>
                           </div>
 
                           {/* Card 2: Middle (Semi-opaque offset) */}
-                          <div className="absolute top-[32px] left-1/2 transform -translate-x-1/2 w-[92%] bg-[#0a0a12]/80 border border-white/10 rounded-[24px] p-4 shadow-[0_15px_40px_rgba(0,0,0,0.5)] opacity-80 blur-[0.3px] z-10 select-none backdrop-blur-xl">
+                          <div className="absolute top-[32px] left-1/2 transform -translate-x-1/2 w-[92%] bg-white/90 border border-[#E2E8F0] rounded-[24px] p-4 shadow-[0_15px_30px_rgba(37,99,235,0.05)] opacity-90 blur-[0.3px] z-10 select-none backdrop-blur-xl">
                             <div className="flex justify-between items-center">
                               {renderCompanyLogo(slide.visualCards[1].logo)}
-                              <div className="flex items-center gap-1.5 select-none bg-white/5 px-2 py-1 rounded-md">
-                                <Clock size={10} className="text-gray-400" />
-                                <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wide">{slide.visualCards[1].detail}</span>
+                              <div className="flex items-center gap-1.5 select-none bg-white px-2 py-1 rounded-md">
+                                <Clock size={10} className="text-[#64748B]" />
+                                <span className="text-[10px] text-[#64748B] font-bold uppercase tracking-wide">{slide.visualCards[1].detail}</span>
                               </div>
                             </div>
                           </div>
 
                           {/* Card 3: Top (Fully sharp card in front) */}
-                          <div className="absolute top-[64px] left-1/2 transform -translate-x-1/2 w-[100%] bg-gradient-to-br from-[#12131a] to-[#05050A] border border-white/20 rounded-[24px] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.8)] z-20 backdrop-blur-2xl">
-                            <div className="flex justify-between items-center border-b border-white/10 pb-3 mb-4">
+                          <div className="absolute top-[64px] left-1/2 transform -translate-x-1/2 w-[100%] bg-white border border-[#E2E8F0] rounded-[24px] p-6 shadow-[0_20px_40px_rgba(37,99,235,0.08)] z-20 backdrop-blur-2xl">
+                            <div className="flex justify-between items-center border-b border-[#E2E8F0] pb-3 mb-4">
                               {renderCompanyLogo(slide.visualCards[0].logo)}
-                              <div className="flex items-center gap-1.5 select-none bg-white/10 px-2.5 py-1 rounded-md border border-white/5">
-                                <Clock size={11} className="text-[#10b981]" />
-                                <span className="text-[10px] text-[#10b981] font-black uppercase tracking-widest">{slide.visualCards[0].detail}</span>
+                              <div className="flex items-center gap-1.5 select-none bg-[#F8FAFC] px-2.5 py-1 rounded-md border border-[#E2E8F0]">
+                                <Clock size={11} className="text-[#2563EB]" />
+                                <span className="text-[10px] text-[#2563EB] font-black uppercase tracking-widest">{slide.visualCards[0].detail}</span>
                               </div>
                             </div>
                             
-                            <p className="text-white text-sm font-black tracking-wide mb-5 leading-tight">{slide.visualCards[0].role}</p>
+                            <p className="text-[#0F172A] text-sm font-black tracking-wide mb-5 leading-tight">{slide.visualCards[0].role}</p>
                             
                             <button
                               onClick={() => navigate(slide.link)}
-                              className="w-full py-3 bg-white/5 hover:bg-[#10b981] border border-white/10 hover:border-[#10b981] text-white font-black text-xs rounded-xl tracking-[0.2em] uppercase transition-all duration-300 shadow-lg select-none flex items-center justify-center gap-2"
+                              className="w-full py-3 bg-white hover:bg-[#EFF6FF] border border-[#2563EB] hover:border-[#1D4ED8] text-[#2563EB] hover:text-[#1D4ED8] font-black text-xs rounded-xl tracking-[0.2em] uppercase transition-all duration-300 shadow-sm select-none flex items-center justify-center gap-2"
                             >
                               {slide.visualCards[0].action} <ArrowRight size={14} />
                             </button>
@@ -915,13 +915,13 @@ const HomePage = () => {
           <div className="flex items-center justify-center gap-6 mt-12 select-none relative z-20">
             <button 
               onClick={handlePrevProgram} 
-              className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/30 hover:scale-110 transition-all shadow-lg backdrop-blur-md" 
+              className="w-12 h-12 rounded-full bg-white border border-[#E2E8F0] flex items-center justify-center text-[#0F172A] hover:bg-[#F8FAFC] hover:border-[#2563EB] hover:scale-110 transition-all shadow-lg backdrop-blur-md" 
               aria-label="Previous Program"
             >
               <ChevronLeft size={20} strokeWidth={2.5} />
             </button>
             
-            <div className="flex gap-3 items-center bg-black/40 px-4 py-3 rounded-full border border-white/5 backdrop-blur-xl">
+            <div className="flex gap-3 items-center bg-[#F8FAFC]/40 px-4 py-3 rounded-full border border-[#E2E8F0] backdrop-blur-xl">
               {programSlides.map((_, i) => (
                 <button
                   key={i}
@@ -935,7 +935,7 @@ const HomePage = () => {
 
             <button 
               onClick={handleNextProgram} 
-              className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-white/30 hover:scale-110 transition-all shadow-lg backdrop-blur-md" 
+              className="w-12 h-12 rounded-full bg-white border border-[#E2E8F0] flex items-center justify-center text-[#0F172A] hover:bg-[#F8FAFC] hover:border-[#2563EB] hover:scale-110 transition-all shadow-lg backdrop-blur-md" 
               aria-label="Next Program"
             >
               <ChevronRight size={20} strokeWidth={2.5} />
@@ -979,8 +979,8 @@ const HomePage = () => {
                   <span style={{ display: "inline-block", fontSize: "10px", fontWeight: 700, letterSpacing: "1.5px", color: "#f59e0b", background: "rgba(245,158,11,0.15)", padding: "5px 12px", borderRadius: "99px", marginBottom: "18px" }} className="uppercase">
                     Access 3000+ Companies
                   </span>
-                  <h3 className="text-2xl font-bold text-white mb-4 leading-snug lp-font-outfit">Get Referrals</h3>
-                  <p className="text-gray-300 text-[14.5px] leading-relaxed font-light">
+                  <h3 className="text-2xl font-bold text-[#0F172A] mb-4 leading-snug lp-font-outfit">Get Referrals</h3>
+                  <p className="text-[#475569] text-[14.5px] leading-relaxed font-light">
                     Boost your job prospects with direct developer referrals from our vast enterprise network of companies.
                   </p>
                 </div>
@@ -1033,8 +1033,8 @@ const HomePage = () => {
                   <span style={{ display: "inline-block", fontSize: "10px", fontWeight: 700, letterSpacing: "1.5px", color: "#38bdf8", background: "rgba(56,189,248,0.15)", padding: "5px 12px", borderRadius: "99px", marginBottom: "18px" }} className="uppercase">
                     Unlimited 1:1 Mock Prep
                   </span>
-                  <h3 className="text-2xl font-bold text-white mb-4 leading-snug lp-font-outfit">Company-Specific Mock Prep</h3>
-                  <p className="text-gray-300 text-[14.5px] leading-relaxed font-light">
+                  <h3 className="text-2xl font-bold text-[#0F172A] mb-4 leading-snug lp-font-outfit">Company-Specific Mock Prep</h3>
+                  <p className="text-[#475569] text-[14.5px] leading-relaxed font-light">
                     Get ready for core evaluations with heavily customized, rigorous 1-on-1 mock interviews tailored specifically for your target companies.
                   </p>
                 </div>
@@ -1044,12 +1044,12 @@ const HomePage = () => {
               <div className="relative z-10 w-full md:w-[50%] h-[260px] bg-white border border-gray-100 rounded-2xl overflow-hidden p-4 flex flex-col justify-between shadow-inner">
                 <div className="flex items-center justify-between border-b border-gray-100 pb-2.5 mb-2 shrink-0">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0F7B53] animate-pulse" />
-                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Tailored Planner</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse" />
+                    <span className="text-[10px] font-bold text-[#64748B] uppercase tracking-widest">Tailored Planner</span>
                   </div>
                   <div className="flex gap-2">
-                    <span className="text-[9px] font-bold text-gray-500 bg-gray-50 px-2 py-0.5 rounded border border-gray-200 uppercase">MAY 29</span>
-                    <span className="text-[9px] font-bold text-gray-500 bg-gray-50 px-2 py-0.5 rounded border border-gray-200 uppercase">MAY 30</span>
+                    <span className="text-[9px] font-bold text-[#64748B] bg-gray-50 px-2 py-0.5 rounded border border-gray-200 uppercase">MAY 29</span>
+                    <span className="text-[9px] font-bold text-[#64748B] bg-gray-50 px-2 py-0.5 rounded border border-gray-200 uppercase">MAY 30</span>
                   </div>
                 </div>
 
@@ -1063,7 +1063,7 @@ const HomePage = () => {
                     <div className="flex justify-between items-end mt-2">
                       <span className="text-[9px] font-bold text-[#e65100]">14:30 - 15:30</span>
                       <span className="px-2.5 py-1 bg-white text-[8px] font-black text-[#e65100] rounded-full flex items-center gap-1 shadow-sm hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#ffb74d]">
-                        <span className="w-1 h-1 rounded-full bg-[#0F7B53] animate-ping" /> Join Mock
+                        <span className="w-1 h-1 rounded-full bg-[#2563EB] animate-ping" /> Join Mock
                       </span>
                     </div>
                   </div>
@@ -1076,7 +1076,7 @@ const HomePage = () => {
                     </div>
                     <div className="flex justify-between items-center mt-2.5">
                       <span className="text-[9px] font-bold text-[#1565c0]">15:30 - 16:30</span>
-                      <span className="text-[8px] font-bold text-[#1976d2]">Hosted by ΣxpoGraph</span>
+                      <span className="text-[8px] font-bold text-[#1976d2]">Hosted by Aiiens Campus</span>
                     </div>
                   </div>
                 </div>
@@ -1092,8 +1092,8 @@ const HomePage = () => {
                   <span style={{ display: "inline-block", fontSize: "10px", fontWeight: 700, letterSpacing: "1.5px", color: "#34d399", background: "rgba(52,211,153,0.15)", padding: "5px 12px", borderRadius: "99px", marginBottom: "18px" }} className="uppercase">
                     Interactive Coding Sessions
                   </span>
-                  <h3 className="text-2xl font-bold text-white mb-4 leading-snug lp-font-outfit">Live Coding Practice</h3>
-                  <p className="text-gray-300 text-[14.5px] leading-relaxed font-light">
+                  <h3 className="text-2xl font-bold text-[#0F172A] mb-4 leading-snug lp-font-outfit">Live Coding Practice</h3>
+                  <p className="text-[#475569] text-[14.5px] leading-relaxed font-light">
                     Improve your core systems execution skills with weekly live coding exercises and real time feedback.
                   </p>
                 </div>
@@ -1104,33 +1104,33 @@ const HomePage = () => {
                 {/* Left: Video panel */}
                 <div className="relative h-full bg-[#F8FAF8] rounded-xl overflow-hidden flex flex-col justify-between p-2.5 border border-gray-200">
                   <div className="flex justify-between items-center">
-                    <span className="px-1.5 py-0.5 rounded bg-red-500 text-white text-[8px] font-bold tracking-wider">LIVE</span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#0F7B53] animate-pulse" />
+                    <span className="px-1.5 py-0.5 rounded bg-red-500 text-[#0F172A] text-[8px] font-bold tracking-wider">LIVE</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse" />
                   </div>
                   {/* Mentor avatar visual */}
                   <div className="flex flex-col items-center justify-center flex-grow py-2">
                     <div className="w-11 h-11 rounded-full bg-white border border-gray-300 flex items-center justify-center text-xs font-bold text-[#0A5A3D] shadow-sm">SL</div>
                     <span className="text-[9px] font-bold text-gray-600 mt-2">Suryansh L.</span>
                   </div>
-                  <div className="text-[8px] text-gray-400 font-medium text-center">Mentor Lead</div>
+                  <div className="text-[8px] text-[#64748B] font-medium text-center">Mentor Lead</div>
                 </div>
 
                 {/* Right: Code editor console */}
                 <div className="relative h-full bg-[#f1f5f9] rounded-xl border border-gray-200 overflow-hidden flex flex-col justify-between p-3 font-mono text-[9px] text-gray-600">
                   <div className="flex items-center gap-1.5 border-b border-gray-200 pb-2 mb-2 shrink-0">
                     <span className="w-2 h-2 rounded-full bg-red-400" /><span className="w-2 h-2 rounded-full bg-yellow-400" />
-                    <span className="text-[8px] text-gray-500 ml-1.5 select-none">solution.py</span>
+                    <span className="text-[8px] text-[#64748B] ml-1.5 select-none">solution.py</span>
                   </div>
                   <div className="flex-grow select-none flex flex-col gap-1 leading-normal font-medium overflow-hidden">
                     <div className="text-gray-800">1  <span className="text-purple-600 font-bold">def</span> twoSum(nums, target):</div>
-                    <div className="text-gray-500">2      seen = {}</div>
-                    <div className="text-gray-500">3      <span className="text-purple-600 font-bold">for</span> i, n <span className="text-indigo-600 font-bold">in</span> enumerate(nums):</div>
-                    <div className="text-gray-500">4          diff = target - n</div>
+                    <div className="text-[#64748B]">2      seen = {}</div>
+                    <div className="text-[#64748B]">3      <span className="text-purple-600 font-bold">for</span> i, n <span className="text-indigo-600 font-bold">in</span> enumerate(nums):</div>
+                    <div className="text-[#64748B]">4          diff = target - n</div>
                     <div className="text-gray-700">5          <span className="text-purple-600 font-bold">if</span> diff <span className="text-indigo-600 font-bold">in</span> seen:</div>
-                    <div className="text-[#0F7B53]">6              <span className="text-purple-600 font-bold">return</span> [seen[diff], i]</div>
+                    <div className="text-[#2563EB]">6              <span className="text-purple-600 font-bold">return</span> [seen[diff], i]</div>
                   </div>
                   <div className="mt-2 pt-2 border-t border-gray-200 flex items-center gap-1.5 text-[8px] text-[#0A5A3D] font-extrabold select-none shrink-0">
-                    <span className="w-1 h-1 rounded-full bg-[#0F7B53] shadow-lg animate-pulse" /> Verified Compile
+                    <span className="w-1 h-1 rounded-full bg-[#2563EB] shadow-lg animate-pulse" /> Verified Compile
                   </div>
                 </div>
               </div>
@@ -1145,8 +1145,8 @@ const HomePage = () => {
                   <span style={{ display: "inline-block", fontSize: "10px", fontWeight: 700, letterSpacing: "1.5px", color: "#fb7185", background: "rgba(251,113,133,0.15)", padding: "5px 12px", borderRadius: "99px", marginBottom: "18px" }} className="uppercase">
                     Lifetime Placement Assistance
                   </span>
-                  <h3 className="text-2xl font-bold text-white mb-4 leading-snug lp-font-outfit">Career Support</h3>
-                  <p className="text-gray-300 text-[14.5px] leading-relaxed font-light">
+                  <h3 className="text-2xl font-bold text-[#0F172A] mb-4 leading-snug lp-font-outfit">Career Support</h3>
+                  <p className="text-[#475569] text-[14.5px] leading-relaxed font-light">
                     Continue to receive targeted tech vacancies and active referral support as an alumnus.
                   </p>
                 </div>
@@ -1160,12 +1160,12 @@ const HomePage = () => {
 
                   {/* Stage 3: Top */}
                   <div className="relative z-10 flex items-center gap-3.5">
-                    <div className="w-9 h-9 rounded-full bg-white border border-[#0F7B53]/30 text-[#0F7B53] flex items-center justify-center shrink-0 z-10 shadow-sm">
+                    <div className="w-9 h-9 rounded-full bg-white border border-[#0F7B53]/30 text-[#2563EB] flex items-center justify-center shrink-0 z-10 shadow-sm">
                       <Sparkles size={14} />
                     </div>
                     <div className="flex-grow bg-white border border-gray-200 rounded-xl p-2.5 shadow-sm transition-all duration-300 hover:border-[#0F7B53]/20">
                       <h4 className="text-[#111111] font-extrabold text-[11px] leading-tight">Senior SDE (SDE 2)</h4>
-                      <p className="text-[9px] text-gray-500 mt-0.5">Microsoft • Full-time • 2023-Present</p>
+                      <p className="text-[9px] text-[#64748B] mt-0.5">Microsoft • Full-time • 2023-Present</p>
                     </div>
                   </div>
 
@@ -1176,18 +1176,18 @@ const HomePage = () => {
                     </div>
                     <div className="flex-grow bg-white border border-gray-200 rounded-xl p-2.5 shadow-sm transition-all duration-300 hover:border-[#0A5A3D]/20">
                       <h4 className="text-[#111111] font-extrabold text-[11px] leading-tight">Software Developer (SDE 1)</h4>
-                      <p className="text-[9px] text-gray-500 mt-0.5">Razorpay • Full-time • 2022-2023</p>
+                      <p className="text-[9px] text-[#64748B] mt-0.5">Razorpay • Full-time • 2022-2023</p>
                     </div>
                   </div>
 
                   {/* Stage 1: Bottom */}
                   <div className="relative z-10 flex items-center gap-3.5">
-                    <div className="w-9 h-9 rounded-full bg-gray-50 border border-gray-200 text-gray-400 flex items-center justify-center shrink-0 z-10 shadow-sm">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 border border-gray-200 text-[#64748B] flex items-center justify-center shrink-0 z-10 shadow-sm">
                       <TerminalSquare size={14} />
                     </div>
                     <div className="flex-grow bg-gray-50 border border-gray-200 rounded-xl p-2.5 shadow-sm">
                       <h4 className="text-gray-600 font-bold text-[11px] leading-tight">Quality Assurance</h4>
-                      <p className="text-[9px] text-gray-400 mt-0.5">Flipkart • Full-time • 2021-2022</p>
+                      <p className="text-[9px] text-[#64748B] mt-0.5">Flipkart • Full-time • 2021-2022</p>
                     </div>
                   </div>
                 </div>

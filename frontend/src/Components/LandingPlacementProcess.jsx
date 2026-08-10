@@ -36,7 +36,7 @@ const LandingPlacementProcess = () => {
           <h2 className="lp-font-outfit text-[#111111] font-extrabold text-4xl md:text-5xl mb-4 tracking-tight">
             How we get you hired.
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="text-[#64748B] text-lg max-w-2xl mx-auto leading-relaxed font-light">
             Getting hired isn't just about writing good code. It's about positioning. We've reverse-engineered every step of the hiring pipeline.
           </p>
         </div>
@@ -55,7 +55,7 @@ const LandingPlacementProcess = () => {
                 {/* Glowing Neon Aura */}
                 <div className="absolute inset-0 bg-[#00FFA3]/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <div className="w-[72px] h-[72px] rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center text-[#00FFA3] relative z-10 group-hover:border-[#00FFA3]/50 group-hover:shadow-[0_0_25px_rgba(0,255,163,0.3)] transition-all duration-300 transform group-hover:-translate-y-1">
+                <div className="w-[72px] h-[72px] rounded-2xl bg-[#0a0a0a] border border-[#E2E8F0] flex items-center justify-center text-[#00FFA3] relative z-10 group-hover:border-[#00FFA3]/50 group-hover:shadow-[0_0_25px_rgba(0,255,163,0.3)] transition-all duration-300 transform group-hover:-translate-y-1">
                   {step.icon}
                 </div>
                 
@@ -64,7 +64,7 @@ const LandingPlacementProcess = () => {
                 </div>
               </div>
               <h3 className="font-black text-[#111111] text-[17px] mb-3 tracking-tight transition-colors">{step.title}</h3>
-              <p className="text-gray-500 font-medium text-sm leading-relaxed">{step.description}</p>
+              <p className="text-[#64748B] font-medium text-sm leading-relaxed">{step.description}</p>
             </motion.div>
           ))}
         </div>
@@ -74,7 +74,7 @@ const LandingPlacementProcess = () => {
           {/* Cyber glow behind the whole box */}
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00FFA3]/40 via-blue-500/40 to-[#00FFA3]/40 rounded-[2rem] opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
           
-          <div className="bg-[#0a0a0a] border border-white/10 rounded-[32px] p-8 md:p-14 shadow-2xl relative z-10 overflow-hidden">
+          <div className="bg-[#0a0a0a] border border-[#E2E8F0] rounded-[32px] p-8 md:p-14 shadow-2xl relative z-10 overflow-hidden">
             {/* Cyber Grid Overlay */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
               style={{ backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)', backgroundSize: '30px 30px' }} 
@@ -82,29 +82,29 @@ const LandingPlacementProcess = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative z-10">
               <div>
-                <h4 className="text-3xl font-black text-white mb-10 tracking-tight">What learners can expect</h4>
+                <h4 className="text-3xl font-black text-[#0F172A] mb-10 tracking-tight">What learners can expect</h4>
                 <ul className="space-y-6">
-                  <li className="flex gap-4 text-gray-300 text-[15px] font-medium leading-relaxed">
+                  <li className="flex gap-4 text-[#475569] text-[15px] font-medium leading-relaxed">
                     <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
                     <span>Practical learning built around real skills, guided assignments, and project work.</span>
                   </li>
-                  <li className="flex gap-4 text-gray-300 text-[15px] font-medium leading-relaxed">
+                  <li className="flex gap-4 text-[#475569] text-[15px] font-medium leading-relaxed">
                     <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
                     <span>Regular mentorship and feedback to help students improve with clarity.</span>
                   </li>
-                  <li className="flex gap-4 text-gray-300 text-[15px] font-medium leading-relaxed">
+                  <li className="flex gap-4 text-[#475569] text-[15px] font-medium leading-relaxed">
                     <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
                     <span>Career support through resume building, mock interviews, and interview preparation.</span>
                   </li>
-                  <li className="flex gap-4 text-gray-300 text-[15px] font-medium leading-relaxed">
+                  <li className="flex gap-4 text-[#475569] text-[15px] font-medium leading-relaxed">
                     <span className="text-[#00FFA3] font-black text-xl mt-0.5 flex-shrink-0 drop-shadow-[0_0_12px_rgba(0,255,163,0.8)]">✓</span>
                     <span>A structured journey designed to help learners become industry-ready with confidence.</span>
                   </li>
                 </ul>
               </div>
 
-              <div className="border-t md:border-t-0 md:border-l border-white/10 pt-10 md:pt-0 md:pl-16 flex flex-col justify-center">
-                <h4 className="text-3xl font-black text-white mb-10 tracking-tight">Built for career readiness</h4>
+              <div className="border-t md:border-t-0 md:border-l border-[#E2E8F0] pt-10 md:pt-0 md:pl-16 flex flex-col justify-center">
+                <h4 className="text-3xl font-black text-[#0F172A] mb-10 tracking-tight">Built for career readiness</h4>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-12">
                   <div>
                     <div className="text-3xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 mb-3">15+</div>

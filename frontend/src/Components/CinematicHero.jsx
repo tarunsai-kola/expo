@@ -138,7 +138,7 @@ const CinematicHero = () => {
               ))}
             </div>
             <div style={{ fontSize: "14px", color: "var(--cine-slate)", lineHeight: 1.4 }}>
-              Join <strong>10,000+</strong> students building <br/>their future at ΣxpoGraph.
+              Join <strong>10,000+</strong> students building <br/>their future at Aiiens Campus.
             </div>
           </motion.div>
         </motion.div>

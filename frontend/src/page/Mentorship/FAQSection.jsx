@@ -6,7 +6,7 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      q: "What makes ΣxpoGraph Mentorship different?",
+      q: "What makes Aiiens Campus Mentorship different?",
       a: "Unlike traditional courses, we focus on 1:1 mentorship and live sessions with industry practitioners. You build real products, not just toy examples, and get direct internship support through our partner network."
     },
     {

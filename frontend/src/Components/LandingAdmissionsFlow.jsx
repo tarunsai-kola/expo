@@ -21,7 +21,7 @@ const LandingAdmissionsFlow = () => {
       desc: "A focused 15-minute 1:1 call with our admissions team. We assess your commitment level, technical baseline, and program readiness — not your current skill level.",
       time: "15-minute call",
       glowColor: "group-hover:from-blue-500/20 group-hover:to-cyan-500/20",
-      iconGlow: "text-cyan-400",
+      iconGlow: "text-[#2563EB]",
       numberColor: "from-blue-500 to-cyan-500"
     },
     {
@@ -37,7 +37,7 @@ const LandingAdmissionsFlow = () => {
   ];
 
   return (
-    <section className="py-32 bg-[#050505] border-t border-white/5 relative overflow-hidden">
+    <section className="py-32 bg-[#050505] border-t border-[#E2E8F0] relative overflow-hidden">
       
       {/* Cinematic TV Noise Texture Overlay */}
       <div className="absolute inset-0 opacity-[0.025] pointer-events-none mix-blend-screen z-0" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`, backgroundRepeat: 'repeat' }} />
@@ -49,14 +49,14 @@ const LandingAdmissionsFlow = () => {
         <div className="text-center mb-28">
           <div className="inline-flex items-center justify-center relative">
             <div className="absolute inset-0 bg-white/20 blur-md rounded-full opacity-0 hover:opacity-100 transition-opacity duration-500" />
-            <span className="relative inline-block text-[11px] font-black tracking-[0.2em] uppercase text-gray-300 border border-white/10 bg-white/5 px-5 py-2 rounded-full mb-6 backdrop-blur-sm shadow-[0_0_20px_rgba(255,255,255,0.03)] hover:border-white/30 transition-all duration-300">
+            <span className="relative inline-block text-[11px] font-black tracking-[0.2em] uppercase text-[#475569] border border-[#E2E8F0] bg-white px-5 py-2 rounded-full mb-6 backdrop-blur-sm shadow-[0_0_20px_rgba(255,255,255,0.03)] hover:border-[#2563EB] transition-all duration-300">
               Admissions Process
             </span>
           </div>
-          <h2 className="lp-font-outfit text-white font-extrabold text-4xl md:text-6xl mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+          <h2 className="lp-font-outfit text-[#0F172A] font-extrabold text-4xl md:text-6xl mb-6 tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
             What happens after you apply.
           </h2>
-          <p className="text-gray-400 text-[18px] max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-[#64748B] text-[18px] max-w-2xl mx-auto leading-relaxed font-medium">
             We reject more applications than we accept. Our selection process is straightforward, transparent, and quick.
           </p>
         </div>
@@ -80,7 +80,7 @@ const LandingAdmissionsFlow = () => {
               <div className={`absolute -inset-1 bg-gradient-to-br ${step.glowColor} rounded-[2.5rem] opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700`} />
               
               {/* Inner Card */}
-              <div className="relative h-full bg-[#080808]/80 backdrop-blur-3xl border border-white/5 rounded-[2.5rem] p-10 overflow-hidden flex flex-col items-center text-center transform group-hover:-translate-y-2 group-hover:border-white/20 transition-all duration-500 shadow-2xl group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <div className="relative h-full bg-[#080808]/80 backdrop-blur-3xl border border-[#E2E8F0] rounded-[2.5rem] p-10 overflow-hidden flex flex-col items-center text-center transform group-hover:-translate-y-2 group-hover:border-[#E2E8F0] transition-all duration-500 shadow-2xl group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                 
                 {/* Inner Top Lighting Beam */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -91,19 +91,19 @@ const LandingAdmissionsFlow = () => {
                 </div>
 
                 {/* Icon Glass Circle */}
-                <div className="w-[80px] h-[80px] rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 mb-8 relative group-hover:scale-110 transition-transform duration-500 z-10 shadow-[inset_0_0_20px_rgba(255,255,255,0.02)]">
+                <div className="w-[80px] h-[80px] rounded-full bg-white border border-[#E2E8F0] flex items-center justify-center text-[#64748B] mb-8 relative group-hover:scale-110 transition-transform duration-500 z-10 shadow-[inset_0_0_20px_rgba(255,255,255,0.02)]">
                   <div className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-br ${step.numberColor}`} />
                   <span className={`relative z-10 group-hover:${step.iconGlow} transition-colors duration-500`}>
                     {step.icon}
                   </span>
                 </div>
 
-                <div className="text-[11px] font-black text-gray-500 uppercase tracking-[0.2em] mb-4 z-10">{step.label}</div>
-                <h3 className="text-2xl font-black text-white mb-4 tracking-tight z-10 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all duration-500">{step.title}</h3>
-                <p className="text-gray-400 font-medium text-[15px] leading-relaxed mb-10 z-10">{step.desc}</p>
+                <div className="text-[11px] font-black text-[#64748B] uppercase tracking-[0.2em] mb-4 z-10">{step.label}</div>
+                <h3 className="text-2xl font-black text-[#0F172A] mb-4 tracking-tight z-10 group-hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] transition-all duration-500">{step.title}</h3>
+                <p className="text-[#64748B] font-medium text-[15px] leading-relaxed mb-10 z-10">{step.desc}</p>
 
                 <div className="mt-auto relative z-10">
-                  <div className="inline-flex items-center gap-2 text-[11px] font-bold text-gray-300 bg-white/5 border border-white/10 px-5 py-2.5 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:bg-white/10 group-hover:border-white/30 transition-all duration-300 backdrop-blur-md">
+                  <div className="inline-flex items-center gap-2 text-[11px] font-bold text-[#475569] bg-white border border-[#E2E8F0] px-5 py-2.5 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.2)] group-hover:bg-[#F8FAFC] group-hover:border-[#2563EB] transition-all duration-300 backdrop-blur-md">
                     {step.time}
                   </div>
                 </div>

@@ -29,14 +29,14 @@ const Dialog = ({ isOpen, onClose, fullname, errorMessage, email, counselor, dom
               Thank you for registration!
             </h3>
             <h3 className="mb-2 text-green-600 font-bold">
-              Welcome to ΣxpoGraph!
+              Welcome to Aiiens Campus!
             </h3>
             <p>
               Your dashboard access form has been submitted successfully.
             </p>
             <div className="mt-4 p-3 bg-blue-50 border-l-4 border-blue-500 rounded">
               <p className="text-sm text-gray-700">
-                <strong>Note:</strong> Please contact your assigned operations executive <br />Bhumika HK <br /> bhumika@ΣxpoGraph.org
+                <strong>Note:</strong> Please contact your assigned operations executive <br />Bhumika HK <br /> bhumika@Aiiens Campus.org
               </p>
               <a
                 href={whatsappLink}

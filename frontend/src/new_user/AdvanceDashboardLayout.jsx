@@ -117,7 +117,7 @@ const Sidebar = ({ collapsed, setCollapsed, onLogout, mobileOpen, setMobileOpen 
 
             {(!collapsed || mobileOpen) && (
                 <div className="nd-sidebar-footer">
-                    <span className="nd-sidebar-footer-text">ΣxpoGraph LMS</span>
+                    <span className="nd-sidebar-footer-text">Aiiens Campus LMS</span>
                 </div>
             )}
         </aside>

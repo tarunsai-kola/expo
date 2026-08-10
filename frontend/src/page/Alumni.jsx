@@ -120,7 +120,7 @@ const Alumni = () => {
       <div className="fixed bottom-[-20%] right-[-10%] w-[80vw] h-[80vw] max-w-[1000px] max-h-[1000px] bg-[radial-gradient(circle,_rgba(255,255,255,0.02)_0%,_transparent_60%)] pointer-events-none mix-blend-screen z-0 blur-3xl"></div>
 
       <Helmet>
-          <title>ΣxpoGraph Outcomes | Elite Career Transitions</title>
+          <title>Aiiens Campus Outcomes | Elite Career Transitions</title>
           <meta name="description" content="The ecosystem for engineering meaningful career transitions. View the outcome ledger and success dossiers."/>
       </Helmet>
       
@@ -224,7 +224,7 @@ const Alumni = () => {
               { label: "Verified Transitions", value: "45%", desc: "Learners moving entirely outside their previous industry." },
               { label: "Salary Progression", value: "140%", desc: "Average compensation growth for career switchers.", highlight: true },
               { label: "Active Network", value: "5,000+", desc: "Alumni integrated into global tech ecosystems." },
-              { label: "Hiring Partners", value: "300+", desc: "Organizations that have onboarded ΣxpoGraph talent." },
+              { label: "Hiring Partners", value: "300+", desc: "Organizations that have onboarded Aiiens Campus talent." },
             ].map((stat, i) => (
               <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i} 
                 className={`relative p-8 rounded-3xl border ${stat.highlight ? 'bg-gradient-to-b from-[#F15B29]/10 to-transparent border-[#F15B29]/30 shadow-[0_0_30px_rgba(241,91,41,0.05)]' : 'bg-white/5 border-white/10'} backdrop-blur-sm group hover:-translate-y-1 transition-transform duration-500`}

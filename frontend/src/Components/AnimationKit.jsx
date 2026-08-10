@@ -1,5 +1,5 @@
 /**
- * Reusable Framer Motion animation components for ΣxpoGraph landing page.
+ * Reusable Framer Motion animation components for Aiiens Campus landing page.
  * Provides scroll-triggered reveals, staggered children, and hover effects.
  */
 import { motion, useInView } from "framer-motion";

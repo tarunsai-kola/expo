@@ -12,10 +12,10 @@ export const fullStackData = {
   enrolled: "15,000+ Mentees Trained",
   rating: 4.85,
   pitch: "Transform your passion into a successful career in tech with mentor-led training, internship support, and real project execution.",
-  providerNote: "We are now an accredited partner under ΣxpoGraph.",
-  contactInfo: ["www.ΣxpoGraph.com", "support@ΣxpoGraph.com"],
+  providerNote: "We are now an accredited partner under Aiiens Campus.",
+  contactInfo: ["www.Aiiens Campus.com", "support@Aiiens Campus.com"],
   aboutTitle: "About Us",
-  aboutDescription: "ΣxpoGraph is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow's world.",
+  aboutDescription: "Aiiens Campus is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow's world.",
   whyTitle: "Why Full Stack Development?",
   whyPoints: [
     "Full stack developers are proficient in both frontend and backend, making them versatile assets to any tech team.",
@@ -173,22 +173,22 @@ export const fullStackData = {
   studentReviews: [
     {
       name: "Aman Nema",
-      text: "ΣxpoGraph's Full Stack Web Development program was a fantastic learning experience. The course covered HTML, CSS, JavaScript, React, and backend development with practical projects and mentor guidance.",
+      text: "Aiiens Campus's Full Stack Web Development program was a fantastic learning experience. The course covered HTML, CSS, JavaScript, React, and backend development with practical projects and mentor guidance.",
       detail: "Perfect for beginners and aspiring developers looking to enhance web development skills."
     },
     {
       name: "Himendra Shukla",
-      text: "Completing my internship at ΣxpoGraph was transformative. It gave me hands-on experience in Full Stack Web Development and prepared me for a strong career path.",
+      text: "Completing my internship at Aiiens Campus was transformative. It gave me hands-on experience in Full Stack Web Development and prepared me for a strong career path.",
       detail: "Grateful for the real-world projects, guidance, and skill-building journey."
     },
     {
       name: "Rajendra Prasad",
-      text: "I verified the certificate and found it genuine. ΣxpoGraph provides quality training and practical project exposure.",
+      text: "I verified the certificate and found it genuine. Aiiens Campus provides quality training and practical project exposure.",
       detail: "Highly recommended for learners looking for authentic and industry-aligned programs."
     },
     {
       name: "Sunil Kumar",
-      text: "My learning experience at ΣxpoGraph was outstanding and strongly focused on practical outcomes.",
+      text: "My learning experience at Aiiens Campus was outstanding and strongly focused on practical outcomes.",
       detail: "Great support from mentors and operations team throughout the training journey."
     }
   ],
@@ -202,7 +202,7 @@ export const fullStackData = {
     { q: "Do I need prior coding experience?", a: "No, this program starts from the very basics of web development. We've designed it to take you from a beginner to a job-ready developer." },
     { q: "Will I build real-world projects?", a: "Yes. You will work on two real-time industrial projects, including one minor and one major implementation with mentor guidance." },
     { q: "What kind of mentor support is included?", a: "You get 1:1 doubt-clearing sessions, weekly live classes, and project reviews from industry experts." },
-    { q: "Is internship support included?", a: "Yes, ΣxpoGraph provides internship support and project-based mentorship aligned with industry requirements." },
+    { q: "Is internship support included?", a: "Yes, Aiiens Campus provides internship support and project-based mentorship aligned with industry requirements." },
     { q: "What happens if I miss a live session?", a: "All live sessions are recorded and made available on your learning dashboard for later viewing." }
   ],
   careerPaths: {

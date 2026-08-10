@@ -14,7 +14,7 @@ const AdvanceApplyPage = () => {
             
             {/* Informational background text if needed */}
             <div className="fixed inset-0 -z-10 bg-[#fafafa] flex flex-col items-center justify-center opacity-50">
-                <h1 className="text-[15vw] font-black text-slate-200 select-none">ΣXPOGRAPH</h1>
+                <h1 className="text-[15vw] font-black text-slate-200 select-none">AIIENS CAMPUS</h1>
             </div>
         </div>
     );

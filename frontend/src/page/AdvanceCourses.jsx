@@ -163,7 +163,7 @@ const learnerTestimonials = [
     date: "Mar 10, 2021",
     image: mithunImg,
     quote:
-      "Successfully completed my full stack web development internship at ΣxpoGraph. Sessions were interactive, practical, and highly engaging with excellent mentor support.",
+      "Successfully completed my full stack web development internship at Aiiens Campus. Sessions were interactive, practical, and highly engaging with excellent mentor support.",
   },
 ];
 

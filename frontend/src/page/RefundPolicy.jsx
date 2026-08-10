@@ -55,7 +55,7 @@ const RefundPolicy = () => {
                 Non-Refundable Standard
               </h2>
               <div className="pl-14 space-y-4 text-gray-400 leading-relaxed text-sm md:text-base font-light">
-                <p>At ΣxpoGraph, we invest heavily in curating industry-leading curricula, engaging expert mentors, and maintaining elite technological infrastructures. For this reason, all fees, tuition, and payments made towards any of our educational programs are strictly <strong className="text-white">non-refundable</strong> under any circumstances.</p>
+                <p>At Aiiens Campus, we invest heavily in curating industry-leading curricula, engaging expert mentors, and maintaining elite technological infrastructures. For this reason, all fees, tuition, and payments made towards any of our educational programs are strictly <strong className="text-white">non-refundable</strong> under any circumstances.</p>
                 <p>This policy remains in effect regardless of participant withdrawal, cancellation, non-completion, dismissal, or any other personal or professional reason affecting program attendance.</p>
               </div>
             </section>
@@ -80,7 +80,7 @@ const RefundPolicy = () => {
                 Exceptional Circumstances
               </h2>
               <div className="pl-14 space-y-4 text-gray-400 leading-relaxed text-sm md:text-base font-light">
-                <p>The only exception to our No Refund Policy is in the highly unlikely event that ΣxpoGraph is permanently unable to deliver the agreed-upon program due to unforeseen operational circumstances on our end. In such cases, a prorated refund or alternative program placement will be provided at our sole discretion.</p>
+                <p>The only exception to our No Refund Policy is in the highly unlikely event that Aiiens Campus is permanently unable to deliver the agreed-upon program due to unforeseen operational circumstances on our end. In such cases, a prorated refund or alternative program placement will be provided at our sole discretion.</p>
               </div>
             </section>
 
@@ -97,7 +97,7 @@ const RefundPolicy = () => {
                 <h2 className="text-2xl font-black text-white mb-2 ag-font-outfit">Need Administrative Support?</h2>
                 <p className="text-sm text-gray-400 max-w-sm">We are dedicated to offering programs that meet the highest educational standards. Reach out to our support team for any billing inquiries.</p>
               </div>
-              <a href="mailto:support@ΣxpoGraph.com" className="relative z-10 px-8 py-4 bg-white text-blue-950 hover:bg-blue-50 font-black rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] whitespace-nowrap hover:scale-105 duration-300">
+              <a href="mailto:support@Aiiens Campus.com" className="relative z-10 px-8 py-4 bg-white text-blue-950 hover:bg-blue-50 font-black rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] whitespace-nowrap hover:scale-105 duration-300">
                 Contact Support
               </a>
             </section>

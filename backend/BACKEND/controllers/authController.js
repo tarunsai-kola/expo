@@ -12,7 +12,7 @@ const jwt = require("jsonwebtoken");
 const redis = require("../config/redis");
 const { sendEmail } = require("./emailController");
 
-const JWT_SECRET = process.env.JWT_SECRET || "EXPOGRAPH24";
+const JWT_SECRET = process.env.JWT_SECRET || "AIIENSCAMPUS24";
 
 function sanitizeAtdUser(userDoc, keepPin = false) {
   if (!userDoc) return userDoc;
@@ -97,7 +97,7 @@ exports.sendOtp = async (req, res) => {
     // Send Real Email
     const emailData = {
       email: email.toLowerCase(),
-      subject: "Your Expograph Attendance Verification Code",
+      subject: "Your Aiiens Campus Attendance Verification Code",
       message: `
         <div style="font-family: Arial, sans-serif; max-width: 500px; margin: auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;">
           <h2 style="color: #0f172a; text-align: center;">Identity Verification</h2>
@@ -439,7 +439,7 @@ exports.sendAttendanceReminders = async (req, res) => {
             <p style="color: #64748b; text-align: center;">We noticed you haven't marked your attendance for today (${today}).</p>
             <p style="color: #64748b; text-align: center;">Please log in to the portal and mark your attendance promptly.</p>
             <div style="text-align: center; margin: 25px 0;">
-              <a href="https://www.expograph.com/attendance" style="background: #FF6B00; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">Go to Dashboard</a>
+              <a href="https://www.aiienscampus.com/attendance" style="background: #FF6B00; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">Go to Dashboard</a>
             </div>
             <p style="font-size: 11px; color: #94a3b8; text-align: center;">Note: If you are on an approved leave, please ignore this reminder.</p>
           </div>
@@ -497,7 +497,7 @@ exports.sendAbsentMails = async (req, res) => {
             <p style="color: #7f1d1d; text-align: center;">As a result, your status for today has been noted as <strong>Absent</strong> in the attendance system.</p>
             <div style="text-align: center; margin: 25px 0;">
               <p style="font-size: 14px; color: #991b1b;">If this is an error, please contact HR or mark your attendance immediately if the window is still open.</p>
-              <a href="https://www.expograph.com/attendance" style="background: #ef4444; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 10px;">View Attendance Portal</a>
+              <a href="https://www.aiienscampus.com/attendance" style="background: #ef4444; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 10px;">View Attendance Portal</a>
             </div>
             <p style="font-size: 11px; color: #991b1b; text-align: center; opacity: 0.8;">Note: This is an automated notification. If you are on an approved leave, please ignore this.</p>
           </div>
@@ -609,7 +609,7 @@ exports.updateAttendanceStatus = async (req, res) => {
                   <p style="color: #64748b; text-align: center;">This is to inform you that HR has updated your attendance for <strong>${record.date}</strong>.</p>
                   <p style="color: #64748b; text-align: center;">Your status has been updated to <strong>Half Day</strong>.</p>
                   <div style="text-align: center; margin: 25px 0;">
-                    <a href="https://www.expograph.com/attendance" style="background: #FF6B00; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">View Details</a>
+                    <a href="https://www.aiienscampus.com/attendance" style="background: #FF6B00; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold;">View Details</a>
                   </div>
                   <p style="font-size: 11px; color: #94a3b8; text-align: center;">If you have any questions regarding this update, please contact the HR department.</p>
                 </div>

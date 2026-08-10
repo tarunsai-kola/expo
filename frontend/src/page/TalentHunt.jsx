@@ -98,8 +98,8 @@ const TalentHunt = () => {
   return (
     <div id="talenthunt" className="talent-events">
       <Helmet>
-        <title>ΣxpoGraph Events | Discover Top Tech Talent</title>
-        <meta name="description" content="Participate in ΣxpoGraph Talent Hunt events and showcase your skills." />
+        <title>Aiiens Campus Events | Discover Top Tech Talent</title>
+        <meta name="description" content="Participate in Aiiens Campus Talent Hunt events and showcase your skills." />
       </Helmet>
       <Toaster position="top-center" />
 
@@ -110,7 +110,7 @@ const TalentHunt = () => {
           <div className="events-hero-copy">
             <span className="events-chip">The Kinetic Curator</span>
             <h1>
-              ΣxpoGraph
+              Aiiens Campus
               <span>Events</span>
             </h1>
             <p>
@@ -133,7 +133,7 @@ const TalentHunt = () => {
           </div>
 
           <div className="events-hero-visual">
-            <img src={leadEvent?.image || fallbackEventImage} alt={leadEvent?.title || "Featured ΣxpoGraph event"} />
+            <img src={leadEvent?.image || fallbackEventImage} alt={leadEvent?.title || "Featured Aiiens Campus event"} />
             <div className="events-hero-overlay">
               <span>Now spotlighting</span>
               <strong>{leadEvent?.title || "New workshops launching weekly"}</strong>

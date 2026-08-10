@@ -1,7 +1,7 @@
-const COMPANY_NAME = "ΣxpoGraph";
-const COMPANY_WEBSITE = "www.ΣxpoGraph.com";
-const COMPANY_SUPPORT_EMAIL = "support@ΣxpoGraph.com";
-const LOGO_URL = "https://ΣxpoGraph.in/posters/image.png"; // Premium placeholder logo
+const COMPANY_NAME = "Aiiens Campus";
+const COMPANY_WEBSITE = "www.Aiiens Campus.com";
+const COMPANY_SUPPORT_EMAIL = "support@Aiiens Campus.com";
+const LOGO_URL = "https://Aiiens Campus.in/posters/image.png"; // Premium placeholder logo
 
 // Reusable SVG icons for emails (replacing emojis)
 const SVGS = {
@@ -15,7 +15,7 @@ const SVGS = {
 };
 
 /**
- * Wraps email content inside a premium, professional ΣxpoGraph template.
+ * Wraps email content inside a premium, professional Aiiens Campus template.
  * @param {Object} options
  * @param {string} options.title - The main heading inside the email
  * @param {string} options.content - The HTML content to place in the body

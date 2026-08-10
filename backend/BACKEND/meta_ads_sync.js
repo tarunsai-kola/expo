@@ -1,9 +1,9 @@
 /**
- * 🚀 Expograph Meta Ads Sync Script
+ * 🚀 Aiiens Campus Meta Ads Sync Script
  * ---------------------------------------
  */
 
-const API_URL = "https://expograph-main.vercel.app/api/adv-leads/add-adv-lead"; 
+const API_URL = "https://aiienscampus-main.vercel.app/api/adv-leads/add-adv-lead"; 
 
 function onOpen() {
   const ui = SpreadsheetApp.getUi();

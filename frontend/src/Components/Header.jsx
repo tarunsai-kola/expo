@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo3 from "../assets/LOGO3.png";
+import logo3 from "../assets/aiiens_logo.jpeg";
 import AdvancedApplyPopup from "./AdvancedApplyPopup";
 
 const topNav = [
@@ -216,8 +216,8 @@ const Header = () => {
       <header className={`atx-header${scrolled ? " scrolled" : ""}`}>
         <div ref={menuRef} className="atx-header-inner">
           <Link to="/" className="atx-logo" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-            <img src={logo3} alt="ΣxpoGraph logo" />
-            <span style={{ color: '#ffffff', fontSize: '18px', fontWeight: '800', letterSpacing: '1.5px' }}>ΣXPOGRAPH</span>
+            <img src={logo3} alt="Aiiens Campus logo" />
+            <span style={{ color: '#ffffff', fontSize: '18px', fontWeight: '800', letterSpacing: '1.5px' }}>AIIENS CAMPUS</span>
           </Link>
 
           <nav className="atx-nav">

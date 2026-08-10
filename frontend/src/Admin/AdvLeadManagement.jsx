@@ -921,7 +921,7 @@ const AdvLeadManagement = () => {
                                     <label style={{ fontSize: '12px', fontWeight: 'bold', color: '#666', marginBottom: '5px', display: 'block' }}>Email Subject</label>
                                     <button 
                                         onClick={() => {
-                                            const prompt = encodeURIComponent(`Write a professional and catchy email for a ${emailDomain} student. The email should be about: ${emailSubject || 'the Advanced Program'}. Mention ΣxpoGraph and include a strong call to action.`);
+                                            const prompt = encodeURIComponent(`Write a professional and catchy email for a ${emailDomain} student. The email should be about: ${emailSubject || 'the Advanced Program'}. Mention Aiiens Campus and include a strong call to action.`);
                                             window.open(`https://chatgpt.com/?q=${prompt}`, '_blank');
                                         }}
                                         style={{ border: 'none', background: 'linear-gradient(135deg, #722ed1 0%, #1890ff 100%)', color: '#fff', borderRadius: '20px', padding: '4px 12px', fontSize: '11px', fontWeight: 'bold', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '5px' }}
@@ -1105,7 +1105,7 @@ const AdvLeadManagement = () => {
                                     type="email"
                                     value={personalEmail}
                                     onChange={(e) => setPersonalEmail(e.target.value)}
-                                    placeholder="your-name@ΣxpoGraph.com"
+                                    placeholder="your-name@Aiiens Campus.com"
                                     style={{ width: '100%', padding: '12px', borderRadius: '10px', border: '1px solid #cbd5e1' }}
                                 />
                             </div>

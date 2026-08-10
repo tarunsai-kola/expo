@@ -40,9 +40,9 @@ const Mentorship = () => {
   return (
     <div className="km-page">
       <Helmet>
-        <title>Premium Mentorship | ΣxpoGraph - 1:1 Career Acceleration</title>
-        <meta name="description" content="Join ΣxpoGraph's premium mentorship programs. Learn from industry experts, build real-world projects, and accelerate your career path with 1:1 guidance." />
-        <link rel="canonical" href="https://www.ΣxpoGraph.com/Mentorship" />
+        <title>Premium Mentorship | Aiiens Campus - 1:1 Career Acceleration</title>
+        <meta name="description" content="Join Aiiens Campus's premium mentorship programs. Learn from industry experts, build real-world projects, and accelerate your career path with 1:1 guidance." />
+        <link rel="canonical" href="https://www.Aiiens Campus.com/Mentorship" />
       </Helmet>
 
       {/* Enrollment Form Popup */}
@@ -64,7 +64,7 @@ const Mentorship = () => {
 
       {/* Floating WhatsApp for Mentorship */}
       <a
-        href="https://api.whatsapp.com/send?phone=919380736449&text=Hello%20ΣxpoGraph%20Team,%20I'm%20interested%20in%20the%20Mentorship%20Program."
+        href="https://api.whatsapp.com/send?phone=919380736449&text=Hello%20Aiiens Campus%20Team,%20I'm%20interested%20in%20the%20Mentorship%20Program."
         target="_blank"
         rel="noopener noreferrer"
         style={{

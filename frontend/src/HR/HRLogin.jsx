@@ -65,7 +65,7 @@ const HRLogin = () => {
             <Users size={40} className="text-indigo-600" />
           </div>
           <h1 className="text-3xl font-black text-white tracking-tight mb-2">HR Portal</h1>
-          <p className="text-indigo-100 font-medium text-sm">Secure access for ΣxpoGraph HR professionals</p>
+          <p className="text-indigo-100 font-medium text-sm">Secure access for Aiiens Campus HR professionals</p>
         </div>
 
         {/* Glassmorphic Form Card */}
@@ -88,7 +88,7 @@ const HRLogin = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value.toLowerCase())}
                       className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3.5 text-slate-700 font-medium placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 focus:bg-white transition-all sm:text-sm"
-                      placeholder="hr@ΣxpoGraph.in"
+                      placeholder="hr@Aiiens Campus.in"
                     />
                   </div>
                 </div>
@@ -161,7 +161,7 @@ const HRLogin = () => {
 
             <div className="text-center flex items-center justify-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest pt-6 border-t border-slate-100">
               <Shield size={14} className="text-slate-400" />
-              Protected by ΣxpoGraph Gateway
+              Protected by Aiiens Campus Gateway
             </div>
 
           </div>

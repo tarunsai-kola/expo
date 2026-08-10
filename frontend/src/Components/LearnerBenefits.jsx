@@ -36,7 +36,7 @@ const benefitData = [
     ],
     points: [
       "Resume Building & Mock Interview Prep",
-      "Exclusive access to ΣxpoGraph Job Portal",
+      "Exclusive access to Aiiens Campus Job Portal",
       "500+ Hiring Partners across the globe"
     ]
   }

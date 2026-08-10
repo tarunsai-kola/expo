@@ -5,7 +5,7 @@ import API from '../API';
 import toast, { Toaster } from 'react-hot-toast';
 import { Mail, KeyRound, ArrowLeft, Lock } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
-import ΣxpoGraphLogo from '../assets/LOGO3.png';
+import AiiensCampusLogo from '../assets/aiiens_logo.jpeg';
 
 const LoginWithOtp = () => {
   const [email, setEmail] = useState('');
@@ -89,7 +89,7 @@ const LoginWithOtp = () => {
         {/* Logo Header */}
         <div className="flex flex-col items-center mb-8">
           <Link to="/" className="inline-flex items-center justify-center p-3 bg-white/5 border border-white/10 rounded-2xl shadow-[0_0_30px_rgba(79,70,229,0.15)] mb-6 hover:scale-105 transition-transform backdrop-blur-md">
-            <img src={ΣxpoGraphLogo} alt="ΣxpoGraph Logo" className="h-10 w-auto object-contain" />
+            <img src={AiiensCampusLogo} alt="Aiiens Campus Logo" className="h-10 w-auto object-contain" />
           </Link>
           <h2 className="text-3xl font-black text-white tracking-tight mb-2 ag-font-outfit">OTP Login</h2>
           <p className="text-gray-400 font-light text-center max-w-[280px]">

@@ -7,12 +7,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Advanced Course Posters
-import mernPoster from "../../ΣxpoGraph/images/poster/mern.png";
-import dsPoster from "../../ΣxpoGraph/images/poster/datascience.png";
-import daPoster from "../../ΣxpoGraph/images/poster/dataanalytics.png";
-import pmPoster from "../../ΣxpoGraph/images/poster/productmanagement.png";
-import dmPoster from "../../ΣxpoGraph/images/poster/digitalmarketing.png";
-import pePoster from "../../ΣxpoGraph/images/poster/promptengineering.png";
+import mernPoster from "../../Aiiens Campus/images/poster/mern.png";
+import dsPoster from "../../Aiiens Campus/images/poster/datascience.png";
+import daPoster from "../../Aiiens Campus/images/poster/dataanalytics.png";
+import pmPoster from "../../Aiiens Campus/images/poster/productmanagement.png";
+import dmPoster from "../../Aiiens Campus/images/poster/digitalmarketing.png";
+import pePoster from "../../Aiiens Campus/images/poster/promptengineering.png";
 
 // Fallback images from assets if needed
 import ibPoster from "../assets/Advanced Course Images/Investment banking/INB.png";

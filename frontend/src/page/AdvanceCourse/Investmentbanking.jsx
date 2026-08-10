@@ -47,7 +47,7 @@ import AdvanceBanner from "./Components/AdvanceBanner";
 
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import ibBrochure from "../../../ΣxpoGraph/Investment Banking Advanced Program.pdf";
+import ibBrochure from "../../../Aiiens Campus/Investment Banking Advanced Program.pdf";
 
 const heroStats = [
   { label: "Duration", value: "24 Weeks" },

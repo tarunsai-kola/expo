@@ -5,7 +5,7 @@ import axios from "axios";
 import API from "../API";
 import toast from "react-hot-toast";
 import { FaUser, FaPhone, FaEnvelope, FaBriefcase, FaGraduationCap, FaBullseye, FaCheckCircle, FaChevronDown } from "react-icons/fa";
-import ΣxpoGraphLogo from "../assets/LOGO3.png";
+import AiiensCampusLogo from "../assets/aiiens_logo.jpeg";
 import SubhraImg from "../assets/mentors/Subhra.jpg";
 import RudraImg from "../assets/mentors/rudra.jpg";
 import RohanImg from "../assets/alumni/alumni_1.png";
@@ -204,7 +204,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                     
                     <div className="relative z-10">
                         <div className="mb-10 drop-shadow-2xl bg-white/5 p-4 rounded-2xl inline-block border border-white/10 backdrop-blur-sm">
-                            <img src={ΣxpoGraphLogo} alt="ΣxpoGraph Logo" className="h-10 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                            <img src={AiiensCampusLogo} alt="Aiiens Campus Logo" className="h-10 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
                         </div>
                         <h2 className="text-3xl md:text-4xl font-black text-white leading-[1.1] mb-5 tracking-tight">
                             Accelerate <br/>Your Tech <br/>
@@ -445,7 +445,7 @@ const AdvancedApplyPopup = ({ onClose, initialDomain = "", onSuccess, popupType 
                                 className="mt-1 h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-600 cursor-pointer"
                             />
                             <label htmlFor="authorize_popup" className="text-[10px] md:text-[11px] text-slate-500 leading-relaxed cursor-pointer select-none">
-                                I authorise <span className="font-bold">ΣxpoGraph</span> & its representatives to contact me with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC
+                                I authorise <span className="font-bold">Aiiens Campus</span> & its representatives to contact me with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC
                             </label>
                         </div>
 

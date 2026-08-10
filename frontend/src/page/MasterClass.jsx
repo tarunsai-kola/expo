@@ -43,7 +43,7 @@ const Masterclass = () => {
 
             {/* Hero Section */}
             <div className="bg-[#0F1115] text-white py-20 px-4 text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">ExpoGraph Masterclass Workshops</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4">Aiiens Campus Masterclass Workshops</h1>
                 <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
                     Accelerate your career with our intensive, hands-on workshops led by industry experts.
                 </p>
@@ -55,7 +55,7 @@ const Masterclass = () => {
                     <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">In Collaboration With</p>
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
                         <img src={IEEE_LOGO} alt="IEEE Logo" className="h-12 opacity-80 hover:opacity-100 transition-opacity" />
-                        <img src={IET_LOGO} alt="IET Logo" className="h-12 opacity-80 hover:opacity-100 transition-opacity" />
+                        {/* <img src={IET_LOGO} alt="IET Logo" className="h-12 opacity-80 hover:opacity-100 transition-opacity" /> */}
                         <div className="text-left">
                             <span className="block font-bold text-lg text-gray-800">R&D Cell</span>
                             <span className="block text-sm text-gray-600">CRD College of Engineering</span>

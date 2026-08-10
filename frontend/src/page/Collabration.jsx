@@ -274,7 +274,7 @@ const Collabration = () => {
           data-aos="fade-up"
           className="mt-6 max-w-3xl mx-auto text-base sm:text-lg text-white text-center"
         >
-          ΣxpoGraph building a future where education knows no bounds. Together,
+          Aiiens Campus building a future where education knows no bounds. Together,
           we celebrate progress, spark innovation, and empower learners to reach
           new heights, as well as we create meaningful change, inspire bold
           ideas, and craft a legacy of success. Your journey with us begins
@@ -332,7 +332,7 @@ const Collabration = () => {
             </div>
             {/* <h4 className="text-2xl font-bold">Collaborate with us</h4> */}
             <p>
-              ΣxpoGraph bridges knowledge and practice with real-world-focused
+              Aiiens Campus bridges knowledge and practice with real-world-focused
               training, let's step into challenges equipped with
               actionable expertise.
             </p>
@@ -347,7 +347,7 @@ const Collabration = () => {
             </div>
             {/* <h4 className="text-2xl font-bold">Join our community</h4> */}
             <p>
-              Master industry-relevant skills employers crave through ΣxpoGraph’s
+              Master industry-relevant skills employers crave through Aiiens Campus’s
               Mentor-led programs and achieve personal growth and career
               leadership with confidence.
             </p>
@@ -362,7 +362,7 @@ const Collabration = () => {
             </div>
             {/* <h4 className="text-2xl font-bold">Get involved</h4> */}
             <p>
-              ΣxpoGraph connects your talent to the right opportunities. With
+              Aiiens Campus connects your talent to the right opportunities. With
               strong placement support, your path to success is
               clear and direct.
             </p>
@@ -377,7 +377,7 @@ const Collabration = () => {
             </div>
             {/* <h4 className="text-2xl font-bold">Be a part of our journey</h4> */}
             <p>
-              Innovate, inspire, and educate with ΣxpoGraph!, collaborate with us
+              Innovate, inspire, and educate with Aiiens Campus!, collaborate with us
               to revolutionize learning experiences. Together, we break barriers
               and redefine educational possibilities.
             </p>
@@ -391,7 +391,7 @@ const Collabration = () => {
         </h1>
         <hr data-aos="fade-up" />
         <p data-aos="fade-up" className="quote">
-          ΣxpoGraph recognize that educators and staff play in shaping
+          Aiiens Campus recognize that educators and staff play in shaping
           their futures. By collaborating with us, your students become part of
           continuous learning opportunities, we empower our team to stay ahead
           in an ever-evolving educational landscape.

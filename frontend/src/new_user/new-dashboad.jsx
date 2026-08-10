@@ -3,13 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import API from "../API";
 import toast, { Toaster } from "react-hot-toast";
-import logo from "../assets/LOGO3.png";
+import logo from "../assets/aiiens_logo.jpeg";
 import "./new-dashboad.css";
 
 /* ─── localStorage progress helper ─── */
 const getWatchedFromStorage = (enrollmentId, sessionObj, dbWatchedSessions = []) => {
     try {
-        const key = `ΣxpoGraph_progress_${enrollmentId}`;
+        const key = `AiiensCampus_progress_${enrollmentId}`;
         const raw = localStorage.getItem(key);
         const localWatched = raw ? JSON.parse(raw) : [];
 
@@ -87,7 +87,7 @@ const Sidebar = ({ collapsed, setCollapsed, activeSection, setActiveSection, onL
             {/* Bottom: collapse hint */}
             {!collapsed && (
                 <div className="nd-sidebar-footer">
-                    <span className="nd-sidebar-footer-text">ΣxpoGraph LMS</span>
+                    <span className="nd-sidebar-footer-text">Aiiens Campus LMS</span>
                 </div>
             )}
         </aside>
@@ -144,7 +144,7 @@ export const TopNav = ({ userData, enrollData, onLogout, onHamburger, mobileSide
                         {mobileSidebarOpen ? "close" : "menu"}
                     </span>
                 </button>
-                <img src={logo} alt="ΣxpoGraph" className="nd-logo" />
+                <img src={logo} alt="Aiiens Campus" className="nd-logo" />
                 <div className="nd-program-pill">
                     <span className="material-symbols-outlined nd-program-icon">school</span>
                     <span className="nd-program-name">{programName}</span>

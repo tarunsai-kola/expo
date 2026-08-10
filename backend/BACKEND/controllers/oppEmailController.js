@@ -19,7 +19,7 @@ const oppsendEmail = async ({ email, subject, message }) => {
     from: `"Operations Team" <${process.env.RESEND_FROM_EMAIL}>`, // Force the correct sender
     sender: process.env.RESEND_FROM_EMAIL, // Ensure the sender is set
     to: email,
-    cc: "help@ΣxpoGraph.com",
+    cc: "help@Aiiens Campus.com",
     subject: subject,
     html: message,
     priority: "high",

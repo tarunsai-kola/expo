@@ -239,7 +239,7 @@ const queryClient = new QueryClient();
 // 🛡️ 1. GLOBAL AUTH STORE & STORAGE PROXY (Zero-Latency Tab Isolation)
 // This ensures that credentials are available INSTANTLY before React even starts.
 if (typeof window !== "undefined") {
-  window.ΣxpoGraphAuth = window.ΣxpoGraphAuth || {};
+  window.AiiensCampusAuth = window.AiiensCampusAuth || {};
   
   // A. Immediate URL Capture (First Frame)
   const urlParams = new URLSearchParams(window.location.search);
@@ -254,10 +254,10 @@ if (typeof window !== "undefined") {
       role: urlParams.get("impRole"),
       type: impType
     };
-    window.ΣxpoGraphAuth[impType] = data.token;
-    if (data.id) window.ΣxpoGraphAuth[impType.replace("Token", "Id")] = data.id;
-    if (data.name) window.ΣxpoGraphAuth[impType.replace("Token", "Name")] = data.name;
-    if (data.role) window.ΣxpoGraphAuth["designation"] = data.role;
+    window.AiiensCampusAuth[impType] = data.token;
+    if (data.id) window.AiiensCampusAuth[impType.replace("Token", "Id")] = data.id;
+    if (data.name) window.AiiensCampusAuth[impType.replace("Token", "Name")] = data.name;
+    if (data.role) window.AiiensCampusAuth["designation"] = data.role;
 
     // Persist to Session for future reloads in this tab
     sessionStorage.setItem(impType, data.token);
@@ -271,8 +271,8 @@ if (typeof window !== "undefined") {
     const now = new Date().getTime().toString();
     sessionStorage.setItem("sessionStartTime", now);
     sessionStorage.setItem("advTeamSessionStartTime", now);
-    window.ΣxpoGraphAuth["sessionStartTime"] = now;
-    window.ΣxpoGraphAuth["advTeamSessionStartTime"] = now;
+    window.AiiensCampusAuth["sessionStartTime"] = now;
+    window.AiiensCampusAuth["advTeamSessionStartTime"] = now;
   }
 
   // B. Safe Storage Proxy
@@ -281,7 +281,7 @@ if (typeof window !== "undefined") {
   const originalGetItem = localStorage.getItem;
   localStorage.getItem = function(key) {
     // 1. Try Global Store
-    if (window.ΣxpoGraphAuth[key]) return window.ΣxpoGraphAuth[key];
+    if (window.AiiensCampusAuth[key]) return window.AiiensCampusAuth[key];
     // 2. Try Session Store
     const sessionVal = sessionStorage.getItem(key);
     if (sessionVal !== null) return sessionVal;
@@ -295,7 +295,7 @@ if (typeof window !== "undefined") {
     const isIsolated = !!(sessionStorage.getItem("bdaToken") || sessionStorage.getItem("advTeamToken") || sessionStorage.getItem("operationToken"));
     if (isIsolated) {
       sessionStorage.setItem(key, value);
-      window.ΣxpoGraphAuth[key] = value;
+      window.AiiensCampusAuth[key] = value;
     } else {
       originalSetItem.call(localStorage, key, value);
     }

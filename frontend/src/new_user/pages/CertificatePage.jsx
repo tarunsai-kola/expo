@@ -115,7 +115,7 @@ const CertificatePage = () => {
         let certUrl = isTraining ? getTrainingCertUrl() : data.rawUrl;
         let certName = isTraining ? `Training Certificate - ${data.domain}` : data.domain;
 
-        let linkurl = `https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=${certName}&organizationName=ΣxpoGraph&issueYear=${year}&issueMonth=${month}&certUrl=${certUrl}&certId=${data.id}`;
+        let linkurl = `https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=${certName}&organizationName=Aiiens Campus&issueYear=${year}&issueMonth=${month}&certUrl=${certUrl}&certId=${data.id}`;
         window.open(linkurl, "_blank");
     };
 
@@ -199,7 +199,7 @@ const CertificatePage = () => {
                                 <div className="flex items-center gap-4 text-sm text-gray-600">
                                     <div className="flex items-center gap-2">
                                         <span className="material-symbols-outlined text-[#8b5cf6] text-lg">business</span>
-                                        <span>Issued by <strong className="text-gray-900">ΣXPOGRAPH</strong></span>
+                                        <span>Issued by <strong className="text-gray-900">AIIENS CAMPUS</strong></span>
                                     </div>
                                     <a
                                         className="text-[#8b5cf6] hover:text-orange-700 flex items-center gap-1 font-medium transition-colors"

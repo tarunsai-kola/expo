@@ -1,5 +1,5 @@
 const fs = require('fs');
-const filePath = 'c:\\\\Users\\\\tarun\\\\OneDrive\\\\Desktop\\\\ΣxpoGraph\\\\frontend\\\\src\\\\AdvTeam\\\\AdvTeamHeader.jsx';
+const filePath = 'c:\\\\Users\\\\tarun\\\\OneDrive\\\\Desktop\\\\Aiiens Campus\\\\frontend\\\\src\\\\AdvTeam\\\\AdvTeamHeader.jsx';
 let content = fs.readFileSync(filePath, 'utf-8');
 
 const svgIcons = {

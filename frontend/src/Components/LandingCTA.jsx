@@ -69,7 +69,7 @@ const LandingCTA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative bg-[#111111] rounded-2xl px-8 py-20 md:py-28 text-center overflow-hidden"
+          className="relative bg-white rounded-2xl px-8 py-20 md:py-28 text-center overflow-hidden"
         >
           {/* Inner dark box: own subtle glow for depth */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(15,123,83,0.07),transparent)] pointer-events-none" />
@@ -91,19 +91,19 @@ const LandingCTA = () => {
 
           {/* Content */}
           <div className="relative z-10 max-w-3xl mx-auto">
-            <h2 className="lp-font-outfit text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+            <h2 className="lp-font-outfit text-4xl md:text-6xl font-extrabold text-[#0F172A] mb-6 tracking-tight leading-tight">
               The top 1% of engineers <br className="hidden md:block" />start somewhere.
             </h2>
-            <p className="text-gray-400 text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-relaxed">
+            <p className="text-[#64748B] text-lg md:text-xl mb-12 font-light max-w-xl mx-auto leading-relaxed">
               Secure your seat in the upcoming cohort. Only 40 seats per batch. Admission by selection.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group px-10 py-4 bg-white text-[#111111] rounded-xl font-bold text-[15px] hover:bg-[#0F7B53] hover:text-white transition-all duration-300 flex items-center justify-center gap-2 shadow-sm">
+              <button className="group px-10 py-4 bg-white text-[#111111] rounded-xl font-bold text-[15px] hover:bg-[#2563EB] hover:text-[#0F172A] transition-all duration-300 flex items-center justify-center gap-2 shadow-sm">
                 Apply for Next Cohort
                 <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-10 py-4 bg-transparent text-gray-400 border border-white/10 rounded-xl font-semibold text-[15px] hover:text-white hover:border-white/30 transition-all duration-300">
+              <button className="px-10 py-4 bg-transparent text-[#64748B] border border-[#E2E8F0] rounded-xl font-semibold text-[15px] hover:text-[#0F172A] hover:border-[#2563EB] transition-all duration-300">
                 Book Free Consultation
               </button>
             </div>

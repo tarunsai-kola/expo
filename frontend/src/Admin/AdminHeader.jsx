@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import API from "../API";
-import logo from "../assets/LOGO3.png";
+import logo from "../assets/aiiens_logo.jpeg";
 import toast, { Toaster } from "react-hot-toast";
 import { 
   LogOut, Home, LayoutDashboard, PhoneCall, Activity, FileSpreadsheet, 
@@ -86,7 +86,7 @@ const AdminHeader = () => {
         
         <div className="flex items-center gap-4">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="ΣxpoGraph Logo" className="h-9 object-contain drop-shadow-md" />
+            <img src={logo} alt="Aiiens Campus Logo" className="h-9 object-contain drop-shadow-md" />
           </Link>
           <div className="h-6 w-px bg-white/10 ml-2"></div>
           <span className="text-indigo-400/80 text-xs font-black tracking-[0.2em] uppercase ml-2 bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/20">Admin Portal</span>

@@ -35,7 +35,7 @@ const AuthorityMarquee = ({ theme = "light" }) => {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
         >
-          From high-growth startups to Fortune 500 giants, ΣxpoGraph alumni are trusted across every tier of the tech industry.
+          From high-growth startups to Fortune 500 giants, Aiiens Campus alumni are trusted across every tier of the tech industry.
         </motion.p>
       </div>
 

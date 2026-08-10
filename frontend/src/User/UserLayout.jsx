@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import logo from "../assets/LOGO3.png";
+import logo from "../assets/aiiens_logo.jpeg";
 import UserSidebar from "./UserSidebar";
 import axios from "axios";
 import API from "../API";
@@ -57,7 +57,7 @@ const UserLayout = () => {
             <span className="material-symbols-outlined">menu</span>
           </button>
           <div className="flex items-center gap-2">
-            <img src={logo} alt="ΣxpoGraph" className="h-8" />
+            <img src={logo} alt="Aiiens Campus" className="h-8" />
           </div>
         </div>
         <div className="flex items-center gap-4 sm:gap-8">

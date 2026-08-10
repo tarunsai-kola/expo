@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import API from "../API";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-import logo from "../assets/LOGO3.png";
+import logo from "../assets/aiiens_logo.jpeg";
 import JobBoard from "./JobBoard";
 import MyJob from "./MyJob";
 import MockInterview from "./MockInterview";

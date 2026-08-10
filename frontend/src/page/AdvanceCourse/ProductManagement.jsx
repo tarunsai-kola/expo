@@ -29,7 +29,7 @@ import {
   Globe
 } from "lucide-react";
 
-import posterImage from "../../../ΣxpoGraph/images/poster/productmanagement.png";
+import posterImage from "../../../Aiiens Campus/images/poster/productmanagement.png";
 import Flashaidlogo from "../../assets/Flashaidlogo.jpg";
 import Certification from "./Components/Certification";
 import ClientsCarousel from "../../Components/our_alumni";
@@ -45,7 +45,7 @@ import AdvanceBanner from "./Components/AdvanceBanner";
 
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import pmBrochure from "../../../ΣxpoGraph/Product management Advanced program.pdf";
+import pmBrochure from "../../../Aiiens Campus/Product management Advanced program.pdf";
 
 const heroStats = [
   { label: "Duration", value: "24 Weeks" },

@@ -25,7 +25,7 @@ const Privacy = () => {
             Privacy <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Policy</span>
           </h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            At ΣxpoGraph, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data.
+            At Aiiens Campus, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data.
           </p>
         </div>
 
@@ -108,7 +108,7 @@ const Privacy = () => {
                 <h2 className="text-xl font-bold text-white mb-2">Have Questions?</h2>
                 <p className="text-sm text-gray-400">If you have concerns about our data practices, our team is here to help.</p>
               </div>
-              <a href="mailto:support@ΣxpoGraph.com" className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] whitespace-nowrap">
+              <a href="mailto:support@Aiiens Campus.com" className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] whitespace-nowrap">
                 Contact Support
               </a>
             </section>

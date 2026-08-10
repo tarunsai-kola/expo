@@ -664,13 +664,13 @@ Mode: ${event.mode || 'Online'}
 Location: Online
 ${event.shortDescription ? `\nAbout: ${event.shortDescription}` : ''}
 
-Event Link: https://www.ΣxpoGraph.com/events
+Event Link: https://www.Aiiens Campus.com/events
 
 Important: Please make sure you're prepared and join on time!
 
-ΣxpoGraph Solutions
+Aiiens Campus Solutions
 This is an automated reminder.
-© ${currentYear} ΣxpoGraph. All rights reserved.
+© ${currentYear} Aiiens Campus. All rights reserved.
         `;
 
         await sendEventReminderEmail({

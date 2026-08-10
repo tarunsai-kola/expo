@@ -16,6 +16,7 @@ import ClientsCarousel from "../Components/our_alumni";
 import AuthorityMarquee from "../Components/AuthorityMarquee";
 // import AdvancedApplyPopup from "../Components/AdvancedApplyPopup";
 import CountdownTimer from "./AdvanceCourse/Components/CountdownTimer";
+import specializationsBg from "../assets/specializations_bg.png";
 
 const programs = [
   { 
@@ -404,7 +405,7 @@ const Advance = () => {
   return (
     <div className="bg-zinc-950 text-zinc-300 font-['Plus_Jakarta_Sans'] min-h-screen selection:bg-indigo-500/30">
       <Helmet>
-        <title>Ultra-Premium Advanced Programs | ΣxpoGraph</title>
+        <title>Ultra-Premium Advanced Programs | Aiiens Campus</title>
         <meta name="description" content="Explore ultra-premium advanced programs in software, data, product, and marketing." />
       </Helmet>
 
@@ -539,7 +540,7 @@ const Advance = () => {
       <AuthorityMarquee theme="dark" />
 
       {/* 2. PROGRAM CATEGORY & CATALOG */}
-      <section className="py-16 lg:py-32 bg-zinc-950 relative z-10" id="catalog">
+      <section className="py-16 lg:py-32 bg-zinc-950 relative z-10" id="catalog" style={{ backgroundImage: `url(${specializationsBg})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
          <div className="max-w-[1400px] mx-auto px-6">
             <motion.div 
                initial={{ opacity: 0, y: 30 }}
@@ -649,7 +650,7 @@ const Advance = () => {
                viewport={{ once: true }}
                className="mb-20 text-center max-w-3xl mx-auto"
             >
-               <h2 className="k-title text-4xl md:text-5xl font-bold text-white mb-6">The ΣxpoGraph Edge</h2>
+               <h2 className="k-title text-4xl md:text-5xl font-bold text-white mb-6">The Aiiens Campus Edge</h2>
                <p className="text-zinc-400 text-lg">We engineer our programs like high-performance tech products: structured, scalable, and relentlessly focused on outputs.</p>
             </motion.div>
             
@@ -947,7 +948,7 @@ const Advance = () => {
                   <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-3 block">Network</span>
                   <h3 className="k-title text-3xl font-bold text-white mb-4">Industry Recognition</h3>
                   <p className="text-zinc-400 leading-relaxed font-light">
-                     Graduates from ΣxpoGraph advanced cohorts earn interviews across high-growth product teams and global enterprises.
+                     Graduates from Aiiens Campus advanced cohorts earn interviews across high-growth product teams and global enterprises.
                   </p>
                </div>
                

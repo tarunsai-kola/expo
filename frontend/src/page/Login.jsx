@@ -5,7 +5,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { Eye, EyeOff, Mail, Lock, Smartphone } from "lucide-react";
 import { motion } from "framer-motion";
-import ΣxpoGraphLogo from "../assets/LOGO3.png";
+import AiiensCampusLogo from "../assets/aiiens_logo.jpeg";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -74,7 +74,7 @@ const Login = () => {
         {/* Logo Header */}
         <div className="flex flex-col items-center mb-8">
           <Link to="/" className="inline-flex items-center justify-center p-3 bg-white/5 border border-white/10 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.15)] mb-6 hover:scale-105 transition-transform backdrop-blur-md">
-            <img src={ΣxpoGraphLogo} alt="ΣxpoGraph Logo" className="h-10 w-auto object-contain" />
+            <img src={AiiensCampusLogo} alt="Aiiens Campus Logo" className="h-10 w-auto object-contain" />
           </Link>
           <h2 className="text-3xl font-black text-white tracking-tight mb-2 ag-font-outfit">Welcome Back</h2>
           <p className="text-gray-400 font-light">Sign in to your dashboard.</p>
@@ -178,7 +178,7 @@ const Login = () => {
 
         {/* Footer info */}
         <p className="text-center text-xs font-light text-gray-500 mt-8 leading-relaxed">
-          By signing in, you agree to ΣxpoGraph's <br/>
+          By signing in, you agree to Aiiens Campus's <br/>
           <Link to="/Terms" className="text-gray-400 hover:text-white underline underline-offset-2">Terms of Service</Link> and <Link to="/Privacy" className="text-gray-400 hover:text-white underline underline-offset-2">Privacy Policy</Link>.
         </p>
       </motion.div>

@@ -204,7 +204,7 @@ const NewEnrolledCourses = () => {
                         </div>
                       </div>
                       <p className="text-sm text-gray-500">
-                        Instructor: <span className="text-gray-900 font-medium">ΣxpoGraph Team</span>
+                        Instructor: <span className="text-gray-900 font-medium">Aiiens Campus Team</span>
                       </p>
                     </div>
                   </div>
@@ -302,7 +302,7 @@ const NewEnrolledCourses = () => {
           )}
           {/* Footer */}
           <footer className="mt-16 py-6 text-center text-gray-600 text-sm border-t border-gray-200">
-            © 2026 All Rights Reserved. Powered by ΣxpoGraph.
+            © 2026 All Rights Reserved. Powered by Aiiens Campus.
           </footer>        </main>
       </div>
     </div>

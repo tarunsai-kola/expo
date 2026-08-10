@@ -22,7 +22,7 @@ const sendEmail = async ({ email, subject, message, bcc }) => {
   const mailOptions = {
     from: process.env.RESEND_FROM_EMAIL,
     to: email,
-    cc: "help@ΣxpoGraph.com",
+    cc: "help@Aiiens Campus.com",
     bcc: bcc,
     subject: subject,
     html: message,
@@ -96,9 +96,9 @@ const sendPaymentReminderEmail = async ({ email, subject, message, bcc }) => {
 // Event reminder email function - uses RESEND_FROM_EMAIL
 const sendEventReminderEmail = async ({ email, subject, message, bcc, textVersion }) => {
   const mailOptions = {
-    from: `Expograph Events <${process.env.RESEND_FROM_EMAIL}>`,
+    from: `Aiiens Campus Events <${process.env.RESEND_FROM_EMAIL}>`,
     to: email,
-    cc: "help@ΣxpoGraph.com",
+    cc: "help@Aiiens Campus.com",
     bcc: bcc,
     subject: subject,
     text: textVersion || 'Please enable HTML to view this email.',
@@ -106,7 +106,7 @@ const sendEventReminderEmail = async ({ email, subject, message, bcc, textVersio
     priority: "normal",
     headers: {
       'X-Entity-Ref-ID': `EVENT-${Date.now()}`,
-      'X-Mailer': 'Expograph Event System',
+      'X-Mailer': 'Aiiens Campus Event System',
       'List-Unsubscribe': '<mailto:?subject=Unsubscribe>',
     },
   };

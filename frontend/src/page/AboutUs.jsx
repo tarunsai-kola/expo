@@ -42,7 +42,7 @@ const AboutUs = () => {
             transition={{ duration: 0.7 }}
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/5 border border-white/10 text-blue-400 font-black text-xs uppercase tracking-widest mb-8 backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.15)]"
           >
-            <Rocket size={14} className="text-emerald-400" /> Discover ΣxpoGraph
+            <Rocket size={14} className="text-emerald-400" /> Discover Aiiens Campus
           </motion.div>
           
           <motion.h1 
@@ -59,7 +59,7 @@ const AboutUs = () => {
             initial="hidden" animate="visible" variants={fadeIn}
             className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            ΣxpoGraph is more than an educational platform. We are your dedicated career accelerator, bridging the gap between ambition and industry realities to forge the next generation of tech leaders.
+            Aiiens Campus is more than an educational platform. We are your dedicated career accelerator, bridging the gap between ambition and industry realities to forge the next generation of tech leaders.
           </motion.p>
         </div>
 
@@ -120,7 +120,7 @@ const AboutUs = () => {
         {/* Why Choose Us / Values */}
         <div className="max-w-[1250px] mx-auto px-6 mb-24">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 ag-font-outfit">The ΣxpoGraph Edge</h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4 ag-font-outfit">The Aiiens Campus Edge</h2>
             <p className="text-gray-400 font-light">Why ambitious engineers choose our platform.</p>
           </div>
 

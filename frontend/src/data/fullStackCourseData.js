@@ -211,7 +211,7 @@ export const fullStackData = {
       image: "https://randomuser.me/api/portraits/women/44.jpg"
     },
     {
-      quote: "I had 2 years of experience but was stuck in a support role. ΣxpoGraph's MERN stack curriculum modernized my skills. I switched to a product company with a 150% salary hike.",
+      quote: "I had 2 years of experience but was stuck in a support role. Aiiens Campus's MERN stack curriculum modernized my skills. I switched to a product company with a 150% salary hike.",
       author: "Karthik N.",
       role: "Full Stack Developer @ TCS",
       salary: "150% Hike",

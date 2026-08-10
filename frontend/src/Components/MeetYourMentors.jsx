@@ -17,7 +17,7 @@ const mentors = [
     id: 2,
     name: "Karthik Subramanian",
     role: "Senior Data Scientist",
-    company: "ΣxpoGraph",
+    company: "Aiiens Campus",
     bio: "Karthik leads AI initiatives specializing in predictive modeling, scalable data architectures, and deploying large-scale deep learning models into production. He brings a wealth of hands-on experience from top tech firms.",
     rating: "5.0",
     reviews: "Top rated mentor",

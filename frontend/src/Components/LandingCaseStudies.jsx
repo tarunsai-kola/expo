@@ -15,7 +15,7 @@ const LandingCaseStudies = () => {
       hike: "388%",
       timeline: "5 months",
       image: "/newimages/piece_1.png",
-      quote: "I was handling support tickets for 2 years. ΣxpoGraph taught me to think in distributed systems. The mock interviews were harder than the actual Amazon loop."
+      quote: "I was handling support tickets for 2 years. Aiiens Campus taught me to think in distributed systems. The mock interviews were harder than the actual Amazon loop."
     },
     {
       name: "Sneha K.",
@@ -28,7 +28,7 @@ const LandingCaseStudies = () => {
       hike: "366%",
       timeline: "6 months",
       image: "/newimages/piece_2.png",
-      quote: "Transitioning from React to core backend architecture felt impossible until ΣxpoGraph. The 1:1 mentorship from a Microsoft engineer made everything click."
+      quote: "Transitioning from React to core backend architecture felt impossible until Aiiens Campus. The 1:1 mentorship from a Microsoft engineer made everything click."
     },
     {
       name: "Amit Patel",
@@ -41,7 +41,7 @@ const LandingCaseStudies = () => {
       hike: "414%",
       timeline: "4 months",
       image: "/newimages/piece_3.png",
-      quote: "I was stuck in manual QA. The rigorous DSA and system design modules at ΣxpoGraph helped me crack Swiggy's backend round with ease."
+      quote: "I was stuck in manual QA. The rigorous DSA and system design modules at Aiiens Campus helped me crack Swiggy's backend round with ease."
     },
     {
       name: "Priya Sharma",
@@ -54,7 +54,7 @@ const LandingCaseStudies = () => {
       hike: "500%",
       timeline: "6 months",
       image: "/newimages/piece_4.png",
-      quote: "Moving from an analyst to a core data engineering role at Walmart was a dream. ΣxpoGraph's hands-on projects were the key differentiator in my interviews."
+      quote: "Moving from an analyst to a core data engineering role at Walmart was a dream. Aiiens Campus's hands-on projects were the key differentiator in my interviews."
     },
     {
       name: "Rohan Desai",
@@ -80,7 +80,7 @@ const LandingCaseStudies = () => {
       hike: "300%",
       timeline: "4 months",
       image: "/newimages/piece_6.png",
-      quote: "I knew React, but ΣxpoGraph taught me web performance and large-scale architecture. That's exactly what Flipkart tested me on."
+      quote: "I knew React, but Aiiens Campus taught me web performance and large-scale architecture. That's exactly what Flipkart tested me on."
     },
     {
       name: "Vikram Reddy",
@@ -93,7 +93,7 @@ const LandingCaseStudies = () => {
       hike: "438%",
       timeline: "8 months",
       image: "/newimages/piece_7.png",
-      quote: "Atlassian's interview loop is notoriously tough. The intensive system design curriculum at ΣxpoGraph helped me clear all 5 rounds effortlessly."
+      quote: "Atlassian's interview loop is notoriously tough. The intensive system design curriculum at Aiiens Campus helped me clear all 5 rounds effortlessly."
     },
     {
       name: "Neha Gupta",
@@ -106,7 +106,7 @@ const LandingCaseStudies = () => {
       hike: "358%",
       timeline: "5 months",
       image: "/newimages/piece_8.png",
-      quote: "I was terrified of competitive programming. ΣxpoGraph broke it down into patterns rather than rote learning. Zomato's coding round felt like a breeze."
+      quote: "I was terrified of competitive programming. Aiiens Campus broke it down into patterns rather than rote learning. Zomato's coding round felt like a breeze."
     },
     {
       name: "Arjun Nair",
@@ -119,7 +119,7 @@ const LandingCaseStudies = () => {
       hike: "481%",
       timeline: "9 months",
       image: "/newimages/piece_9.png",
-      quote: "The Google interview is a marathon. My ΣxpoGraph mentor, a former Googler, guided my prep strategy perfectly. I wouldn't have made it without them."
+      quote: "The Google interview is a marathon. My Aiiens Campus mentor, a former Googler, guided my prep strategy perfectly. I wouldn't have made it without them."
     },
     {
       name: "Pooja Iyer",
@@ -132,7 +132,7 @@ const LandingCaseStudies = () => {
       hike: "620%",
       timeline: "7 months",
       image: "/newimages/piece_10.png",
-      quote: "Transitioning from a non-tech role seemed impossible. ΣxpoGraph's foundation courses and dedicated TA support helped me land a job at Cred."
+      quote: "Transitioning from a non-tech role seemed impossible. Aiiens Campus's foundation courses and dedicated TA support helped me land a job at Cred."
     },
     {
       name: "Suresh Kumar",
@@ -145,7 +145,7 @@ const LandingCaseStudies = () => {
       hike: "525%",
       timeline: "6 months",
       image: "/newimages/piece_11.png",
-      quote: "I wanted to move from networking to cloud engineering. ΣxpoGraph's AWS and DevOps curriculum was precisely what I needed to clear the loop."
+      quote: "I wanted to move from networking to cloud engineering. Aiiens Campus's AWS and DevOps curriculum was precisely what I needed to clear the loop."
     },
     {
       name: "Anjali Verma",
@@ -158,7 +158,7 @@ const LandingCaseStudies = () => {
       hike: "677%",
       timeline: "6 months",
       image: "/newimages/piece_12.png",
-      quote: "The sheer depth of ΣxpoGraph's backend engineering module is unmatched. It gave me the competitive edge I needed for Uber."
+      quote: "The sheer depth of Aiiens Campus's backend engineering module is unmatched. It gave me the competitive edge I needed for Uber."
     },
     {
       name: "Manish Tiwari",
@@ -171,7 +171,7 @@ const LandingCaseStudies = () => {
       hike: "542%",
       timeline: "10 months",
       image: "/newimages/piece_13.png",
-      quote: "Netflix looks for extreme depth. The massive scale data pipelines we built in the ΣxpoGraph capstone project became the highlight of my interview."
+      quote: "Netflix looks for extreme depth. The massive scale data pipelines we built in the Aiiens Campus capstone project became the highlight of my interview."
     },
     {
       name: "Swati Joshi",
@@ -184,7 +184,7 @@ const LandingCaseStudies = () => {
       hike: "320%",
       timeline: "4 months",
       image: "/newimages/piece_14.png",
-      quote: "I knew the basics, but ΣxpoGraph pushed me to master advanced JS concepts and React internals. Razorpay's machine coding round was exactly what we practiced."
+      quote: "I knew the basics, but Aiiens Campus pushed me to master advanced JS concepts and React internals. Razorpay's machine coding round was exactly what we practiced."
     },
     {
       name: "Karan Malhotra",
@@ -197,7 +197,7 @@ const LandingCaseStudies = () => {
       hike: "375%",
       timeline: "7 months",
       image: "/newimages/piece_15.png",
-      quote: "I was stagnating at a service-based firm. ΣxpoGraph's high-level system design classes gave me the exact tools to break into PhonePe."
+      quote: "I was stagnating at a service-based firm. Aiiens Campus's high-level system design classes gave me the exact tools to break into PhonePe."
     },
     {
       name: "Riya Das",
@@ -210,7 +210,7 @@ const LandingCaseStudies = () => {
       hike: "433%",
       timeline: "8 months",
       image: "/newimages/piece_16.png",
-      quote: "Switching from content to coding was hard, but ΣxpoGraph's structured frontend roadmap and portfolio reviews got me into Myntra."
+      quote: "Switching from content to coding was hard, but Aiiens Campus's structured frontend roadmap and portfolio reviews got me into Myntra."
     },
     {
       name: "Vivek Menon",
@@ -223,7 +223,7 @@ const LandingCaseStudies = () => {
       hike: "300%",
       timeline: "5 months",
       image: "/newimages/piece_17.png",
-      quote: "I felt trapped in legacy tech. ΣxpoGraph updated my stack to Go and microservices, which is exactly what top startups are looking for."
+      quote: "I felt trapped in legacy tech. Aiiens Campus updated my stack to Go and microservices, which is exactly what top startups are looking for."
     },
     {
       name: "Shruti Rao",
@@ -236,7 +236,7 @@ const LandingCaseStudies = () => {
       hike: "500%",
       timeline: "6 months",
       image: "/newimages/piece_18.png",
-      quote: "The emphasis ΣxpoGraph places on writing clean, production-ready code is what impressed my interviewers at LinkedIn the most."
+      quote: "The emphasis Aiiens Campus places on writing clean, production-ready code is what impressed my interviewers at LinkedIn the most."
     },
     {
       name: "Aditya Bhat",
@@ -249,7 +249,7 @@ const LandingCaseStudies = () => {
       hike: "663%",
       timeline: "7 months",
       image: "/newimages/piece_19.png",
-      quote: "ΣxpoGraph's niche tracks are incredible. I took the cybersecurity elective and landed a role at CrowdStrike with multiple competing offers."
+      quote: "Aiiens Campus's niche tracks are incredible. I took the cybersecurity elective and landed a role at CrowdStrike with multiple competing offers."
     },
     {
       name: "Meera Chatterjee",
@@ -262,7 +262,7 @@ const LandingCaseStudies = () => {
       hike: "284%",
       timeline: "5 months",
       image: "/newimages/piece_20.png",
-      quote: "Moving from basic analytics to core ML required heavy math and deployment skills. ΣxpoGraph filled that gap perfectly."
+      quote: "Moving from basic analytics to core ML required heavy math and deployment skills. Aiiens Campus filled that gap perfectly."
     },
     {
       name: "Yash Agarwal",
@@ -275,7 +275,7 @@ const LandingCaseStudies = () => {
       hike: "447%",
       timeline: "6 months",
       image: "/newimages/piece_21.png",
-      quote: "I thought my tier-3 college background would hold me back. ΣxpoGraph proved that skills trump degrees every single time."
+      quote: "I thought my tier-3 college background would hold me back. Aiiens Campus proved that skills trump degrees every single time."
     },
     {
       name: "Divya Jain",
@@ -288,7 +288,7 @@ const LandingCaseStudies = () => {
       hike: "375%",
       timeline: "4 months",
       image: "/newimages/piece_22.png",
-      quote: "I lacked the discipline to upskill alone. The cohort-based learning and strict deadlines at ΣxpoGraph completely transformed my career trajectory."
+      quote: "I lacked the discipline to upskill alone. The cohort-based learning and strict deadlines at Aiiens Campus completely transformed my career trajectory."
     }
   ];
 

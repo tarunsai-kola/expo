@@ -13,7 +13,7 @@ const guideContent = {
             { title: "Write a compelling summary", desc: "Start with 2–3 lines summarizing your skills, experience level, and career goal." },
             { title: "Highlight key skills", desc: "List 6–8 relevant technical & soft skills that match your target job descriptions." },
             { title: "Quantify achievements", desc: "Use numbers: 'Improved page load speed by 40%' is stronger than 'Improved performance'." },
-            { title: "Add projects & certifications", desc: "Include 2–3 impactful projects with tech stack and outcomes. Add ΣxpoGraph certification." },
+            { title: "Add projects & certifications", desc: "Include 2–3 impactful projects with tech stack and outcomes. Add Aiiens Campus certification." },
             { title: "Proofread everything", desc: "Check for typos, consistent formatting, correct dates, and proper grammar." },
         ],
     },

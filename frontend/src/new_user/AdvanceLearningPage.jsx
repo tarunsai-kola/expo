@@ -8,7 +8,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import AdvanceLearning from "../User/AdvanceLearning";
-import logo from "../assets/LOGO3.png";
+import logo from "../assets/aiiens_logo.jpeg";
 
 const AdvanceLearningPage = () => {
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ const AdvanceLearningPage = () => {
                     boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
                 }}
             >
-                <img src={logo} alt="ΣxpoGraph" style={{ height: 36 }} />
+                <img src={logo} alt="Aiiens Campus" style={{ height: 36 }} />
                 <span style={{ color: "#d1d5db", fontSize: 18 }}>|</span>
                 <button
                     onClick={() => navigate("/advancedashboard/training")}

@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import mernBrochure from "../../ΣxpoGraph/Mern Stack Web Development Advanced Program.pdf";
-import dataScienceBrochure from "../../ΣxpoGraph/DataScienceAdvancedProgram.pdf";
-import dataAnalyticsBrochure from "../../ΣxpoGraph/Data Analytics Advanced program.pdf";
-import digitalMarketingBrochure from "../../ΣxpoGraph/Digital Marketing Advanced Program.pdf";
-import investmentBankingBrochure from "../../ΣxpoGraph/Investment Banking Advanced Program.pdf";
-import productManagementBrochure from "../../ΣxpoGraph/Product management Advanced program.pdf";
-import promptEngineeringBrochure from "../../ΣxpoGraph/Prompt engineering for generative AI Advanced Program.pdf";
+import mernBrochure from "../../Aiiens Campus/Mern Stack Web Development Advanced Program.pdf";
+import dataScienceBrochure from "../../Aiiens Campus/DataScienceAdvancedProgram.pdf";
+import dataAnalyticsBrochure from "../../Aiiens Campus/Data Analytics Advanced program.pdf";
+import digitalMarketingBrochure from "../../Aiiens Campus/Digital Marketing Advanced Program.pdf";
+import investmentBankingBrochure from "../../Aiiens Campus/Investment Banking Advanced Program.pdf";
+import productManagementBrochure from "../../Aiiens Campus/Product management Advanced program.pdf";
+import promptEngineeringBrochure from "../../Aiiens Campus/Prompt engineering for generative AI Advanced Program.pdf";
 import DownloadBrochureButton from "../page/AdvanceCourse/Components/DownloadBrochureButton";
 
 // import ds from '../assets/Advanced Course Images/Data science/DS 3.jpg'
@@ -19,7 +19,7 @@ import DownloadBrochureButton from "../page/AdvanceCourse/Components/DownloadBro
 const AdvanceCounses = () => {
   const courses = [
     {
-      institute: "ΣXPOGRAPH School Of Technology",
+      institute: "AIIENS CAMPUS School Of Technology",
       title: "Data Science",
       description: "Analyze complex datasets and build practical machine learning solutions for business use-cases.",
       icon: <i className="fa fa-database" aria-hidden="true"></i>,
@@ -32,7 +32,7 @@ const AdvanceCounses = () => {
       brochure: dataScienceBrochure,
     },
     {
-      institute: "ΣXPOGRAPH School Of Technology",
+      institute: "AIIENS CAMPUS School Of Technology",
       title: "Data Analytics",
       description: "Master Excel, SQL, Python, and Power BI to drive business decisions with data.",
       icon: <i className="fa fa-bar-chart" aria-hidden="true"></i>,
@@ -45,7 +45,7 @@ const AdvanceCounses = () => {
       brochure: dataAnalyticsBrochure,
     },
     {
-      institute: "ΣXPOGRAPH School Of Technology",
+      institute: "AIIENS CAMPUS School Of Technology",
       title: "Digital Marketing",
       description: "Master performance marketing, social media strategy, and data-driven growth campaigns.",
       icon: <i className="fa fa-bullhorn" aria-hidden="true"></i>,
@@ -59,7 +59,7 @@ const AdvanceCounses = () => {
     },
 
     {
-      institute: "ΣXPOGRAPH Product School",
+      institute: "AIIENS CAMPUS Product School",
       title: "Product Management",
       description: "Plan and launch products with user-first strategy, agile execution, and growth metrics.",
       icon: <i className="fa fa-cube" aria-hidden="true"></i>,
@@ -71,7 +71,7 @@ const AdvanceCounses = () => {
       brochure: productManagementBrochure,
     },
     {
-      institute: "ΣXPOGRAPH AI School",
+      institute: "AIIENS CAMPUS AI School",
       title: "Prompt Engineering AI",
       description: "Design reliable prompts and AI workflows for productivity, automation, and business applications.",
       icon: <i className="fa fa-android" aria-hidden="true"></i>,
@@ -83,7 +83,7 @@ const AdvanceCounses = () => {
       brochure: promptEngineeringBrochure,
     },
     {
-      institute: "ΣXPOGRAPH School Of Technology",
+      institute: "AIIENS CAMPUS School Of Technology",
       title: "MERN Stack Development",
       description: "Build production-ready web apps with MongoDB, Express.js, React, and Node.js.",
       icon: <i className="fa fa-code" aria-hidden="true"></i>,

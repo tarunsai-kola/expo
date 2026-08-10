@@ -27,14 +27,14 @@ const LandingPricing = () => {
         <div className="text-center mb-20">
           <div className="inline-flex items-center justify-center relative mb-6">
             <div className="absolute inset-0 bg-[#00FFA3]/20 blur-lg rounded-full animate-pulse" />
-            <span className="relative inline-flex items-center gap-2 text-[11px] font-black tracking-[0.2em] uppercase text-[#0F7B53] border border-[#0F7B53]/20 bg-[#00FFA3]/10 px-6 py-2.5 rounded-full shadow-[0_0_20px_rgba(0,255,163,0.1)]">
+            <span className="relative inline-flex items-center gap-2 text-[11px] font-black tracking-[0.2em] uppercase text-[#2563EB] border border-[#0F7B53]/20 bg-[#00FFA3]/10 px-6 py-2.5 rounded-full shadow-[0_0_20px_rgba(0,255,163,0.1)]">
               Investment & Pricing
             </span>
           </div>
           <h2 className="lp-font-outfit text-[#111111] font-extrabold text-5xl md:text-6xl mb-6 tracking-tight">
             An investment that pays for itself.
           </h2>
-          <p className="text-gray-500 text-[18px] max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="text-[#64748B] text-[18px] max-w-2xl mx-auto leading-relaxed font-medium">
             Our graduates typically see a salary hike that covers the full program cost within their first two paychecks.
           </p>
         </div>
@@ -50,20 +50,20 @@ const LandingPricing = () => {
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00FFA3] via-blue-500 to-[#00FFA3] rounded-[2.5rem] opacity-30 group-hover:opacity-60 blur-xl transition-all duration-700" />
           
           {/* Main Card Container */}
-          <div className="relative bg-[#050505]/90 backdrop-blur-3xl border border-white/10 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row z-10">
+          <div className="relative bg-[#050505]/90 backdrop-blur-3xl border border-[#E2E8F0] rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row z-10">
             
             {/* Left accent glowing bar */}
             <div className="absolute top-0 left-0 bottom-0 w-1.5 bg-gradient-to-b from-[#00FFA3] to-blue-500 hidden md:block shadow-[0_0_15px_rgba(0,255,163,0.5)] z-20" />
 
             {/* Features panel */}
-            <div className="w-full md:w-3/5 p-10 md:p-14 md:pl-16 border-b md:border-b-0 md:border-r border-white/5 relative overflow-hidden">
+            <div className="w-full md:w-3/5 p-10 md:p-14 md:pl-16 border-b md:border-b-0 md:border-r border-[#E2E8F0] relative overflow-hidden">
               {/* Inner subtle glow */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
-              <div className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 text-white text-[10px] font-black uppercase tracking-[0.2em] rounded-lg mb-8 shadow-[0_0_10px_rgba(255,255,255,0.05)]">
+              <div className="inline-block px-4 py-1.5 bg-white border border-[#E2E8F0] text-[#0F172A] text-[10px] font-black uppercase tracking-[0.2em] rounded-lg mb-8 shadow-[0_0_10px_rgba(255,255,255,0.05)]">
                 Premium Engineering Track
               </div>
-              <p className="text-gray-400 text-[15px] mb-10 font-medium leading-relaxed">
+              <p className="text-[#64748B] text-[15px] mb-10 font-medium leading-relaxed">
                 Everything you need to transition into a top-tier product company, structured into a single elite program.
               </p>
 
@@ -74,7 +74,7 @@ const LandingPricing = () => {
                       <div className="absolute inset-0 bg-[#00FFA3]/50 blur-md rounded-full opacity-0 group-hover/item:opacity-100 transition-opacity" />
                       <CheckCircle2 size={20} className="text-[#00FFA3] relative z-10 drop-shadow-[0_0_8px_rgba(0,255,163,0.5)]" />
                     </div>
-                    <span className="text-gray-300 text-[16px] font-medium group-hover/item:text-white transition-colors">{feature}</span>
+                    <span className="text-[#475569] text-[16px] font-medium group-hover/item:text-[#0F172A] transition-colors">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -96,7 +96,7 @@ const LandingPricing = () => {
                     59,999
                   </span>
                 </div>
-                <div className="text-gray-500 text-lg line-through mt-2 font-bold decoration-[#FF0055]/50 decoration-2">₹85,000</div>
+                <div className="text-[#64748B] text-lg line-through mt-2 font-bold decoration-[#FF0055]/50 decoration-2">₹85,000</div>
                 <div className="text-[#00FFA3] text-[11px] mt-3 font-black uppercase tracking-widest bg-[#00FFA3]/10 border border-[#00FFA3]/20 inline-block px-3 py-1.5 rounded-md">
                   + GST · No-Cost EMI Available
                 </div>
@@ -107,8 +107,8 @@ const LandingPricing = () => {
                 <span className="relative z-10">Apply for Scholarship</span>
               </button>
 
-              <div className="mt-8 space-y-3 relative z-10 border-t border-white/5 pt-6">
-                <p className="text-[13px] font-medium text-gray-400 text-center flex items-center justify-center gap-2">
+              <div className="mt-8 space-y-3 relative z-10 border-t border-[#E2E8F0] pt-6">
+                <p className="text-[13px] font-medium text-[#64748B] text-center flex items-center justify-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-gray-500" />
                   EMI starts at ₹5,999/month
                 </p>

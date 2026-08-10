@@ -20,7 +20,7 @@ const atdAuth = (req, res, next) => {
       return res.status(401).json({ error: "Access denied. Invalid token format." });
     }
 
-    const JWT_SECRET = process.env.JWT_SECRET || "EXPOGRAPH24";
+    const JWT_SECRET = process.env.JWT_SECRET || "AIIENSCAMPUS24";
     const decoded = jwt.verify(token, JWT_SECRET);
 
     // Set req.user for use in controllers

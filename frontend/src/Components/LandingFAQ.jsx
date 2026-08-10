@@ -24,7 +24,7 @@ const LandingFAQ = () => {
     },
     {
       question: "Is mentorship and career support part of the program?",
-      answer: "Yes. Mentor guidance, resume support, mock interviews, and interview preparation are part of ΣxpoGraph’s career-readiness approach."
+      answer: "Yes. Mentor guidance, resume support, mock interviews, and interview preparation are part of Aiiens Campus’s career-readiness approach."
     },
     {
       question: "Will I receive a certificate after completion?",
@@ -39,7 +39,7 @@ const LandingFAQ = () => {
           <h2 className="lp-font-outfit text-[#111111] font-extrabold text-4xl md:text-5xl mb-4 tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed font-light">
+          <p className="text-[#64748B] text-lg leading-relaxed font-light">
             Everything you need to know before making the most important career investment of your life.
           </p>
         </div>
@@ -64,7 +64,7 @@ const LandingFAQ = () => {
                   {faq.question}
                 </span>
                 <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-                  openIndex === idx ? "bg-[#111111] text-white" : "bg-gray-100 text-gray-500"
+                  openIndex === idx ? "bg-white text-[#0F172A]" : "bg-gray-100 text-[#64748B]"
                 }`}>
                   {openIndex === idx ? <Minus size={13} /> : <Plus size={13} />}
                 </div>
@@ -78,7 +78,7 @@ const LandingFAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                   >
-                    <div className="px-6 pb-6 text-gray-500 text-sm md:text-[15px] leading-relaxed font-light border-t border-gray-50 pt-4">
+                    <div className="px-6 pb-6 text-[#64748B] text-sm md:text-[15px] leading-relaxed font-light border-t border-gray-50 pt-4">
                       {faq.answer}
                     </div>
                   </motion.div>

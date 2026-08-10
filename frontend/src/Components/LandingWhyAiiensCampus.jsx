@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Users, Briefcase } from 'lucide-react';
 
-const LandingWhyΣxpoGraph = () => {
+const LandingWhyAiiensCampus = () => {
   const bentoItems = [
     {
       title: "Learn with real depth, not surface-level content",
@@ -21,7 +21,7 @@ const LandingWhyΣxpoGraph = () => {
       colSpan: "md:col-span-1 md:row-span-1 flex flex-col justify-center",
       delay: 0.2,
       glowColor: "from-blue-500/20 to-cyan-500/10",
-      iconColor: "text-blue-400"
+      iconColor: "text-[#2563EB]"
     },
     {
       title: "Career readiness support",
@@ -35,7 +35,7 @@ const LandingWhyΣxpoGraph = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden py-28 bg-[#020202] border-t border-white/5">
+    <section className="relative overflow-hidden py-28 bg-[#F8FAFC] border-t border-[#E2E8F0]">
       
       {/* Background ambient glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-[#00FFA3]/10 via-blue-500/5 to-transparent rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
@@ -51,14 +51,14 @@ const LandingWhyΣxpoGraph = () => {
           <div className="inline-flex items-center justify-center relative mb-6">
             <div className="absolute inset-0 bg-[#00FFA3]/20 blur-lg rounded-full animate-pulse" />
             <span className="relative inline-flex items-center gap-2 text-[11px] font-black tracking-[0.2em] uppercase text-[#00FFA3] border border-[#00FFA3]/30 bg-[#0a0a0a] px-6 py-2 rounded-full shadow-[0_0_20px_rgba(0,255,163,0.15)]">
-              Why ΣxpoGraph works
+              Why Aiiens Campus works
             </span>
           </div>
-          <h2 className="lp-font-outfit text-white font-extrabold text-3xl md:text-5xl mb-6 tracking-tight drop-shadow-sm max-w-3xl mx-auto leading-tight">
+          <h2 className="lp-font-outfit text-[#0F172A] font-extrabold text-3xl md:text-5xl mb-6 tracking-tight drop-shadow-sm max-w-3xl mx-auto leading-tight">
             Practical learning, expert mentorship, and career support that move you forward
           </h2>
-          <p className="text-gray-400 text-[17px] md:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
-            ΣxpoGraph is built for learners who want more than theory. We combine structured programs, real projects, mentor guidance, and career preparation to help students become industry-ready with confidence.
+          <p className="text-[#64748B] text-[17px] md:text-lg max-w-3xl mx-auto leading-relaxed font-medium">
+            Aiiens Campus is built for learners who want more than theory. We combine structured programs, real projects, mentor guidance, and career preparation to help students become industry-ready with confidence.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ const LandingWhyΣxpoGraph = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: item.delay, duration: 0.5 }}
-              className={`${item.colSpan} group relative bg-white/[0.02] border border-white/5 rounded-[2rem] p-8 hover:bg-white/[0.03] hover:border-white/20 hover:shadow-2xl transition-all duration-700 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.5)]`}
+              className={`${item.colSpan} group relative bg-white/[0.02] border border-[#E2E8F0] rounded-[2rem] p-8 hover:bg-white/[0.03] hover:border-[#E2E8F0] hover:shadow-2xl transition-all duration-700 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.5)]`}
             >
               {/* Noise Texture */}
               <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
@@ -81,22 +81,22 @@ const LandingWhyΣxpoGraph = () => {
               {/* Physical Glass Edge Light */}
               <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
               
-              <div className={`relative z-10 w-14 h-14 rounded-2xl bg-[#050505] shadow-[inset_0_0_20px_rgba(255,255,255,0.02)] border border-white/10 flex items-center justify-center mb-6 text-gray-500 group-hover:border-white/20 group-hover:${item.iconColor} transition-all duration-700`}>
+              <div className={`relative z-10 w-14 h-14 rounded-2xl bg-[#050505] shadow-[inset_0_0_20px_rgba(255,255,255,0.02)] border border-[#E2E8F0] flex items-center justify-center mb-6 text-[#64748B] group-hover:border-[#E2E8F0] group-hover:${item.iconColor} transition-all duration-700`}>
                 {item.icon}
                 {/* Icon Inner Glow */}
                 <div className="absolute inset-0 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 bg-current pointer-events-none" />
               </div>
-              <h3 className={`relative z-10 text-xl md:text-2xl font-extrabold text-white mb-4 tracking-tight group-hover:${item.iconColor} transition-colors duration-700`}>
+              <h3 className={`relative z-10 text-xl md:text-2xl font-extrabold text-[#0F172A] mb-4 tracking-tight group-hover:${item.iconColor} transition-colors duration-700`}>
                 {item.title}
               </h3>
-              <p className="relative z-10 text-gray-400 font-medium leading-relaxed text-[15px] group-hover:text-gray-300 transition-colors duration-500">
+              <p className="relative z-10 text-[#64748B] font-medium leading-relaxed text-[15px] group-hover:text-[#475569] transition-colors duration-500">
                 {item.desc}
               </p>
               
               {item.tags && (
                 <div className="relative z-10 mt-8 flex flex-wrap gap-2">
                   {item.tags.map((tag, i) => (
-                    <span key={i} className="text-[11px] font-bold tracking-wide uppercase text-gray-300 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full group-hover:bg-white/10 transition-colors duration-500">
+                    <span key={i} className="text-[11px] font-bold tracking-wide uppercase text-[#475569] bg-white border border-[#E2E8F0] px-3 py-1.5 rounded-full group-hover:bg-[#F8FAFC] transition-colors duration-500">
                       {tag}
                     </span>
                   ))}
@@ -110,4 +110,4 @@ const LandingWhyΣxpoGraph = () => {
   );
 };
 
-export default LandingWhyΣxpoGraph;
+export default LandingWhyAiiensCampus;

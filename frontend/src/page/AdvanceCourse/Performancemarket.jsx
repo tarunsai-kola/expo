@@ -48,7 +48,7 @@ import AdvanceBanner from "./Components/AdvanceBanner";
 
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import pfBrochure from "../../../ΣxpoGraph/Performance marketing Advanced Program.pdf";
+import pfBrochure from "../../../Aiiens Campus/Performance marketing Advanced Program.pdf";
 
 const heroStats = [
   { label: "Duration", value: "24 Weeks" },

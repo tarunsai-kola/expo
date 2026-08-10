@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from 'react-router-dom';
 import { motion, useAnimation, useScroll, useTransform } from "framer-motion";
-import heroImage from '../../ΣxpoGraph/images/publicspeech2.jpg';
+import heroImage from '../../Aiiens Campus/images/publicspeech2.jpg';
 
 /* ─── Counter Hook ─── */
 function useCounter(numStr, duration = 2200) {
@@ -312,7 +312,7 @@ const ShuffleHero = () => {
           }}>
             <motion.img
               src={heroImage}
-              alt="Students in a tech mentoring session at ΣxpoGraph"
+              alt="Students in a tech mentoring session at Aiiens Campus"
               style={{ width: "100%", height: "440px", objectFit: "cover", borderRadius: "20px", display: "block" }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.55 }}

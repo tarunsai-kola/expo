@@ -87,7 +87,7 @@ const FreeCareerAssessment = () => {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         amount: order.amount,
         currency: order.currency,
-        name: 'ΣxpoGraph',
+        name: 'Aiiens Campus',
         description: 'Live Mentor Career Assessment',
         order_id: order.id,
         handler: async function (response) {
@@ -220,7 +220,7 @@ const FreeCareerAssessment = () => {
       }}
     >
       <Helmet>
-        <title>Career Growth Assessment | ΣxpoGraph</title>
+        <title>Career Growth Assessment | Aiiens Campus</title>
         <meta name="description" content="Discover Your Career Potential, Strengths, Skill Gaps & Personalized Growth Roadmap. Book a live 1-on-1 slot with our expert mentors." />
       </Helmet>
 

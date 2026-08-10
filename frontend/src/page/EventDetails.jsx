@@ -115,7 +115,7 @@ const EventDetails = () => {
     return (
         <div className="min-h-screen bg-gray-50 font-sans flex flex-col">
             <Helmet>
-                <title>{event.metaTitle || `${event.title} – Free MCQ Event for Students | ΣxpoGraph`}</title>
+                <title>{event.metaTitle || `${event.title} – Free MCQ Event for Students | Aiiens Campus`}</title>
                 <meta
                     name="description"
                     content={event.metaDescription || `Join the ${event.title} - A free MCQ contest for students. Test your skills, earn certificates, and win exciting rewards. Register now!`}

@@ -3,7 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import API from "../API";
 import { useNavigate, Link } from "react-router-dom";
-import logo from '../assets/LOGO3.png';
+import logo from '../assets/aiiens_logo.jpeg';
 import quiz from '../assets/quiz.jpg';
 
 
@@ -60,7 +60,7 @@ const EventRegister = () => {
                 <div className="navbar">
                     <div>
                         <Link to="/">
-                            <img src={logo} alt="ΣxpoGraph Logo" />
+                            <img src={logo} alt="Aiiens Campus Logo" />
                         </Link>
                     </div>
                     <div className="menu" style={{ display: 'flex' }}>

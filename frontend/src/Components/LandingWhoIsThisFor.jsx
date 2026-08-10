@@ -27,7 +27,7 @@ const LandingWhoIsThisFor = () => {
           <h2 className="lp-font-outfit text-[#111111] font-extrabold text-4xl md:text-5xl mb-4 tracking-tight">
             Who this program is for — and who it is not.
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="text-[#64748B] text-lg max-w-2xl mx-auto leading-relaxed font-light">
             We select a small number of committed engineering students for each batch to maintain depth, quality, and outcomes. This is a serious skill-building accelerator, not a casual watch-at-your-own-pace course.
           </p>
         </div>
@@ -76,8 +76,8 @@ const LandingWhoIsThisFor = () => {
             <div className="space-y-5">
               {badFit.map((item, idx) => (
                 <div key={idx} className="flex gap-3.5">
-                  <XCircle size={17} className="text-gray-300 mt-0.5 flex-shrink-0" />
-                  <p className="text-gray-500 font-light leading-relaxed text-[15px]">{item}</p>
+                  <XCircle size={17} className="text-[#475569] mt-0.5 flex-shrink-0" />
+                  <p className="text-[#64748B] font-light leading-relaxed text-[15px]">{item}</p>
                 </div>
               ))}
             </div>

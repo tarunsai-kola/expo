@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import API from "../API";
 import debounce from "lodash/debounce";
 import toast, { Toaster } from "react-hot-toast";
-import logo from "../assets/LOGO3.png";
+import logo from "../assets/aiiens_logo.jpeg";
 
 const NewDashboard = () => {
   const userEmail = localStorage.getItem("userEmail");
@@ -117,7 +117,7 @@ const NewDashboard = () => {
     let certUrl = isTraining ? getTrainingCertUrl() : data.url;
     let certName = isTraining ? `Training Certificate - ${data.domain}` : data.domain;
 
-    let linkurl = `https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=${certName}&organizationName=ΣxpoGraph&issueYear=${year}&issueMonth=${month}&certUrl=${certUrl}&certId=${data._id}`;
+    let linkurl = `https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=${certName}&organizationName=Aiiens Campus&issueYear=${year}&issueMonth=${month}&certUrl=${certUrl}&certId=${data._id}`;
     window.open(linkurl, "_blank");
   };
 
@@ -144,7 +144,7 @@ const NewDashboard = () => {
   /* Read watched count from localStorage for a given enrollment, merging with backend progress */
   const getWatchedCount = (enrollmentId, sessionlist, dbWatchedSessions = []) => {
     try {
-      const key = `ΣxpoGraph_progress_${enrollmentId}`;
+      const key = `AiiensCampus_progress_${enrollmentId}`;
       const raw = localStorage.getItem(key);
       const localWatched = raw ? JSON.parse(raw) : [];
 
@@ -333,7 +333,7 @@ const NewDashboard = () => {
                 <div className="flex items-center gap-4 text-sm text-gray-600">
                   <div className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-primary text-lg">business</span>
-                    <span>Issued by <strong className="text-gray-900">ΣXPOGRAPH</strong></span>
+                    <span>Issued by <strong className="text-gray-900">AIIENS CAMPUS</strong></span>
                   </div>
                   <a
                     className="text-primary hover:text-orange-600 flex items-center gap-1 font-medium transition-colors"
@@ -507,7 +507,7 @@ const NewDashboard = () => {
                               )}
                               {!isFullyPaid && (
                                 <a
-                                  href="https://smartpay.easebuzz.in/219610/ΣxpoGraph"
+                                  href="https://smartpay.easebuzz.in/219610/Aiiens Campus"
                                   target="_blank"
                                   className="flex-1 min-w-[140px] bg-black hover:bg-gray-800 text-white font-medium py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
                                 >

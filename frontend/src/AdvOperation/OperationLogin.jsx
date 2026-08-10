@@ -94,7 +94,7 @@ const OperationLogin = () => {
             <ShieldCheck size={40} className="text-indigo-600" />
           </div>
           <h1 className="text-3xl font-black text-white tracking-tight mb-2">Operations Login</h1>
-          <p className="text-indigo-100 font-medium text-sm">Secure access for ΣxpoGraph operations team</p>
+          <p className="text-indigo-100 font-medium text-sm">Secure access for Aiiens Campus operations team</p>
         </div>
 
         {/* Glassmorphic Form Card */}
@@ -190,7 +190,7 @@ const OperationLogin = () => {
 
             <div className="text-center flex items-center justify-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest pt-6 border-t border-slate-100">
               <Shield size={14} className="text-slate-400" />
-              Protected by ΣxpoGraph Gateway
+              Protected by Aiiens Campus Gateway
             </div>
 
           </div>

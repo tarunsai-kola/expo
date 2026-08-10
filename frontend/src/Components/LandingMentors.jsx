@@ -43,14 +43,14 @@ const LandingMentors = () => {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-xl">
-            <span className="inline-block text-[10px] font-bold tracking-[2.5px] uppercase text-[#0F7B53] border border-[#0F7B53]/20 bg-[#0F7B53]/5 px-4 py-1.5 rounded-full mb-5">
+            <span className="inline-block text-[10px] font-bold tracking-[2.5px] uppercase text-[#2563EB] border border-[#0F7B53]/20 bg-[#2563EB]/5 px-4 py-1.5 rounded-full mb-5">
               Your Mentors
             </span>
             <h2 className="lp-font-outfit text-[#111111] font-extrabold text-4xl md:text-5xl tracking-tight">
               Learn from engineers who built it.
             </h2>
           </div>
-          <p className="text-gray-400 font-light text-base max-w-xs border-l border-gray-200 pl-6">
+          <p className="text-[#64748B] font-light text-base max-w-xs border-l border-gray-200 pl-6">
             No teaching assistants. No academic professors. Pure industry experience from the top 1% of tech.
           </p>
         </div>
@@ -68,7 +68,7 @@ const LandingMentors = () => {
               {/* Extreme Neon Glow on Hover */}
               <div className="absolute -inset-0.5 bg-gradient-to-br from-[#00FFA3]/60 to-blue-500/60 rounded-[32px] opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
               
-              <div className="relative h-full bg-[#0a0a0a] border border-white/10 group-hover:border-[#00FFA3]/50 shadow-2xl rounded-[32px] p-8 transition-all duration-500 flex flex-col transform group-hover:-translate-y-2 z-10 overflow-hidden">
+              <div className="relative h-full bg-[#0a0a0a] border border-[#E2E8F0] group-hover:border-[#00FFA3]/50 shadow-2xl rounded-[32px] p-8 transition-all duration-500 flex flex-col transform group-hover:-translate-y-2 z-10 overflow-hidden">
                 
                 {/* Cyber Grid Overlay */}
                 <div className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none" 
@@ -95,16 +95,16 @@ const LandingMentors = () => {
                   
                   <a
                     href="#"
-                    className="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/50 hover:text-black hover:bg-[#00FFA3] hover:border-[#00FFA3] hover:shadow-[0_0_20px_rgba(0,255,163,0.4)] transition-all duration-300 backdrop-blur-md"
+                    className="w-10 h-10 rounded-full border border-[#E2E8F0] bg-white flex items-center justify-center text-[#0F172A]/50 hover:text-black hover:bg-[#00FFA3] hover:border-[#00FFA3] hover:shadow-[0_0_20px_rgba(0,255,163,0.4)] transition-all duration-300 backdrop-blur-md"
                   >
                     <Linkedin size={16} />
                   </a>
                 </div>
 
                 <div className="mb-6 relative z-10">
-                  <h3 className="text-3xl font-black text-white mb-1 tracking-tight group-hover:text-[#00FFA3] transition-colors">{mentor.name}</h3>
-                  <p className="text-[16px] font-bold text-gray-300">{mentor.role}</p>
-                  <p className="text-[11px] font-black text-white/40 uppercase tracking-[0.2em] mt-2">{mentor.company}</p>
+                  <h3 className="text-3xl font-black text-[#0F172A] mb-1 tracking-tight group-hover:text-[#00FFA3] transition-colors">{mentor.name}</h3>
+                  <p className="text-[16px] font-bold text-[#475569]">{mentor.role}</p>
+                  <p className="text-[11px] font-black text-[#0F172A]/40 uppercase tracking-[0.2em] mt-2">{mentor.company}</p>
                 </div>
 
                 <div className="flex flex-wrap gap-2 mb-8 relative z-10">
@@ -119,8 +119,8 @@ const LandingMentors = () => {
                 </div>
 
                 <div className="mt-auto relative z-10">
-                  <div className="bg-white/5 border border-white/10 border-l-2 border-l-[#00FFA3] rounded-xl p-5 relative transition-all duration-500 group-hover:bg-white/10 group-hover:border-white/20 group-hover:border-l-[#00FFA3] group-hover:shadow-[0_0_15px_rgba(0,255,163,0.1)]">
-                    <p className="text-gray-300 text-[14px] font-medium leading-relaxed">
+                  <div className="bg-white border border-[#E2E8F0] border-l-2 border-l-[#00FFA3] rounded-xl p-5 relative transition-all duration-500 group-hover:bg-[#F8FAFC] group-hover:border-[#E2E8F0] group-hover:border-l-[#00FFA3] group-hover:shadow-[0_0_15px_rgba(0,255,163,0.1)]">
+                    <p className="text-[#475569] text-[14px] font-medium leading-relaxed">
                       <span className="text-[#00FFA3] font-serif text-xl mr-1 italic">"</span>
                       {mentor.quote}
                     </p>

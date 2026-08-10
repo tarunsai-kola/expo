@@ -49,7 +49,7 @@ import AdvanceBanner from "./Components/AdvanceBanner";
 
 import DownloadBrochureButton from "./Components/DownloadBrochureButton";
 import CountdownTimer from "./Components/CountdownTimer";
-import atBrochure from "../../../ΣxpoGraph/Automation testing Advanced Program.pdf";
+import atBrochure from "../../../Aiiens Campus/Automation testing Advanced Program.pdf";
 
 const heroStats = [
   { label: "Duration", value: "24 Weeks" },

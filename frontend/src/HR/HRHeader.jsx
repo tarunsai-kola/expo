@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import logo from "../assets/LOGO3.png";
+import logo from "../assets/aiiens_logo.jpeg";
 import toast, { Toaster } from "react-hot-toast";
 import { LogOut, Calendar, Menu, X } from "lucide-react";
 

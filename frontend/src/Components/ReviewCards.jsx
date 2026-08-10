@@ -17,7 +17,7 @@ const reviewsValue = [
     role: "Data Science Associate",
     experience: "10 Years",
     rating: 5,
-    quote: "I completed my internship in stock market and also pursued more courses here. Great mentorship. The practical approach to complex concepts is what sets ΣxpoGraph apart.",
+    quote: "I completed my internship in stock market and also pursued more courses here. Great mentorship. The practical approach to complex concepts is what sets Aiiens Campus apart.",
     image: birendraImg
   },
   {
@@ -25,7 +25,7 @@ const reviewsValue = [
     role: "Full Stack Developer",
     experience: "2 Years",
     rating: 5,
-    quote: "Successfully completed my full stack web development internship at ΣxpoGraph. Sessions were interactive and highly engaging with excellent mentor support. Truly career-transforming.",
+    quote: "Successfully completed my full stack web development internship at Aiiens Campus. Sessions were interactive and highly engaging with excellent mentor support. Truly career-transforming.",
     image: mithunImg
   }
 ];

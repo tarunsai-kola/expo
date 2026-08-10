@@ -23,7 +23,7 @@ const Getintouch = () => {
                 Make Contact
               </h2>
               <p className="text-gray-600 mb-6">
-                Want to learn more about how ΣxpoGraph can shape your
+                Want to learn more about how Aiiens Campus can shape your
                 career? Contact us today, and let’s build your future together!
               </p>
               <button className="bg-[#f15b29] hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-md">

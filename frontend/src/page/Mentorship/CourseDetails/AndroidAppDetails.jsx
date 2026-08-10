@@ -231,7 +231,7 @@ const AndroidAppDetails = () => {
                 ))}
              </div>
              <p className="credibility-note">
-                * Career outcomes depend on your project execution, portfolio strength, communication, and interview readiness. ΣxpoGraph supports this journey through mentor guidance and internship access.
+                * Career outcomes depend on your project execution, portfolio strength, communication, and interview readiness. Aiiens Campus supports this journey through mentor guidance and internship access.
              </p>
           </div>
         </div>
@@ -241,7 +241,7 @@ const AndroidAppDetails = () => {
       <section className="cd-dual-section">
         <div className="cd-section__inner cd-dual-grid">
           <div className="cd-experience">
-             <h2 className="cd-section__title">The ΣxpoGraph <span>Experience</span></h2>
+             <h2 className="cd-section__title">The Aiiens Campus <span>Experience</span></h2>
              <div className="cd-exp-list">
                 <div className="cd-exp-item">
                    <div className="icon"><FaChalkboardTeacher /></div>
@@ -335,7 +335,7 @@ const AndroidAppDetails = () => {
       <section className="cd-final-cta">
          <div className="cd-final-cta__content">
             <h2>Ready to start your Android App Journey?</h2>
-            <p>Join {data.enrolled} who are already transforming their careers with ΣxpoGraph.</p>
+            <p>Join {data.enrolled} who are already transforming their careers with Aiiens Campus.</p>
             <div className="actions">
                <button className="cd-btn-primary" onClick={() => setShowForm(true)}>Enroll Now</button>
                <button className="cd-btn-outline" onClick={() => setShowForm(true)}>Talk to Advisor</button>

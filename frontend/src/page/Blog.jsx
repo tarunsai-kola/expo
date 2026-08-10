@@ -66,7 +66,7 @@ const Blog = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl font-black tracking-tight mb-6 ag-font-outfit"
           >
-            <span className="text-white drop-shadow-md">ΣxpoGraph</span>{" "}
+            <span className="text-white drop-shadow-md">Aiiens Campus</span>{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#eab308] to-[#fef08a] drop-shadow-[0_0_15px_rgba(234,179,8,0.3)]">Insights</span>
           </motion.h1>
           

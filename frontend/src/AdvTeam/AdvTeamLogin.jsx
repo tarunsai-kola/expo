@@ -165,7 +165,7 @@ const AdvTeamLogin = () => {
 
             <div className="text-center flex items-center justify-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-widest pt-6 border-t border-slate-100">
               <Shield size={14} className="text-slate-400" />
-              Protected by ΣxpoGraph Gateway
+              Protected by Aiiens Campus Gateway
             </div>
 
           </div>

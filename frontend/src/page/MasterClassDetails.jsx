@@ -325,8 +325,8 @@ const MasterClassDetails = () => {
     // Default FAQs if still empty
     if (data.faqs.length === 0) {
       data.faqs = [
-        { q: "Is this masterclass really free?", a: "Yes, this masterclass is 100% free of charge. Our mission at ΣxpoGraph is to make top-tier industry knowledge and mentorship accessible to everyone." },
-        { q: "Will I get a certificate for attending?", a: "Yes! All participants who attend the live session will receive an official digital Certificate of Completion from ΣxpoGraph." },
+        { q: "Is this masterclass really free?", a: "Yes, this masterclass is 100% free of charge. Our mission at Aiiens Campus is to make top-tier industry knowledge and mentorship accessible to everyone." },
+        { q: "Will I get a certificate for attending?", a: "Yes! All participants who attend the live session will receive an official digital Certificate of Completion from Aiiens Campus." },
         { q: "Will there be a recording provided?", a: "The recording will only be available to registered members. We highly recommend attending live so you can participate in the live Q&A session with the instructor." },
         { q: "Who can attend this session?", a: "Any student, fresher, self-learner, or working professional interested in upskilling, mastering automation, development, or tech roles is welcome to join." },
         { q: "How will I receive the joining link?", a: "After registration, you will get instant access to our WhatsApp community group. The live joining link will be sent to your email and shared in the community group before the event starts." },
@@ -404,7 +404,7 @@ const MasterClassDetails = () => {
     if (navigator.share) {
       navigator.share({
         title: masterclass.title,
-        text: `Check out this live masterclass: ${masterclass.title} on ΣxpoGraph!`,
+        text: `Check out this live masterclass: ${masterclass.title} on Aiiens Campus!`,
         url: shareUrl
       }).catch(err => console.error(err));
     } else {
@@ -437,9 +437,9 @@ const MasterClassDetails = () => {
   return (
     <div className="bg-[#030712] text-slate-100 font-sans min-h-screen selection:bg-[#ff6b2d] selection:text-white relative overflow-x-hidden">
       <Helmet>
-        <title>{`${masterclass.title} | Free Live Masterclass | ΣxpoGraph`}</title>
+        <title>{`${masterclass.title} | Free Live Masterclass | Aiiens Campus`}</title>
         <meta name="description" content={info.subheading} />
-        <link rel="canonical" href={`https://www.ΣxpoGraph.com/MasterClass/${masterclass._id}`} />
+        <link rel="canonical" href={`https://www.Aiiens Campus.com/MasterClass/${masterclass._id}`} />
       </Helmet>
       
       <Toaster position="top-center" reverseOrder={false} />
@@ -694,7 +694,7 @@ const MasterClassDetails = () => {
       <div className="bg-[#030712]/75 backdrop-blur-xl border-b border-white/[0.06] py-4 px-4 sticky top-[38px] z-40 shadow-lg">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link to="/" className="text-white font-extrabold text-xl tracking-wider font-display flex items-center gap-1.5">
-            <span className="text-[#ff6b2d]">ΣXPOGRAPH</span>
+            <span className="text-[#ff6b2d]">AIIENS CAMPUS</span>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-400">
             <Link to="/" className="hover:text-white transition">Home</Link>

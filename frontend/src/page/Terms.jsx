@@ -37,7 +37,7 @@ const Terms = () => {
             Terms of <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-500 drop-shadow-[0_0_15px_rgba(99,102,241,0.3)]">Service</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light">
-            Welcome to ΣxpoGraph. These terms govern your access to our ecosystem of advanced educational programs and technological resources.
+            Welcome to Aiiens Campus. These terms govern your access to our ecosystem of advanced educational programs and technological resources.
           </p>
         </motion.div>
 
@@ -68,7 +68,7 @@ const Terms = () => {
                 Services & Financials
               </h2>
               <div className="pl-14 space-y-4 text-gray-400 leading-relaxed text-sm md:text-base font-light">
-                <p>ΣxpoGraph provisions high-impact educational curricula and architectural training. Program structures, schedules, and tuition models are dynamic and subject to optimization.</p>
+                <p>Aiiens Campus provisions high-impact educational curricula and architectural training. Program structures, schedules, and tuition models are dynamic and subject to optimization.</p>
                 <p>Tuition must be remitted in full (or via an approved payment plan) prior to unlocking platform access. As detailed in our Refund Policy, all fees are <strong className="text-white">strictly non-refundable</strong>.</p>
               </div>
             </section>
@@ -81,7 +81,7 @@ const Terms = () => {
                 Intellectual Property Rights
               </h2>
               <div className="pl-14 space-y-4 text-gray-400 leading-relaxed text-sm md:text-base font-light">
-                <p>All architectural diagrams, code repositories, video lectures, and proprietary materials are the exclusive intellectual property of ΣxpoGraph and its engineering licensors.</p>
+                <p>All architectural diagrams, code repositories, video lectures, and proprietary materials are the exclusive intellectual property of Aiiens Campus and its engineering licensors.</p>
                 <p>Unauthorized reproduction, distribution, or unauthorized sharing of our cohort materials is strictly prohibited and constitutes grounds for immediate expulsion without refund.</p>
               </div>
             </section>
@@ -92,7 +92,7 @@ const Terms = () => {
               <section className="bg-white/[0.03] p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-colors shadow-lg group">
                 <div className="mb-4 text-indigo-400 opacity-80 group-hover:opacity-100 transition-opacity"><FaBalanceScale size={24}/></div>
                 <h2 className="text-xl font-black text-white mb-3 ag-font-outfit">Liability Limitation</h2>
-                <p className="text-sm text-gray-400 leading-relaxed font-light">While we provide immense value and network access, ΣxpoGraph does not guarantee specific employment outcomes, job placements, or financial results.</p>
+                <p className="text-sm text-gray-400 leading-relaxed font-light">While we provide immense value and network access, Aiiens Campus does not guarantee specific employment outcomes, job placements, or financial results.</p>
               </section>
 
               <section className="bg-white/[0.03] p-8 rounded-3xl border border-white/5 hover:border-white/10 transition-colors shadow-lg group">
@@ -109,7 +109,7 @@ const Terms = () => {
                 <h2 className="text-2xl font-black text-white mb-2 ag-font-outfit">Require Legal Clarification?</h2>
                 <p className="text-sm text-gray-400 max-w-sm font-light">For any questions or concerns regarding these Terms, our legal support team is available.</p>
               </div>
-              <a href="mailto:support@ΣxpoGraph.com" className="relative z-10 px-8 py-4 bg-white text-indigo-950 hover:bg-indigo-50 font-black rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] whitespace-nowrap hover:scale-105 duration-300">
+              <a href="mailto:support@Aiiens Campus.com" className="relative z-10 px-8 py-4 bg-white text-indigo-950 hover:bg-indigo-50 font-black rounded-xl text-sm transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] whitespace-nowrap hover:scale-105 duration-300">
                 Contact Legal
               </a>
             </section>

@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import playerlogo from "./playerlogo.jpg";
 
 /* ─── helper: localStorage key for this enrollment ─── */
-const getProgressKey = (enrollmentId) => `ΣxpoGraph_progress_${enrollmentId}`;
+const getProgressKey = (enrollmentId) => `AiiensCampus_progress_${enrollmentId}`;
 
 const getWatchedSet = (enrollmentId) => {
   try {

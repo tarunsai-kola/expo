@@ -16,7 +16,7 @@ const certPoints = [
   {
     Icon: Globe,
     title: "Institutional Mobility",
-    desc: "The ΣxpoGraph credential facilitates seamless transition into high-growth roles in international tech hubs.",
+    desc: "The Aiiens Campus credential facilitates seamless transition into high-growth roles in international tech hubs.",
   },
 ];
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import API from "../API";
 import axios from "axios";
-import logo from "../assets/LOGO3.png";
+import logo from "../assets/aiiens_logo.jpeg";
 import toast, { Toaster } from 'react-hot-toast';
 
 // --- Premium SVG Icons ---

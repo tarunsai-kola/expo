@@ -178,7 +178,7 @@ const ContactUs = () => {
             <p>
               Provide your details so our team can connect with you and guide
               you through your next steps. Start building your future by taking
-              the top-rated industry-driven courses with ΣxpoGraph today!
+              the top-rated industry-driven courses with Aiiens Campus today!
             </p>
           </section>
           <section
@@ -233,7 +233,7 @@ const ContactUs = () => {
           <div>
             <iframe
               data-aos="zoom-in"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.653609138051!2d77.65305207507463!3d12.865635287440112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6d696e67880f%3A0x5b9a53aa71b83daa!2sΣxpoGraph%20Solutions!5e0!3m2!1sen!2sin!4v1732343734618!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.653609138051!2d77.65305207507463!3d12.865635287440112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6d696e67880f%3A0x5b9a53aa71b83daa!2sAiiens Campus%20Solutions!5e0!3m2!1sen!2sin!4v1732343734618!5m2!1sen!2sin"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"

@@ -49,7 +49,7 @@ export const courseMentors = {
     { id: 15, name: "Rahul Chauhan", role: "Cybersecurity Analyst", company: "Palo Alto Networks", bio: "Rahul focuses on threat intelligence and incident response, teaching students how to defend against modern cyber attacks.", rating: "4.9", reviews: "Highly recommended", image: cs3 }
   ],
   AIFullStack: [
-    { id: 16, name: "Divya Krishnan", role: "AI Full Stack Developer", company: "ΣxpoGraph", bio: "Divya integrates generative AI into modern web applications. She mentors students on building full-stack platforms with AI APIs.", rating: "5.0", reviews: "Top rated mentor", image: aifs1 },
+    { id: 16, name: "Divya Krishnan", role: "AI Full Stack Developer", company: "Aiiens Campus", bio: "Divya integrates generative AI into modern web applications. She mentors students on building full-stack platforms with AI APIs.", rating: "5.0", reviews: "Top rated mentor", image: aifs1 },
     { id: 17, name: "Anil Kumar", role: "AI Engineer", company: "Google India", bio: "Anil specializes in deploying scalable AI solutions. He guides students on backend architecture and ML model integration.", rating: "4.9", reviews: "Excellent mentor", image: aifs2 },
     { id: 18, name: "Riya Sharma", role: "Cloud Architect", company: "Microsoft India", bio: "Riya is a cloud expert who helps students deploy AI applications effectively on Azure and AWS.", rating: "4.8", reviews: "Highly recommended", image: aifs3 }
   ],
