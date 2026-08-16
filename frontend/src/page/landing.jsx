@@ -52,7 +52,11 @@ import agentAiHero from "../assets/agent_ai_hero.png";
 import AdvancedApplyPopup from "../Components/AdvancedApplyPopup";
 
 // New Landing Page Components
-import LandingWhyAiiensCampus from "../Components/LandingWhyAiiensCampus";
+import LandingStudentEcosystem from "../Components/LandingStudentEcosystem";
+import LandingImplementationFlow from "../Components/LandingImplementationFlow";
+import LandingSemesterPathway from "../Components/LandingSemesterPathway";
+import LandingCollegePartnership from "../Components/LandingCollegePartnership";
+import LandingCareerSupport from "../Components/LandingCareerSupport";
 import LandingWhoIsThisFor from "../Components/LandingWhoIsThisFor";
 import LandingCurriculum from "../Components/LandingCurriculum";
 import LandingMentors from "../Components/LandingMentors";
@@ -633,10 +637,14 @@ const HomePage = () => {
       {/* ─── NEW: Qualification Filter ─── */}
       <LandingWhoIsThisFor />
 
-      {/* ─── Why Aiiens Campus (New Comparison Section) ─── */}
-      <LandingWhyAiiensCampus />
+      {/* 🚀🚀🚀 New B2B / Campus Integration Sections 🚀🚀🚀 */}
+      <LandingStudentEcosystem />
+      <LandingImplementationFlow />
+      <LandingSemesterPathway />
+      <LandingCollegePartnership />
+      <LandingCareerSupport />
 
-      {/* ─── Bento Edge Section ─── */}
+      {/* 🚀🚀🚀 Bento Edge Section 🚀🚀🚀 */}
       <section style={{ padding: "30px 0 110px", background: "transparent" }} id="edge">
         <div style={{ width: "min(92%, 1250px)", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "56px" }}>

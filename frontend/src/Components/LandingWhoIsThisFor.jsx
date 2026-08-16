@@ -18,8 +18,19 @@ const LandingWhoIsThisFor = () => {
   ];
 
   return (
-    <section className="py-28 bg-[#FAFAFA] border-t border-gray-100">
-      <div className="max-w-[1200px] mx-auto px-6">
+    <section className="py-28 border-t border-gray-100 relative overflow-hidden">
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600" 
+          alt="Students learning" 
+          className="w-full h-full object-cover"
+        />
+        {/* Light gradient overlay for readability */}
+        <div className="absolute inset-0 bg-white/90 backdrop-blur-[2px]"></div>
+      </div>
+      
+      <div className="max-w-[1200px] mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <span className="inline-block text-[10px] font-bold tracking-[2.5px] uppercase text-[#111111] border border-gray-300 bg-white px-4 py-1.5 rounded-full mb-5">
             Selective Admissions
