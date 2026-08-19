@@ -1,192 +1,217 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Landmark, 
-  Users, 
-  GraduationCap, 
-  Star, 
-  UserCircle,
-  Handshake
+import {
+  BookOpenCheck,
+  TrendingUp,
+  FolderGit2,
+  UserRound,
+  ShieldCheck,
+  BarChart3,
+  Building2,
+  Layout,
+  Users,
+  GraduationCap,
+  Sparkle
 } from 'lucide-react';
 
+const valueCards = [
+  {
+    icon: <BookOpenCheck size={20} />,
+    glowColor: 'rgba(6, 182, 212, 0.25)', // Cyan
+    numColor: 'text-[#06b6d4]',
+    numGlow: 'drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]',
+    title: 'Curriculum-aligned practical learning',
+    desc: 'All programs are designed to complement your academic structure, not conflict with it. Faculty coordination is built in.',
+  },
+  {
+    icon: <TrendingUp size={20} />,
+    glowColor: 'rgba(139, 92, 246, 0.25)', // Purple
+    numColor: 'text-[#8b5cf6]',
+    numGlow: 'drop-shadow-[0_0_15px_rgba(139,92,246,0.5)]',
+    title: 'Stronger student engagement and confidence',
+    desc: 'Students become more invested in their own growth when they can see real connections between learning and doing.',
+  },
+  {
+    icon: <FolderGit2 size={20} />,
+    glowColor: 'rgba(245, 158, 11, 0.25)', // Amber
+    numColor: 'text-[#f59e0b]',
+    numGlow: 'drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]',
+    title: 'Industry-relevant projects and portfolios',
+    desc: 'Students build real projects that demonstrate capability — giving departments and institutions visible outcomes.',
+  },
+  {
+    icon: <UserRound size={20} />,
+    glowColor: 'rgba(59, 130, 246, 0.25)', // Blue
+    numColor: 'text-[#3b82f6]',
+    numGlow: 'drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]',
+    title: 'Structured mentorship and expert exposure',
+    desc: 'Bring experienced professionals closer to campus. Mentor sessions that go beyond a single event.',
+  },
+  {
+    icon: <ShieldCheck size={20} />,
+    glowColor: 'rgba(239, 68, 68, 0.25)', // Red
+    numColor: 'text-[#ef4444]',
+    numGlow: 'drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]',
+    title: 'Career-readiness support before final year',
+    desc: 'Students arrive at placement season with portfolios, aptitude skills and communication ability already developed.',
+  },
+  {
+    icon: <BarChart3 size={20} />,
+    glowColor: 'rgba(16, 185, 129, 0.25)', // Emerald
+    numColor: 'text-[#10b981]',
+    numGlow: 'drop-shadow-[0_0_15px_rgba(16,185,129,0.5)]',
+    title: 'Measurable reporting for management',
+    desc: 'Regular structured reports show participation, progress, and outcomes — giving management clear institutional visibility.',
+  },
+];
+
+const stakeholders = [
+  {
+    role: 'For Management',
+    icon: <Building2 size={18} />,
+    text: 'Visibility into program scope, student participation, learning progress, and institutional outcomes at every cycle.',
+  },
+  {
+    role: 'For Departments',
+    icon: <Layout size={18} />,
+    text: 'Customized interventions aligned to department-specific student needs, technology domains, and semester structures.',
+  },
+  {
+    role: 'For Faculty',
+    icon: <Users size={18} />,
+    text: 'Clear coordination support that complements classroom instruction — not added workload.',
+  },
+  {
+    role: 'For Students',
+    icon: <GraduationCap size={18} />,
+    text: 'Continuous learning, guided project experience, mentor access and career confidence built through the semesters.',
+  },
+];
+
 const LandingCollegePartnership = () => {
-  const pillars = [
-    {
-      title: 'COLLEGE',
-      desc: 'Provides academic foundation, infrastructure and learning environment.',
-      icon: <Landmark size={32} className="text-indigo-600 mb-4" />
-    },
-    {
-      title: 'DEPARTMENT',
-      desc: 'Identifies student needs, integrates activities and supports implementation.',
-      icon: <Users size={32} className="text-indigo-600 mb-4" />
-    },
-    {
-      title: 'AIIENS CAMPUS',
-      desc: 'Brings industry-relevant programmes, mentors and career-readiness support.',
-      icon: <GraduationCap size={32} className="text-indigo-600 mb-4" />
-    },
-    {
-      title: 'MENTORS',
-      desc: 'Guide, review and inspire students with real-world experience.',
-      icon: <Star size={32} className="text-indigo-600 mb-4" />
-    },
-    {
-      title: 'STUDENTS',
-      desc: 'Engage, build skills and grow with confidence.',
-      icon: <UserCircle size={32} className="text-indigo-600 mb-4" />
-    }
-  ];
-
-  const workTogether = [
-    {
-      title: 'WORKSHOPS & EXPERT SESSIONS',
-      desc: 'Industry insights delivered on campus.',
-      image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=400'
-    },
-    {
-      title: 'PROJECT & LAB INTEGRATION',
-      desc: 'Practical learning aligned with academic curriculum.',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400'
-    },
-    {
-      title: 'MENTORING & GUIDANCE',
-      desc: 'Personalised support for every student.',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400'
-    },
-    {
-      title: 'CAREER READINESS ACTIVITIES',
-      desc: 'Aptitude, communication, interviews and more.',
-      image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=400'
-    },
-    {
-      title: 'FEEDBACK & CONTINUOUS IMPROVEMENT',
-      desc: 'Measure, reflect and evolve together.',
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=400'
-    }
-  ];
-
   return (
-    <section className="py-24 bg-white relative overflow-hidden border-t border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="relative w-full py-24 bg-[#090d16] text-white overflow-hidden" id="why-aiiens">
+      
+      {/* Background Image & Overlay */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center opacity-15 pointer-events-none mix-blend-screen"
+        style={{ 
+          backgroundImage: `url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1920')` 
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#090d16] via-transparent to-[#030712] pointer-events-none" />
+      
+      {/* Decorative Radial Glows */}
+      <div className="absolute top-1/4 right-1/10 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/10 w-[500px] h-[500px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6">
         
-        {/* Header */}
-        <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-          <div>
-            <div className="text-slate-500 uppercase tracking-widest text-sm font-bold mb-4">COLLEGE PARTNERSHIP MODEL</div>
-            <h2 className="text-4xl md:text-5xl font-black text-[#0F172A] leading-tight tracking-tight mb-2">
-              AIIENS WORKS 
-            </h2>
-            <h2 className="text-4xl md:text-5xl font-black text-indigo-600 leading-tight tracking-tight">
-              WITH THE COLLEGE,
-            </h2>
-            <h2 className="text-4xl md:text-5xl font-black text-[#0F172A] leading-tight tracking-tight">
-              NOT AGAINST IT.
-            </h2>
-          </div>
-          <div className="max-w-sm md:text-right border-l-4 md:border-l-0 md:border-r-4 border-indigo-200 pl-4 md:pl-0 md:pr-4">
-            <p className="text-slate-600 font-medium">
-              We are not here to replace what colleges do best. We are here to <span className="text-indigo-600 font-bold">strengthen the practical layer</span> that prepares students for real-world success.
-            </p>
-          </div>
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 className="font-['Instrument_Sans'] font-semibold text-3xl sm:text-5xl leading-tight">
+            What your college gains<br />with Aiiens Campus.
+          </h2>
+          <p className="font-['Instrument_Sans'] text-white/50 text-lg sm:text-[19px] leading-relaxed max-w-2xl mx-auto">
+            A genuine industry-readiness partnership that creates measurable impact for management, departments, faculty and students alike.
+          </p>
         </div>
 
-        {/* Hero Image */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="w-full h-80 md:h-[400px] rounded-3xl overflow-hidden mb-16 shadow-xl relative"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=1600" 
-            alt="Students and mentor working together" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-indigo-900/10"></div>
-        </motion.div>
-
-        {/* 5 Pillars */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16">
-          {pillars.map((pillar, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
+        {/* Value Cards Grid (3 Columns) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          {valueCards.map((card, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="flex flex-col items-center text-center px-4"
+              transition={{ delay: idx * 0.05, duration: 0.5 }}
+              className="group relative bg-[#0e1626]/40 border border-white/5 hover:border-white/15 backdrop-blur-md rounded-2xl p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1"
+              style={{
+                boxShadow: `0 4px 30px rgba(0, 0, 0, 0.2)`
+              }}
+              whileHover={{
+                boxShadow: `0 10px 40px ${card.glowColor}`
+              }}
             >
-              {pillar.icon}
-              <h4 className="font-bold text-slate-900 mb-3 tracking-wide">{pillar.title}</h4>
-              <p className="text-sm text-slate-600 leading-relaxed">{pillar.desc}</p>
+              <div>
+                {/* ID & Giant Glow Number */}
+                <div className="flex justify-between items-start mb-6">
+                  <span className="font-['Instrument_Sans'] text-xs font-medium text-white/40">
+                    0{idx + 1}
+                  </span>
+                  <span className={`font-['Instrument_Sans'] font-semibold text-6xl leading-none ${card.numColor} ${card.numGlow} opacity-60 group-hover:opacity-100 transition-opacity duration-300`}>
+                    0{idx + 1}
+                  </span>
+                </div>
+
+                {/* Icon box */}
+                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center text-white/80 mb-6 group-hover:text-white transition-colors">
+                  {card.icon}
+                </div>
+
+                {/* Title */}
+                <h4 className="font-['Instrument_Sans'] font-semibold text-lg text-white mb-3">
+                  {card.title}
+                </h4>
+
+                {/* Description */}
+                <p className="font-['Instrument_Sans'] text-sm text-white/50 leading-relaxed">
+                  {card.desc}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Middle Banner */}
-        <div className="bg-indigo-50/50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-16 mb-24 border border-indigo-100">
-          <div className="flex items-center gap-4">
-            <Handshake className="text-indigo-400 shrink-0" size={28} />
-            <p className="text-slate-700 font-medium text-lg">Different roles. One shared goal — <span className="text-indigo-600 font-bold">student success.</span></p>
-          </div>
-          <div className="hidden md:block w-px h-12 bg-indigo-200"></div>
-          <div>
-            <p className="text-slate-700 font-medium text-lg">A stronger ecosystem. <span className="text-indigo-600 font-bold">Better outcomes.</span></p>
-          </div>
-        </div>
-
-        {/* How We Work Together Section */}
-        <div className="mb-12">
-          <div className="flex items-center gap-4 mb-8">
-            <h3 className="text-xl font-bold text-[#0F172A] tracking-wider uppercase">HOW WE WORK TOGETHER</h3>
-            <div className="flex-1 h-px bg-slate-200"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {workTogether.map((item, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="rounded-xl overflow-hidden h-40 mb-4 shadow-sm border border-slate-100 relative">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors duration-300"></div>
-                </div>
-                <h4 className="font-bold text-slate-900 text-sm mb-2 uppercase leading-snug">{item.title}</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Bottom Banner */}
-        <motion.div 
+        {/* Stakeholder Panel (Designed for every stakeholder) */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-indigo-50 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-indigo-100 shadow-sm"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="relative bg-white/[0.02] border border-white/5 rounded-3xl p-8 sm:p-12 overflow-hidden"
         >
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 border border-indigo-100">
-              <GraduationCap size={24} className="text-indigo-400" />
-            </div>
-            <p className="text-slate-700 font-medium">
-              When institutions and industry-readiness partners work together, students <span className="text-indigo-600 font-bold">gain more</span> from their college years.
-            </p>
+          {/* Subtle inside blur decoration */}
+          <div className="absolute -top-1/4 -right-1/10 w-[300px] h-[300px] bg-blue-500/5 blur-[80px] rounded-full pointer-events-none" />
+
+          {/* Sparkle Decoration at bottom right */}
+          <div className="absolute bottom-6 right-6 text-white/20 z-0">
+            <Sparkle size={48} className="animate-spin-slow" />
           </div>
 
-          <div className="border-l-0 md:border-l-2 border-indigo-200 pt-4 md:pt-0 pl-0 md:pl-8 text-center md:text-left min-w-[250px]">
-            <p className="text-slate-700 font-medium uppercase text-sm tracking-widest mb-1">STRONGER TOGETHER.</p>
-            <p className="text-indigo-600 font-bold uppercase text-sm tracking-widest">BETTER FOR STUDENTS.</p>
+          <div className="relative z-10 mb-10">
+            <p className="font-['Instrument_Sans'] font-medium text-xs text-white/40 tracking-[2px] uppercase mb-2">
+              Designed for Every Stakeholder
+            </p>
+            <h3 className="font-['Instrument_Sans'] font-semibold text-2xl sm:text-3xl text-white tracking-tight">
+              One partnership. Value at every level.
+            </h3>
+          </div>
+
+          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-4">
+            {stakeholders.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05, duration: 0.4 }}
+                className="bg-white/[0.02] border border-white/5 hover:border-white/10 rounded-2xl p-6 transition-colors hover:bg-white/[0.04]"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-white/70">
+                    {s.icon}
+                  </div>
+                  <span className="font-['Instrument_Sans'] font-semibold text-sm text-white">
+                    {s.role}
+                  </span>
+                </div>
+                <p className="font-['Instrument_Sans'] text-sm text-white/50 leading-relaxed">
+                  {s.text}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 

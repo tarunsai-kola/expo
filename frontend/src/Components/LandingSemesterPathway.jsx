@@ -1,180 +1,306 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Eye, 
-  Settings, 
-  Target, 
-  TrendingUp,
-  Users
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Compass,
+  Layers,
+  Zap,
+  GraduationCap,
+  ArrowRight,
+  CheckCircle2,
+  Play,
+  Pause
 } from 'lucide-react';
 
+const stages = [
+  {
+    id: 1,
+    label: 'Awareness',
+    tag: 'Semesters 1–2',
+    icon: <Compass size={22} />,
+    color: '#3B82F6', // Blue
+    bg: 'rgba(59, 130, 246, 0.1)',
+    heading: 'Explore industry and build early direction.',
+    summary: 'Help students move beyond the syllabus. Build curiosity, identify interests, and establish foundational soft skills.',
+    points: [
+      'Domain exploration and technology awareness workshops',
+      'Mentor conversations and industry Q&A sessions',
+      'Identifying student aptitude and areas of interest',
+      'Communication and professional behaviour foundations',
+      'Introduction to LMS learning paths and resources',
+    ],
+  },
+  {
+    id: 2,
+    label: 'Capability',
+    tag: 'Semesters 3–5',
+    icon: <Layers size={22} />,
+    color: '#10B981', // Emerald
+    bg: 'rgba(16, 185, 129, 0.1)',
+    heading: 'Build deep skills and real project experience.',
+    summary: 'Move from awareness to action. Students develop technical skills, complete guided projects, and build demonstrable portfolio evidence.',
+    points: [
+      'Structured domain-specific and technical skill training',
+      'Guided real-world project execution with mentor feedback',
+      'Teamwork, collaboration and peer-learning exercises',
+      'LMS assessments and structured learning checkpoints',
+      'Project portfolio documentation and review',
+    ],
+  },
+  {
+    id: 3,
+    label: 'Readiness',
+    tag: 'Semester 6',
+    icon: <Zap size={22} />,
+    color: '#F59E0B', // Amber
+    bg: 'rgba(245, 158, 11, 0.1)',
+    heading: 'Sharpen skills and prepare for the real world.',
+    summary: 'A dedicated readiness semester — advanced projects, career preparation essentials, and internship guidance before final-year pressure begins.',
+    points: [
+      'Advanced capstone projects and portfolio completion',
+      'Aptitude training, logical reasoning and communication practice',
+      'Resume strategy and LinkedIn profile development',
+      'Mock interview preparation and structured feedback',
+      'Internship application guidance and readiness review',
+    ],
+  },
+  {
+    id: 4,
+    label: 'Transition',
+    tag: 'Semesters 7–8',
+    icon: <GraduationCap size={22} />,
+    color: '#D946EF', // Fuchsia
+    bg: 'rgba(217, 70, 239, 0.1)',
+    heading: 'Move from campus to career with confidence.',
+    summary: 'Support students through the most critical stage — final projects, job-readiness, and the professional transition from student to practitioner.',
+    points: [
+      'Final-year project mentorship, review and presentation support',
+      'Live mock interview sessions with structured expert feedback',
+      'Career guidance and professional job-readiness sessions',
+      'Internship experience consolidation and reflection',
+      'Professional portfolio completion and final review',
+    ],
+  },
+];
+
 const LandingSemesterPathway = () => {
-  const pathways = [
-    {
-      id: '01',
-      phase: 'EARLY SEMESTERS',
-      title: 'AWARENESS',
-      subtitle: 'Explore. Discover. Get curious.',
-      points: [
-        'Explore interests and emerging technologies',
-        'Attend workshops & expert sessions',
-        'Discover real-world possibilities',
-        'Interact with mentors and seniors'
-      ],
-      icon: <Eye size={24} />,
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=600'
-    },
-    {
-      id: '02',
-      phase: 'MIDDLE SEMESTERS',
-      title: 'CAPABILITY',
-      subtitle: 'Learn. Build. Collaborate.',
-      points: [
-        'Learn in-depth and strengthen fundamentals',
-        'Work on projects and solve real problems',
-        'Build technical and soft skills',
-        'Teamwork, peer learning and mentorship'
-      ],
-      icon: <Settings size={24} />,
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=600'
-    },
-    {
-      id: '03',
-      phase: 'PRE-FINAL YEAR',
-      title: 'READINESS',
-      subtitle: 'Prepare. Showcase. Get ready.',
-      points: [
-        'Take up advanced projects',
-        'Build your professional portfolio',
-        'Improve communication & aptitude',
-        'Prepare for internships and industry roles'
-      ],
-      icon: <Target size={24} />,
-      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=600'
-    },
-    {
-      id: '04',
-      phase: 'FINAL YEAR',
-      title: 'TRANSITION',
-      subtitle: 'Apply. Connect. Grow.',
-      points: [
-        'Apply for internships and opportunities',
-        'Ace interviews and assessments',
-        'Get career guidance and support',
-        'Transition confidently into the professional world'
-      ],
-      icon: <TrendingUp size={24} />,
-      image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=600'
+  const [activeStage, setActiveStage] = useState(1);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const timerRef = useRef(null);
+
+  // Auto-progress stages every 3 seconds
+  useEffect(() => {
+    if (isPlaying) {
+      timerRef.current = setInterval(() => {
+        setActiveStage((prev) => (prev % 4) + 1);
+      }, 3000);
+    } else {
+      if (timerRef.current) clearInterval(timerRef.current);
     }
-  ];
+
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [isPlaying]);
+
+  const handleStageClick = (id) => {
+    setActiveStage(id);
+    setIsPlaying(false); // Pause autoplay once the user interacts
+  };
+
+  const currentStage = stages.find(s => s.id === activeStage);
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
+    <section className="relative w-full py-24 bg-[#030712] text-white overflow-hidden" id="outcomes">
+      
+      {/* Background Image & Overlay */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center opacity-10 pointer-events-none mix-blend-screen"
+        style={{ 
+          backgroundImage: `url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1920')` 
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#090d16] via-transparent to-[#030712] pointer-events-none" />
+
+      {/* Background radial highlight */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-500/5 blur-[160px] rounded-full pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6">
         
         {/* Header */}
-        <div className="mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-          <div>
-            <div className="text-slate-500 uppercase tracking-widest text-sm font-bold mb-4">SEMESTER-WISE PATHWAY</div>
-            <h2 className="text-4xl md:text-5xl font-black text-[#0F172A] leading-tight tracking-tight mb-2">
-              DON'T WAIT UNTIL
-            </h2>
-            <h2 className="text-4xl md:text-5xl font-black text-[#0F172A] leading-tight tracking-tight mb-2">
-              FINAL YEAR TO BECOME
-            </h2>
-            <h2 className="text-4xl md:text-5xl font-black text-indigo-600 leading-tight tracking-tight">
-              INDUSTRY-READY.
-            </h2>
-          </div>
-          <div className="max-w-xs md:text-right border-l-4 md:border-l-0 md:border-r-4 border-indigo-200 pl-4 md:pl-0 md:pr-4">
-            <p className="text-slate-600 font-medium">
-              Industry readiness is not a one-semester sprint.<br />
-              It's a journey we build together — <span className="text-indigo-600 font-bold">step by step, semester by semester.</span>
-            </p>
-          </div>
+        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <h2 className="font-['Instrument_Sans'] font-semibold text-3xl sm:text-5xl leading-tight">
+            Don't wait until final year<br />to build industry readiness.
+          </h2>
+          <p className="font-['Instrument_Sans'] text-white/50 text-lg sm:text-[19px] leading-relaxed max-w-2xl mx-auto">
+            Industry readiness is built semester by semester — not crammed in a final-year sprint. Aiiens Campus integrates into your institution across all four stages.
+          </p>
         </div>
 
-        {/* Pathway Timeline */}
-        <div className="relative">
-          {/* Vertical Connecting Line */}
-          <div className="absolute left-[39px] sm:left-[3.5rem] top-[40px] bottom-[40px] w-0.5 bg-indigo-100 hidden sm:block"></div>
+        {/* Stepper Stepper Stepper */}
+        <div className="max-w-4xl mx-auto mb-12">
           
-          <div className="flex flex-col gap-16 md:gap-24 relative">
-            {pathways.map((step, index) => (
-              <motion.div 
-                key={step.id}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6 }}
-                className="flex flex-col sm:flex-row gap-6 md:gap-12 relative"
-              >
-                {/* Step Indicator */}
-                <div className="shrink-0 flex flex-col items-center sm:w-28 z-10">
-                  <div className="w-16 h-16 rounded-full bg-white border-2 border-indigo-100 flex flex-col items-center justify-center text-indigo-600 shadow-sm relative group cursor-default">
-                    <span className="text-xl font-black leading-none mb-1 group-hover:scale-110 transition-transform">{step.id}</span>
-                    <div className="scale-75 group-hover:rotate-12 transition-transform">{step.icon}</div>
-                  </div>
-                </div>
+          {/* Stepper Timeline Nav */}
+          <div className="relative flex justify-between items-center z-10 mb-6">
+            
+            {/* Background connection line */}
+            <div className="absolute top-1/2 left-0 right-0 h-1 bg-white/5 -translate-y-1/2 z-0" />
+            
+            {/* Glowing progress line */}
+            <motion.div 
+              className="absolute top-1/2 left-0 h-1 bg-gradient-to-r from-blue-500 via-emerald-500 to-amber-500 -translate-y-1/2 z-0 origin-left"
+              animate={{
+                width: `${((activeStage - 1) / 3) * 100}%`
+              }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            />
 
-                {/* Content Area */}
-                <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white">
-                  
-                  {/* Image */}
-                  <div className="rounded-2xl overflow-hidden h-64 border border-slate-200 shadow-sm relative group order-2 md:order-1">
-                    <img 
-                      src={step.image} 
-                      alt={step.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-indigo-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
+            {stages.map((stage) => {
+              const isActive = stage.id === activeStage;
+              const isPassed = stage.id < activeStage;
+              return (
+                <button
+                  key={stage.id}
+                  onClick={() => handleStageClick(stage.id)}
+                  className="relative z-10 flex flex-col items-center focus:outline-none group"
+                >
+                  {/* Outer circle */}
+                  <motion.div 
+                    className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300 ${
+                      isActive 
+                        ? 'bg-slate-900 border-white text-white shadow-[0_0_20px_rgba(255,255,255,0.2)]'
+                        : isPassed
+                          ? 'bg-[#0f172a] border-emerald-500 text-emerald-400'
+                          : 'bg-[#020617] border-white/10 text-white/40 group-hover:border-white/30 group-hover:text-white/70'
+                    }`}
+                  >
+                    {stage.icon}
+                  </motion.div>
 
-                  {/* Text Content */}
-                  <div className="order-1 md:order-2">
-                    <div className="text-indigo-600 uppercase tracking-widest text-sm font-bold mb-2">{step.phase}</div>
-                    <h3 className="text-3xl font-black text-[#0F172A] mb-4 uppercase tracking-wide">{step.title}</h3>
-                    <p className="text-slate-800 font-bold mb-6 text-lg">{step.subtitle}</p>
-                    <ul className="space-y-3">
-                      {step.points.map((point, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 mt-2 shrink-0"></span>
-                          <span className="text-slate-600 font-medium">{point}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  {/* Stage Details below circle */}
+                  <div className="absolute top-14 flex flex-col items-center">
+                    <span className={`font-['Instrument_Sans'] text-xs font-semibold tracking-wider uppercase whitespace-nowrap transition-colors duration-300 ${
+                      isActive ? 'text-white' : 'text-white/40'
+                    }`}>
+                      {stage.label}
+                    </span>
+                    <span className={`font-['Instrument_Sans'] text-[10px] whitespace-nowrap transition-colors duration-300 mt-0.5 ${
+                      isActive ? 'text-white/80' : 'text-white/30'
+                    }`}>
+                      {stage.tag}
+                    </span>
                   </div>
+                </button>
+              );
+            })}
+          </div>
 
-                </div>
-              </motion.div>
-            ))}
+          {/* Autoplay Controls (Play / Pause Indicator) */}
+          <div className="flex justify-end items-center gap-2 mt-20 pr-4">
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              className="text-white/40 hover:text-white flex items-center gap-1.5 text-xs font-['Instrument_Sans'] tracking-wider uppercase transition-colors"
+            >
+              {isPlaying ? (
+                <>
+                  <Pause size={12} />
+                  <span>Autoplay Active</span>
+                </>
+              ) : (
+                <>
+                  <Play size={12} />
+                  <span>Autoplay Paused</span>
+                </>
+              )}
+            </button>
           </div>
         </div>
 
-        {/* Bottom Banner */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="mt-20 bg-indigo-50 rounded-3xl p-8 border border-indigo-100 flex flex-col md:flex-row items-center justify-between gap-8"
-        >
-          <div className="flex items-center gap-6">
-            <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm border border-indigo-100">
-              <Users size={28} className="text-indigo-400" />
-            </div>
-            <div>
-              <p className="text-slate-700 font-medium mb-1">Every semester adds value.</p>
-              <p className="text-slate-700 font-medium mb-1">Every step builds you.</p>
-              <p className="text-indigo-600 font-bold">Your future is built today.</p>
-            </div>
-          </div>
+        {/* Dynamic Details Area */}
+        <div className="max-w-4xl mx-auto mt-6">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeStage}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+              className="bg-[#0e1626]/40 border border-white/5 rounded-3xl p-8 sm:p-10 backdrop-blur-md grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch"
+            >
+              {/* Left Column: Summary */}
+              <div className="md:col-span-5 flex flex-col justify-between space-y-6">
+                <div>
+                  <span 
+                    className="inline-block font-['Instrument_Sans'] text-[11px] font-bold tracking-widest uppercase px-3.5 py-1 rounded-full mb-6"
+                    style={{
+                      background: `${currentStage.color}15`,
+                      color: currentStage.color,
+                      border: `1px solid ${currentStage.color}30`
+                    }}
+                  >
+                    {currentStage.tag}
+                  </span>
+                  
+                  <h3 className="font-['Instrument_Sans'] font-semibold text-2xl sm:text-3xl text-white leading-tight mb-4">
+                    {currentStage.heading}
+                  </h3>
+                  
+                  <p className="font-['Instrument_Sans'] text-sm sm:text-base text-white/50 leading-relaxed">
+                    {currentStage.summary}
+                  </p>
+                </div>
 
-          <div className="bg-white px-8 py-5 rounded-xl shadow-sm border border-slate-100 md:ml-auto w-full md:w-auto">
-            <p className="text-slate-700 font-medium mb-1 uppercase text-sm tracking-wider">START EARLY.</p>
-            <p className="text-slate-700 font-medium mb-1 uppercase text-sm tracking-wider">GROW STEADY.</p>
-            <p className="text-indigo-600 font-bold uppercase text-sm tracking-wider">STAY AHEAD.</p>
-          </div>
-        </motion.div>
+                {/* Progress bar inside details if playing */}
+                {isPlaying && (
+                  <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                    <motion.div 
+                      key={activeStage}
+                      className="h-full rounded-full"
+                      style={{ backgroundColor: currentStage.color }}
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 3, ease: "linear" }}
+                    />
+                  </div>
+                )}
+              </div>
+
+              {/* Right Column: Deliverables Checklist */}
+              <div className="md:col-span-7 bg-white/[0.01] border border-white/5 rounded-2xl p-6 sm:p-8 flex flex-col justify-center">
+                <div className="space-y-4">
+                  <p className="font-['Instrument_Sans'] text-xs font-semibold text-white/40 uppercase tracking-widest mb-2">
+                    Key Deliverables
+                  </p>
+                  
+                  {currentStage.points.map((pt, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: 10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.08 }}
+                      className="flex items-start gap-3"
+                    >
+                      <CheckCircle2 size={16} className="flex-shrink-0 mt-1" style={{ color: currentStage.color }} />
+                      <span className="font-['Instrument_Sans'] text-sm text-white/70 leading-relaxed">
+                        {pt}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* CTA nudge */}
+        <p className="text-center font-['Instrument_Sans'] text-sm text-white/40 mt-16">
+          Our team will work with your department heads to customise the right stage-wise intervention.{' '}
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="text-blue-400 font-semibold hover:text-blue-300 underline transition-colors"
+          >
+            Discuss your institution's needs →
+          </button>
+        </p>
 
       </div>
     </section>

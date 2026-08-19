@@ -1,243 +1,191 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Lightbulb, 
-  PackageOpen, 
-  UserCircle2, 
-  BarChart, 
-  Send, 
-  Briefcase, 
-  Star,
-  Settings,
-  PenTool,
+import {
+  BrainCircuit,
+  MessageSquare,
   Users,
-  CheckCircle,
   FileText,
-  Map,
-  Target,
+  Linkedin,
   FolderOpen,
-  Award,
-  Shield,
-  DoorOpen,
-  BookOpen,
-  Wrench,
-  Globe,
-  TrendingUp,
-  Quote
+  Mic2,
+  Compass,
+  ArrowRight
 } from 'lucide-react';
 
+const pillars = [
+  {
+    title: 'Analytical & Behavioral Foundation',
+    color: '#3B82F6', // Blue
+    glow: 'rgba(59, 130, 246, 0.15)',
+    items: [
+      {
+        icon: <BrainCircuit size={18} />,
+        label: 'Aptitude & Analytical Thinking',
+        desc: 'Quantitative reasoning, logical thinking and problem-solving — built through structured practice.',
+      },
+      {
+        icon: <Users size={18} />,
+        label: 'Professional Habits & Teamwork',
+        desc: 'Collaboration, accountability, feedback culture and professional workplace etiquette.',
+      }
+    ]
+  },
+  {
+    title: 'Professional Presence & Communication',
+    color: '#10B981', // Emerald
+    glow: 'rgba(16, 185, 129, 0.15)',
+    items: [
+      {
+        icon: <MessageSquare size={18} />,
+        label: 'Communication & Presentation',
+        desc: 'Verbal, written and visual communication skills for professional settings and group work.',
+      },
+      {
+        icon: <Linkedin size={18} />,
+        label: 'LinkedIn Profile Development',
+        desc: 'Building a professional digital presence that reflects capability and invites industry attention.',
+      }
+    ]
+  },
+  {
+    title: 'Application & Portfolio Strategy',
+    color: '#F59E0B', // Amber
+    glow: 'rgba(245, 158, 11, 0.15)',
+    items: [
+      {
+        icon: <FileText size={18} />,
+        label: 'Resume Strategy',
+        desc: 'Crafting a resume that communicates real skills, projects and experience clearly and honestly.',
+      },
+      {
+        icon: <FolderOpen size={18} />,
+        label: 'Portfolio Evidence',
+        desc: 'Documented projects and contributions that prove what students have built and learned.',
+      }
+    ]
+  },
+  {
+    title: 'Interview & Placement Readiness',
+    color: '#EF4444', // Red
+    glow: 'rgba(239, 68, 68, 0.15)',
+    items: [
+      {
+        icon: <Mic2 size={18} />,
+        label: 'Mock Interviews',
+        desc: 'Structured practice with structured feedback — so students walk into real interviews with confidence.',
+      },
+      {
+        icon: <Compass size={18} />,
+        label: 'Internship & Career Roadmap',
+        desc: 'Clear next-step guidance: where to apply, what roles to target, and how to navigate the job search.',
+      }
+    ]
+  }
+];
+
 const LandingCareerSupport = () => {
-  const journeySteps = [
-    {
-      title: 'SKILLS',
-      desc: ['Learn with purpose', 'Strengthen fundamentals', 'Build technical depth'],
-      icon: <Lightbulb size={20} className="text-indigo-600" />,
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=300'
-    },
-    {
-      title: 'PROJECTS',
-      desc: ['Build real-world projects', 'Solve meaningful problems', 'Create measurable impact'],
-      icon: <PackageOpen size={20} className="text-indigo-600" />,
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=300'
-    },
-    {
-      title: 'PROFILE',
-      desc: ['Showcase your learning', 'Build a strong portfolio', 'Highlight your achievements'],
-      icon: <UserCircle2 size={20} className="text-indigo-600" />,
-      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=300'
-    },
-    {
-      title: 'PREPARATION',
-      desc: ['Aptitude & technical preparedness', 'Communication practice', 'Interview readiness'],
-      icon: <BarChart size={20} className="text-indigo-600" />,
-      image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=300'
-    },
-    {
-      title: 'APPLICATION',
-      desc: ['Target the right roles', 'Craft tailored applications', 'Stay consistent'],
-      icon: <Send size={20} className="text-indigo-600" />,
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=300'
-    },
-    {
-      title: 'INTERNSHIP',
-      desc: ['Gain real-world experience', 'Learn from mentors', 'Deliver and grow'],
-      icon: <Briefcase size={20} className="text-indigo-600" />,
-      image: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=300'
-    },
-    {
-      title: 'CAREER',
-      desc: ['Build your path', 'Expand your impact', 'Keep growing'],
-      icon: <Star size={20} className="text-indigo-600" />,
-      image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=300'
-    }
-  ];
-
-  const supportItems = [
-    { title: 'Curated Internship Opportunities', desc: 'Access relevant and quality internship openings.', icon: <Settings size={28} /> },
-    { title: 'Application Guidance', desc: 'Improve resumes, cover letters and application quality.', icon: <PenTool size={28} /> },
-    { title: 'Mock Interviews & Practice', desc: 'Build confidence with realistic interview preparation.', icon: <Users size={28} /> },
-    { title: 'Mentor Connect', desc: 'Get advice from industry professionals who guide you.', icon: <CheckCircle size={28} /> },
-    { title: 'Portfolio Review', desc: 'Make your work stand out with strong presentation.', icon: <FileText size={28} /> },
-    { title: 'Career Roadmap', desc: 'Plan your path and take the right steps forward.', icon: <Map size={28} /> }
-  ];
-
-  const advantageItems = [
-    { title: 'Deep Skills', desc: 'Strong technical skills built through practice.', icon: <Lightbulb size={24} /> },
-    { title: 'Real Projects', desc: 'Hands-on projects that solve real problems.', icon: <FolderOpen size={24} /> },
-    { title: 'Proof of Work', desc: 'Documented work that builds trust and credibility.', icon: <Award size={24} /> },
-    { title: 'Confidence', desc: 'Prepared mindset that shows in every interaction.', icon: <Shield size={24} /> },
-    { title: 'Open Doors', desc: 'The right opportunities at the right time.', icon: <DoorOpen size={24} /> }
-  ];
-
   return (
-    <section className="py-24 bg-[#F8FAFC] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section className="relative w-full py-24 bg-[#020617] text-white overflow-hidden" id="career-readiness">
+      
+      {/* Background Image & Overlay */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center opacity-10 pointer-events-none mix-blend-luminosity"
+        style={{ 
+          backgroundImage: `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920')` 
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#090d16] via-transparent to-[#020617] pointer-events-none" />
+
+      {/* Decorative Blur Glows */}
+      <div className="absolute top-1/3 right-1/10 w-[450px] h-[450px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/3 left-1/10 w-[450px] h-[450px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="relative z-10 w-full max-w-[1280px] mx-auto px-6">
         
-        {/* Phase Header */}
-        <div className="flex items-center gap-4 mb-8">
-          <span className="bg-indigo-600 text-white px-3 py-1 rounded text-sm font-bold tracking-wider">PHASE 4</span>
-          <span className="text-indigo-600 font-bold tracking-wider">INTERNSHIPS & CAREER SUPPORT</span>
-        </div>
-
-        {/* Hero Area */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 mb-20">
-          <div>
-            <h2 className="text-5xl md:text-6xl font-black text-[#0F172A] leading-tight tracking-tight mb-4 uppercase">
-              BE PREPARED <br />
-              <span className="text-indigo-600">BEFORE OPPORTUNITY</span> <br />
-              ARRIVES.
+        {/* Two-Column Presentation Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Left Column: Sticky Header Panel */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+            <span className="inline-block font-['Instrument_Sans'] text-xs font-semibold uppercase tracking-[2px] text-blue-400 bg-blue-400/10 px-4 py-1.5 rounded-full border border-blue-400/20">
+              Career Readiness
+            </span>
+            <h2 className="font-['Instrument_Sans'] font-semibold text-3xl sm:text-5xl leading-tight">
+              Technical skill is only<br />part of being ready.
             </h2>
-            <p className="text-xl text-slate-600 font-medium mb-12 max-w-lg leading-relaxed">
-              We help you build the skills, experience and confidence to step into real-world opportunities with clarity.
+            <p className="font-['Instrument_Sans'] text-white/50 text-base sm:text-lg leading-relaxed">
+              True career readiness combines technical depth with communication, professionalism, and the ability to present oneself credibly. Our toolkit addresses all dimensions.
             </p>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -top-12 -right-12 text-slate-300 font-black text-4xl uppercase leading-none opacity-20 text-right">
-              OPPORTUNITIES <br/> DON'T HAPPEN. <br/> PREPARATION <br/> DOES.
-            </div>
-            <div className="rounded-3xl overflow-hidden shadow-2xl border-8 border-white relative z-10 h-[400px]">
-              <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200" 
-                alt="Student working on laptop" 
-                className="w-full h-full object-cover"
-              />
-            </div>
             
-            {/* Floating Quote Card */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="absolute -bottom-8 -left-8 md:bottom-8 md:-left-16 bg-white p-6 rounded-2xl shadow-xl border border-indigo-100 max-w-[300px] z-20"
-            >
-              <Quote className="text-indigo-400 mb-2 rotate-180" size={32} />
-              <p className="text-slate-800 font-bold text-lg leading-snug">
-                You don't get ready when opportunity comes. You get ready so that opportunity finds you.
+            {/* Woven in every semester helper block */}
+            <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 mt-8">
+              <h4 className="font-['Instrument_Sans'] font-semibold text-sm text-white mb-2">
+                Woven into Every Semester
+              </h4>
+              <p className="font-['Instrument_Sans'] text-xs text-white/40 leading-relaxed">
+                We don't treat career preparation as a final-year add-on. Readiness is built gradually, starting from early semesters and deepening through each stage of the program.
               </p>
-            </motion.div>
-          </div>
-        </div>
+            </div>
 
-        {/* Your Journey Section */}
-        <div className="mb-20">
-          <div className="text-center mb-10 border-b border-slate-200 pb-4">
-            <h3 className="text-indigo-600 font-black text-xl tracking-widest uppercase">YOUR JOURNEY TO REAL OPPORTUNITIES</h3>
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="group flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-['Instrument_Sans'] font-semibold text-sm px-6 py-3 rounded-full transition-all shadow-[0_4px_20px_rgba(59,130,246,0.25)] hover:shadow-[0_4px_25px_rgba(59,130,246,0.4)]"
+            >
+              <span>Discuss career outcomes</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </button>
           </div>
-          
-          <div className="flex overflow-x-auto pb-8 gap-4 snap-x hide-scrollbar">
-            {journeySteps.map((step, index) => (
-              <div key={index} className="min-w-[220px] max-w-[220px] flex-shrink-0 snap-start border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm">
-                <div className="p-3 border-b border-slate-100 flex items-center gap-2 justify-center bg-slate-50">
-                  {step.icon}
-                  <span className="font-bold text-slate-800 text-sm tracking-wide">{step.title}</span>
+
+          {/* Right Column: Grouped Pillars Layout */}
+          <div className="lg:col-span-7 space-y-6">
+            {pillars.map((pillar, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08, duration: 0.5 }}
+                className="bg-[#0e1626]/40 border border-white/5 hover:border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-md transition-all duration-300"
+                whileHover={{
+                  boxShadow: `0 8px 30px ${pillar.glow}`,
+                  borderColor: `${pillar.color}20`
+                }}
+              >
+                {/* Header of Pillar */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-1.5 h-6 rounded-full" style={{ backgroundColor: pillar.color }} />
+                  <h3 className="font-['Instrument_Sans'] font-semibold text-base sm:text-lg text-white">
+                    {pillar.title}
+                  </h3>
                 </div>
-                <div className="h-32 w-full overflow-hidden relative">
-                  <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-indigo-900/10"></div>
+
+                {/* Sub-items list */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {pillar.items.map((item, itemIdx) => (
+                    <div key={itemIdx} className="space-y-3">
+                      <div 
+                        className="w-10 h-10 rounded-xl flex items-center justify-center"
+                        style={{
+                          background: `${pillar.color}12`,
+                          color: pillar.color,
+                          border: `1px solid ${pillar.color}25`
+                        }}
+                      >
+                        {item.icon}
+                      </div>
+                      <h4 className="font-['Instrument_Sans'] font-semibold text-sm text-white">
+                        {item.label}
+                      </h4>
+                      <p className="font-['Instrument_Sans'] text-xs text-white/50 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  ))}
                 </div>
-                <div className="p-4 bg-white">
-                  <ul className="space-y-2">
-                    {step.desc.map((item, i) => (
-                      <li key={i} className="text-xs text-slate-600 flex items-start gap-1.5">
-                        <span className="w-1 h-1 rounded-full bg-indigo-400 mt-1.5 shrink-0"></span>
-                        <span className="leading-tight">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
 
-        {/* How Aiiens Campus Supports You */}
-        <div className="mb-20 bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-sm">
-          <div className="text-center mb-10 border-b border-slate-200 pb-4">
-            <h3 className="text-indigo-600 font-black text-xl tracking-widest uppercase">HOW AIIENS CAMPUS SUPPORTS YOU</h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 text-center">
-            {supportItems.map((item, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 mb-4 border border-indigo-100 shadow-sm">
-                  {item.icon}
-                </div>
-                <h4 className="font-bold text-slate-800 mb-2 text-sm leading-snug">{item.title}</h4>
-                <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Best Preparation is Your Advantage */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 mb-20 bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-          <div className="h-full min-h-[300px] relative">
-            <img 
-              src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=800" 
-              alt="Student focused" 
-              className="w-full h-full object-cover absolute inset-0"
-            />
-            <div className="absolute inset-0 bg-indigo-900/10"></div>
-          </div>
-          
-          <div className="p-8 md:p-12">
-            <div className="mb-8 border-b border-slate-200 pb-4 text-center lg:text-left">
-              <h3 className="text-indigo-600 font-black text-xl tracking-widest uppercase">YOUR BEST PREPARATION IS YOUR ADVANTAGE</h3>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-              {advantageItems.map((item, index) => (
-                <div key={index} className="flex flex-col items-center text-center">
-                  <div className="mb-3 text-indigo-500">{item.icon}</div>
-                  <h4 className="font-bold text-slate-800 text-sm mb-1">{item.title}</h4>
-                  <p className="text-xs text-slate-500">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Footer Navigation Banner */}
-        <div className="bg-indigo-50 rounded-2xl p-4 border border-indigo-100 flex flex-col sm:flex-row justify-between divide-y sm:divide-y-0 sm:divide-x divide-indigo-200 shadow-sm">
-          <div className="flex-1 flex flex-col items-center justify-center p-4">
-            <BookOpen size={24} className="text-indigo-600 mb-2" />
-            <span className="font-bold text-slate-800 uppercase tracking-wider text-sm mb-1">LEARN</span>
-            <span className="text-xs text-slate-500">Build strong skills.</span>
-          </div>
-          <div className="flex-1 flex flex-col items-center justify-center p-4">
-            <Wrench size={24} className="text-indigo-600 mb-2" />
-            <span className="font-bold text-slate-800 uppercase tracking-wider text-sm mb-1">BUILD</span>
-            <span className="text-xs text-slate-500">Create real impact.</span>
-          </div>
-          <div className="flex-1 flex flex-col items-center justify-center p-4">
-            <Globe size={24} className="text-indigo-600 mb-2" />
-            <span className="font-bold text-slate-800 uppercase tracking-wider text-sm mb-1">CONNECT</span>
-            <span className="text-xs text-slate-500">Engage with industry.</span>
-          </div>
-          <div className="flex-1 flex flex-col items-center justify-center p-4">
-            <TrendingUp size={24} className="text-indigo-600 mb-2" />
-            <span className="font-bold text-slate-800 uppercase tracking-wider text-sm mb-1">GROW</span>
-            <span className="text-xs text-slate-500">Move toward your future.</span>
-          </div>
         </div>
 
       </div>

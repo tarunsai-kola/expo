@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import CampusHeader from '../Components/CampusHeader';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -404,6 +405,8 @@ const Advance = () => {
 
   return (
     <div className="bg-zinc-950 text-zinc-300 font-['Plus_Jakarta_Sans'] min-h-screen selection:bg-indigo-500/30">
+      <CampusHeader />
+
       <Helmet>
         <title>Ultra-Premium Advanced Programs | Aiiens Campus</title>
         <meta name="description" content="Explore ultra-premium advanced programs in software, data, product, and marketing." />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CampusHeader from "../Components/CampusHeader";
 import { Link, useNavigate } from "react-router-dom";
 import API from "../API";
 import axios from "axios";
@@ -55,7 +56,9 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#020408] flex items-center justify-center relative overflow-hidden font-sans p-4 selection:bg-blue-500/30">
+    <>
+      <CampusHeader />
+      <div className="min-h-screen bg-[#020408] flex items-center justify-center relative overflow-hidden font-sans p-4 selection:bg-blue-500/30">
       <Toaster position="top-center" reverseOrder={false} toastOptions={{ style: { background: '#1e1e2d', color: '#fff' } }} />
       
       {/* Hyper-Premium Background Effects */}
@@ -183,6 +186,7 @@ const Login = () => {
         </p>
       </motion.div>
     </div>
+    </>
   );
 };
 

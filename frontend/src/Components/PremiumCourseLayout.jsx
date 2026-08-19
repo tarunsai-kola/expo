@@ -1,4 +1,5 @@
 import PaymentPlanWidget from "./PaymentPlanWidget";
+import CampusHeader from "./CampusHeader";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -64,6 +65,7 @@ const PremiumCourseLayout = ({ data }) => {
 
   return (
     <div className="ds-bg">
+      <CampusHeader />
 
       {/* ============================================================
           1. HERO

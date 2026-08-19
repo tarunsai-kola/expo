@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import CampusHeader from '../Components/CampusHeader';
 import PremiumCourseLayout from "../Components/PremiumCourseLayout";
 import careerPath0 from "../assets/career_path_0_2.png";
 import careerPath1 from "../assets/career_path_2_6.png";
