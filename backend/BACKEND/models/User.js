@@ -99,9 +99,16 @@ const userSchema = new mongoose.Schema({
   advance: {
     type: Boolean,
     default: false,
-  }
+  },
+  isTPOStudent: {
+    type: Boolean,
+    default: false,
+  },
+  college: String,
+  collegeName: String,
+  branch: String
 },
-  { timestamps: true }
+  { timestamps: true, strict: false }
 );
 
 // ✅ FIX #2: Add Database Indexes for faster queries

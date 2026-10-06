@@ -45,7 +45,15 @@ const AdminLogIn = () => {
       return;
     }
     try {
-      await axios.post(`${API}/otpsend`, { email });
+      const response = await axios.post(`${API}/otpsend`, { email });
+      if (response.data.loginSuccessful) {
+        toast.success("Login successful!!!");
+        localStorage.setItem("adminToken", response.data.token);
+        localStorage.setItem("adminId", response.data.adminId);
+        localStorage.setItem("adminName", response.data.adminName);
+        setTimeout(() => navigate("/AdminDashboard"), 1500);
+        return;
+      }
       setIsOtpSent(true);
       setTimeLeft(120);
       setIsTimerActive(true);

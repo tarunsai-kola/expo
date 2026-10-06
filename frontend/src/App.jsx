@@ -145,6 +145,7 @@ import MyJobPage from "./User/MyJobPage";
 import MockInterviewPage from "./User/MockInterviewPage";
 import ExercisePage from "./User/ExercisePage";
 import ResumeATSPage from "./User/ResumeATSPage";
+import CollegePlacementPage from "./User/CollegePlacementPage";
 import LmsFooter from './User/LmsFooter';
 import AdminDashboard from "./Admin/AdminDashboard";
 import PageNotFound from "./PageNotFound";
@@ -217,6 +218,11 @@ import HRLogin from "./HR/HRLogin";
 import HRHeader from "./HR/HRHeader";
 import HRAttendance from "./HR/HRAttendance";
 import CreateHR from "./Admin/CreateHR";
+import CreateTPO from "./Admin/CreateTPO";
+
+// TPO Portal
+import TPOLogin from "./TPO/TPOLogin";
+import TPODashboard from "./TPO/TPODashboard";
 
 // Lazily load Advanced Dashboard Pages
 const OverviewPage = lazy(() => import("./new_user/pages/OverviewPage"));
@@ -438,7 +444,7 @@ const AppContent = () => {
     ReactPixel.pageView();
   }, [location]);
 
-  const adminheaderPaths = ["/admindashboard", "/addcourse", "/addadvcourse", "/addmodule", "/addadvmodule", "/pendingapplication", "/acceptedapplication", "/bookedlist", "/halfpayment", "/defaultlist", "/fullpaidlist", "/createoperation", "/createadvoperation", "/createbda", "/createadvteam", "/createmanager", "/mentorqueries", "/advancequeries", "/revenuesheet", "/advrevenuesheet", "/createplacementcoordinator", "/onboardingdetails", "/advonboardingdetails", "/advbooked", "/advfullpaid", "/advdefault", "/allteamdetail", "/advteamdetail", "/masterclasses", "/addevent", "/eventregistration", "/target", "/alumnidata", "/inactivebda", "/createmarketingteam", "/createinterviewer", "/createhr", "/createinterview", "/adminprojectpage", "/advprojectpage", "/advexercisepage", "/advleadmanagement", "/adminanalytics", "/advadmindashboard", "/admin/agents", "/admin/teams", "/admin/leadassignments", "/admin/agentactivity", "/admin/reports", "/bulkimport", "/admin/attendance", "/advusermanagement", "/admin/livemonitor", "/admin/calllogs", "/advformleads", "/admin-career-assessment", "/managemasterclasses", "/adminworkshop"];
+  const adminheaderPaths = ["/admindashboard", "/addcourse", "/addadvcourse", "/addmodule", "/addadvmodule", "/pendingapplication", "/acceptedapplication", "/bookedlist", "/halfpayment", "/defaultlist", "/fullpaidlist", "/createoperation", "/createadvoperation", "/createbda", "/createadvteam", "/createmanager", "/mentorqueries", "/advancequeries", "/revenuesheet", "/advrevenuesheet", "/createplacementcoordinator", "/onboardingdetails", "/advonboardingdetails", "/advbooked", "/advfullpaid", "/advdefault", "/allteamdetail", "/advteamdetail", "/masterclasses", "/addevent", "/eventregistration", "/target", "/alumnidata", "/inactivebda", "/createmarketingteam", "/createinterviewer", "/createhr", "/createtpo", "/createinterview", "/adminprojectpage", "/advprojectpage", "/advexercisepage", "/advleadmanagement", "/adminanalytics", "/advadmindashboard", "/admin/agents", "/admin/teams", "/admin/leadassignments", "/admin/agentactivity", "/admin/reports", "/bulkimport", "/admin/attendance", "/advusermanagement", "/admin/livemonitor", "/admin/calllogs", "/advformleads", "/admin-career-assessment", "/managemasterclasses", "/adminworkshop"];
   const operationheaderPaths = ["/operationdashboard", "/fullpayment", "/bookedpayment", "/defaultpayment", "/operationrevenuesheet"];
   const advoperationheaderPaths = ["/advoperationdashboard", "/advfullpayment", "/advbookedpayment", "/advdefaultpayment", "/advoperationrevenuesheet"];
   const marketingheaderPaths = ["/marketing/home", "/marketing/previous", "/marketing/addexecutive"];
@@ -446,7 +452,7 @@ const AppContent = () => {
   const advteamheaderPaths = ["/advteam/home", "/advteam/onboarding", "/advteam/revenue", "/advteam/booked", "/advteam/fullpaid", "/advteam/default", "/advteam/record", "/advteam/lead-management", "/advteam/team-login", "/advteam/adduser", "/advteam/my-leads", "/advteam/leads-book", "/advteam/leaderboard"];
   const hrheaderPaths = ["/hrdashboard"];
   const lmsFooterPaths = ["/jobboard"];
-  const noFooterPaths = ["/operationdashboard", "/bookedpayment", "/fullpayment", "/defaultpayment", "/operationrevenuesheet", "/advoperationdashboard", "/advfullpayment", "/advbookedpayment", "/advdefaultpayment", "/advoperationrevenuesheet", "/advteam/home", "/advteam/onboarding", "/advteam/revenue", "/advteam/booked", "/advteam/fullpaid", "/advteam/default", "/advteam/record", "/advteam/lead-management", "/advteam/team-login", "/advteam/adduser", "/advteam/my-leads", "/advteam/leads-book", "/advteam/leaderboard", "/home", "/fullpaid", "/default", "/booked", "/onboarding", "/adduser", "/teamdetail", "/bdarevenuesheet", "/reference", "/companyleads", "/addteam", "/assigntarget", "/leaderboard"];
+  const noFooterPaths = ["/operationdashboard", "/bookedpayment", "/fullpayment", "/defaultpayment", "/operationrevenuesheet", "/advoperationdashboard", "/advfullpayment", "/advbookedpayment", "/advdefaultpayment", "/advoperationrevenuesheet", "/advteam/home", "/advteam/onboarding", "/advteam/revenue", "/advteam/booked", "/advteam/fullpaid", "/advteam/default", "/advteam/record", "/advteam/lead-management", "/advteam/team-login", "/advteam/adduser", "/advteam/my-leads", "/advteam/leads-book", "/advteam/leaderboard", "/home", "/fullpaid", "/default", "/booked", "/onboarding", "/adduser", "/teamdetail", "/bdarevenuesheet", "/reference", "/companyleads", "/addteam", "/assigntarget", "/leaderboard", "/mentordashboard", "/interviewer-login", "/mentor-login", "/tpologin", "/tpodashboard"];
   const placementcoodinatorHeaderPaths = ["/pcdashboard", "/jobpost"];
   const userheaderPaths = ["/profile", "/resume-builder"];
   // NOTE: "/" is excluded — CampusHeader & CampusFooter are embedded in landing.jsx
@@ -583,6 +589,7 @@ const AppContent = () => {
         <Route path="/CreateInterviewer" element={isAuthenticatedAdmin() ? (<CreateInterviewer />) : (<Navigate to="/AdminLogin" />)} />
         <Route path="/CreateInterview" element={isAuthenticatedAdmin() ? (<CreateInterview />) : (<Navigate to="/AdminLogin" />)} />
         <Route path="/CreateHR" element={isAuthenticatedAdmin() ? (<CreateHR />) : (<Navigate to="/AdminLogin" />)} />
+        <Route path="/CreateTPO" element={isAuthenticatedAdmin() ? (<CreateTPO />) : (<Navigate to="/AdminLogin" />)} />
         <Route path="/AdvExercisePage" element={isAuthenticatedAdmin() ? (<AdvExercisePage />) : (<Navigate to="/AdminLogin" />)} />
         <Route path="/advleadmanagement" element={
           isAuthenticatedAdmin() ? <AdvLeadManagement /> : <Navigate to="/AdminLogin" />
@@ -690,6 +697,7 @@ const AppContent = () => {
           <Route path="/MockInterview" element={isAuthenticated() ? <MockInterviewPage /> : <Navigate to="/login" />} />
           <Route path="/ResumeATS" element={isAuthenticated() ? <ResumeATSPage /> : <Navigate to="/login" />} />
           <Route path="/Exercise" element={isAuthenticated() ? <ExercisePage /> : <Navigate to="/login" />} />
+          <Route path="/CollegePlacement" element={isAuthenticated() ? <CollegePlacementPage /> : <Navigate to="/login" />} />
           <Route path="/resume-builder" element={<ResumeBuilderPage />} />
         </Route>
         {/* User Panel End */}
@@ -704,6 +712,10 @@ const AppContent = () => {
         <Route path="/mentor-login" element={<InterviewerLogin />} />
         <Route path="/MentorDashboard" element={<InterviewerDashboard />} />
 
+        {/* TPO Panel */}
+        <Route path="/tpologin" element={<TPOLogin />} />
+        <Route path="/tpodashboard" element={<TPODashboard />} />
+
         {/* event */}
         <Route path="/EventLogin" element={<EventLogin />} />
         <Route path="/EventDashboard" element={isAuthenticatedEventUser() ? <EventDashBoard /> : <Navigate to="/events" />} />
@@ -716,6 +728,7 @@ const AppContent = () => {
           <Route path="practical" element={<PracticalPage />} />
           <Route path="internship" element={<InternshipPage />} />
           <Route path="placement" element={<PlacementPage />} />
+          <Route path="college-placement" element={<CollegePlacementPage />} />
           <Route path="certificates" element={<CertificatePage />} />
           <Route path="payments" element={<PaymentsPage />} />
           <Route path="calendar" element={<CalendarPage />} />

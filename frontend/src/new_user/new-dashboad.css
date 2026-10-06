@@ -4563,3 +4563,57 @@
     max-height: 60vh;
   }
 }
+/* Mobile Sidebar Fixes */
+@media (max-width: 768px) {
+  .nd-sidebar {
+    position: fixed !important;
+    top: 64px !important;
+    left: -100% !important;
+    height: calc(100vh - 64px) !important;
+    width: 280px !important;
+    max-width: 85% !important;
+    z-index: 1000 !important;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: flex !important; /* override tailwind hidden md:block */
+  }
+  .nd-sidebar.nd-sidebar-open {
+    left: 0 !important;
+  }
+  .nd-sidebar-overlay {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .nd-overlay-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nd-hamburger {
+    display: flex !important; /* ensure hamburger is visible on mobile */
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: -8px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .nd-sidebar-item-label {
+    display: block !important;
+  }
+  .nd-sidebar-footer {
+    display: block !important;
+  }
+}
+

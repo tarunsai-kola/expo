@@ -51,6 +51,29 @@ router.post("/otpsend", expressAsyncHandler(async (req, res) => {
       return res.status(401).json({ error: "You are not authorized as admin" });
     }
 
+    // Bypass OTP for localhost
+    const origin = req.headers.origin || "";
+    if (origin.includes("localhost") || origin.includes("127.0.0.1")) {
+      const token = jwt.sign(
+        { email: admin.email },
+        process.env.JWT_SECRET,
+        { expiresIn: "8h" }
+      );
+      res.cookie("adminToken", token, {
+        httpOnly: true,
+        secure: false,
+        sameSite: "Lax",
+        maxAge: 8 * 60 * 60 * 1000
+      });
+      return res.status(200).json({ 
+        message: "Localhost auto-login", 
+        loginSuccessful: true,
+        token,
+        adminId: admin._id,
+        adminName: admin.fullname || "Admin"
+      });
+    }
+
     const otp = crypto.randomInt(100000, 1000000);
 
     const content = `

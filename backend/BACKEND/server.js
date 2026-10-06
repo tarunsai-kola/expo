@@ -219,8 +219,10 @@ const DashboardMetrics = require("./routes/DashboardMetrics");
 const AssignmentsRoute = require("./routes/Assignments");
 const PracticalsRoute = require("./routes/Practicals");
 const ProjectRoutes = require("./routes/ProjectRoutes");
+const TPORoutes = require("./routes/TPO");
 
 app.use("/api/interviewer", InterviewerRoutes);
+app.use("/api/tpo", TPORoutes);
 app.use("/api/interview", InterviewRoutes);
 app.use("/api/dashboard", DashboardMetrics);
 app.use("/api/assignments", AssignmentsRoute);

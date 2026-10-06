@@ -97,7 +97,7 @@ router.get("/all", async (req, res) => {
                     course = await CreateAdvCourse.findById(interviewer.assignedCourseId);
                 }
                 if (course) {
-                    courseObj = { _id: course._id, title: course.title };
+                    courseObj = { _id: course._id, title: course.title, session: course.get('session') || {} };
                 }
             }
             results.push({

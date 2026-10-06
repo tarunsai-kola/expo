@@ -148,6 +148,10 @@ const UserSidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     { path: "/events", label: "Join Events", icon: "celebration", restricted: false },
   ];
 
+  if (userData?.isTPOStudent) {
+    menuItems.push({ path: "/CollegePlacement", label: "College Placements", icon: "business_center", restricted: false });
+  }
+
   return (
     <>
       {/* Sidebar */}

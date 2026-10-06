@@ -21,9 +21,15 @@ const sidebarItems = [
     { id: "payments", path: "/advancedashboard/payments", emoji: "💳", icon: "payments", label: "Payments" },
 ];
 
-const Sidebar = ({ collapsed, setCollapsed, onLogout, mobileOpen, setMobileOpen }) => {
+const Sidebar = ({ collapsed, setCollapsed, onLogout, mobileOpen, setMobileOpen, userData }) => {
     const navigate = useNavigate();
     const location = useLocation();
+
+    // Dynamically build menu items to include TPO exclusive pages
+    const currentSidebarItems = [...sidebarItems];
+    if (userData?.isTPOStudent) {
+        currentSidebarItems.push({ id: "college-placement", path: "/advancedashboard/college-placement", emoji: "💼", icon: "business_center", label: "College Placements" });
+    }
 
     const isActive = (item) => {
         if (item.id === "overview") {
@@ -67,7 +73,7 @@ const Sidebar = ({ collapsed, setCollapsed, onLogout, mobileOpen, setMobileOpen 
 
             {/* Nav Items */}
             <nav className="nd-sidebar-nav">
-                {sidebarItems.map((item) => {
+                {currentSidebarItems.map((item) => {
                     const active = isActive(item);
 
                     if (item.external) {
@@ -134,6 +140,7 @@ const sectionTitles = {
     internship: "Internship",
     exercise: "Exercise",
     placement: "Placement",
+    "college-placement": "College Placements",
     profile: "Profile",
     payments: "Payments",
     jobs: "Browse Jobs",
@@ -191,6 +198,7 @@ const LayoutInner = () => {
                     onLogout={handleLogout}
                     mobileOpen={mobileSidebarOpen}
                     setMobileOpen={setMobileSidebarOpen}
+                    userData={userData}
                 />
 
                 {/* Mobile overlay — tap to close sidebar */}
