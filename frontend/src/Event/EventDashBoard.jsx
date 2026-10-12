@@ -249,10 +249,10 @@ const EventDashBoard = () => {
                 <div className="flex items-center space-x-2 text-blue-600">
                   <i className="fa fa-envelope"></i>
                   <a
-                    href="mailto:support@Aiiens Campus.com"
+                    href="mailto:info@aiienscampus.in"
                     className="font-semibold hover:underline"
                   >
-                    support@Aiiens Campus.com
+                    info@aiienscampus.in
                   </a>
                 </div>
               </div>

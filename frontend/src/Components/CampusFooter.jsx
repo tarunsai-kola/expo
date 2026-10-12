@@ -208,22 +208,24 @@ const CampusFooter = () => {
                 {
                   Icon: Mail,
                   label: 'Email',
-                  value: 'campus@aiiensedu.com',
-                  href: 'mailto:campus@aiiensedu.com',
+                  value: 'info@aiienscampus.in',
+                  href: 'mailto:info@aiienscampus.in',
                 },
                 {
                   Icon: Phone,
                   label: 'Phone',
-                  value: '+91 90141 10638',
-                  href: 'tel:+919014110638',
+                  items: [
+                    { value: '+91 82978 74231', href: 'tel:+918297874231' },
+                    { value: '+91 88860 23467', href: 'tel:+918886023467' },
+                  ],
                 },
                 {
                   Icon: MapPin,
                   label: 'Office',
-                  value: 'Vizianagaram, Andhra Pradesh, India',
-                  href: null,
+                  value: '74-13-26/3, Maluvuru Vari St, JD Nagar, Ashok Nagar, New Rtc Colony, Vijayawada, Andhra Pradesh 520007',
+                  href: 'https://maps.google.com/?q=74-13-26/3,+Maluvuru+Vari+St,+JD+Nagar,+Ashok+Nagar,+New+Rtc+Colony,+Vijayawada,+Andhra+Pradesh+520007',
                 },
-              ].map(({ Icon, label, value, href }) => (
+              ].map(({ Icon, label, value, href, items }) => (
                 <div key={label} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
                   <div style={{
                     width: 36, height: 36, borderRadius: 8, flexShrink: 0,
@@ -238,12 +240,35 @@ const CampusFooter = () => {
                     <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)', marginBottom: 2, fontWeight: 600, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
                       {label}
                     </div>
-                    {href ? (
-                      <a href={href} style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', textDecoration: 'none' }}>
+                    {items ? (
+                      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '4px 8px' }}>
+                        {items.map((it, idx) => (
+                          <React.Fragment key={it.href}>
+                            <a 
+                              href={it.href} 
+                              style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', textDecoration: 'none', transition: 'color 0.2s' }}
+                              onMouseEnter={e => e.currentTarget.style.color = '#ffffff'}
+                              onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.75)'}
+                            >
+                              {it.value}
+                            </a>
+                            {idx < items.length - 1 && <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: 12 }}>•</span>}
+                          </React.Fragment>
+                        ))}
+                      </div>
+                    ) : href ? (
+                      <a 
+                        href={href} 
+                        target={href.startsWith('http') ? '_blank' : undefined} 
+                        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} 
+                        style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', textDecoration: 'none', lineHeight: 1.45, display: 'inline-block', transition: 'color 0.2s' }}
+                        onMouseEnter={e => e.currentTarget.style.color = '#ffffff'}
+                        onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,255,255,0.75)'}
+                      >
                         {value}
                       </a>
                     ) : (
-                      <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)' }}>{value}</span>
+                      <span style={{ fontSize: 13, color: 'rgba(255,255,255,0.75)', lineHeight: 1.45 }}>{value}</span>
                     )}
                   </div>
                 </div>

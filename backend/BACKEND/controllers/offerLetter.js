@@ -60,10 +60,11 @@ const createOfferLetterPDF = async (pdfword1, pdfword2) => {
         maxWidth: 495,
         lineHeight: 14,
     });
-    page1.drawText("Bangalore, Karnataka |7829104024", {
-        x: (a4Width - timesRomanFont.widthOfTextAtSize("Bangalore, Karnataka |7829104024", 12)) / 2, // Center text
+    const footerText = "Vijayawada, Andhra Pradesh | 8297874231, 8886023467";
+    page1.drawText(footerText, {
+        x: (a4Width - timesRomanFont.widthOfTextAtSize(footerText, 11)) / 2, // Center text
         y: 200,
-        size: 12,
+        size: 11,
         font: timesRomanFont,
         color: rgb(0, 0, 0),
     });
@@ -85,10 +86,10 @@ const createOfferLetterPDF = async (pdfword1, pdfword2) => {
         maxWidth: 495,
         lineHeight: 14,
     });
-    page2.drawText("Bangalore, Karnataka |7829104024", {
-        x: (a4Width - timesRomanFont.widthOfTextAtSize("Bangalore, Karnataka |7829104024", 12)) / 2, // Center text
+    page2.drawText(footerText, {
+        x: (a4Width - timesRomanFont.widthOfTextAtSize(footerText, 11)) / 2, // Center text
         y: 200,
-        size: 12,
+        size: 11,
         font: timesRomanFont,
         color: rgb(0, 0, 0),
     });

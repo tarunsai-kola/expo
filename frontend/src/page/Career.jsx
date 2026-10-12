@@ -343,7 +343,7 @@ const Career = () => {
       });
     } catch (err) {
       console.error("Error submitting mentor application:", err);
-      setSubmitError("Failed to submit application. Please try again or reach out to support@aiiens.com.");
+      setSubmitError("Failed to submit application. Please try again or reach out to info@aiienscampus.in.");
     } finally {
       setIsSubmitting(false);
     }

@@ -1,6 +1,6 @@
 const COMPANY_NAME = "Aiiens Campus";
-const COMPANY_WEBSITE = "www.Aiiens Campus.com";
-const COMPANY_SUPPORT_EMAIL = "support@Aiiens Campus.com";
+const COMPANY_WEBSITE = "aiienscampus.in";
+const COMPANY_SUPPORT_EMAIL = "info@aiienscampus.in";
 const LOGO_URL = "https://Aiiens Campus.in/posters/image.png"; // Premium placeholder logo
 
 // Reusable SVG icons for emails (replacing emojis)

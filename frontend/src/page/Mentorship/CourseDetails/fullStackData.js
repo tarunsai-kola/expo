@@ -13,7 +13,7 @@ export const fullStackData = {
   rating: 4.85,
   pitch: "Transform your passion into a successful career in tech with mentor-led training, internship support, and real project execution.",
   providerNote: "We are now an accredited partner under Aiiens Campus.",
-  contactInfo: ["www.Aiiens Campus.com", "support@Aiiens Campus.com"],
+  contactInfo: ["aiienscampus.in", "info@aiienscampus.in"],
   aboutTitle: "About Us",
   aboutDescription: "Aiiens Campus is at the forefront of transforming education through cutting-edge technology. Our comprehensive platform empowers learners with personalized learning experiences, collaborative tools, and real-time analytics. With adaptive assessments and interactive content creation, we enhance student engagement and achievement. Join us in revolutionizing education for the digital age, driving positive outcomes and preparing learners for success in tomorrow's world.",
   whyTitle: "Why Full Stack Development?",

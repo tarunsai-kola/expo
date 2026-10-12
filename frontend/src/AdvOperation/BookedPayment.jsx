@@ -1724,7 +1724,7 @@ Payment Due Date: ${item.clearPaymentMonth}
 
 Thank you for choosing Aiiens Campus as your learning partner. We are committed to delivering a high-quality training experience led by seasoned industry professionals.
 
-If you have any questions or need further assistance, feel free to reach out to us at support@Aiiens Campus.com or contact me directly.
+If you have any questions or need further assistance, feel free to reach out to us at info@aiienscampus.in or contact me directly.
 
 We look forward to welcoming you to the program on 5th ${item.monthOpted}!
 

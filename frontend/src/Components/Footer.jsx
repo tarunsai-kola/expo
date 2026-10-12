@@ -71,38 +71,53 @@ const Footer = () => {
 
 
           {/* Contact */}
-          <div className="lg:col-span-3 lg:col-start-10">
+          <div className="lg:col-span-4 lg:col-start-9">
             <h4 className="text-[#0F172A] font-bold mb-6 text-sm uppercase tracking-wider">Contact Us</h4>
             <div className="space-y-5">
-              <a href="mailto:support@Aiiens Campus.com" className="flex items-start gap-4 group">
+              <a href="mailto:info@aiienscampus.in" className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-white group-hover:border-[#2563EB] transition-all shrink-0">
                   <FaEnvelope size={14} />
                 </div>
                 <div>
                   <div className="text-xs text-[#64748B] font-medium mb-1">Email</div>
-                  <div className="text-[#475569] text-sm group-hover:text-[#0F172A] transition-colors">support@Aiiens Campus.com</div>
-                </div>
-              </a>
-              
-              <a href="tel:+917829104024" className="flex items-start gap-4 group">
-                <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-white group-hover:border-[#2563EB] transition-all shrink-0">
-                  <FaPhoneAlt size={14} />
-                </div>
-                <div>
-                  <div className="text-xs text-[#64748B] font-medium mb-1">Phone</div>
-                  <div className="text-[#475569] text-sm group-hover:text-[#0F172A] transition-colors">+91 9014110638</div>
+                  <div className="text-[#475569] text-sm group-hover:text-[#2563EB] transition-colors font-medium">info@aiienscampus.in</div>
                 </div>
               </a>
               
               <div className="flex items-start gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-white group-hover:border-[#2563EB] transition-all shrink-0">
+                  <FaPhoneAlt size={14} />
+                </div>
+                <div>
+                  <div className="text-xs text-[#64748B] font-medium mb-1">Phone</div>
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[#475569] text-sm">
+                    <a href="tel:+918297874231" className="hover:text-[#2563EB] transition-colors font-medium">
+                      +91 8297874231
+                    </a>
+                    <span className="text-[#94A3B8]">•</span>
+                    <a href="tel:+918886023467" className="hover:text-[#2563EB] transition-colors font-medium">
+                      +91 8886023467
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <a 
+                href="https://maps.google.com/?q=74-13-26/3,+Maluvuru+Vari+St,+JD+Nagar,+Ashok+Nagar,+New+Rtc+Colony,+Vijayawada,+Andhra+Pradesh+520007"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-white border border-[#E2E8F0] flex items-center justify-center text-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-white group-hover:border-[#2563EB] transition-all shrink-0">
                   <FaMapMarkerAlt size={14} />
                 </div>
                 <div>
                   <div className="text-xs text-[#64748B] font-medium mb-1">Office</div>
-                  <div className="text-[#475569] text-sm group-hover:text-[#0F172A] transition-colors">Vizianagaram, AP, India</div>
+                  <div className="text-[#475569] text-sm leading-relaxed group-hover:text-[#0F172A] transition-colors">
+                    74-13-26/3, Maluvuru Vari St, JD Nagar, Ashok Nagar, New Rtc Colony, Vijayawada, Andhra Pradesh 520007
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
           

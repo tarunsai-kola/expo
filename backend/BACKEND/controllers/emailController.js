@@ -22,7 +22,7 @@ const sendEmail = async ({ email, subject, message, bcc }) => {
   const mailOptions = {
     from: process.env.RESEND_FROM_EMAIL,
     to: email,
-    cc: "help@Aiiens Campus.com",
+    cc: "info@aiienscampus.in",
     bcc: bcc,
     subject: subject,
     html: message,
@@ -98,7 +98,7 @@ const sendEventReminderEmail = async ({ email, subject, message, bcc, textVersio
   const mailOptions = {
     from: `Aiiens Campus Events <${process.env.RESEND_FROM_EMAIL}>`,
     to: email,
-    cc: "help@Aiiens Campus.com",
+    cc: "info@aiienscampus.in",
     bcc: bcc,
     subject: subject,
     text: textVersion || 'Please enable HTML to view this email.',

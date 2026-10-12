@@ -1481,13 +1481,29 @@ const HomePage = () => {
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Aiiens Campus",
-            "url": "https://aiiensedu.com",
-            "logo": "https://aiiensedu.com/logo.png",
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+91-90141-10638",
-              "contactType": "Institutional Partnerships",
-              "email": "campus@aiiensedu.com"
+            "url": "https://aiienscampus.in",
+            "logo": "https://aiienscampus.in/logo.png",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+91-8297874231",
+                "contactType": "Customer Support",
+                "email": "info@aiienscampus.in"
+              },
+              {
+                "@type": "ContactPoint",
+                "telephone": "+91-8886023467",
+                "contactType": "Institutional Partnerships",
+                "email": "info@aiienscampus.in"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "74-13-26/3, Maluvuru Vari St, JD Nagar, Ashok Nagar, New Rtc Colony",
+              "addressLocality": "Vijayawada",
+              "addressRegion": "Andhra Pradesh",
+              "postalCode": "520007",
+              "addressCountry": "IN"
             }
           })}
         </script>
