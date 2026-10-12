@@ -16,11 +16,6 @@ const CampusFooter = () => {
     { label: 'Schedule Consultation', href: '#contact' },
     { label: 'Partnership Enquiry', href: '#contact' },
   ];
-  const legalLinks = [
-    { label: 'Privacy Policy', to: '/Privacy' },
-    { label: 'Terms of Service', to: '/Terms' },
-    { label: 'Refund Policy', to: '/RefundPolicy' },
-  ];
 
   const scrollTo = (href) => {
     const id = href.replace('#', '');
@@ -291,19 +286,6 @@ const CampusFooter = () => {
           <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)' }}>
             © {new Date().getFullYear()} Aiiens Campus. All rights reserved.
           </p>
-          <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap' }}>
-            {legalLinks.map(link => (
-              <Link
-                key={link.label}
-                to={link.to}
-                style={{ fontSize: 13, color: 'rgba(255,255,255,0.35)', textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseEnter={e => e.target.style.color = 'rgba(255,255,255,0.7)'}
-                onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.35)'}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
         </div>
       </div>
 

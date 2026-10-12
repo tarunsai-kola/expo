@@ -68,12 +68,12 @@ const CampusHeader = () => {
             >
               Masterclass
             </Link>
-            <Link
+            {/* <Link
               to="/Advance"
               className="font-['Instrument_Sans'] text-sm font-medium text-white/70 hover:text-white transition-colors whitespace-nowrap"
             >
               All Programs
-            </Link>
+            </Link> */}
           </nav>
 
           {/* Desktop Actions */}
@@ -129,13 +129,13 @@ const CampusHeader = () => {
           >
             Masterclass
           </Link>
-          <Link
+          {/* <Link
             to="/Advance"
             onClick={() => setMobileOpen(false)}
             className="font-['Instrument_Sans'] text-left text-base font-medium text-white/80 hover:text-white transition-colors py-3 border-b border-white/5"
           >
             All Programs
-          </Link>
+          </Link> */}
           <div className="pt-4 flex flex-col gap-3">
             <Link
               to="/login"

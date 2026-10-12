@@ -5,27 +5,18 @@ import ReactPixel from 'react-facebook-pixel';
 import Header from "./Components/Header";
 import AdvancedApplyPopup from "./Components/AdvancedApplyPopup";
 import HomePage from "./page/landing";
-import ContactUs from "./page/ContactUs";
 import AboutUs from "./page/AboutUs";
 import Masterclass from "./page/MasterClass";
 import AdminWorkshop from "./Admin/AdminWorkshop";
 import ManageMasterclasses from "./Admin/ManageMasterclasses";
-import Terms from "./page/Terms";
-import Privacy from "./page/Privacy";
-import RefundPolicy from "./page/RefundPolicy";
 import Login from "./page/Login";
-import Collabration from "./page/Collabration";
 import Career from "./page/Career";
 import AdvanceCourses from "./page/AdvanceCourses";
 import Advance from "./page/Advance";
-import FeeStructure from "./page/FeeStructure";
-import TalentHunt from "./page/TalentHunt";
 import Footer from "./Components/Footer";
 import LoginWithOtp from "./page/LoginWithOtp";
-import EventRegister from "./page/EventRegister";
 import EventLogin from "./page/EventLogin";
 import ScrollToTop from "./Components/ScrollToTop";
-import Mentorship from "./page/Mentorship";
 import DataScience from "./page/DataScience";
 import VLSI from "./page/VLSI";
 import DataAnalytics from "./page/DataAnalytics";
@@ -99,14 +90,7 @@ import AdvFormLeads from "./Admin/AdvFormLeads";
 
 
 
-// Operation Team
-import OperationLogin from "./Operation/OperationLogin";
-import OperationHeader from "./Operation/OperationHeader";
-import OperationDashboard from "./Operation/OperationDashboard";
-import BookedPayment from "./Operation/BookedPayment";
-import FullPayment from "./Operation/FullPayment";
-import DefaultPayment from "./Operation/DefaultPayment";
-import OperationRevenueSheets from "./Operation/OperationRevenueSheets";
+
 
 // ADV Operation Team
 import AdvOperationLogin from "./AdvOperation/OperationLogin";
@@ -136,9 +120,6 @@ import AdvOperationRevenueSheets from "./AdvOperation/OperationRevenueSheets";
 
 // User Student
 import UserHeader from "./User/UserHeader";
-import Dashboard from "./User/NewDashboard";
-import EnrolledCourses from "./User/NewEnrolledCourses";
-import Learning from "./User/NewLearning";
 import Setting from "./User/Setting";
 import JobBoardPage from "./User/JobBoardPage";
 import MyJobPage from "./User/MyJobPage";
@@ -148,7 +129,6 @@ import ResumeATSPage from "./User/ResumeATSPage";
 import CollegePlacementPage from "./User/CollegePlacementPage";
 import LmsFooter from './User/LmsFooter';
 import AdminDashboard from "./Admin/AdminDashboard";
-import PageNotFound from "./PageNotFound";
 import AdvanceQueries from "./Admin/AdvanceQueries";
 import MentorQueries from "./Admin/MentorQueries";
 import AdvLeadManagement from "./Admin/AdvLeadManagement";
@@ -163,7 +143,6 @@ import AdminReports from "./Admin/AdminReports";
 import AdvCallLogs from "./Admin/AdvCallLogs";
 
 import BulkImport from "./Admin/BulkImport";
-import UserLayout from "./User/UserLayout";
 
 
 
@@ -209,8 +188,6 @@ import AdvLeaderBoard from "./AdvTeam/AdvLeaderBoard";
 // import MarketingPrePayment from "./Marketing/MarketingPrePayment";
 // import MarketingLeads from "./Marketing/MarketingLeads";
 // import MarketingAddExecutive from "./Marketing/MarketingAddExecutive";
-// import BDAAgainLogin from "./BDA/BDAAgainLogin";
-import EventDetails from "./page/EventDetails";
 import AdvanceDashboardLayout from "./new_user/AdvanceDashboardLayout";
 
 // HR Portal
@@ -445,20 +422,19 @@ const AppContent = () => {
   }, [location]);
 
   const adminheaderPaths = ["/admindashboard", "/addcourse", "/addadvcourse", "/addmodule", "/addadvmodule", "/pendingapplication", "/acceptedapplication", "/bookedlist", "/halfpayment", "/defaultlist", "/fullpaidlist", "/createoperation", "/createadvoperation", "/createbda", "/createadvteam", "/createmanager", "/mentorqueries", "/advancequeries", "/revenuesheet", "/advrevenuesheet", "/createplacementcoordinator", "/onboardingdetails", "/advonboardingdetails", "/advbooked", "/advfullpaid", "/advdefault", "/allteamdetail", "/advteamdetail", "/masterclasses", "/addevent", "/eventregistration", "/target", "/alumnidata", "/inactivebda", "/createmarketingteam", "/createinterviewer", "/createhr", "/createtpo", "/createinterview", "/adminprojectpage", "/advprojectpage", "/advexercisepage", "/advleadmanagement", "/adminanalytics", "/advadmindashboard", "/admin/agents", "/admin/teams", "/admin/leadassignments", "/admin/agentactivity", "/admin/reports", "/bulkimport", "/admin/attendance", "/advusermanagement", "/admin/livemonitor", "/admin/calllogs", "/advformleads", "/admin-career-assessment", "/managemasterclasses", "/adminworkshop"];
-  const operationheaderPaths = ["/operationdashboard", "/fullpayment", "/bookedpayment", "/defaultpayment", "/operationrevenuesheet"];
   const advoperationheaderPaths = ["/advoperationdashboard", "/advfullpayment", "/advbookedpayment", "/advdefaultpayment", "/advoperationrevenuesheet"];
   const marketingheaderPaths = ["/marketing/home", "/marketing/previous", "/marketing/addexecutive"];
   const bdaheaderPaths = ["/home", "/fullpaid", "/default", "/booked", "/onboarding", "/adduser", "/teamdetail", "/bdarevenuesheet", "/reference", "/companyleads", "/addteam", "/assigntarget", "/leaderboard"];
   const advteamheaderPaths = ["/advteam/home", "/advteam/onboarding", "/advteam/revenue", "/advteam/booked", "/advteam/fullpaid", "/advteam/default", "/advteam/record", "/advteam/lead-management", "/advteam/team-login", "/advteam/adduser", "/advteam/my-leads", "/advteam/leads-book", "/advteam/leaderboard"];
   const hrheaderPaths = ["/hrdashboard"];
   const lmsFooterPaths = ["/jobboard"];
-  const noFooterPaths = ["/operationdashboard", "/bookedpayment", "/fullpayment", "/defaultpayment", "/operationrevenuesheet", "/advoperationdashboard", "/advfullpayment", "/advbookedpayment", "/advdefaultpayment", "/advoperationrevenuesheet", "/advteam/home", "/advteam/onboarding", "/advteam/revenue", "/advteam/booked", "/advteam/fullpaid", "/advteam/default", "/advteam/record", "/advteam/lead-management", "/advteam/team-login", "/advteam/adduser", "/advteam/my-leads", "/advteam/leads-book", "/advteam/leaderboard", "/home", "/fullpaid", "/default", "/booked", "/onboarding", "/adduser", "/teamdetail", "/bdarevenuesheet", "/reference", "/companyleads", "/addteam", "/assigntarget", "/leaderboard", "/mentordashboard", "/interviewer-login", "/mentor-login", "/tpologin", "/tpodashboard"];
+  const noFooterPaths = ["/advoperationdashboard", "/advfullpayment", "/advbookedpayment", "/advdefaultpayment", "/advoperationrevenuesheet", "/advteam/home", "/advteam/onboarding", "/advteam/revenue", "/advteam/booked", "/advteam/fullpaid", "/advteam/default", "/advteam/record", "/advteam/lead-management", "/advteam/team-login", "/advteam/adduser", "/advteam/my-leads", "/advteam/leads-book", "/advteam/leaderboard", "/home", "/fullpaid", "/default", "/booked", "/onboarding", "/adduser", "/teamdetail", "/bdarevenuesheet", "/reference", "/companyleads", "/addteam", "/assigntarget", "/leaderboard", "/mentordashboard", "/interviewer-login", "/mentor-login", "/tpologin", "/tpodashboard"];
   const placementcoodinatorHeaderPaths = ["/pcdashboard", "/jobpost"];
   const userheaderPaths = ["/profile", "/resume-builder"];
   // NOTE: "/" is excluded — CampusHeader & CampusFooter are embedded in landing.jsx
   // NOTE: "/login", "/advance", "/masterclass" excluded — they use their own headers or none
   // NOTE: course pages excluded — they embed CampusHeader directly
-  const headerPaths = ["/loginwithotp", "/forgotpassword", "/contactus", "/aboutus", "/career", "/careers", "/collabration", "/advancecourses", "/terms", "/privacy", "/refundpolicy", "/feestructure", "/advance-apply", "/mentorship", "/datascience", "/digitalmarket", "/mernstack", "/investmentbanking", "/productmanagement", "/automationtesting", "/promptengineering", "/generativeai", "/operationlogin", "/advoperationlogin", "/teamlogin", "/adminlogin", "/managerlogin", "/loginadmin", "/pclogin", "/advteamlogin", "/dashboardaccessform", "/advancedashboardaccess", "/verify", "/marketing/login", "/interviewer-login", "/interviewerlogin", "/hrlogin", "/advanceform", "/agenticandgenai", "/softwaredeveloper", "/blog"];
+  const headerPaths = ["/loginwithotp", "/forgotpassword", "/aboutus", "/career", "/careers", "/advancecourses", "/advance-apply", "/datascience", "/digitalmarket", "/investmentbanking", "/advoperationlogin", "/teamlogin", "/adminlogin", "/managerlogin", "/loginadmin", "/pclogin", "/advteamlogin", "/dashboardaccessform", "/advancedashboardaccess", "/verify", "/marketing/login", "/interviewer-login", "/interviewerlogin", "/hrlogin", "/advanceform", "/agenticandgenai", "/softwaredeveloper", "/blog"];
 
   return (
     <div>
@@ -466,8 +442,6 @@ const AppContent = () => {
       <ScrollToTop />
       {adminheaderPaths.includes(location.pathname.toLowerCase()) && isAuthenticatedAdmin() ? (
         <AdminHeader />
-      ) : operationheaderPaths.includes(location.pathname.toLowerCase()) && isAuthenticatedOperation() ? (
-        <OperationHeader />
       ) : advoperationheaderPaths.includes(location.pathname.toLowerCase()) && isAuthenticatedAdvOperation() ? (
         <AdvOperationHeader />
       ) : marketingheaderPaths.includes(location.pathname.toLowerCase()) && isAuthenticatedMarketing() ? (
@@ -491,22 +465,14 @@ const AppContent = () => {
         <Route path="/Login" element={<Login />} />
         <Route path="/LoginWithOtp" element={<LoginWithOtp />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/masterclass" element={<Masterclass />} />
         <Route path="/AdminWorkshop" element={isAuthenticatedAdmin() ? <AdminWorkshop /> : <Navigate to="/AdminLogin" />} />
         <Route path="/ManageMasterclasses" element={isAuthenticatedAdmin() ? <ManageMasterclasses /> : <Navigate to="/AdminLogin" />} />
-        <Route path="/Terms" element={<Terms />} />
-        <Route path="/Privacy" element={<Privacy />} />
-        <Route path="/RefundPolicy" element={<RefundPolicy />} />
         <Route path="/Career" element={<Career />} />
         <Route path="/career" element={<Career />} />
         <Route path="/careers" element={<Career />} />
-        <Route path="/Collabration" element={<Collabration />} />
         <Route path="/AdvanceCourses" element={<Advance />} />
-        <Route path="/FeeStructure" element={<FeeStructure />} />
-        <Route path="/events" element={<TalentHunt />} />
-        <Route path="/EventRegister" element={<EventRegister />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/Advance" element={<Advance />} />
 
@@ -514,8 +480,6 @@ const AppContent = () => {
         <Route path="/AIFullStack" element={<AIFullStack />} />
         <Route path="/advance-apply" element={<AdvanceApplyPage />} />
         <Route path="/advanceform" element={<AdvanceForm />} />
-        <Route path="/Mentorship" element={<Navigate to="/Advance" replace />} />
-        <Route path="/mentorship/:courseSlug" element={<Navigate to="/Advance" replace />} />
         <Route path="/DataScience" element={<DataScience />} />
         <Route path="/VLSI" element={<VLSI />} />
         <Route path="/DataAnalytics" element={<DataAnalytics />} />
@@ -529,15 +493,6 @@ const AppContent = () => {
         <Route path="/AutoCAD" element={<AutoCAD />} />
         <Route path="/GraphicDesign" element={<GraphicDesign />} />
         <Route path="/FullStackWeb" element={<FullStackWeb />} />
-        <Route path="/MernStack" element={<Navigate to="/Advance" replace />} />
-        <Route path="/UIUX" element={<Navigate to="/Advance" replace />} />
-        <Route path="/UIUXDesign" element={<Navigate to="/Advance" replace />} />
-        <Route path="/ui-ux" element={<Navigate to="/Advance" replace />} />
-
-        <Route path="/ProductManagement" element={<Navigate to="/Advance" replace />} />
-        <Route path="/AutomationTesting" element={<Navigate to="/Advance" replace />} />
-        <Route path="/PromptEngineering" element={<Navigate to="/Advance" replace />} />
-        <Route path="/GenerativeAI" element={<Navigate to="/Advance" replace />} />
         <Route path="/DashboardAccessForm" element={<DashboardAccessForm />} />
         <Route path="/AdvanceDashboardAccess" element={<AdvanceDashboardAccess />} />
 
@@ -624,14 +579,7 @@ const AppContent = () => {
 
         {/* Admin Panel End */}
 
-        {/* Operation Panel Start */}
-        <Route path="/OperationDashboard" element={<OperationDashboard />} />
-        <Route path="/BookedPayment" element={isAuthenticatedOperation() ? <BookedPayment /> : <Navigate to="/OperationLogin" />} />
-        <Route path="/FullPayment" element={isAuthenticatedOperation() ? <FullPayment /> : <Navigate to="/OperationLogin" />} />
-        <Route path="/DefaultPayment" element={isAuthenticatedOperation() ? <DefaultPayment /> : <Navigate to="/OperationLogin" />} />
-        <Route path="/OperationRevenueSheet" element={isAuthenticatedOperation() ? <OperationRevenueSheets /> : <Navigate to="/OperationLogin" />} />
-        <Route path="/OperationLogin" element={<OperationLogin />} />
-        {/* Operation Panel End */}
+
 
         {/* ADV Operation Panel Start */}
         <Route path="/AdvOperationLogin" element={<AdvOperationLogin />} />
@@ -688,21 +636,7 @@ const AppContent = () => {
         <Route path="/advteam/leaderboard" element={isAuthenticatedAdvTeam() ? <AdvLeaderBoard /> : <Navigate to="/AdvTeamLogin" />} />
         {/* Advance Team Panel End */}
 
-        {/* User Panel */}
-        <Route element={<UserLayout />}>
-          <Route path="/Dashboard" element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />} />
-          <Route path="/EnrolledCourses" element={isAuthenticated() ? <EnrolledCourses /> : <Navigate to="/login" />} />
-          <Route path="/Setting" element={isAuthenticated() ? <Setting /> : <Navigate to="/login" />} />
-          <Route path="/Learning" element={isAuthenticated() ? <Learning /> : <Navigate to="/login" />} />
-          <Route path="/JobBoard" element={isAuthenticated() ? <JobBoardPage /> : <Navigate to="/login" />} />
-          <Route path="/MyJob" element={isAuthenticated() ? <MyJobPage /> : <Navigate to="/login" />} />
-          <Route path="/MockInterview" element={isAuthenticated() ? <MockInterviewPage /> : <Navigate to="/login" />} />
-          <Route path="/ResumeATS" element={isAuthenticated() ? <ResumeATSPage /> : <Navigate to="/login" />} />
-          <Route path="/Exercise" element={isAuthenticated() ? <ExercisePage /> : <Navigate to="/login" />} />
-          <Route path="/CollegePlacement" element={isAuthenticated() ? <CollegePlacementPage /> : <Navigate to="/login" />} />
-          <Route path="/resume-builder" element={<ResumeBuilderPage />} />
-        </Route>
-        {/* User Panel End */}
+
 
         {/* placement coodinator panel starts */}
         <Route path="/PClogin" element={<PClogin />} />
@@ -720,8 +654,7 @@ const AppContent = () => {
 
         {/* event */}
         <Route path="/EventLogin" element={<EventLogin />} />
-        <Route path="/EventDashboard" element={isAuthenticatedEventUser() ? <EventDashBoard /> : <Navigate to="/events" />} />
-        <Route path="/register/:slug" element={<EventDetails />} />
+        <Route path="/EventDashboard" element={isAuthenticatedEventUser() ? <EventDashBoard /> : <Navigate to="/" replace />} />
         <Route path="/advancedashboard" element={<AdvanceDashboardLayout />}>
           <Route index element={<OverviewPage />} />
           <Route path="setting" element={<Setting />} />
@@ -744,7 +677,7 @@ const AppContent = () => {
         {/* Advanced dashboard video player — standalone, no old sidebar */}
         <Route path="/advancedashboard/learning" element={<AdvanceLearningPage />} />
 
-        <Route path="*" element={<PageNotFound />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
       {/* Global Footers - Exclude attendance and clean dashboards */}

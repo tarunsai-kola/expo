@@ -19,7 +19,6 @@ import './style/FeesStructure.css'
 import './Admin/AdminPanel.css'
 import './User/UserPanel.css'
 
-import './Operation/OperationPanel.css'
 import './style/MasterClass.css'
 import './style/OnBoardingForm.css'
 import "./axiosConfig";

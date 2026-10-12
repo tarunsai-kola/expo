@@ -7,18 +7,12 @@ const Footer = () => {
   const platformLinks = [
     { label: "Home", to: "/" },
     // { label: "All Programs", to: "/SoftwareDeveloper" },
-    { label: "Advanced Programs", to: "/Advance" },
+    // { label: "Advanced Programs", to: "/Advance" },
     { label: "Careers", to: "/career" },
     { label: "Blog", to: "/blog" },
   ];
 
   const discoverLinks = [];
-
-  const legalLinks = [
-    { label: 'Terms of Service', to: '/Terms' },
-    { label: 'Privacy Policy', to: '/Privacy' },
-    { label: 'Refund Policy', to: '/RefundPolicy' },
-  ];
 
   return (
     <footer className="relative bg-[#EFF6FF] text-[#0F172A] pt-24 pb-8 overflow-hidden border-t border-[#E2E8F0] font-sans mt-auto">
@@ -119,13 +113,6 @@ const Footer = () => {
           <p className="text-[#64748B] text-sm">
             © {new Date().getFullYear()} Aiiens Campus. All rights reserved.
           </p>
-          <div className="flex flex-wrap items-center gap-6">
-            {legalLinks.map((link) => (
-              <Link key={link.to} to={link.to} className="text-[#64748B] hover:text-[#0F172A] text-sm transition-colors">
-                {link.label}
-              </Link>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

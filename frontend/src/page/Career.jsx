@@ -17,8 +17,6 @@ import {
   Briefcase,
   Send,
   HelpCircle,
-  Check,
-  Copy,
   ExternalLink,
   ChevronDown,
   GraduationCap,
@@ -30,7 +28,6 @@ import {
   BookOpen,
   Calendar,
   AlertCircle,
-  FileCode,
 } from "lucide-react";
 
 import careeraboutimg from "../assets/Collaborate1.svg";
@@ -236,8 +233,6 @@ const Career = () => {
   const [submitError, setSubmitError] = useState("");
   const [lastSubmittedName, setLastSubmittedName] = useState("");
   const [openJobIndex, setOpenJobIndex] = useState(null);
-  const [showCodeGuide, setShowCodeGuide] = useState(false);
-  const [copiedCode, setCopiedCode] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 900, once: true });
@@ -352,54 +347,6 @@ const Career = () => {
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const copyAppsScriptCode = () => {
-    const code = `// Google Apps Script code to append mentor applications to Google Sheets:
-function doPost(e) {
-  try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    
-    // Auto-create header row if sheet is empty
-    if (sheet.getLastRow() === 0) {
-      sheet.appendRow([
-        "Timestamp",
-        "Full Name",
-        "Email",
-        "Phone",
-        "Subject / Domain",
-        "Experience",
-        "Current Role",
-        "LinkedIn / Portfolio",
-        "Why Join",
-        "Submitted At"
-      ]);
-    }
-    
-    var data = e.parameter || {};
-    sheet.appendRow([
-      new Date(),
-      data.name || "",
-      data.email || "",
-      data.phone || "",
-      data.subject || "",
-      data.experience || "",
-      data.currentRole || "",
-      data.linkedinUrl || "",
-      data.whyJoin || "",
-      data.submittedAt || ""
-    ]);
-    
-    return ContentService.createTextOutput(JSON.stringify({ status: "success" }))
-      .setMimeType(ContentService.MimeType.JSON);
-  } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: error.toString() }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-}`;
-    navigator.clipboard.writeText(code);
-    setCopiedCode(true);
-    setTimeout(() => setCopiedCode(false), 2500);
   };
 
   return (
@@ -929,49 +876,6 @@ function doPost(e) {
                 </div>
               </form>
             )}
-
-            {/* Developer Guide Box for Google Apps Script */}
-            <div className="mt-8 pt-6 border-t border-white/10">
-              <button
-                type="button"
-                onClick={() => setShowCodeGuide(!showCodeGuide)}
-                className="w-full flex items-center justify-between text-xs text-slate-400 hover:text-white transition-colors cursor-pointer"
-              >
-                <div className="flex items-center gap-2">
-                  <FileCode size={15} className="text-blue-400" />
-                  <span>Google Apps Script Setup Instructions (Click to toggle)</span>
-                </div>
-                <ChevronDown
-                  size={15}
-                  className={`transform transition-transform ${showCodeGuide ? "rotate-180" : ""}`}
-                />
-              </button>
-
-              {showCodeGuide && (
-                <div className="mt-4 p-4 rounded-xl bg-black/40 border border-white/10 text-xs text-slate-300 space-y-3">
-                  <div className="font-semibold text-white">How to connect this form to your Google Sheet:</div>
-                  <ol className="list-decimal list-inside space-y-1 text-slate-400">
-                    <li>Open a new or existing Google Sheet.</li>
-                    <li>Click <strong className="text-white">Extensions &gt; Apps Script</strong>.</li>
-                    <li>Replace all code in the script editor with the script below.</li>
-                    <li>Click <strong className="text-white">Deploy &gt; New deployment</strong>.</li>
-                    <li>Select type: <strong className="text-white">Web app</strong>, Execute as: <strong className="text-white">Me</strong>, Who has access: <strong className="text-white">Anyone</strong>.</li>
-                    <li>Copy the deployed Web App URL and paste it into <code className="text-blue-300">GOOGLE_APPS_SCRIPT_URL</code> at line 37 of <code className="text-blue-300">src/page/Career.jsx</code>.</li>
-                  </ol>
-
-                  <div className="pt-2 flex justify-end">
-                    <button
-                      type="button"
-                      onClick={copyAppsScriptCode}
-                      className="px-3 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-blue-300 hover:text-white border border-blue-500/30 text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
-                    >
-                      {copiedCode ? <Check size={13} /> : <Copy size={13} />}
-                      <span>{copiedCode ? "Copied Script!" : "Copy Apps Script Code"}</span>
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </section>
