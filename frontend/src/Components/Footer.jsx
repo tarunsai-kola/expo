@@ -8,6 +8,7 @@ const Footer = () => {
     { label: "Home", to: "/" },
     // { label: "All Programs", to: "/SoftwareDeveloper" },
     { label: "Advanced Programs", to: "/Advance" },
+    { label: "Careers", to: "/career" },
     { label: "Blog", to: "/blog" },
   ];
 

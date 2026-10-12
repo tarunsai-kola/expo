@@ -458,7 +458,7 @@ const AppContent = () => {
   // NOTE: "/" is excluded — CampusHeader & CampusFooter are embedded in landing.jsx
   // NOTE: "/login", "/advance", "/masterclass" excluded — they use their own headers or none
   // NOTE: course pages excluded — they embed CampusHeader directly
-  const headerPaths = ["/loginwithotp", "/forgotpassword", "/contactus", "/aboutus", "/career", "/collabration", "/advancecourses", "/terms", "/privacy", "/refundpolicy", "/feestructure", "/advance-apply", "/mentorship", "/datascience", "/digitalmarket", "/mernstack", "/investmentbanking", "/productmanagement", "/automationtesting", "/promptengineering", "/generativeai", "/operationlogin", "/advoperationlogin", "/teamlogin", "/adminlogin", "/managerlogin", "/loginadmin", "/pclogin", "/advteamlogin", "/dashboardaccessform", "/advancedashboardaccess", "/verify", "/marketing/login", "/interviewer-login", "/interviewerlogin", "/hrlogin", "/advanceform", "/agenticandgenai", "/softwaredeveloper", "/blog"];
+  const headerPaths = ["/loginwithotp", "/forgotpassword", "/contactus", "/aboutus", "/career", "/careers", "/collabration", "/advancecourses", "/terms", "/privacy", "/refundpolicy", "/feestructure", "/advance-apply", "/mentorship", "/datascience", "/digitalmarket", "/mernstack", "/investmentbanking", "/productmanagement", "/automationtesting", "/promptengineering", "/generativeai", "/operationlogin", "/advoperationlogin", "/teamlogin", "/adminlogin", "/managerlogin", "/loginadmin", "/pclogin", "/advteamlogin", "/dashboardaccessform", "/advancedashboardaccess", "/verify", "/marketing/login", "/interviewer-login", "/interviewerlogin", "/hrlogin", "/advanceform", "/agenticandgenai", "/softwaredeveloper", "/blog"];
 
   return (
     <div>
@@ -500,6 +500,8 @@ const AppContent = () => {
         <Route path="/Privacy" element={<Privacy />} />
         <Route path="/RefundPolicy" element={<RefundPolicy />} />
         <Route path="/Career" element={<Career />} />
+        <Route path="/career" element={<Career />} />
+        <Route path="/careers" element={<Career />} />
         <Route path="/Collabration" element={<Collabration />} />
         <Route path="/AdvanceCourses" element={<Advance />} />
         <Route path="/FeeStructure" element={<FeeStructure />} />

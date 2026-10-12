@@ -177,11 +177,25 @@ const CampusFooter = () => {
                 </li>
               ))}
               <li style={{ marginTop: 8 }}>
+                <Link to="/career"
+                  style={{
+                    fontSize: 13.5, color: 'rgba(255,255,255,0.6)',
+                    textDecoration: 'none', transition: 'color 0.2s',
+                  }}
+                  onMouseEnter={e => e.target.style.color = '#ffffff'}
+                  onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
+                >
+                  Careers & Mentorship
+                </Link>
+              </li>
+              <li style={{ marginTop: 8 }}>
                 <Link to="/blog"
                   style={{
                     fontSize: 13.5, color: 'rgba(255,255,255,0.6)',
                     textDecoration: 'none', transition: 'color 0.2s',
                   }}
+                  onMouseEnter={e => e.target.style.color = '#ffffff'}
+                  onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.6)'}
                 >
                   Blog & Updates
                 </Link>
