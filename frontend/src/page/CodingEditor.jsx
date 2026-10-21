@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Editor from '@monaco-editor/react';
 import API from '../API';
-import ReactLivePreview from '../components/ReactLivePreview';
+import ReactLivePreview from '../Components/ReactLivePreview';
 
 const CodingEditor = () => {
     const { id } = useParams();
