@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #f5f6fa;
+  background: #cbd5e1;
   font-family: 'Lexend', 'Inter', sans-serif;
 }
 
@@ -547,6 +547,7 @@
   height: calc(100vh - 64px);
   min-height: calc(100vh - 64px);
   overflow: hidden;
+  background: #cbd5e1;
 }
 
 /* ══════════════════════════════════════════
@@ -718,6 +719,7 @@
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
+  background: #cbd5e1;
 }
 
 .nd-content {
@@ -1236,8 +1238,9 @@
   padding: 48px;
   background: white;
   border-radius: 20px;
-  border: 1px solid #f3f4f6;
-  color: #9ca3af;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  color: #64748b;
   font-size: 14px;
   font-weight: 500;
   text-align: center;
@@ -1245,7 +1248,7 @@
 
 .nd-empty-icon {
   font-size: 48px !important;
-  color: #e5e7eb;
+  color: #94a3b8;
 }
 
 /* ── Skeleton ── */

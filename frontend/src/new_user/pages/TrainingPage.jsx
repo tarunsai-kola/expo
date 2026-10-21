@@ -177,8 +177,8 @@ const TrainingPage = () => {
             )}
 
             <div className="mb-6">
-                <h3 className="text-lg font-bold text-white">{enrollment?.domain?.title || enrollment?.program}</h3>
-                <p className="text-sm text-gray-400">{watchedSessions} of {totalSessions} sessions completed</p>
+                <h3 className="text-lg font-bold text-gray-900">{enrollment?.domain?.title || enrollment?.program}</h3>
+                <p className="text-sm text-gray-600">{watchedSessions} of {totalSessions} sessions completed</p>
             </div>
 
             {totalSessions === 0 ? (

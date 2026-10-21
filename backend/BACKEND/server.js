@@ -229,6 +229,9 @@ app.use("/api/assignments", AssignmentsRoute);
 app.use("/api/practicals", PracticalsRoute);
 app.use("/", ProjectRoutes);
 
+const codingProblemRoutes = require("./routes/codingProblemRoutes");
+app.use("/api/coding-problems", codingProblemRoutes);
+
 // Vercel Cron Route
 app.use("/", CronRoutes);
 

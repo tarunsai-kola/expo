@@ -50,6 +50,7 @@ const AdminHeader = () => {
     { to: "/AddAdvCourse", icon: PlusCircle, text: "Create Course" },
     { to: "/AddAdvModule", icon: List, text: "Course List" },
     { to: "/AdvExercisePage", icon: Code, text: "Exercise Builder" },
+    { to: "/AddCodingProblem", icon: Code, text: "Add Coding Problem" },
     { to: "/CreateAdvOperation", icon: Briefcase, text: "Create Operation" },
     { to: "/CreateAdvTeam", icon: Users, text: "Create Team" },
     { to: "/CreateHR", icon: UserCog, text: "Create HR" },

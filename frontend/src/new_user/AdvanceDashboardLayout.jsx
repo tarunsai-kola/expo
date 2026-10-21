@@ -14,6 +14,7 @@ const sidebarItems = [
     { id: "practical", path: "/advancedashboard/practical", emoji: "🛠", icon: "build", label: "Practical" },
     { id: "internship", path: "/advancedashboard/internship", emoji: "💼", icon: "work", label: "Internship" },
     { id: "exercise", path: "/advancedashboard/exercise", emoji: "🏋️", icon: "fitness_center", label: "Exercise" },
+    { id: "coding", path: "/advancedashboard/coding", emoji: "💻", icon: "code", label: "Coding" },
     { id: "placement", path: "/advancedashboard/placement", emoji: "🚀", icon: "rocket_launch", label: "Placement" },
     { id: "resume-builder", path: "/advancedashboard/resume-builder", emoji: "📄", icon: "edit_document", label: "Resume Builder" },
     { id: "meeting", path: "/advancedashboard/meeting", emoji: "🤝", icon: "groups", label: "Meeting" },
@@ -139,6 +140,7 @@ const sectionTitles = {
     practical: "Practical",
     internship: "Internship",
     exercise: "Exercise",
+    coding: "Coding",
     placement: "Placement",
     "college-placement": "College Placements",
     profile: "Profile",
@@ -153,7 +155,13 @@ const sectionTitles = {
 const Breadcrumb = () => {
     const location = useLocation();
     const pathParts = location.pathname.split("/").filter(Boolean);
-    const lastPart = pathParts[pathParts.length - 1] || "overview";
+    let lastPart = pathParts[pathParts.length - 1] || "overview";
+    
+    // If inside coding challenge details (e.g. /advancedashboard/coding/:id)
+    if (pathParts.includes("coding") && pathParts.length > 2) {
+        lastPart = "coding";
+    }
+
     const currentSection = sectionTitles[lastPart] || (lastPart.charAt(0).toUpperCase() + lastPart.slice(1));
 
     return (
